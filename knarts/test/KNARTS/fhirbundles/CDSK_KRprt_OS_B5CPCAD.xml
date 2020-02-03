@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="ce30ff93-c0ab-572b-bcfe-fbd34a085d21"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0004AG"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-872"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Chest Pain (CP) / Coronary Artery Disease (CAD) Order Set"/>
+        <title value="Chest Pain (CP) / Coronary Artery Disease (CAD) Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Adult with stable CP being considered for cardiology consultation (excluding unstable symptoms and ACS)"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Provider in Primary Care Clinic"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="noninvasive diagnostic orders (stress testing)"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Clinical Stability"/>
+            <description value="This order set is not applicable for use with patients who are unstable based on clinician judgement.                              Examples of unstable patients include, but are not limited to, patients with chest pain pattern suggestive of ACS                              (e.g., those with new onset resting CP, CP with minimal exertion, new unstable angina pattern, ST-segment elevation, non–ST-segment elevation myocardial infarction on ECG, or suspected aortic dissection),                              and patients with any of the following symptoms or findings.                              Consider transferring unstable patients to the nearest emergency department immediately"/>
+          </action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Cardiology consult order"/>
+              <description value="Consider other consult modalities which might be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Referral to cardiology to evaluate chest pain (routine)"/>
+                <definitionCanonical>
+                  <display value="Referral to cardiology to evaluate chest pain (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and ECG"/>
+            <action>
+              <title value="Electrocardiogram/Chest X-ray"/>
+              <description value="Consider ordering prior to the cardiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Order sentence: resting 12-lead electrocardiogram to evaluate chest pain (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'resting12LeadElectrocardiogram'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Order sentence: resting 12-lead electrocardiogram to evaluate chest pain (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Order sentence: x-ray chest to evaluate chest pain (routine)"/>
+                <definitionCanonical>
+                  <display value="Order sentence: x-ray chest to evaluate chest pain (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Coronary CTA"/>
+              <description value="Consider ordering prior to the cardiology consultation."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Coronary CTA angiogram (cCTA) chest to evaluate chest pain (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@189a9793 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Coronary CTA angiogram (cCTA) chest to evaluate chest pain (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Echocardiogram"/>
+              <description value="Consider for patients with suspected pericarditis, myocarditis, hypertrophic cardiomyopathy, or pulmonary hypertension."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Resting echocardiogram to evaluate chest pain (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@767e48d2 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Resting echocardiogram to evaluate chest pain (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <action>
+              <title value="Consider the following tests to be completed prior to the cardiology consultation."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="basic metabolic profile (routine)"/>
+                <definitionCanonical>
+                  <display value="basic metabolic profile (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="complete blood count (routine)"/>
+                <definitionCanonical>
+                  <display value="complete blood count (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="fasting lipid profile (routine)"/>
+                <definitionCanonical>
+                  <display value="fasting lipid profile (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="thyroid function testing (routine)"/>
+                <definitionCanonical>
+                  <display value="thyroid function testing (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="brain natriuretic peptide (routine)"/>
+                <definitionCanonical>
+                  <display value="brain natriuretic peptide (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Cardiac Risk Stratification"/>
+            <description value="For stable patients, these orders may assist in cardiac risk stratification.                     A link to the ACC/AHA clinical practice guideline for stress testing should be made available to ordering providers:"/>
+            <action>
+              <title value="Assess for contraindications to stress testing such as: Acute Congestive Heart Failure (CHF), acute MI or unstable angina, severe aortic stenosis, unstable rhythm, aortic aneurysm/dissection, endocarditis, acute pericarditis, acute pulmonary embolus/infarction, acute systemic illness/infection, severe hypertension, inability to cooperate, inability to exercise (&amp;lt;5 METs), left bundle branch block (LBBB), etc."/>
+              <action>
+                <title value="Exercise Stress Testing"/>
+                <description value="Consider for patients with no known or prior coronary artery disease, low probability for coronary artery disease, ability to exercise, normal electrocardiogram, and heart rate > 60 beats per minute."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title/>
+                  <description value="Exercise ECG (routine)"/>
+                  <definitionCanonical>
+                    <display value="Exercise ECG (routine)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Stress Testing with Echocardiography"/>
+                <description value="Consider for patients with no known or prior coronary artery disease, low to intermediate probability for coronary artery disease, ability to exercise, and no evidence of significant regional wall motion abnormalities or conduction abnormalities (IVCD/bundle branch block or pacing) of 12-lead electrocardiogram."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title/>
+                  <description value="Exercise Echocardiography (routine)"/>
+                  <definitionCanonical>
+                    <display value="Exercise Echocardiography (routine)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Dobutamine Stress Testing with Myocardial Perfusion Imaging (MPI)"/>
+                <description value="Consider for patients with no known or prior coronary artery disease, intermediate probability for coronary artery disease, inability to exercise, and normal electrocardiogram."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title/>
+                  <description value="dobutamine stress myocardial perfusion imaging (routine)"/>
+                  <definitionCanonical>
+                    <display value="dobutamine stress myocardial perfusion imaging (routine)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Exercise Stress Testing with MPI"/>
+                <description value="Consider for patients with known or prior CAD, ability to exercise, and normal ST-T."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title/>
+                  <description value="exercise stress myocardial perfusion imaging (routine)"/>
+                  <definitionCanonical>
+                    <display value="exercise stress myocardial perfusion imaging (routine)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Vasodilator Stress Testing with MPI"/>
+                <description value="Consider for patients with known or prior CAD and abnormal electrocardiogram/PPM. This subsection should also be made available to the provider for patients with known or prior CAD, abnormal electrocardiogram, and history of prior myocardial infarction or regional wall motion abnormalities."/>
+                <selectionBehavior value="at-most-one"/>
+                <action>
+                  <title/>
+                  <description value="Regadenoson (Lexiscan) stress myocardial perfusion imaging (routine)"/>
+                  <definitionCanonical>
+                    <display value="Regadenoson (Lexiscan) stress myocardial perfusion imaging (routine)"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title/>
+                  <description value="Adenosine stress testing myocardial perfusion imaging (routine)"/>
+                  <definitionCanonical>
+                    <display value="Adenosine stress testing myocardial perfusion imaging (routine)"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title/>
+                  <description value="Dipyridamole stress testing myocardial perfusion imaging (routine)"/>
+                  <definitionCanonical>
+                    <display value="Dipyridamole stress testing myocardial perfusion imaging (routine)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Dobutamine Stress Testing with Echocardiography or MPI"/>
+                <description value="Consider for patients with known or prior CAD, inability to exercise, normal electrocardiogram, and no prior myocardial infarction. Only one should be selected."/>
+                <selectionBehavior value="at-most-one"/>
+                <action>
+                  <title/>
+                  <description value="Dobutamine stress testing echocardiography (routine)"/>
+                  <definitionCanonical>
+                    <display value="Dobutamine stress testing echocardiography (routine)"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title/>
+                  <description value="Dobutamine stress testing myocardial perfusion imaging (routine)"/>
+                  <definitionCanonical>
+                    <display value="Dobutamine stress testing myocardial perfusion imaging (routine)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Coronary CT Angiogram"/>
+                <description value="Consider for patients without known coronary artery disease, low or intermediate probability for coronary artery disease, especially in presence of a history of prior inconclusive or discrepant diagnostic testing, recurrent symptoms or significant family history of CAD/multiple risk factors in young patients. Additional postprocessing (CT-FFR) or CTA stress perfusion may be ordered where available."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title/>
+                  <description value="coronary CT angiogram (routine)"/>
+                  <definitionCanonical>
+                    <display value="coronary CT angiogram (routine)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Medications"/>
+            <description value="Consider the following medications for stable patients to be initiated prior to the cardiology consultation."/>
+            <action>
+              <title value="Antianginal Therapy"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title/>
+                <description value="metoprolol tartrate 25 mg tablet oral twice daily (routine)"/>
+                <definitionCanonical>
+                  <display value="metoprolol tartrate 25 mg tablet oral twice daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="metoprolol tartrate 50 mg tablet oral twice daily (routine)"/>
+                <definitionCanonical>
+                  <display value="metoprolol tartrate 50 mg tablet oral twice daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="amlodipine 5 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="amlodipine 5 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Nitroglycerin"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title/>
+                <description value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets (routine)"/>
+                <definitionCanonical>
+                  <display value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Antiplatelet Therapy"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title/>
+                <description value="aspirin 81 mg enteric coated tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="aspirin 81 mg enteric coated tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Risk Factor Reduction"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title/>
+                <description value="atorvastatin 20 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="atorvastatin 20 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="atorvastatin 40 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="atorvastatin 40 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="simvastatin 20 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="simvastatin 20 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="simvastatin 40 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="simvastatin 40 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="rosuvastatin 5 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="rosuvastatin 5 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="rosuvastatin 10 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="rosuvastatin 10 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="rosuvastatin 20 mg tablet oral daily (routine)"/>
+                <definitionCanonical>
+                  <display value="rosuvastatin 20 mg tablet oral daily (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Clinical Stability"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consults and Referrals"/>
+        <item>
+          <text value="Cardiology consult order"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging and ECG"/>
+        <item>
+          <text value="Electrocardiogram/Chest X-ray"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Coronary CTA"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Echocardiogram"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+        <item>
+          <text value="Consider the following tests to be completed prior to the cardiology consultation."/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Cardiac Risk Stratification"/>
+        <item>
+          <text value="Assess for contraindications to stress testing such as: Acute Congestive Heart Failure (CHF), acute MI or unstable angina, severe aortic stenosis, unstable rhythm, aortic aneurysm/dissection, endocarditis, acute pericarditis, acute pulmonary embolus/infarction, acute systemic illness/infection, severe hypertension, inability to cooperate, inability to exercise (&amp;lt;5 METs), left bundle branch block (LBBB), etc."/>
+          <item>
+            <text value="Exercise Stress Testing"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Stress Testing with Echocardiography"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Dobutamine Stress Testing with Myocardial Perfusion Imaging (MPI)"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Exercise Stress Testing with MPI"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Vasodilator Stress Testing with MPI"/>
+            <type value="choice"/>
+          </item>
+          <item>
+            <text value="Dobutamine Stress Testing with Echocardiography or MPI"/>
+            <type value="choice"/>
+          </item>
+          <item>
+            <text value="Coronary CT Angiogram"/>
+            <type value="any"/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications"/>
+        <item>
+          <text value="Antianginal Therapy"/>
+          <type value="choice"/>
+        </item>
+        <item>
+          <text value="Nitroglycerin"/>
+          <type value="choice"/>
+        </item>
+        <item>
+          <text value="Antiplatelet Therapy"/>
+          <type value="choice"/>
+        </item>
+        <item>
+          <text value="Risk Factor Reduction"/>
+          <type value="choice"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

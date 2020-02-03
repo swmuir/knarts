@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="60a234fb-b0c0-5834-bb76-38ff0c1b46c8"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0007BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-96"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Cervical Cancer Screening Rule"/>
+        <title value="Women's Health: Cervical Cancer Screening Rule"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Female outpatients 21 years of age or older"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="Female outpatients 21 years of age or older"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="248152002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="5351000124100 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Obstetrics/Gynecology"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="702892004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Obstetrics and gynecology clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Women's Health"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="2651000175101 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Women's health service (qualifier value)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Cervical Cancer Screening for 21-29 Years of Age: In Person"/>
+            <description value="Cervical Cancer Screening for 21-29 Years of Age: In Person"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Cervical Cancer Screening Documentation Template"/>
+              <definitionCanonical>
+                <display value="Open Cervical Cancer Screening Documentation Template"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Cervical Cancer Screening Order Set"/>
+              <definitionCanonical>
+                <display value="Open Cervical Cancer Screening Order Set"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Cervical Cancer Screening for 30-65 Years of Age: In Person"/>
+            <description value="Cervical Cancer Screening for 30-65 Years of Age: In Person"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Cervical Cancer Screening Documentation Template"/>
+              <definitionCanonical>
+                <display value="Open Cervical Cancer Screening Documentation Template"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Cervical Cancer Screening Order Set"/>
+              <definitionCanonical>
+                <display value="Open Cervical Cancer Screening Order Set"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Cervical Cancer Screening for over 65 Years of Age: In Person"/>
+            <description value="Cervical Cancer Screening for over 65 Years of Age: In Person"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Cervical Cancer Screening Documentation Template"/>
+              <definitionCanonical>
+                <display value="Open Cervical Cancer Screening Documentation Template"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Cervical Cancer Screening Order Set"/>
+              <definitionCanonical>
+                <display value="Open Cervical Cancer Screening Order Set"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Cervical Cancer Screening for 21-29 Years of Age: Reporting"/>
+            <description value="Cervical Cancer Screening for 21-29 Years of Age: Reporting"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send patient cervical cancer screening due notification"/>
+              <definitionCanonical>
+                <display value="Send patient cervical cancer screening due notification"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Cervical Cancer Screening for 30-65 Years of Age: Reporting"/>
+            <description value="Cervical Cancer Screening for 30-65 Years of Age: Reporting"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send patient cervical cancer screening &quot;due&quot; notification"/>
+              <definitionCanonical>
+                <display value="Send patient cervical cancer screening &quot;due&quot; notification"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Cervical Cancer Screening for over 65 Years of Age: Reporting"/>
+            <description value="Cervical Cancer Screening for over 65 Years of Age: Reporting"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send patient cervical cancer screening due notification"/>
+              <definitionCanonical>
+                <display value="Send patient cervical cancer screening due notification"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Cervical Cancer Screening Documentation Template"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Cervical Cancer Screening Order Set"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Cervical Cancer Screening Documentation Template"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Cervical Cancer Screening Order Set"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Cervical Cancer Screening Documentation Template"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Cervical Cancer Screening Order Set"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send patient cervical cancer screening due notification"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send patient cervical cancer screening &quot;due&quot; notification"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send patient cervical cancer screening due notification"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

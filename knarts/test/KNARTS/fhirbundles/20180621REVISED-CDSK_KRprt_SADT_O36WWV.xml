@@ -1,0 +1,2714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="322458d9-9392-527c-8ed0-9e52faab2bf9"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0009DA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-104"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Well-Woman Visit Documentation Template"/>
+        <title value="Women's Health: Well-Woman Visit Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Provider to include Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Gynecologists"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Designated Women’s Health clinical providers to include Allied Health Professionals"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Primary Care, Gynecology, and Women’s Health Services"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="At least 13 years of age or older"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="Female"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="248152002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Age >=13 years old to &lt;19 years old"/>
+            <action>
+              <title value="Screening"/>
+              <action>
+                <title value="History"/>
+                <action>
+                  <title value="Visit Reason/Chief Complaint"/>
+                </action>
+                <action>
+                  <title value="Menstrual History"/>
+                  <action>
+                    <title value="Age of Menarche?"/>
+                    <selectionBehavior value="any"/>
+                  </action>
+                  <action>
+                    <title value="Date of Last Menstrual Period?"/>
+                    <selectionBehavior value="any"/>
+                  </action>
+                  <action>
+                    <title value="Menstrual Cycle Pattern?"/>
+                    <selectionBehavior value="at-most-one"/>
+                    <action>
+                      <title value="Regular"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Irregular"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                  <action>
+                    <title value="Menstrual Symptoms?"/>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <title value="Additional Menstrual History"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Reproductive History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Sexual History"/>
+                  <selectionBehavior value="any"/>
+                  <action/>
+                </action>
+                <action>
+                  <title value="Medical History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Medication History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Surgical History"/>
+                  <action>
+                    <title value="Surgery"/>
+                  </action>
+                </action>
+                <action>
+                  <title value="Family Health History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Nutrition History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Physical Activity History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Social History"/>
+                  <action>
+                    <title value="Substance Use History"/>
+                    <action>
+                      <title value="Tobacco"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Alcohol"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Rehabilitation or Detoxification"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Cocaine"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Other"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                  <action>
+                    <selectionBehavior value="any"/>
+                  </action>
+                </action>
+                <action>
+                  <title value="Neglect and Abuse History"/>
+                  <selectionBehavior value="any"/>
+                  <action/>
+                </action>
+                <action>
+                  <title value="Additional Social History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+              <action>
+                <title value="Physical Exam"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Testing"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Chlamydia and Gonorrhea Testing"/>
+                <description value="ACOG recommends testing of all adolescents who are sexually active."/>
+              </action>
+              <action>
+                <title value="Testing Based on Risk"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Diabetes Testing"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Colorectal Screening"/>
+                <description value="Colorectal Cancer Screening is indicated for patients with family history of familial adenomatous polyposis or 8 years after the start of pancolitis"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Genetic Counseling and Testing"/>
+                <description value="Genetic Counseling/Testing is indicated based on personal risk factors"/>
+              </action>
+            </action>
+            <action>
+              <title value="Counseling"/>
+              <description value="Please identify the counseling provided during this well women visit."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Sexuality Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Physical Activity/Nutrition Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Substance Use/Abuse Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Psychosocial Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Prevention of Injuries Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Good Health Practices Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Cardiovascular Risk Factor counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Other Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Immunizations"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Age >=19 years old to &lt;40 years old"/>
+            <action>
+              <title value="Screening"/>
+              <action>
+                <title value="History"/>
+                <action>
+                  <title value="Visit Reason/Chief Complaint"/>
+                </action>
+                <action>
+                  <title value="Menstrual History"/>
+                  <action>
+                    <title value="Age of Menarche?"/>
+                    <selectionBehavior value="any"/>
+                  </action>
+                  <action>
+                    <title value="Date of Last Menstrual Period?"/>
+                    <selectionBehavior value="any"/>
+                  </action>
+                  <action>
+                    <title value="Menstrual Cycle Pattern?"/>
+                    <selectionBehavior value="at-most-one"/>
+                    <action>
+                      <title value="Regular"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Irregular"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                  <action>
+                    <title value="Menstrual Symptoms"/>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Additional Menstrual History"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Reproductive History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Sexual History"/>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Urinary or fecal incontinence History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Medical History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Medication  History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Surgical History"/>
+                  <action>
+                    <title value="Surgery"/>
+                  </action>
+                </action>
+                <action>
+                  <title value="Family Health History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Nutrition History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Physical Activity History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Social History"/>
+                  <action>
+                    <title value="Substance Use History"/>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                  <action>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Neglect and Abuse History"/>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Additional Social History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+              <action>
+                <title value="Physical Exam"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Testing"/>
+              <action>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Chlamydia and Gonorrhea Testing"/>
+                <description value="Chlamydia and Gonorrhea testing is not indicated in patients who are low risk, who have never been sexually active; or other reason indicated by patient care provider."/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Testing Based on Risk"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="Diabetes Testing"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Genetic Counseling and Testing"/>
+                  <description value="Consider Genetic Counseling/Testing in patients with fragile X syndrome, Tay–Sachs disease; or if there is a concern about cystic fibrosis carrier status or spinal muscular atrophy. Also, assess for risk of a hemoglobinopathy for women considering pregnancy"/>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="Counseling"/>
+              <description value="Please identify the counseling provided during this well women visit"/>
+              <action>
+                <title value="Sexuality Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Physical Activity/Nutrition Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Substance Use/Abuse Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Psychosocial Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Prevention of Injuries Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Good Health Practices/Risk Assessment Counseling"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="Chemoprophylaxis for breast cancer may be indicated for high risk women 35 years or older"/>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+              <action>
+                <title value="Cardiovascular Risk Factor counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Other Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Age >=40 years old to &lt;65 years old"/>
+            <action>
+              <title value="Screening"/>
+              <action>
+                <title value="History"/>
+                <action>
+                  <title value="Visit Reason/Chief Complaint"/>
+                </action>
+                <action>
+                  <title value="Menstrual History"/>
+                  <action>
+                    <title value="Age of Menarche?"/>
+                    <selectionBehavior value="any"/>
+                  </action>
+                  <action>
+                    <title value="Date of Last Menstrual Period?"/>
+                    <selectionBehavior value="any"/>
+                  </action>
+                  <action>
+                    <title value="Menstrual Cycle Pattern?"/>
+                    <selectionBehavior value="at-most-one"/>
+                    <action>
+                      <title value="Regular"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Irregular"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                  <action>
+                    <title value="Menstrual Symptoms"/>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <title value="Additional Menstrual History"/>
+                    </action>
+                    <action/>
+                  </action>
+                </action>
+                <action>
+                  <title value="Reproductive History"/>
+                  <selectionBehavior value="any"/>
+                  <action/>
+                </action>
+                <action>
+                  <title value="Sexual History"/>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <selectionBehavior value="any"/>
+                  </action>
+                </action>
+                <action>
+                  <title value="Pelvic prolapse History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Urinary or fecal incontinence History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Medical History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Medication  History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Surgical History"/>
+                  <action>
+                    <title value="Surgery"/>
+                  </action>
+                </action>
+                <action>
+                  <title value="Family Health History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Nutrition History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Physical Activity History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Social History"/>
+                  <action>
+                    <title value="Substance Use History"/>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                  <action>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Neglect and Abuse History"/>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Additional Social History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+              <action>
+                <title value="Physical Exam"/>
+                <action>
+                  <title value="Physical Exam"/>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="Testing"/>
+              <action>
+                <title value="Screening"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Diabetes Screen"/>
+                <description value="Beginning at age 45 years, consider diabetic screening every three years. Diabetic screening is not indicated for those patients with average risk and less than 45 years of age; or patients with known diagnosis of diabetes mellitus; or who have been screened within the last 3 years; or other reason indicated by patient care provider."/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Hepatitis C Virus Testing"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Chlamydia and Gonorrhea Testing"/>
+                <description value="Chlamydia and Gonorrhea testing is not indicated in patients who are low risk, who have never been sexually active; or other reason indicated by patient care provider"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Testing Based on Risk"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Genetic Counseling and Testing"/>
+                <description value="Consider Genetic Counseling/Testing in patients with fragile X syndrome, Tay–Sachs disease; or if there is a concern about cystic fibrosis carrier status or spinal muscular atrophy. Also, assess for risk of a hemoglobinopathy for women considering pregnancy"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Counseling"/>
+              <description value="Please identify the counseling provided during this well women visit."/>
+              <action>
+                <title value="Advance Directives"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Sexuality"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Physical Activity/Nutrition Counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Substance Abuse/Abuse Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Psychosocial Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Prevention of Injuries Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Good Health Practices Counseling/Risk assessment Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Cardiovascular Risk Factor counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Other counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Age >= 65 years and older"/>
+            <action>
+              <title value="Screening"/>
+              <action>
+                <title value="History"/>
+                <action>
+                  <title value="Visit Reason/Chief Complaint"/>
+                </action>
+                <action>
+                  <title value="Post-menopausal bleeding?"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Sexual History"/>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Pelvic prolapse History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Urinary or fecal incontinence History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Medical History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Medication  History"/>
+                </action>
+                <action>
+                  <title value="Surgical History"/>
+                  <action>
+                    <title value="Surgery"/>
+                  </action>
+                </action>
+                <action>
+                  <title value="Family Health History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Nutrition History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Physical Activity History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="Social History"/>
+                  <action>
+                    <title value="Substance Use History"/>
+                    <action>
+                      <title value="Tobacco"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Alcohol"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Rehabilitation or Detoxification"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Cocaine"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <title value="Other substance use"/>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                  <action>
+                    <selectionBehavior value="any"/>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Neglect and Abuse History"/>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                    <action>
+                      <selectionBehavior value="any"/>
+                    </action>
+                  </action>
+                </action>
+                <action>
+                  <title value="Additional Social History"/>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+              <action>
+                <title value="Physical Exam"/>
+                <action>
+                  <title value="Physical Exam"/>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="Testing"/>
+              <action>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Diabetes Testing"/>
+                <description value="Beginning at age 45 years, consider diabetic screening every three years. Diabetic screening is not indicated for those patients with average risk and less than 45 years of age; or patients with known diagnosis of diabetes mellitus; or who have been screened within the last 3 years; or other reason indicated by patient care provider"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Testing Based on Risk"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="Hepatitis C Virus Test Results"/>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="Counseling"/>
+              <description value="Please identify the counseling provided during this well women visit."/>
+              <action>
+                <title value="Advanced Directive Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Sexuality Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Physical Activity/Nutrition Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Substance Abuse/Abuse Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Psychosocial Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Prevention of Injuries Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Good Health Practices/Risk assessment Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Cardiovascular Risk Factor counseling"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Other Counseling provided"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Age >=13 years old to &lt;19 years old"/>
+        <item>
+          <text value="Screening"/>
+          <item>
+            <text value="History"/>
+            <item>
+              <text value="Visit Reason/Chief Complaint"/>
+            </item>
+            <item>
+              <text value="Menstrual History"/>
+              <item>
+                <text value="Age of Menarche?"/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text value="Date of Last Menstrual Period?"/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text value="Menstrual Cycle Pattern?"/>
+                <type value="choice"/>
+                <item>
+                  <text value="Regular"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Irregular"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text value="Menstrual Symptoms?"/>
+                <type value="any"/>
+                <item>
+                  <text value="Additional Menstrual History"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Reproductive History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Sexual History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Medical History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Medication History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Surgical History"/>
+              <item>
+                <text value="Surgery"/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Family Health History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Nutrition History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Physical Activity History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Social History"/>
+              <item>
+                <text value="Substance Use History"/>
+                <item>
+                  <text value="Tobacco"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Alcohol"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Rehabilitation or Detoxification"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Cocaine"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Other"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Neglect and Abuse History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Additional Social History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Physical Exam"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Testing"/>
+          <type value="any"/>
+          <item>
+            <text value="Chlamydia and Gonorrhea Testing"/>
+          </item>
+          <item>
+            <text value="Testing Based on Risk"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Diabetes Testing"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Colorectal Screening"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Genetic Counseling and Testing"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Counseling"/>
+          <type value="any"/>
+          <item>
+            <text value="Sexuality Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Physical Activity/Nutrition Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Substance Use/Abuse Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Psychosocial Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Prevention of Injuries Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Good Health Practices Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Cardiovascular Risk Factor counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Other Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Immunizations"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Age >=19 years old to &lt;40 years old"/>
+        <item>
+          <text value="Screening"/>
+          <item>
+            <text value="History"/>
+            <item>
+              <text value="Visit Reason/Chief Complaint"/>
+            </item>
+            <item>
+              <text value="Menstrual History"/>
+              <item>
+                <text value="Age of Menarche?"/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text value="Date of Last Menstrual Period?"/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text value="Menstrual Cycle Pattern?"/>
+                <type value="choice"/>
+                <item>
+                  <text value="Regular"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Irregular"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text value="Menstrual Symptoms"/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Additional Menstrual History"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Reproductive History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Sexual History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Urinary or fecal incontinence History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Medical History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Medication  History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Surgical History"/>
+              <item>
+                <text value="Surgery"/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Family Health History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Nutrition History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Physical Activity History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Social History"/>
+              <item>
+                <text value="Substance Use History"/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Neglect and Abuse History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+            </item>
+            <item>
+              <text value="Additional Social History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Physical Exam"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Testing"/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Chlamydia and Gonorrhea Testing"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Testing Based on Risk"/>
+            <type value="any"/>
+            <item>
+              <text value="Diabetes Testing"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Genetic Counseling and Testing"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Counseling"/>
+          <item>
+            <text value="Sexuality Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Physical Activity/Nutrition Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Substance Use/Abuse Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Psychosocial Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Prevention of Injuries Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Good Health Practices/Risk Assessment Counseling"/>
+            <type value="any"/>
+            <item>
+              <text value="Chemoprophylaxis for breast cancer may be indicated for high risk women 35 years or older"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Cardiovascular Risk Factor counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Other Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Age >=40 years old to &lt;65 years old"/>
+        <item>
+          <text value="Screening"/>
+          <item>
+            <text value="History"/>
+            <item>
+              <text value="Visit Reason/Chief Complaint"/>
+            </item>
+            <item>
+              <text value="Menstrual History"/>
+              <item>
+                <text value="Age of Menarche?"/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text value="Date of Last Menstrual Period?"/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text value="Menstrual Cycle Pattern?"/>
+                <type value="choice"/>
+                <item>
+                  <text value="Regular"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Irregular"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text value="Menstrual Symptoms"/>
+                <type value="any"/>
+                <item>
+                  <text value="Additional Menstrual History"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Reproductive History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Sexual History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+                <type value="any"/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Pelvic prolapse History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Urinary or fecal incontinence History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Medical History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Medication  History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Surgical History"/>
+              <item>
+                <text value="Surgery"/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Family Health History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Nutrition History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Physical Activity History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Social History"/>
+              <item>
+                <text value="Substance Use History"/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+            </item>
+            <item>
+              <text value="Neglect and Abuse History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+            </item>
+            <item>
+              <text value="Additional Social History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Physical Exam"/>
+            <item>
+              <text value="Physical Exam"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <text value="Testing"/>
+          <item>
+            <text value="Screening"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Diabetes Screen"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Hepatitis C Virus Testing"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Chlamydia and Gonorrhea Testing"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Testing Based on Risk"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Genetic Counseling and Testing"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Counseling"/>
+          <item>
+            <text value="Advance Directives"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Sexuality"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Physical Activity/Nutrition Counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Substance Abuse/Abuse Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Psychosocial Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Prevention of Injuries Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Good Health Practices Counseling/Risk assessment Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Cardiovascular Risk Factor counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Other counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Age >= 65 years and older"/>
+        <item>
+          <text value="Screening"/>
+          <item>
+            <text value="History"/>
+            <item>
+              <text value="Visit Reason/Chief Complaint"/>
+            </item>
+            <item>
+              <text value="Post-menopausal bleeding?"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Sexual History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Pelvic prolapse History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Urinary or fecal incontinence History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Medical History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Medication  History"/>
+            </item>
+            <item>
+              <text value="Surgical History"/>
+              <item>
+                <text value="Surgery"/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text value="Family Health History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Nutrition History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Physical Activity History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text value="Social History"/>
+              <item>
+                <text value="Substance Use History"/>
+                <item>
+                  <text value="Tobacco"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Alcohol"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Rehabilitation or Detoxification"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Cocaine"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text value="Other substance use"/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+            </item>
+            <item>
+              <text value="Neglect and Abuse History"/>
+              <type value="any"/>
+              <item>
+                <text/>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                  <type value="any"/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+            </item>
+            <item>
+              <text value="Additional Social History"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Physical Exam"/>
+            <item>
+              <text value="Physical Exam"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <text value="Testing"/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Diabetes Testing"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Testing Based on Risk"/>
+            <type value="any"/>
+            <item>
+              <text value="Hepatitis C Virus Test Results"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Counseling"/>
+          <item>
+            <text value="Advanced Directive Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Sexuality Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Physical Activity/Nutrition Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Substance Abuse/Abuse Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Psychosocial Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Prevention of Injuries Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Good Health Practices/Risk assessment Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Cardiovascular Risk Factor counseling"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Other Counseling provided"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

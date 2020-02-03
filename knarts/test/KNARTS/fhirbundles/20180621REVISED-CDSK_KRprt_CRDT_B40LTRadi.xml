@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="b6bede46-4000-506c-a616-256f35bd0cf2"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AL"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-73"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Neurosurgery: Radiculopathy (Lumbar Thoracic) Documentation Template"/>
+        <title value="Neurosurgery: Radiculopathy (Lumbar Thoracic) Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="5351000124100 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Referral to Neurosurgery for Radiculopathy (Lumbar/Thoracic)."/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Emergency Medicine Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="225728007 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Accident and Emergency department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Anesthesiology Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="1311000205109 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Anesthesiology department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Pain Clinic Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="702897005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Pain clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Physical Therapy Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="7a8d82a5-6876-4b44-985c-6d6d483072c0 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Physical therapy department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Referral to Neurosurgery for Radiculopathy (Lumbar/Thoracic)."/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Chief Complaint"/>
+            <action>
+              <title value="What are the patient’s chief complaints?"/>
+              <action/>
+              <action>
+                <title value="Location of symptoms."/>
+              </action>
+              <action>
+                <title value="Please provide details regarding the character of the pain (e.g., burning, shooting, aching, electric, jabbing, etc.)."/>
+              </action>
+              <action>
+                <title value="Duration of symptoms"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Prior Conservative Therapies"/>
+            <description value="Which conservative therapies have been tried?"/>
+            <action>
+              <title value="Medications"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Non-steroidal anti-inflammatory drug (NSAIDs)"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Opiods"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Antiepileptics"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Tricyclic antidepressants"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Other Medications"/>
+              </action>
+            </action>
+            <action>
+              <title value="Other therapies"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Occupational Therapy"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Acupuncture"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Spinal Manipulation"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Cognitive behavioral therapy"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Pain clinic"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Selective nerve root blocks"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Epidural steroid injections"/>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Other"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Medical History"/>
+            <description value="Select items that apply from the patient's medical history."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Chronic pain"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Post-traumatic stress disorder"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Anxiety"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Depression"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Other mental health conditions"/>
+            </action>
+            <action>
+              <title value="Oncological conditions"/>
+            </action>
+            <action>
+              <title value="Obesity"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Cadiovascular conditions"/>
+            </action>
+          </action>
+          <action>
+            <title value="Surgical History"/>
+            <description value="Select items that apply from the patient's surgical history."/>
+            <action>
+              <title value="Spinal surgery"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Other prior surgeries"/>
+            </action>
+          </action>
+          <action>
+            <title value="Social History"/>
+            <description value="Select items that apply from the patient's social history."/>
+            <action>
+              <title value="Alcohol use"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Alcohol abuse"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Rehabilitation"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Detoxification"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Current or former tobacco user"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Cocaine use"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Cocaine abuse"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Other substance use/abuse"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Homeless"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Unstable home environment"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Home environment conducive to healing"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Geographically remote (40+mile drive to medical care)"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <definitionCanonical>
+                  <display/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging History"/>
+            <action>
+              <title value="Lumbar/Thoracic Spine MRI Interpretation"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Lumbar/Thoracic Spine CT Myelogram Interpretation"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Lumbar/Thoracic Spine CT Interpretation"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Medications"/>
+            <action>
+              <title value="Current pain medication list"/>
+            </action>
+            <action>
+              <title value="Current anticoagulation and antiplatelet list"/>
+            </action>
+          </action>
+          <action>
+            <title value="Surgical Candidacy"/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Chief Complaint"/>
+        <item>
+          <text value="What are the patient’s chief complaints?"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text value="Location of symptoms."/>
+          </item>
+          <item>
+            <text value="Please provide details regarding the character of the pain (e.g., burning, shooting, aching, electric, jabbing, etc.)."/>
+          </item>
+          <item>
+            <text value="Duration of symptoms"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Prior Conservative Therapies"/>
+        <item>
+          <text value="Medications"/>
+          <type value="any"/>
+          <item>
+            <text value="Non-steroidal anti-inflammatory drug (NSAIDs)"/>
+          </item>
+          <item>
+            <text value="Opiods"/>
+          </item>
+          <item>
+            <text value="Antiepileptics"/>
+          </item>
+          <item>
+            <text value="Tricyclic antidepressants"/>
+          </item>
+          <item>
+            <text value="Other Medications"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Other therapies"/>
+          <type value="any"/>
+          <item>
+            <text value="Occupational Therapy"/>
+          </item>
+          <item>
+            <text value="Acupuncture"/>
+          </item>
+          <item>
+            <text value="Spinal Manipulation"/>
+          </item>
+          <item>
+            <text value="Cognitive behavioral therapy"/>
+          </item>
+          <item>
+            <text value="Pain clinic"/>
+          </item>
+          <item>
+            <text value="Selective nerve root blocks"/>
+          </item>
+          <item>
+            <text value="Epidural steroid injections"/>
+          </item>
+          <item>
+            <text value="Other"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medical History"/>
+        <item>
+          <text value="Chronic pain"/>
+        </item>
+        <item>
+          <text value="Post-traumatic stress disorder"/>
+        </item>
+        <item>
+          <text value="Anxiety"/>
+        </item>
+        <item>
+          <text value="Depression"/>
+        </item>
+        <item>
+          <text value="Other mental health conditions"/>
+        </item>
+        <item>
+          <text value="Oncological conditions"/>
+        </item>
+        <item>
+          <text value="Obesity"/>
+        </item>
+        <item>
+          <text value="Cadiovascular conditions"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Surgical History"/>
+        <item>
+          <text value="Spinal surgery"/>
+        </item>
+        <item>
+          <text value="Other prior surgeries"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Social History"/>
+        <item>
+          <text value="Alcohol use"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Alcohol abuse"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Rehabilitation"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Detoxification"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Current or former tobacco user"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Cocaine use"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Cocaine abuse"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Other substance use/abuse"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Homeless"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Unstable home environment"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Home environment conducive to healing"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Geographically remote (40+mile drive to medical care)"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging History"/>
+        <item>
+          <text value="Lumbar/Thoracic Spine MRI Interpretation"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Lumbar/Thoracic Spine CT Myelogram Interpretation"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Lumbar/Thoracic Spine CT Interpretation"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications"/>
+        <item>
+          <text value="Current pain medication list"/>
+        </item>
+        <item>
+          <text value="Current anticoagulation and antiplatelet list"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Surgical Candidacy"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

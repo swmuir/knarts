@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="5eea1cce-d8bb-5bc7-aafa-fb1904bf5231"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0004AH"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-35"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Electrophysiology (EP) Supraventricular Tachycardia (SVT) Order Set"/>
+        <title value="Cardiology: Electrophysiology (EP) Supraventricular Tachycardia (SVT) Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult outpatient needing Cardiology consult for arrhythmia evaluation"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care Clinic"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Clinical Providers in Primary Care Clinic"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Cardiology Consultation"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Ensure a minimum workup is initiated prior to a Cardiology Consultation for adult patients who present to a Primary Care Clinic for evaluation of SVT"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <action>
+              <title value="Cardiology consult order"/>
+              <description value="Consider other consult modalities which may be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)."/>
+              </action>
+              <action>
+                <title value="183519002 |Referral to cardiology service (procedure)|"/>
+                <description value="Referral to cardiology to evaluate supraventricular tachycardia"/>
+                <definitionCanonical>
+                  <display value="Referral to cardiology to evaluate supraventricular tachycardia"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and ECG"/>
+            <action>
+              <title value="Consider ordering prior to the cardiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past 2 months."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
+                <description value="Resting 12-lead electrocardiogram to evaluate for arrhythmia now"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS '12LeadElectrocardiogramPerformance'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Resting 12-lead electrocardiogram to evaluate for arrhythmia now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="40701008 |Echocardiography (procedure)|"/>
+                <description value="Echocardiogram to evaluate for left ventricular function now"/>
+                <definitionCanonical>
+                  <display value="Echocardiogram to evaluate for left ventricular function now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="399208008 |Plain chest X-ray (procedure)|"/>
+                <description value="X-ray chest to evaluate for heart failure now"/>
+                <definitionCanonical>
+                  <display value="X-ray chest to evaluate for heart failure now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="252425004 |Cardiac electrophysiology (procedure)|"/>
+                <description value="Study for possible ablation"/>
+                <definitionCanonical>
+                  <display value="Study for possible ablation"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <action>
+              <title value="Consider ordering the following tests to be completed prior to the cardiology consultation."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="bd01faa8-443c-4ad6-9cb6-ea50b4d7a093 |Basic metabolic profile (procedure)"/>
+                <description value="Basic metabolic panel now"/>
+                <definitionCanonical>
+                  <display value="Basic metabolic panel now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="26604007 |Complete blood count (procedure)|"/>
+                <description value="Complete blood count now"/>
+                <definitionCanonical>
+                  <display value="Complete blood count now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="16254007 |Lipid panel (procedure)|"/>
+                <description value="Lipid panel now"/>
+                <definitionCanonical>
+                  <display value="Lipid panel now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="35650009 |Thyroid panel (procedure)|"/>
+                <description value="Thyroid function testing now"/>
+                <definitionCanonical>
+                  <display value="Thyroid function testing now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="105000003 |Troponin measurement (procedure)|"/>
+                <description value="Troponin now"/>
+                <definitionCanonical>
+                  <display value="Troponin now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+                <description value="Brain natriuretic peptide now"/>
+                <definitionCanonical>
+                  <display value="Brain natriuretic peptide now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="70648006 |D-dimer assay (procedure)|"/>
+                <description value="D-dimer now"/>
+                <definitionCanonical>
+                  <display value="D-dimer now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="113086001 |Flecainide measurement (procedure)|"/>
+                <description value="Flecainide level"/>
+                <definitionCanonical>
+                  <display value="Flecainide level"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Medications"/>
+            <description value="Based upon clinical judgement, consider initiating a new order for one or more of the following medications prior to the cardiology consultation, if not otherwise contraindicated. The clinical provider that orders the medication(s) should provide appropriate follow-up for medication management including titration as applicable and monitoring of adverse effects if any, until and unless the ordering provider establishes that the consultant specialist is going to provide ongoing medication management and surveillance."/>
+            <action>
+              <title value="Medications to Control Rapid Heart Rate"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;866514 Metoprolol Tartrate 50 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Metoprolol tartrate 50 mg tablet oral daily 2 times 60 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Metoprolol tartrate 50 mg tablet oral daily 2 times 60 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;866427 24 HR metoprolol succinate 25 MG Extended Release Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Metoprolol XL (succinate) 25 mg tablet oral daily 1 time 30 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Metoprolol XL (succinate) 25 mg tablet oral daily 1 time 30 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;833217 Diltiazem Hydrochloride 30 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Diltiazem 30 mg tablet oral daily 4 times 120 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Diltiazem 30 mg tablet oral daily 4 times 120 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;830861 24 HR Diltiazem Hydrochloride 120 MG Extended Release Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Diltiazem ER 120 mg capsule oral daily 1 time 30 capsules 2 refills"/>
+                <definitionCanonical>
+                  <display value="Diltiazem ER 120 mg capsule oral daily 1 time 30 capsules 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;897640 Verapamil hydrochloride 180 MG Extended Release Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Verapamil SR 180 mg tablet oral daily 1 time 30 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Verapamil SR 180 mg tablet oral daily 1 time 30 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education"/>
+            <action>
+              <title value="Consider the following patient education order."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[409073007 |Education (procedure)]                                             ->(363702006 |Has focus (attribute))->[261039008 |Valsalva maneuver (qualifier value)]"/>
+                <description value="Provide vagal maneuver education"/>
+                <definitionCanonical>
+                  <display value="Provide vagal maneuver education"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Cardiology consult order"/>
+        <item>
+          <text value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)."/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Resting 12-lead electrocardiogram to evaluate for arrhythmia now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="447113005 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="12 lead electrocardiogram at rest (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Echocardiogram to evaluate for left ventricular function now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="40701008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Echocardiography (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="X-ray chest to evaluate for heart failure now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="399208008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Plain chest X"/>
+          </coding>
+          <coding>
+            <code value="ray (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Study for possible ablation"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="252425004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Cardiac electrophysiology (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Basic metabolic panel now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="bd01faa8"/>
+          </coding>
+          <coding>
+            <code value="443c"/>
+          </coding>
+          <coding>
+            <code value="4ad6"/>
+          </coding>
+          <coding>
+            <code value="9cb6"/>
+          </coding>
+          <coding>
+            <code value="ea50b4d7a093 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Basic metabolic profile (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Complete blood count now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="26604007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Lipid panel now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="16254007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Lipid panel (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Thyroid function testing now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="35650009 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Thyroid panel (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Troponin now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="105000003 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Troponin measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Brain natriuretic peptide now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="390917008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Brain natriuretic peptide measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="D-dimer now"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="70648006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="D"/>
+          </coding>
+          <coding>
+            <code value="dimer assay (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Flecainide level"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="113086001 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Flecainide measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Metoprolol tartrate 50 mg tablet oral daily 2 times 60 tablets 2 refills"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;866514 Metoprolol Tartrate 50 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Metoprolol XL (succinate) 25 mg tablet oral daily 1 time 30 tablets 2 refills"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;866427 24 HR metoprolol succinate 25 MG Extended Release Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Diltiazem 30 mg tablet oral daily 4 times 120 tablets 2 refills"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;833217 Diltiazem Hydrochloride 30 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Diltiazem ER 120 mg capsule oral daily 1 time 30 capsules 2 refills"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;830861 24 HR Diltiazem Hydrochloride 120 MG Extended Release Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Verapamil SR 180 mg tablet oral daily 1 time 30 tablets 2 refills"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;897640 Verapamil hydrochloride 180 MG Extended Release Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Provide vagal maneuver education"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="409073007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="261039008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Valsalva maneuver (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

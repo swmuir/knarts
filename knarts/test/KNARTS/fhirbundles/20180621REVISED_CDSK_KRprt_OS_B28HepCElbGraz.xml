@@ -1,0 +1,2658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="3b1639d1-b90b-523d-83b9-cdc4f9dc90bb"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0004AJ"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-54"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Gastroenterology: Hepatitis C - Elbasvir/Grazoprevir Order Set"/>
+        <title value="Gastroenterology: Hepatitis C - Elbasvir/Grazoprevir Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care physicians"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Gastroenterologists"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Medical Service"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients with chronic Hepatitis C infection"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Medications"/>
+            <description value="Elbasvir/grazoprevir is contraindicated in patients with decompensated cirrhosis. Elbasvir/grazoprevir should not be used in combination with 1) strong CYP3A inducers; or 2) OATP1B1/3 inhibitors; or 3) efavirenz. Providers should check http://www.hep-druginteractions.org, https://www.hepatitis.va.gov/provider/guidelines/hcv-treatment-considerations.asp, and/or a pharmacist for additional drug interactions or contraindications before starting elbasvir/grazoprevir."/>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 1a, Treatment-Naïve or Treatment-Experienced (PEG/RBV), No NS5A Polymorphisms at Position 28, 30, 31, or 93, without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 1a, Treatment-Naïve, with NS5A Polymorphisms at Position 28, 30, 31, or 93, without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 1a, Treatment-Experienced (First Generation Protease Inhibitor Plus PEG/RBV), No NS5A Polymorphisms at Position 28, 30, 31, or 93, without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)daily"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)daily"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 1a, Treatment-Experienced (PEG/RBV or First Generation Protease Inhibitor Plus PEG/RBV), with NS5A Polymorphisms at Position 28, 30, 31, or 93, without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine) daily"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine) daily"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 1b, Treatment-Naïve or Treatment-Experienced (PEG/RBV), without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 1b, Treatment-Experienced (First Generation Protease Inhibitor Plus PEG/RBV), without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)daily"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)daily"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 4, Treatment-Naïve, without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Genotype 4, Treatment-Experienced (PEG/RBV), without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 3 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 3 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 3 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 3 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Reduced-Dose Ribavirin for Patients with Renal Impairment (Creatinine Clearance 30–50 mL/min/1.73 m^2)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 2 refills ( routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 2 refills ( routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 3 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 3 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Qualifications for the following treatment include: Reduced-Dose Ribavirin for Patients with Renal Impairment (Creatinine Clearance &lt; 30 mL/min/1.73 m^2)."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 1 capsule daily with food 28 capsules 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 1 capsule daily with food 28 capsules 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ribavirin 200 mg capsule oral, take 1 capsule daily with food 28 capsules 3 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="Ribavirin 200 mg capsule oral, take 1 capsule daily with food 28 capsules 3 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <action>
+              <title value="Guidance for providers who are referring a patient to gastroenterology for management of hepatitis C"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="26604007 |Complete blood count (procedure)|"/>
+                <description value="Complete blood count 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Complete blood count 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="26958001 |Hepatic function panel (procedure)|"/>
+                <description value="Hepatic function panel 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Hepatic function panel 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
+                <description value="International normalized ratio 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="International normalized ratio 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="1421000205106 |Basic metabolic panel (procedure)"/>
+                <description value="Basic metabolic panel 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Basic metabolic panel 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="167181009 |Measurement of renal clearance of creatinine (procedure)|"/>
+                <description value="Glomerular Filtration rate 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Glomerular Filtration rate 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Recommended if it has not been done for the past 5 years"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="397662006 |Hepatitis C virus genotype determination (procedure)|"/>
+                <description value="HCV genotype 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'HCV genotype 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="HCV genotype 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="These tests are recommended if they have not been done for the past 10 years"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="47758006 |Hepatitis B surface antigen measurement (procedure)|"/>
+                <description value="Hepatitis B surface antigen (HBsAg) 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'Hepatitis B surface antigen (HBsAg) 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Hepatitis B surface antigen (HBsAg) 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="59582004 |Hepatitis B core antibody measurement (procedure)|"/>
+                <description value="Hepatitis B core antibody (HBcAb) 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'Hepatitis B core antibody (HBcAb) 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Hepatitis B core antibody (HBcAb) 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="65911000 |Hepatitis B surface antibody measurement (procedure)|"/>
+                <description value="Hepatitis B surface antibody (HBsAb) 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'Hepatitis B surface antibody (HBsAb) 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Hepatitis B surface antibody (HBsAb) 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="697001 |Hepatitis A virus antibody measurement (procedure)|"/>
+                <description value="Hepatitis A antibody (HAVAb) 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'Hepatitis A antibody (HAVAb) 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Hepatitis A antibody (HAVAb) 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="The following lab is recommended if not performed within the previous 6 months."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="395197008 |Hepatitis C viral load (procedure)|"/>
+                <description value="HCV viral load (quantitative HCV RNA) 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'HCV viral load (quantitative HCV RNA) 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="HCV viral load (quantitative HCV RNA) 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="The following lab is recommended if not performed within the previous 5 years."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="359796005 |Measurement of both Human immunodeficiency virus 1 antibody and Human immunodeficiency virus 2 antibody (procedure)|"/>
+                <description value="HIV test 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'HIV test 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="HIV test 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="8671fdfe-53a5-4cae-91a3-61fd23f5bbd4 |Analysis of resistance-associated substitutions in Hepatitis C virus genes (procedure)"/>
+                <description value="Resistance-associated substitutions 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'Resistance-associated substitutions 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Resistance-associated substitutions 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="The following lab is recommended if not performed within the previous 2 weeks."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="386558001 |Chorionic gonadotropin, beta-subunit measurement (procedure)|"/>
+                <description value="Qualitative human chorionic gonadotropin 1 time (routine)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'Qualitative human chorionic gonadotropin 1 time'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Qualitative human chorionic gonadotropin 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education"/>
+            <action>
+              <title value="This section should be available to users in gastroenterology settings and for primary care providers who are referring a patient to gastroenterology for management of hepatitis C"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide links to VA Hepatitis C patient education documents:"/>
+                <definitionCanonical>
+                  <display value="Provide links to VA Hepatitis C patient education documents:"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;1734636 elbasvir 50 MG "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value=" grazoprevir 100 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;1734636 elbasvir 50 MG "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value=" grazoprevir 100 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="112.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="112.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="3157002 |Evening (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)daily"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;1734636 elbasvir 50 MG "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value=" grazoprevir 100 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine) daily"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="112.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="420692007 |Conventional release oral capsule (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="420692007 |Conventional release oral capsule (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;1734636 elbasvir 50 MG "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value=" grazoprevir 100 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="420692007 |Conventional release oral capsule (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)daily"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;1734636 elbasvir 50 MG "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value=" grazoprevir 100 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;1734636 elbasvir 50 MG "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value=" grazoprevir 100 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Elbasvir/grazoprevir (50 mg/100 mg) 1 tablet oral, daily, 28 tablets 3 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;1734636 elbasvir 50 MG "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value=" grazoprevir 100 MG Oral Tablet]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1734636 elbasvir 50 MG / grazoprevir 100 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 3 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="112.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 3 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="3157002 |Evening (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="3.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 2 refills ( routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 3 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency/>
+              <frequencyMax/>
+              <period/>
+              <periodMax/>
+              <periodUnit/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code value="421026006 |Conventional release oral tablet (dose form)|"/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 1 capsule daily with food 28 capsules 2 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="84.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ribavirin 200 mg capsule oral, take 1 capsule daily with food 28 capsules 3 refills (routine)"/>
+        <kind value="MedicationRequest"/>
+        <code>
+          <coding>
+            <code value="416118004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(260686004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+          </coding>
+          <coding>
+            <code value="129445006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+          </coding>
+          <coding>
+            <code value=" action (qualifier value)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363701004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+          </coding>
+          <coding>
+            <code value="Rx;312817 Ribavirin 200 MG Oral Capsule]                                             "/>
+          </coding>
+          <coding>
+            <code value="(410675002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+          </coding>
+          <coding>
+            <code value="260548002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+        <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <coding>
+            <code value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;312817 Ribavirin 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+          </coding>
+        </productx>
+        <dosage>
+          <timing>
+            <repeat>
+              <duration value="1.0"/>
+              <durationMax value="112.0"/>
+              <durationUnit value="258703001 |day (qualifier value)|"/>
+              <frequency value="1"/>
+              <frequencyMax value="1"/>
+              <period value="1.0"/>
+              <periodMax value="1.0"/>
+              <periodUnit value="258703001 |day (qualifier value)|"/>
+            </repeat>
+          </timing>
+          <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <coding>
+              <code/>
+            </coding>
+          </asNeededx>
+          <route>
+            <coding>
+              <code/>
+            </coding>
+          </route>
+          <doseAndRate>
+            <dosex xsi:type="fhiRCore.dataTypes:Range">
+              <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </low>
+              <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <value value="1.0"/>
+              </high>
+            </dosex>
+          </doseAndRate>
+        </dosage>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Complete blood count 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="26604007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Hepatic function panel 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="26958001 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatic function panel (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="International normalized ratio 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="440685005 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Calculation of international normalized ratio (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Basic metabolic panel 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="1421000205106 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Basic metabolic panel (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Glomerular Filtration rate 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="167181009 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of renal clearance of creatinine (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="HCV genotype 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="397662006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis C virus genotype determination (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Hepatitis B surface antigen (HBsAg) 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="47758006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B surface antigen measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Hepatitis B core antibody (HBcAb) 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="59582004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B core antibody measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Hepatitis B surface antibody (HBsAb) 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="65911000 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B surface antibody measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Hepatitis A antibody (HAVAb) 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="697001 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis A virus antibody measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="HCV viral load (quantitative HCV RNA) 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="395197008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis C viral load (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="HIV test 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="359796005 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of both Human immunodeficiency virus 1 antibody and Human immunodeficiency virus 2 antibody (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Resistance-associated substitutions 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="8671fdfe"/>
+          </coding>
+          <coding>
+            <code value="53a5"/>
+          </coding>
+          <coding>
+            <code value="4cae"/>
+          </coding>
+          <coding>
+            <code value="91a3"/>
+          </coding>
+          <coding>
+            <code value="61fd23f5bbd4 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Analysis of resistance"/>
+          </coding>
+          <coding>
+            <code value="associated substitutions in Hepatitis C virus genes (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Qualitative human chorionic gonadotropin 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="386558001 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Chorionic gonadotropin, beta"/>
+          </coding>
+          <coding>
+            <code value="subunit measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Provide links to VA Hepatitis C patient education documents:"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

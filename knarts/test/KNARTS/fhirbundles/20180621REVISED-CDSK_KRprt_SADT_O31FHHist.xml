@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="a5da18a9-4ee9-5531-8fe7-99ae417cdab2"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0009BC"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-97"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Primary Care: Family Health History Documentation Template"/>
+        <title value="Primary Care: Family Health History Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Provider to include Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult Patients"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Family Structure"/>
+            <description value="Consider using this section when a detailed genetic history is the intent. For routine clinical care, consider beginning with the next section. If you do complete this section, include both living and deceased family members."/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Family Health History"/>
+            <action>
+              <title value="History of Autoimmune Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Allergic Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Cancers"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Congenital Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Developmental Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Dermatologic Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Endocrine Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Metabolic Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Gastroenterologic Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Genitourinary Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Reproductive Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Hematologic Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Hereditary Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Infectious Diseases"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Musculoskeletal Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Neurologic Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Ophthalmic Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Psychiatric Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Behavioral Health Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="History of Pulmonary Disorders"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Family Members with Selected Condition"/>
+            <description value="Family Members with Selected Condition"/>
+          </action>
+          <action>
+            <title value="Patient Genetic Testing History"/>
+            <description value="Patient Genetic Testing History"/>
+            <action>
+              <title value="Patient Genetic Testing Done?"/>
+              <action>
+                <action/>
+                <action>
+                  <title value="Patient Genetic Testing Done?"/>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Historian"/>
+            <description value="Historian"/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Family Structure"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Family Health History"/>
+        <item>
+          <text value="History of Autoimmune Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Allergic Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Cancers"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Congenital Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Developmental Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Dermatologic Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Endocrine Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Metabolic Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Gastroenterologic Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Genitourinary Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Reproductive Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Hematologic Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Hereditary Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Infectious Diseases"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Musculoskeletal Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Neurologic Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Ophthalmic Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Psychiatric Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Behavioral Health Disorders"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="History of Pulmonary Disorders"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Family Members with Selected Condition"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Patient Genetic Testing History"/>
+        <item>
+          <text value="Patient Genetic Testing Done?"/>
+          <item>
+            <text/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text value="Patient Genetic Testing Done?"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Historian"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

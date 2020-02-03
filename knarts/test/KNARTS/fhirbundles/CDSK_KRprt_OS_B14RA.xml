@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="34a8654c-a4e6-51da-9154-504de025a02b"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0004AH"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-918"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Rheumatology: Rheumatoid Arthritis Order Set"/>
+        <title value="Rheumatology: Rheumatoid Arthritis Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="410604004"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Medications"/>
+            <description value="No medications are required prior to a rheumatology consult. However, if prednisone is considered prior to the rheumatology consult, be aware that prednisone can potentially mask symptoms that would be evaluated by rheumatology."/>
+          </action>
+          <action>
+            <title value="Laboratory Studies"/>
+            <description value="Consider ordering the following laboratory studies if they have not been ordered within the last three months. Note: The Anti-Nuclear Antibody (ANA) test is not considered appropriate to be ordered for suspected rheumatoid arthritis."/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Rheumatoid Factor"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'rheumatoidFactorLab'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Rheumatoid Factor"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Anti-cyclic citrullinated peptide antibody (ACPA/Anti-CCP)"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'antiCyclicCitrullinatedPeptideAntibodyLab'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Anti-cyclic citrullinated peptide antibody (ACPA/Anti-CCP)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Hepatitis C Antibody Screen"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'hepatitisCAntibodyScreenLab'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Hepatitis C Antibody Screen"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Complete Blood Count"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'completeBloodcountLab'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Complete Blood Count"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Complete Metabolic Panel"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'completeMetabolicPanelLab'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Complete Metabolic Panel"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="C-Reactive Protein"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'cReactiveProteinLab'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="C-Reactive Protein"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Erythrocyte Sedimentation Rate"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'erythrocyteSedimentationRateLab'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Erythrocyte Sedimentation Rate"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and Diagnostic Studies"/>
+            <action>
+              <title value="Consider ordering the following imaging study if it has not been done within the past year."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="x-ray hands, bilateral, to evaluate for possible rheumatoid arthritis"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" NOT EXISTS 'xRayHandsImaging'"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="x-ray hands, bilateral, to evaluate for possible rheumatoid arthritis"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Rheumatoid Factor"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Anti-cyclic citrullinated peptide antibody (ACPA/Anti-CCP)"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Hepatitis C Antibody Screen"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Complete Blood Count"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Complete Metabolic Panel"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="C-Reactive Protein"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Erythrocyte Sedimentation Rate"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="x-ray hands, bilateral, to evaluate for possible rheumatoid arthritis"/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

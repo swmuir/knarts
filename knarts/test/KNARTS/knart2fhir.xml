@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="default" xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+	
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="/path/to/ant-contrib/ant-contrib-1.0b3.jar"/>
+	
+	<target name="default">
+		  
+		<foreach target="knart2fhir" param="theFile" inheritall="true">
+		      <path>
+		          <fileset dir="vhaknarts">
+		               <include name="*.r1"/>
+		          </fileset>
+		      </path>
+		 </foreach>
+	</target>
+	
+	
+	<target name="bar">
+	  <echo message="${theFile}"/>
+	</target>
+	
+	
+	<target name="knart2fhir">
+
+		 <echo message="${theFile}"/>
+		
+		<basename property="fhirTarget" file="${theFile}"
+		          suffix=".r1"/>
+		
+		 <echo message="${fhirTarget}"/>
+		
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+						<in uri="file:${theFile}" />
+						<out uri="platform:/resource/KNARTS/fhirbundles/${fhirTarget}.xml" />
+					</qvto:transformation>
+			
+			
+	 
+			 
+			
+			
+
+		</target>
+	
+	<target name="defaultb">
+
+		 
+
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+			<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/EyeKNART.r1" />
+				<out uri="platform:/resource/KNARTS/knart2fhir/EyeCareOrderSet.xml" />
+					</qvto:transformation>
+
+		
+		
+		
+	<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+				<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/GastroenterologyHepatitisCElbasvirGrazoprevirOrderSet.r1" />
+				<out uri="platform:/resource/KNARTS/knart2fhir/GastroenterologyHepatitisCElbasvirGrazoprevirOrderSet.xml" />
+			</qvto:transformation>
+		
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+				<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/RheumatologyPsoriaticArthritisOrderSet.r1" />
+				<out uri="platform:/resource/KNARTS/knart2fhir/RheumatologyPsoriaticArthritisOrderSet.xml" />
+			</qvto:transformation>
+		
+		
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+				<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/MentalHealthHomelessnessDocumentationTemplate.r1" />
+				<out uri="platform:/resource/KNARTS/knart2fhir/MentalHealthHomelessnessDocumentationTemplate.xml" />
+			</qvto:transformation>
+
+	
+		 
+		
+		
+
+	</target>
+
+
+
+</project>

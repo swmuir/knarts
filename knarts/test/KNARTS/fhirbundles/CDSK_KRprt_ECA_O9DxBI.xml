@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="6f9a7a47-24b5-5f8b-ac38-b4e28ede49b3"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0007BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-80"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Diagnostic Breast Imaging"/>
+        <title value="Women's Health: Diagnostic Breast Imaging"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description value="Diagnostic Breast Imaging"/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Gynecologist"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="5351000124100 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Primary Care, Gynecology, Interventional Radiology, Pathology, Oncology, Surgery"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="Female"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="248152002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Follow-up to Screening Mammogram"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send mammography results to the clinical provider."/>
+              <definitionCanonical>
+                <display value="Send mammography results to the clinical provider."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Notify the patient of need for follow up."/>
+              <definitionCanonical>
+                <display value="Notify the patient of need for follow up."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="[410538000 |Scheduling (procedure)]                                     ->(363702006 |Has focus (attribute))->[180301d7-d1e4-4068-8757-9f438f17f843 |Follow-up consultation with healthcare provider (procedure)]"/>
+              <description value="Schedule patient for follow-up appointment with clinical provider."/>
+              <definitionCanonical>
+                <display value="Schedule patient for follow-up appointment with clinical provider."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Make sure guideline recommendations are available to clinical provider"/>
+              <definitionCanonical>
+                <display value="Make sure guideline recommendations are available to clinical provider"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Diagnostic Breast Imaging Documentation Template"/>
+              <definitionCanonical>
+                <display value="Open Diagnostic Breast Imaging Documentation Template"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Breast Symptoms"/>
+            <action>
+              <title value="TSR"/>
+              <description value="Make sure guideline recommendations are available to clinical provider."/>
+              <definitionCanonical>
+                <display value="Make sure guideline recommendations are available to clinical provider."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR"/>
+              <description value="Open Diagnostic Breast Imaging Documentation Template"/>
+              <definitionCanonical>
+                <display value="Open Diagnostic Breast Imaging Documentation Template"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Clinical Breast Findings"/>
+            <action>
+              <title value="TSR"/>
+              <description value="Make sure guideline recommendations are available to clinical provider."/>
+              <definitionCanonical>
+                <display value="Make sure guideline recommendations are available to clinical provider."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR"/>
+              <description value="Open Diagnostic Breast Imaging Documentation Template"/>
+              <definitionCanonical>
+                <display value="Open Diagnostic Breast Imaging Documentation Template"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send mammography results to the clinical provider."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the patient of need for follow up."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Schedule patient for follow-up appointment with clinical provider."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="410538000 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Scheduling (procedure)]                                     "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="180301d7"/>
+          </coding>
+          <coding>
+            <code value="d1e4"/>
+          </coding>
+          <coding>
+            <code value="4068"/>
+          </coding>
+          <coding>
+            <code value="8757"/>
+          </coding>
+          <coding>
+            <code value="9f438f17f843 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Follow"/>
+          </coding>
+          <coding>
+            <code value="up consultation with healthcare provider (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make sure guideline recommendations are available to clinical provider"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Diagnostic Breast Imaging Documentation Template"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make sure guideline recommendations are available to clinical provider."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Diagnostic Breast Imaging Documentation Template"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make sure guideline recommendations are available to clinical provider."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Diagnostic Breast Imaging Documentation Template"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

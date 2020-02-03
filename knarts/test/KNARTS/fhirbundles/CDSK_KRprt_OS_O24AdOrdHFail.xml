@@ -1,0 +1,1821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="d65f4c6f-d870-5ecd-9df7-eb935c920d92"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008DA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-904"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Admission Orders - Heart Failure Order Set"/>
+        <title value="Cardiology: Admission Orders - Heart Failure Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient clinic, hospital, and ED settings"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="diagnosis suggestive of initial or recurrent heart failure"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="84114007 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Heart failure (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="admission"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="305056002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Admission procedure (procedure)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Admit to"/>
+            <description value="Admit To?"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="305342007 |Admission to ward (procedure)|"/>
+                <description value="Medical Ward"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@2b100537 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Medical Ward"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="75f0ca2c-e68a-44ca-81f8-10e53ff7a855 |Admission to telemetry department (procedure)|"/>
+                <description value="Telemetry"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@703cf496 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Telemetry"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="4d555c8a-d2af-4dbf-b81a-9eaddec2a7d8 |Admission to stepdown unit (procedure)|"/>
+                <description value="Stepdown unit"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@490fbd68 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Stepdown unit"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="305351004 |Admission to intensive care unit (procedure)|"/>
+                <description value="ICU"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@21152216 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="ICU"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="305056002 |Admission procedure (procedure)|"/>
+                <description value="Other Location"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@4a8c1231 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Other Location"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Diagnosis?"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Allergies"/>
+            <description value="Medication Allergies?"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Code Status"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Vital Signs and Monitoring"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Vital signs"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="61746007 |Taking patient vital signs (procedure)|"/>
+                    <description value="Obtain Vital Sign Every User Input Hours"/>
+                    <definitionCanonical>
+                      <display value="Obtain Vital Sign Every User Input Hours"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="61746007 |Taking patient vital signs (procedure)|"/>
+                  <description value="Routine"/>
+                  <definitionCanonical>
+                    <display value="Routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="252465000 |Pulse oximetry (procedure)|"/>
+                  <description value="With pulse oximetry"/>
+                  <definitionCanonical>
+                    <display value="With pulse oximetry"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title/>
+                <description value="Continuous telemetry"/>
+                <definitionCanonical>
+                  <display value="Continuous telemetry"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="39857003 |Weighing patient (procedure)|"/>
+                <description value="Weight daily (pounds)"/>
+                <definitionCanonical>
+                  <display value="Weight daily (pounds)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="14456009 |Measuring height of patient (procedure)|"/>
+                <description value="Height (inches)"/>
+                <definitionCanonical>
+                  <display value="Height (inches)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Medical Ward?"/>
+              <description value="If admitted to medical ward, then display the medical ward section."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Intake/output recording"/>
+                <selectionBehavior value="at-most-one"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="63061008 |Measuring intake and output (procedure)|"/>
+                    <description value="Intake/Output Recording Frequency in Hours"/>
+                    <definitionCanonical>
+                      <display value="Intake/Output Recording Frequency in Hours"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="63061008 |Measuring intake and output (procedure)|"/>
+                  <description value="Routine per local policy"/>
+                  <definitionCanonical>
+                    <display value="Routine per local policy"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="63061008 |Measuring intake and output (procedure)|"/>
+                  <description value="Strict per local policy"/>
+                  <definitionCanonical>
+                    <display value="Strict per local policy"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="39857003 |Weighing patient (procedure)|"/>
+                <description value="Oxygen saturation every 4 hours"/>
+                <definitionCanonical>
+                  <display value="Oxygen saturation every 4 hours"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="ICU?"/>
+              <description value="If admitted to ICU, then display the ICU section."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Intake and output"/>
+                <selectionBehavior value="at-most-one"/>
+                <action>
+                  <title value="63061008 |Measuring intake and output (procedure)|"/>
+                  <description value="Routine"/>
+                  <definitionCanonical>
+                    <display value="Routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="44ee63fe-94fb-4cf1-97d7-a2e73075596f |Measuring intake and output, strict (procedure)"/>
+                  <description value="Strict"/>
+                  <definitionCanonical>
+                    <display value="Strict"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="63061008 |Measuring intake and output (procedure)|"/>
+                  <description value="Every 1 hour"/>
+                  <definitionCanonical>
+                    <display value="Every 1 hour"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Invasive hemodynamic monitoring"/>
+                <action>
+                  <title value="392247006 |Insertion of catheter into artery (procedure)|"/>
+                  <description value="Arterial line"/>
+                  <definitionCanonical>
+                    <display value="Arterial line"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="82936005 |Introduction of catheter into pulmonary artery (procedure)|"/>
+                  <description value="Pulmonary artery catheter"/>
+                  <definitionCanonical>
+                    <display value="Pulmonary artery catheter"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="104847001 |Oxygen saturation measurement (procedure)|"/>
+                <description value="Oxygen saturation continuous"/>
+                <definitionCanonical>
+                  <display value="Oxygen saturation continuous"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Activity"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="b43fa6a5-94a3-4098-8514-b4b5da9b899d |Ambulating with assistance (regime/therapy)"/>
+                  <description value="Ambulate with assistance with user provided frequency"/>
+                  <definitionCanonical>
+                    <display value="Ambulate with assistance with user provided frequency"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="445970000 |Moving subject from bed to chair (procedure)|"/>
+                  <description value="Out of bed to chair with user provided Frequency"/>
+                  <definitionCanonical>
+                    <display value="Out of bed to chair with user provided Frequency"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title/>
+                  <description value="User Specified Other activity"/>
+                  <definitionCanonical>
+                    <display value="User Specified Other activity"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title/>
+                  <description value="May be off telemetry for Reason"/>
+                  <definitionCanonical>
+                    <display value="May be off telemetry for Reason"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="225316001 |Bedrest (regime/therapy)|"/>
+                <description value="Bed rest"/>
+                <definitionCanonical>
+                  <display value="Bed rest"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="1d5d8220-9818-4c10-a471-3b9ad32d061e |Bedrest with bedside commode (regime/therapy)"/>
+                <description value="Bed rest with bedside commode"/>
+                <definitionCanonical>
+                  <display value="Bed rest with bedside commode"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="424410003 |Bedrest with bathroom privileges (regime/therapy)|"/>
+                <description value="Bed rest with bathroom privileges"/>
+                <definitionCanonical>
+                  <display value="Bed rest with bathroom privileges"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="410155007 |Occupational therapy assessment (procedure)|"/>
+                <description value="Occupational/physical therapy assessment/assistance"/>
+                <definitionCanonical>
+                  <display value="Occupational/physical therapy assessment/assistance"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Nursing"/>
+            <action>
+              <title value="Urinary Catheter"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="446583004 |Insertion of indwelling catheter into urinary bladder (procedure)|"/>
+                    <description value="Discontinue urinary catheter after 48hrs (reorder for continued use)"/>
+                    <definitionCanonical>
+                      <display value="Discontinue urinary catheter after 48hrs (reorder for continued use)"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="446583004 |Insertion of indwelling catheter into urinary bladder (procedure)|"/>
+                  <description value="Insert Foley (indwelling urinary) catheter (note: routine urinary catheterization not recommended unless benefits outweigh risks)"/>
+                  <definitionCanonical>
+                    <display value="Insert Foley (indwelling urinary) catheter (note: routine urinary catheterization not recommended unless benefits outweigh risks)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="46a4b669-f7e6-4aa7-8ad8-7ff5c1fbce83 |Catheterization of urinary blader using condom catheter (procedure)"/>
+                <description value="Condum catheter"/>
+                <definitionCanonical>
+                  <display value="Condum catheter"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Peripheral Intravenous (IV) Line"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Insert peripheral IV line"/>
+                <selectionBehavior value="at-most-one"/>
+                <action>
+                  <title value="6b343927-35df-458e-b365-69fd00ba12e6 |Insertion of peripheral venous cannula with saline lock (procedure)"/>
+                  <description value="Saline lock"/>
+                  <definitionCanonical>
+                    <display value="Saline lock"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="491e8c86-91e0-49a7-a4a3-dd1da05ad071 |Insertion of peripheral venous cannula with heparin lock (procedure)"/>
+                  <description value="Heparin lock"/>
+                  <definitionCanonical>
+                    <display value="Heparin lock"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="423687009 |Peripheral intravenous catheter care (regime/therapy)|"/>
+                <description value="Routine IV Care per local policy"/>
+                <definitionCanonical>
+                  <display value="Routine IV Care per local policy"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Fluid Restriction"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="25389001 |Fluid restriction (procedure)|"/>
+                  <description value="Restrict Fluids"/>
+                  <definitionCanonical>
+                    <display value="Restrict Fluids"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="Diet"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Cardiac diet"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="437421000124105 |Decreased sodium diet (regime/therapy)|"/>
+                  <description value="Low sodium"/>
+                  <definitionCanonical>
+                    <display value="Low sodium"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="436711000124106 |Decreased cholesterol diet (regime/therapy)|"/>
+                  <description value="Low cholesterol"/>
+                  <definitionCanonical>
+                    <display value="Low cholesterol"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="436861000124104 |Decreased fat diet (regime/therapy)|"/>
+                  <description value="Low fat"/>
+                  <definitionCanonical>
+                    <display value="Low fat"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="a6894e46-3838-430b-b163-99fc45eada51 |Diabetic diet (regime/therapy)"/>
+                  <description value="Calories"/>
+                  <definitionCanonical>
+                    <display value="Calories"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Other Diet"/>
+                  <definitionCanonical>
+                    <display value="Other Diet"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="400c3d0a-171f-4b6f-83f8-638e72a22068 |Regular diet (regime/therapy)"/>
+                <description value="Regular"/>
+                <definitionCanonical>
+                  <display value="Regular"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="182923009 |Nil by mouth (regime/therapy)|"/>
+                <description value="Nil per os (NPO)"/>
+                <definitionCanonical>
+                  <display value="Nil per os (NPO)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="fcb801a9-8501-4343-a466-ace348383326 |Cardiac semi-soft 2 gram sodium diet (regime/therapy)"/>
+                <description value="2gm Na"/>
+                <definitionCanonical>
+                  <display value="2gm Na"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="d37a9b17-bcb1-48a2-ab42-6b952d49404f |No salt added diet (regime/therapy)"/>
+                <description value="No added salt"/>
+                <definitionCanonical>
+                  <display value="No added salt"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Venous Thromboembolism (VTE) Prophylaxis"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="443749004 |Assessment of risk of venous thromboembolism (procedure)|"/>
+                <description value="Conduct VTE prophylaxis risk screening"/>
+                <definitionCanonical>
+                  <display value="Conduct VTE prophylaxis risk screening"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="439993001 |Prevention of deep vein thrombosis (regime/therapy)|"/>
+                <description value="Order appropriate VTE protocol"/>
+                <definitionCanonical>
+                  <display value="Order appropriate VTE protocol"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Notify Clinician for:"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Temperature greater than high temperature notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@6388e021 (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Temperature greater than high temperature notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Systolic blood pressure (BP) measurement is greater than high notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@3ca99ecb (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Systolic blood pressure (BP) measurement is greater than high notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Systolic blood pressure (BP) measurement is lower than low notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@30743712 (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Systolic blood pressure (BP) measurement is lower than low notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Diastolic blood pressure (BP) is greater than high notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@4f8e4354 (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Diastolic blood pressure (BP) is greater than high notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Diastolic blood pressure (BP) measurement is lower than low notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@658effbd (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Diastolic blood pressure (BP) measurement is lower than low notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Heart Rate is greater than high notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@562e3c94 (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Heart Rate is greater than high notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Heart Rate is less than high notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@4f2cb4c1 (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Heart Rate is less than high notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Respiratory Rate is greater than high notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@72ebf07e (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Respiratory Rate is greater than high notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Respiratory Rate is greater than high notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@22c9a210 (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Respiratory Rate is greater than high notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="Urine Output is less than low notification limit"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@125edf90 (localId: null)"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Urine Output is less than low notification limit"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Immunizations"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="[416118004 |Administration (procedure)]                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                     ->(363701004 |Direct substance (attribute))->[398730001 |Pneumococcal vaccine (substance)]"/>
+              <description value="Pneumovax"/>
+              <definitionCanonical>
+                <display value="Pneumovax"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="[416118004 |Administration (procedure)]                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                     ->(363701004 |Direct substance (attribute))->[46233009 |Influenza virus vaccine (product)]"/>
+              <description value="Influenza vaccine"/>
+              <definitionCanonical>
+                <display value="Influenza vaccine"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Point of Care Tests"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="33747003 |Glucose measurement, blood (procedure)|"/>
+                <description value="Blood glucose every 4 hours"/>
+                <definitionCanonical>
+                  <display value="Blood glucose every 4 hours"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="33747003 |Glucose measurement, blood (procedure)|"/>
+                <description value="Blood glucose now"/>
+                <definitionCanonical>
+                  <display value="Blood glucose now"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="1421000205106 |Basic metabolic panel (procedure)"/>
+              <description value="Basic metabolic profile now"/>
+              <definitionCanonical>
+                <display value="Basic metabolic profile now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="1421000205106 |Basic metabolic panel (procedure)"/>
+              <description value="Basic metabolic profile daily"/>
+              <definitionCanonical>
+                <display value="Basic metabolic profile daily"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
+              <description value="Complete metabolic panel now"/>
+              <definitionCanonical>
+                <display value="Complete metabolic panel now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
+              <description value="Complete metabolic panel in AM"/>
+              <definitionCanonical>
+                <display value="Complete metabolic panel in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+              <description value="Brain natriuretic peptide now"/>
+              <definitionCanonical>
+                <display value="Brain natriuretic peptide now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+              <description value="Brain natriuretic peptide in AM"/>
+              <definitionCanonical>
+                <display value="Brain natriuretic peptide in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count now"/>
+              <definitionCanonical>
+                <display value="Complete blood count now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count in AM"/>
+              <definitionCanonical>
+                <display value="Complete blood count in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="252150008 |Fasting lipid profile (procedure)|"/>
+              <description value="Fasting lipid profile in AM"/>
+              <definitionCanonical>
+                <display value="Fasting lipid profile in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+              <description value="Partial Thromboplastin Time (PTT) now"/>
+              <definitionCanonical>
+                <display value="Partial Thromboplastin Time (PTT) now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+              <description value="Partial Thromboplastin Time (PTT) in AM"/>
+              <definitionCanonical>
+                <display value="Partial Thromboplastin Time (PTT) in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="396451008 |Prothrombin time (procedure)|"/>
+              <description value="Prothrombin Time (PT)/International Normalized Ratio (INR) now"/>
+              <definitionCanonical>
+                <display value="Prothrombin Time (PT)/International Normalized Ratio (INR) now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="396451008 |Prothrombin time (procedure)|"/>
+              <description value="Prothrombin Time (PT)/International Normalized Ratio (INR) daily"/>
+              <definitionCanonical>
+                <display value="Prothrombin Time (PT)/International Normalized Ratio (INR) daily"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="26958001 |Hepatic function panel (procedure)|"/>
+              <description value="Liver function testing daily"/>
+              <definitionCanonical>
+                <display value="Liver function testing daily"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="61167004 |Thyroid stimulating hormone measurement (procedure)|"/>
+              <description value="Thyroid Stimulating Hormone (TSH) now"/>
+              <definitionCanonical>
+                <display value="Thyroid Stimulating Hormone (TSH) now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="61167004 |Thyroid stimulating hormone measurement (procedure)|"/>
+              <description value="Thyroid Stimulating Hormone (TSH) in AM"/>
+              <definitionCanonical>
+                <display value="Thyroid Stimulating Hormone (TSH) in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="121870001 |Troponin I measurement (procedure)|"/>
+              <description value="Troponin I"/>
+              <definitionCanonical>
+                <display value="Troponin I"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="121870001 |Troponin I measurement (procedure)|"/>
+              <description value="Troponin I q 8 hours x 3"/>
+              <definitionCanonical>
+                <display value="Troponin I q 8 hours x 3"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="38151008 |Magnesium measurement (procedure)|"/>
+              <description value="Magnesium now"/>
+              <definitionCanonical>
+                <display value="Magnesium now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="38151008 |Magnesium measurement (procedure)|"/>
+              <description value="Magnesium in AM"/>
+              <definitionCanonical>
+                <display value="Magnesium in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="25514001 |Digoxin measurement (procedure)|"/>
+              <description value="Digoxin level now"/>
+              <definitionCanonical>
+                <display value="Digoxin level now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="7ab0a3e5-ea2d-45c4-916a-6e03a4771b93 |Urine digoxin measurement (procedure)"/>
+              <description value="Digoxin level in AM urinalysis"/>
+              <definitionCanonical>
+                <display value="Digoxin level in AM urinalysis"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="91308007 |Blood gases, arterial measurement (procedure)|"/>
+              <description value="Arterial Blood Gas now"/>
+              <definitionCanonical>
+                <display value="Arterial Blood Gas now"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Diagnostic Testing"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="X-ray chest (Dx: heart failure)"/>
+              <action>
+                <title value="42869005 |Diagnostic radiography of chest, combined posteroanterior and lateral (procedure)|"/>
+                <description value="Posterioranterior (PA)/Lateral now"/>
+                <definitionCanonical>
+                  <display value="Posterioranterior (PA)/Lateral now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="42869005 |Diagnostic radiography of chest, combined posteroanterior and lateral (procedure)|"/>
+                <description value="Posterioranterior (PA)/Lateral in AM"/>
+                <definitionCanonical>
+                  <display value="Posterioranterior (PA)/Lateral in AM"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[67632007 |Diagnostic radiography of chest, posteroanterior (procedure)]-                                             ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]-                                             ->(405813007 |Procedure site - Direct (attribute))->[51185008 |Thoracic structure (body structure)]                                             ->(424226004 |Using device (attribute))->[468611003 |Diagnostic x-ray system generator, portable (physical object)];"/>
+                <description value="Portable Anteroposterior (AP) now"/>
+                <definitionCanonical>
+                  <display value="Portable Anteroposterior (AP) now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[67632007 |Diagnostic radiography of chest, posteroanterior (procedure)]-                                             ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]-                                             ->(405813007 |Procedure site - Direct (attribute))->[51185008 |Thoracic structure (body structure)]                                             ->(424226004 |Using device (attribute))->[468611003 |Diagnostic x-ray system generator, portable (physical object)];"/>
+                <description value="Portable Anteroposterior (AP) in AM"/>
+                <definitionCanonical>
+                  <display value="Portable Anteroposterior (AP) in AM"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="268400002 |12 lead electrocardiogram (procedure)|"/>
+              <description value="12-lead electrocardiogram (Dx: heart failure) now"/>
+              <definitionCanonical>
+                <display value="12-lead electrocardiogram (Dx: heart failure) now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="268400002 |12 lead electrocardiogram (procedure)|"/>
+              <description value="12-lead electrocardiogram (Dx: heart failure) in AM"/>
+              <definitionCanonical>
+                <display value="12-lead electrocardiogram (Dx: heart failure) in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="433236007 |Transthoracic echocardiography (procedure)|"/>
+              <description value="Echocardiogram, transthoracic (TTE) (Dx: Heart failure) now"/>
+              <definitionCanonical>
+                <display value="Echocardiogram, transthoracic (TTE) (Dx: Heart failure) now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="433236007 |Transthoracic echocardiography (procedure)|"/>
+              <description value="Echocardiogram, transthoracic (TTE) (Dx: Heart failure) in AM"/>
+              <definitionCanonical>
+                <display value="Echocardiogram, transthoracic (TTE) (Dx: Heart failure) in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="105376000 |Transesophageal echocardiography (procedure)|"/>
+              <description value="Echocardiogram, transesophageal (TEE), (Dx: Heart failure) now"/>
+              <definitionCanonical>
+                <display value="Echocardiogram, transesophageal (TEE), (Dx: Heart failure) now"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="105376000 |Transesophageal echocardiography (procedure)|"/>
+              <description value="Echocardiogram, transesophageal (TEE), (Dx: Heart failure) in AM"/>
+              <definitionCanonical>
+                <display value="Echocardiogram, transesophageal (TEE), (Dx: Heart failure) in AM"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="431511008 |Myocardial perfusion stress imaging using Thallium 201 (procedure)|"/>
+              <description value="Thallium Myocardial Perfusion Imaging (MPI) viability testing"/>
+              <definitionCanonical>
+                <display value="Thallium Myocardial Perfusion Imaging (MPI) viability testing"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="16545381000119101 |Single photon emission computed tomography of myocardial perfusion with computed tomography (procedure)|"/>
+              <description value="MPI single-photon emission computed tomography (SPECT) for the etiology of cardiomyopathy"/>
+              <definitionCanonical>
+                <display value="MPI single-photon emission computed tomography (SPECT) for the etiology of cardiomyopathy"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="c8006fd5-76d8-4c36-aa0c-90e6ff79d787 |Magnetic resonance imaging of heart with delayed gadolinium contrast (procedure)"/>
+              <description value="Cardiac magnetic resonance imaging (MRI) (with Gd delayed enhancement) for viability/etiology of cardiomyopathy"/>
+              <definitionCanonical>
+                <display value="Cardiac magnetic resonance imaging (MRI) (with Gd delayed enhancement) for viability/etiology of cardiomyopathy"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="404221001 |Multiple gated acquisition scanning (procedure)|"/>
+              <description value="Multigated Acquisition Scan (MUGA) to define the Left Ventricular Ejection Fraction (LVEF) and/or Right Ventricular Ejection Fraction (RVEF)"/>
+              <definitionCanonical>
+                <display value="Multigated Acquisition Scan (MUGA) to define the Left Ventricular Ejection Fraction (LVEF) and/or Right Ventricular Ejection Fraction (RVEF)"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Oxygen"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <action>
+                <title value="371907003 |Oxygen administration by nasal cannula (procedure)|"/>
+                <description value="User provided nasal cannula rate in L/min"/>
+                <definitionCanonical>
+                  <display value="User provided nasal cannula rate in L/min"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="371907003 |Oxygen administration by nasal cannula (procedure)|"/>
+                <description value="Titrate to oxygen saturation > 90%"/>
+                <definitionCanonical>
+                  <display value="Titrate to oxygen saturation > 90%"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="57485005 |Oxygen therapy (procedure)|"/>
+              <description value="Oxygen therapy per protocol"/>
+              <definitionCanonical>
+                <display value="Oxygen therapy per protocol"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="371908008 |Oxygen administration by mask (procedure)|"/>
+              <description value="Face mask 40% fraction of inspired oxygen (FiO2) titrate to oxygen saturation > 90%"/>
+              <definitionCanonical>
+                <display value="Face mask 40% fraction of inspired oxygen (FiO2) titrate to oxygen saturation > 90%"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="429253002 |Oxygen administration by Venturi mask (procedure)|"/>
+              <description value="Nonrebreather face mask 15 L titrate to oxygen saturation > 90%"/>
+              <definitionCanonical>
+                <display value="Nonrebreather face mask 15 L titrate to oxygen saturation > 90%"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="1221000205105 |Cardiology consultation and report (procedure)"/>
+              <description value="Consult cardiology"/>
+              <definitionCanonical>
+                <display value="Consult cardiology"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="1231000205107 |Advanced heart failure service consultation and report (procedure)"/>
+              <description value="Advanced heart failure service for heart failure management"/>
+              <definitionCanonical>
+                <display value="Advanced heart failure service for heart failure management"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="1241000205102 |Electrophysiology service consultation and report (procedure)"/>
+              <description value="Consult electrophysiology service for consideration of device therapy [(Implantable Cardioverter- Defibrillator (ICD), Cardiac Resynchronization Therapy (CRT)]"/>
+              <definitionCanonical>
+                <display value="Consult electrophysiology service for consideration of device therapy [(Implantable Cardioverter- Defibrillator (ICD), Cardiac Resynchronization Therapy (CRT)]"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Medications"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="IV Fluid"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="297751002 |Infusion of saline solution (procedure)|"/>
+                <description value="Normal saline (NS)"/>
+                <definitionCanonical>
+                  <display value="Normal saline (NS)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[36576007 |Infusion (procedure)]                                             ->(363701004 |Direct substance (attribute))->[347379006 |Lactated Ringer's solution (product)]"/>
+                <description value="Lactated Ringers (LR)"/>
+                <definitionCanonical>
+                  <display value="Lactated Ringers (LR)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[36576007 |Infusion (procedure)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1795250 1000 ML Glucose 50 MG/ML / Sodium Chloride 4.5 MG/ML Injection]"/>
+                <description value="Dextrose 5%, 1⁄2 Normal Saline"/>
+                <definitionCanonical>
+                  <display value="Dextrose 5%, 1⁄2 Normal Saline"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Other User Specified IV Fluids"/>
+                <definitionCanonical>
+                  <display value="Other User Specified IV Fluids"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Aspirin enteric coated, select one of the following:"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;308416 Aspirin 81 MG Delayed Release Oral Tablet]"/>
+                <description value="Aspirin enteric coated 81 mg daily"/>
+                <definitionCanonical>
+                  <display value="Aspirin enteric coated 81 mg daily"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;198467 Aspirin 325 MG Delayed Release Oral Tablet]"/>
+                <description value="Aspirin enteric coated 325 mg daily"/>
+                <definitionCanonical>
+                  <display value="Aspirin enteric coated 325 mg daily"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Diuretics"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]-                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[Rx;1162712 Furosemide Injectable Product]                                              ->(410675002 |Route of administration (attribute))->[47625008 |Intravenous route (qualifier value)]                                             ->(246501002 |Technique (attribute))->[397801003 |Single bolus (qualifier value)];-"/>
+                <description value="Furosemide specify: 20-120 mg solution IV bolus now"/>
+                <definitionCanonical>
+                  <display value="Furosemide specify: 20-120 mg solution IV bolus now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]-                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[Rx;1162712 Furosemide Injectable Product]                                              ->(410675002 |Route of administration (attribute))->[47625008 |Intravenous route (qualifier value)]                                             ->(246501002 |Technique (attribute))->[397801003 |Single bolus (qualifier value)];-"/>
+                <description value="Furosemide specify: 20-120 mg solution IV bolus every Y hours"/>
+                <definitionCanonical>
+                  <display value="Furosemide specify: 20-120 mg solution IV bolus every Y hours"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]-                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[Rx;1151347 Bumetanide Injectable Product]                                              ->(410675002 |Route of administration (attribute))->[47625008 |Intravenous route (qualifier value)]-                                             ->(246501002 |Technique (attribute))->[397801003 |Single bolus (qualifier value)];"/>
+                <description value="Bumetanide specify: 0.5-2 mg solution IV bolus now"/>
+                <definitionCanonical>
+                  <display value="Bumetanide specify: 0.5-2 mg solution IV bolus now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]-                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[Rx;1151347 Bumetanide Injectable Product]                                              ->(410675002 |Route of administration (attribute))->[47625008 |Intravenous route (qualifier value)]-                                             ->(246501002 |Technique (attribute))->[397801003 |Single bolus (qualifier value)];"/>
+                <description value="Bumetanide specify: 0.5-2 mg solution IV bolus every Y hours"/>
+                <definitionCanonical>
+                  <display value="Bumetanide specify: 0.5-2 mg solution IV bolus every Y hours"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1163518 Metolazone Oral Product]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Metolazone 2.5-5 mg oral daily, 30 minutes prior to loop diuretic dose"/>
+                <definitionCanonical>
+                  <display value="Metolazone 2.5-5 mg oral daily, 30 minutes prior to loop diuretic dose"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Potassium Replacement"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Potassium chloride 10-20 meq"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;8591 Potassium Chloride]"/>
+                  <description value="Potassium chloride X meq (max 60 meq) oral ONCE"/>
+                  <definitionCanonical>
+                    <display value="Potassium chloride X meq (max 60 meq) oral ONCE"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;8591 Potassium Chloride]"/>
+                  <description value="Potassium chloride X meq (max 60 meq) oral DAILY"/>
+                  <definitionCanonical>
+                    <display value="Potassium chloride X meq (max 60 meq) oral DAILY"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;8591 Potassium Chloride]                                                     ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                  <description value="Potassium chloride X meq (max 60 meq) oral BID"/>
+                  <definitionCanonical>
+                    <display value="Potassium chloride X meq (max 60 meq) oral BID"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;8591 Potassium Chloride] "/>
+                <description value="Potassium replacement per protocol"/>
+                <definitionCanonical>
+                  <display value="Potassium replacement per protocol"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Angiotensin-Converting Enzyme (ACE-I) Inhibitors [if not on Angiotensin Receptor Blockers (ARBs)]"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1155754 Captopril Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Captopril [initial 6.25-12.5, max 50] mg oral, three times daily (tid)"/>
+                <definitionCanonical>
+                  <display value="Captopril [initial 6.25-12.5, max 50] mg oral, three times daily (tid)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1164690 Lisinopril Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Lisinopril [initial 2.5-5, max 40]mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                <definitionCanonical>
+                  <display value="Lisinopril [initial 2.5-5, max 40]mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1162653 Enalapril Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Enalapril [initial 2.5, max-20] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                <definitionCanonical>
+                  <display value="Enalapril [initial 2.5, max-20] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Angiotensin II Receptor Blockers (ARBs) [if not on ACE-I]"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1165343 Losartan Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Losartan [initial 25-50, max 150] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                <definitionCanonical>
+                  <display value="Losartan [initial 25-50, max 150] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1164561 valsartan Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Valsartan [initial 20- 40, max 160]mg tablet oral 2 times daily hold for symptomatic systolic BP less than 90"/>
+                <definitionCanonical>
+                  <display value="Valsartan [initial 20- 40, max 160]mg tablet oral 2 times daily hold for symptomatic systolic BP less than 90"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Angiotensin Receptor-Neprilysin Inhibitors (ARNIs)"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1656349 sacubitril 49 MG / valsartan 51 MG Oral Tablet]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Sacubitril 49 mg / Valsartan 51 mg 1 tablet oral daily 2 times hold for symptomatic systolic BP less than 90"/>
+                <definitionCanonical>
+                  <display value="Sacubitril 49 mg / Valsartan 51 mg 1 tablet oral daily 2 times hold for symptomatic systolic BP less than 90"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Beta-Blockers"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1163524 Metoprolol Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Metoprolol succinate [initial 12.5-25, max 200] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                <definitionCanonical>
+                  <display value="Metoprolol succinate [initial 12.5-25, max 200] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1160590 carvedilol Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Carvedilol [initial 3.125, max 25] mg tablet oral daily 2 times hold for symptomatic systolic BP less than 90"/>
+                <definitionCanonical>
+                  <display value="Carvedilol [initial 3.125, max 25] mg tablet oral daily 2 times hold for symptomatic systolic BP less than 90"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Aldosterone Antagonists"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1161123 Spironolactone Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Spflironolactone [initial 12.5, max] 25 mg tablet oral daily"/>
+                <definitionCanonical>
+                  <display value="Spflironolactone [initial 12.5, max] 25 mg tablet oral daily"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1161910 eplerenone Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Eplerenone [initial 25, max 50] mg tablet oral daily"/>
+                <definitionCanonical>
+                  <display value="Eplerenone [initial 25, max 50] mg tablet oral daily"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Hydralazine/Nitrates"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;905377 hydrALAZINE Hydrochloride 37.5 MG / Isosorbide Dinitrate 20 MG Oral Tablet]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Hydralazine 37.5 mg/ Isosorbide dinitrate 20 mg 1 tablet oral 3 times daily (tid)"/>
+                <definitionCanonical>
+                  <display value="Hydralazine 37.5 mg/ Isosorbide dinitrate 20 mg 1 tablet oral 3 times daily (tid)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Cardiac Glycosides"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;197604 Digoxin 0.125 MG Oral Tablet]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Digoxin 0.125 micrograms tablet oral daily"/>
+                <definitionCanonical>
+                  <display value="Digoxin 0.125 micrograms tablet oral daily"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Admit to"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Diagnosis?"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Allergies"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Code Status"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Vital Signs and Monitoring"/>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text value="Vital signs"/>
+            <item>
+              <text/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <text value="Medical Ward?"/>
+          <type value="any"/>
+          <item>
+            <text value="Intake/output recording"/>
+            <type value="choice"/>
+            <item>
+              <text/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <text value="ICU?"/>
+          <type value="any"/>
+          <item>
+            <text value="Intake and output"/>
+            <type value="choice"/>
+          </item>
+          <item>
+            <text value="Invasive hemodynamic monitoring"/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Activity"/>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Nursing"/>
+        <item>
+          <text value="Urinary Catheter"/>
+          <type value="any"/>
+          <item>
+            <text/>
+            <item>
+              <text/>
+              <type value="any"/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <text value="Peripheral Intravenous (IV) Line"/>
+          <type value="any"/>
+          <item>
+            <text value="Insert peripheral IV line"/>
+            <type value="choice"/>
+          </item>
+        </item>
+        <item>
+          <text value="Fluid Restriction"/>
+          <type value="any"/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Diet"/>
+          <type value="any"/>
+          <item>
+            <text value="Cardiac diet"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Venous Thromboembolism (VTE) Prophylaxis"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Notify Clinician for:"/>
+          <type value="any"/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Immunizations"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+        <item>
+          <text value="Point of Care Tests"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Diagnostic Testing"/>
+        <item>
+          <text value="X-ray chest (Dx: heart failure)"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Oxygen"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consults and Referrals"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications"/>
+        <item>
+          <text value="IV Fluid"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Aspirin enteric coated, select one of the following:"/>
+          <type value="choice"/>
+        </item>
+        <item>
+          <text value="Diuretics"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Potassium Replacement"/>
+          <type value="any"/>
+          <item>
+            <text value="Potassium chloride 10-20 meq"/>
+            <type value="any"/>
+          </item>
+        </item>
+        <item>
+          <text value="Angiotensin-Converting Enzyme (ACE-I) Inhibitors [if not on Angiotensin Receptor Blockers (ARBs)]"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Angiotensin II Receptor Blockers (ARBs) [if not on ACE-I]"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Angiotensin Receptor-Neprilysin Inhibitors (ARNIs)"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Beta-Blockers"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Aldosterone Antagonists"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Hydralazine/Nitrates"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Cardiac Glycosides"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

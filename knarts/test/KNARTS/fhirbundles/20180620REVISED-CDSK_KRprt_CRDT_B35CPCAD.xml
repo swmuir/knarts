@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="cdf88754-ad05-53d2-a87d-1a959a52c8cb"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AL"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-872"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Chest Pain/Coronary artery disease (CAD) Documentation Template"/>
+        <title value="Cardiology: Chest Pain/Coronary artery disease (CAD) Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Adult with stable chest pain being considered for cardiology consultation (excluding unstable symptoms and acute coronary syndromes)"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Provider in a Primary Care Clinic"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <action>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Clinical Stability Assessment"/>
+            <description value="This documentation template is not applicable for unstable patients"/>
+            <action>
+              <action>
+                <title/>
+                <description value="This documentation template is not applicable for use with patients who are unstable based on clinician judgement. Examples of unstable patients include, but are not limited to, patients with chest pain pattern suggestive of ACS (e.g., those with new onset resting CP, CP with minimal exertion, new unstable angina pattern, ST-segment elevation, non–ST-segment elevation myocardial infarction on ECG, or suspected aortic dissection), and patients with any of the following symptoms or findings:"/>
+                <definitionCanonical>
+                  <display value="This documentation template is not applicable for use with patients who are unstable based on clinician judgement. Examples of unstable patients include, but are not limited to, patients with chest pain pattern suggestive of ACS (e.g., those with new onset resting CP, CP with minimal exertion, new unstable angina pattern, ST-segment elevation, non–ST-segment elevation myocardial infarction on ECG, or suspected aortic dissection), and patients with any of the following symptoms or findings:"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Consult Request, Stable Patient"/>
+            <action>
+              <title value="Coronary Artery Disease Risk"/>
+              <action>
+                <title/>
+                <description value="Provide a link to the American Heart Association Risk Calculator"/>
+                <definitionCanonical>
+                  <display value="Provide a link to the American Heart Association Risk Calculator"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="History and Physical"/>
+            </action>
+            <action>
+              <title value="Treatment Provided"/>
+            </action>
+            <action>
+              <title value="Laboratory Studies"/>
+              <description value="Each item in this section needs to include an expression, and a model (phenomenon testing result, thyroid result testing                             function measurement date within an interval of now to two years ago"/>
+            </action>
+            <action>
+              <title value="Imaging and Diagnostic Studies"/>
+              <description value="Images and diagnostic studies older than one year are not considered for inclusion in this documentation template.                                    For this documentation template, the following information should be included, if available from the prior 1 year.                                    Image and result text should be attached automatically if they are is provided for the 12-Lead Electrocardiogram Interpretation field."/>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Clinical Stability Assessment"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consult Request, Stable Patient"/>
+        <item>
+          <text value="Coronary Artery Disease Risk"/>
+        </item>
+        <item>
+          <text value="History and Physical"/>
+        </item>
+        <item>
+          <text value="Treatment Provided"/>
+        </item>
+        <item>
+          <text value="Laboratory Studies"/>
+        </item>
+        <item>
+          <text value="Imaging and Diagnostic Studies"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

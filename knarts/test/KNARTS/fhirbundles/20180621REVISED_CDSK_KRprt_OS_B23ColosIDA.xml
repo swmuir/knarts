@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="ea404948-68ef-5eff-9964-cf56e70ca975"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0004AH"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-49"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Gastroenterology: Colorectal Cancer Risk - Iron deficiency Order Set"/>
+        <title value="Gastroenterology: Colorectal Cancer Risk - Iron deficiency Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Routine unless otherwise identified"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="50811001 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Routine (qualifier value)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="5351000124100 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Colorectal Cancer Screening, Diagnostic Evaluation, or Surveillance"/>
+          </code>
+        </useContext>
+        <action>
+          <title value="Colorectal Cancer Risk – Iron Deficiency"/>
+          <action>
+            <title value="Laboratory Tests"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count 1 time (routine)"/>
+              <condition>
+                <kind value="applicability"/>
+                <expression>
+                  <language value="text/cql"/>
+                  <expression value=" NOT EXISTS 'Complete blood count'"/>
+                </expression>
+              </condition>
+              <definitionCanonical>
+                <display value="Complete blood count 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="42950004 |Iron measurement (procedure)|"/>
+              <description value="Iron 1 time (routine)"/>
+              <condition>
+                <kind value="applicability"/>
+                <expression>
+                  <language value="text/cql"/>
+                  <expression value=" NOT EXISTS 'Iron'"/>
+                </expression>
+              </condition>
+              <definitionCanonical>
+                <display value="Iron 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="489004 |Ferritin measurement (procedure)|"/>
+              <description value="Ferritin 1 time (routine)"/>
+              <condition>
+                <kind value="applicability"/>
+                <expression>
+                  <language value="text/cql"/>
+                  <expression value=" NOT EXISTS 'Ferritin'"/>
+                </expression>
+              </condition>
+              <definitionCanonical>
+                <display value="Ferritin 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="359979000 |Total iron binding capacity measurement (procedure)|"/>
+              <description value="Total iron binding capacity 1 time (routine)"/>
+              <condition>
+                <kind value="applicability"/>
+                <expression>
+                  <language value="text/cql"/>
+                  <expression value=" NOT EXISTS 'Total iron binding capacity'"/>
+                </expression>
+              </condition>
+              <definitionCanonical>
+                <display value="Total iron binding capacity 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="183523005 |Referral to gastroenterology service (procedure)|"/>
+              <description value="Referral Gastroenterology evaluate iron deficiency (routine)"/>
+              <definitionCanonical>
+                <display value="Referral Gastroenterology evaluate iron deficiency (routine)"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="[223464006 |Procedure education (procedure)]                                     ->(363702006 |Has focus (attribute))->[268548003 |Screening for malignant neoplasm of large intestine (procedure)]"/>
+              <description value="Colorectal cancer testing education (routine)"/>
+              <definitionCanonical>
+                <display value="Colorectal cancer testing education (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="f165e620-5c1d-4289-b327-d41b4cf3eaac |Education about bowel prep for colonoscopy (procedure)"/>
+              <description value="Bowel prep for colonoscopy education (routine)"/>
+              <definitionCanonical>
+                <display value="Bowel prep for colonoscopy education (routine)"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Complete blood count 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="26604007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Iron 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="42950004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Iron measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ferritin 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="489004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Ferritin measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Total iron binding capacity 1 time (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="359979000 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Total iron binding capacity measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Referral Gastroenterology evaluate iron deficiency (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="183523005 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to gastroenterology service (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Colorectal cancer testing education (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="223464006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure education (procedure)]                                     "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="268548003 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of large intestine (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Bowel prep for colonoscopy education (routine)"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="f165e620"/>
+          </coding>
+          <coding>
+            <code value="5c1d"/>
+          </coding>
+          <coding>
+            <code value="4289"/>
+          </coding>
+          <coding>
+            <code value="b327"/>
+          </coding>
+          <coding>
+            <code value="d41b4cf3eaac "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Education about bowel prep for colonoscopy (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

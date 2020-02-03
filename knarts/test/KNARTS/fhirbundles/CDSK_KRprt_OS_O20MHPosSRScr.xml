@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="88b26417-85e5-5de4-9267-2848aaf52e71"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-87"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Mental Health: Positive Suicide Risk Screening Order Set"/>
+        <title value="Mental Health: Positive Suicide Risk Screening Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Mental health providers; other physicians and nurses performing screening"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Patients identified as being at risk for suicide; members of patient cohorts identified for suicide risk screening"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Mental Health Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Consults"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="390866009 |Referral to mental health team (procedure)|"/>
+              <description value="Refer to mental health provider (routine)"/>
+              <definitionCanonical>
+                <display value="Refer to mental health provider (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="390866009 |Referral to mental health team (procedure)|"/>
+              <description value="Refer to mental health provider now (same day)"/>
+              <definitionCanonical>
+                <display value="Refer to mental health provider now (same day)"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Follow up"/>
+            <description value="Return Instructions"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Timeframe"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="185389009 |Follow-up visit (procedure)|"/>
+              <description value="Return to clinic in a specified time frame"/>
+              <definitionCanonical>
+                <display value="Return to clinic in a specified time frame"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consults"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Follow up"/>
+        <item>
+          <text value="Timeframe"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

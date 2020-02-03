@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="f7bf24fa-9c7a-5054-a7c6-9896e84e556f"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0004AH"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-37"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Electrophysiology (EP) Primary Prevention Implantable Cardioverter-defibrillator (ICD) Order Set"/>
+        <title value="Electrophysiology (EP) Primary Prevention Implantable Cardioverter-defibrillator (ICD) Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Increased risk of sudden cardiac death"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Requires upgrade of currently implanted device"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <action>
+              <title value="Electrophysiology Device Placement Referral"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="3926f554-a4c5-40d3-bcc5-03a2c9aa6a20 |Referral to electrophysiology service (procedure)"/>
+                <description value="Referral electrophysiology placement of ICD device"/>
+                <definitionCanonical>
+                  <display value="Referral electrophysiology placement of ICD device"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="3926f554-a4c5-40d3-bcc5-03a2c9aa6a20 |Referral to electrophysiology service (procedure)"/>
+                <description value="Referral electrophysiology placement of CRT device"/>
+                <definitionCanonical>
+                  <display value="Referral electrophysiology placement of CRT device"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Goal of Consult"/>
+              <action>
+                <title value="Consult Specialty: Electrophysiology"/>
+                <description value="Priority: Routine"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and Electrocardiogram"/>
+            <description value="Consider ordering prior to the electrophysiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months. Resting echocardiogram and chest x-ray are required if they have not been obtained within the past six months."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="29303009 |Electrocardiographic procedure (procedure)|"/>
+              <description value="Electrocardiogram to evaluate for potential ICD/CRT device implantation."/>
+              <definitionCanonical>
+                <display value="Electrocardiogram to evaluate for potential ICD/CRT device implantation."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="40701008 |Echocardiography (procedure)|"/>
+              <description value="Echocardiogram to evaluate for potential ICD/CRT device implantation."/>
+              <definitionCanonical>
+                <display value="Echocardiogram to evaluate for potential ICD/CRT device implantation."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="399208008 |Plain chest X-ray (procedure)|"/>
+              <description value="X-ray chest to evaluate for potential ICD/CRT device implantation."/>
+              <definitionCanonical>
+                <display value="X-ray chest to evaluate for potential ICD/CRT device implantation."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <description value="Consider the following tests to be completed prior to the electrophysiology consultation."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="85acf077-d744-48bc-b57a-fa3b5ce12d97 |Comprehensive metabolic panel (procedure)"/>
+              <description value="Comprehensive metabolic panel"/>
+              <definitionCanonical>
+                <display value="Comprehensive metabolic panel"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count"/>
+              <definitionCanonical>
+                <display value="Complete blood count"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+              <description value="Brain natriuretic peptide"/>
+              <definitionCanonical>
+                <display value="Brain natriuretic peptide"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="396451008 |Prothrombin time (procedure)|"/>
+              <description value="Prothrombin Time/International Normalized Ratio (INR)"/>
+              <definitionCanonical>
+                <display value="Prothrombin Time/International Normalized Ratio (INR)"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consults and Referrals"/>
+        <item>
+          <text value="Electrophysiology Device Placement Referral"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Goal of Consult"/>
+          <item>
+            <text value="Consult Specialty: Electrophysiology"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging and Electrocardiogram"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

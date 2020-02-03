@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="04436c8e-e526-55e7-bb12-814c6b08a0d3"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-61"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Post-Cardiac Catheterization Order Set"/>
+        <title value="Cardiology: Post-Cardiac Catheterization Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Cardiologists"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Adult Catheterization lab patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Inpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Cardiology Service"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients with suspected cardiac disease requiring invavise diagnosis and/or treatment"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Cardiac Catheterization"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Post-Cath Patient Placement"/>
+            <action>
+              <title value="Admit patient to:"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Other destination"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="305351004 |Admission to intensive care unit (procedure)|"/>
+                <description value="Intensive Care Unit (ICU)"/>
+                <definitionCanonical>
+                  <display value="Intensive Care Unit (ICU)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="1071000205100 |Admission to telemetry department (procedure)"/>
+                <description value="Telemetry Unit"/>
+                <definitionCanonical>
+                  <display value="Telemetry Unit"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="305408004 |Admission to surgical department (procedure)|"/>
+                <description value="Medical-Surgical Unit"/>
+                <definitionCanonical>
+                  <display value="Medical-Surgical Unit"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Vital Signs and Monitoring"/>
+            <action>
+              <title value="Select all that apply"/>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="Telemetry Monitoring"/>
+                  <action>
+                    <title value="422952004 |Cardiac telemetry (regime/therapy)|"/>
+                    <description value="Telemetry Monitoring"/>
+                    <definitionCanonical>
+                      <display value="Telemetry Monitoring"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="61746007 |Taking patient vital signs (procedure)|"/>
+                  <description value="Vital Signs every 4 hours"/>
+                  <definitionCanonical>
+                    <display value="Vital Signs every 4 hours"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="61746007 |Taking patient vital signs (procedure)|"/>
+                  <description value="Vital signs every 15 minutes times four, then every 30 minutes times four, then every 60 minutes for duration of bed rest"/>
+                  <definitionCanonical>
+                    <display value="Vital signs every 15 minutes times four, then every 30 minutes times four, then every 60 minutes for duration of bed rest"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Activity and Hemostasis Post Cardiac Catheterization"/>
+            <action>
+              <title value="For patient who is status post catheterization via radial artery: Select all that apply"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Transradial hemostasis band"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[51241000 |Control of hemorrhage (procedure)]                                                     ->(424226004 |Using device (attribute))->[c7179507-4a60-4fe0-b412-4b31320d4787 |Transradial hemostasis band, device (physical object)]"/>
+                  <description value="Transradial hemostasis band as specified"/>
+                  <definitionCanonical>
+                    <display value="Transradial hemostasis band as specified"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="For patient who is status post catheterization via femoral artery: Select all that apply"/>
+              <action>
+                <title value="Arterial closure device"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="Device information and instructions"/>
+                  <selectionBehavior value="any"/>
+                </action>
+                <action>
+                  <title value="[410619003 |Application (procedure)]                                                     ->(424226004 |Using device (attribute))->[3e6b54c1-c13c-4684-ac69-e81bd4b0d1e9 |Vascular closure device (physical object)]"/>
+                  <description value="Arterial closure device per local policy"/>
+                  <definitionCanonical>
+                    <display value="Arterial closure device per local policy"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Bed rest"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="225316001 |Bedrest (regime/therapy)|"/>
+                    <description value="Bed rest per local policy"/>
+                    <definitionCanonical>
+                      <display value="Bed rest per local policy"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="b4aeb053-3ced-4c16-8a36-f6db564bcc47 |Recommendation to maintain straight leg (procedure)"/>
+                  <description value="Maintain straight leg on the catheter site side during bed rest"/>
+                  <definitionCanonical>
+                    <display value="Maintain straight leg on the catheter site side during bed rest"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="398213004 |Log roll (procedure)|"/>
+                  <description value="Log roll side-to-side during bed rest as needed"/>
+                  <definitionCanonical>
+                    <display value="Log roll side-to-side during bed rest as needed"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="423171007 |Elevation of head of bed (procedure)|"/>
+                  <description value="Elevate head of bed 30 degrees 2 hours after procedure"/>
+                  <definitionCanonical>
+                    <display value="Elevate head of bed 30 degrees 2 hours after procedure"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Nursing Care"/>
+            <description value="Nursing Care Orders"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="444713005 |Assessment of catheter entry site (procedure)|"/>
+              <description value="Check access site every 15 minutes times four, then every 30 minutes times four, then every 60 minutes for duration of bed rest routine"/>
+              <definitionCanonical>
+                <display value="Check access site every 15 minutes times four, then every 30 minutes times four, then every 60 minutes for duration of bed rest routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="424411004 |Peripheral pulse taking (procedure)|"/>
+              <description value="Check distal pulses every 15 minutes times four, then every 30 minutes times four, then every 60 minutes for duration of bed rest routine"/>
+              <definitionCanonical>
+                <display value="Check distal pulses every 15 minutes times four, then every 30 minutes times four, then every 60 minutes for duration of bed rest routine"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Medications"/>
+            <description value="Select all that apply"/>
+            <action>
+              <title value="Aspirin"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;243670 Aspirin 81 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Aspirin 81 mg tablet orally every day"/>
+                <definitionCanonical>
+                  <display value="Aspirin 81 mg tablet orally every day"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Clopidogrel"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;749196 clopidogrel 300 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Clopidogrel 300 tablet orally, 1 time loading dose in catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Clopidogrel 300 tablet orally, 1 time loading dose in catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;749196 clopidogrel 300 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Clopidogrel 600 tablet orally, 1 time loading dose in catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Clopidogrel 600 tablet orally, 1 time loading dose in catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;309362 clopidogrel 75 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Clopidogrel 75 mg tablet orally every day beginning 1 day after loading dose"/>
+                  <definitionCanonical>
+                    <display value="Clopidogrel 75 mg tablet orally every day beginning 1 day after loading dose"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="Prasugrel"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;855812 prasugrel 10 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Prasugrel 60 mg tablet orally, 1 time loading dose in catheterization lab"/>
+                <definitionCanonical>
+                  <display value="Prasugrel 60 mg tablet orally, 1 time loading dose in catheterization lab"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;855812 prasugrel 10 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Prasugrel 10 mg tablet orally every day beginning 1 day after loading dose"/>
+                <definitionCanonical>
+                  <display value="Prasugrel 10 mg tablet orally every day beginning 1 day after loading dose"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Ticagrelor"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1116633 Ticagrelor 90 MG]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ticagrelor 180 mg tablet orally, 1 time loading dose in catheterization lab"/>
+                <definitionCanonical>
+                  <display value="Ticagrelor 180 mg tablet orally, 1 time loading dose in catheterization lab"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1116633 Ticagrelor 90 MG]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ticagrelor 90 mg tablet orally, 2 times a day beginning 1 day after loading dose"/>
+                <definitionCanonical>
+                  <display value="Ticagrelor 90 mg tablet orally, 2 times a day beginning 1 day after loading dose"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="1411000205104 |Comprehensive metabolic panel (procedure) "/>
+                <description value="Comprehensive Metabolic Panel now"/>
+                <definitionCanonical>
+                  <display value="Comprehensive Metabolic Panel now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="26604007 |Complete blood count (procedure)|"/>
+                <description value="Complete blood count (CBC) now and in 8 hours; if hemoglobin decrease >2 g/dl with the second CBC or any subsequent CBC, repeat the CBC in 8 hours again"/>
+                <definitionCanonical>
+                  <display value="Complete blood count (CBC) now and in 8 hours; if hemoglobin decrease >2 g/dl with the second CBC or any subsequent CBC, repeat the CBC in 8 hours again"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="26604007 |Complete blood count (procedure)|"/>
+                <description value="Complete blood count daily"/>
+                <definitionCanonical>
+                  <display value="Complete blood count daily"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+                <description value="Brain natriuretic peptide now"/>
+                <definitionCanonical>
+                  <display value="Brain natriuretic peptide now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="105000003 |Troponin measurement (procedure)|"/>
+                <description value="Troponin now"/>
+                <definitionCanonical>
+                  <display value="Troponin now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="38151008 |Magnesium measurement (procedure)|"/>
+                <description value="Magnesium now"/>
+                <definitionCanonical>
+                  <display value="Magnesium now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
+                <description value="INR now"/>
+                <definitionCanonical>
+                  <display value="INR now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+                <description value="aPTT now"/>
+                <definitionCanonical>
+                  <display value="aPTT now"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="302789003 |Capillary blood glucose measurement (procedure)|"/>
+                <description value="Fingerstick glucose now"/>
+                <definitionCanonical>
+                  <display value="Fingerstick glucose now"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and Diagnostic Testing"/>
+            <action>
+              <title value="Choose all that apply to patient"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Echocardiogram and additional parameters"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[40701008 |Echocardiography (procedure)]                                                     ->(363702006 |Has focus (attribute))->[370800005 |Evaluation of postoperative cardiac function (procedure)]"/>
+                  <description value="Echocardiogram postprocedural evaluation following cardiac catheterization"/>
+                  <definitionCanonical>
+                    <display value="Echocardiogram postprocedural evaluation following cardiac catheterization"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="268400002 |12 lead electrocardiogram (procedure)|"/>
+                <description value="12-lead ECG postprocedural evaluation following cardiac catheterization"/>
+                <definitionCanonical>
+                  <display value="12-lead ECG postprocedural evaluation following cardiac catheterization"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="268400002 |12 lead electrocardiogram (procedure)|"/>
+                <description value="12-lead ECG as needed for chest pain"/>
+                <definitionCanonical>
+                  <display value="12-lead ECG as needed for chest pain"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[42869005 |Diagnostic radiography of chest, combined posteroanterior and lateral (procedure)]                                             ->(363702006 |Has focus (attribute))->[370800005 |Evaluation of postoperative cardiac function (procedure)]"/>
+                <description value="X-ray chest PA and lateral postprocedural evaluation following cardiac catheterization"/>
+                <definitionCanonical>
+                  <display value="X-ray chest PA and lateral postprocedural evaluation following cardiac catheterization"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[394421000119103 |Plain x-ray of chest anteroposterior view (procedure)]                                             ->(424226004 |Using device (attribute))->[706348008 |Radiology mobile medical facility (physical object)]                                             ->(363702006 |Has focus (attribute))->[370800005 |Evaluation of postoperative cardiac function (procedure)]"/>
+                <description value="X-ray chest AP portable postprocedural evaluation following cardiac catheterization"/>
+                <definitionCanonical>
+                  <display value="X-ray chest AP portable postprocedural evaluation following cardiac catheterization"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Post-Cath Patient Placement"/>
+        <item>
+          <text value="Admit patient to:"/>
+          <type value="any"/>
+          <item>
+            <text value="Other destination"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Vital Signs and Monitoring"/>
+        <item>
+          <text value="Select all that apply"/>
+          <item>
+            <text/>
+            <type value="any"/>
+            <item>
+              <text value="Telemetry Monitoring"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Activity and Hemostasis Post Cardiac Catheterization"/>
+        <item>
+          <text value="For patient who is status post catheterization via radial artery: Select all that apply"/>
+          <type value="any"/>
+          <item>
+            <text value="Transradial hemostasis band"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="For patient who is status post catheterization via femoral artery: Select all that apply"/>
+          <item>
+            <text value="Arterial closure device"/>
+            <type value="any"/>
+            <item>
+              <text value="Device information and instructions"/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Bed rest"/>
+            <type value="any"/>
+            <item>
+              <text/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Nursing Care"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications"/>
+        <item>
+          <text value="Aspirin"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Clopidogrel"/>
+          <type value="any"/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Prasugrel"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Ticagrelor"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging and Diagnostic Testing"/>
+        <item>
+          <text value="Choose all that apply to patient"/>
+          <type value="any"/>
+          <item>
+            <text value="Echocardiogram and additional parameters"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

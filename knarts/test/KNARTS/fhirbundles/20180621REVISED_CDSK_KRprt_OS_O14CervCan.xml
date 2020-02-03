@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="85643801-dded-55c8-9ddf-c635f940d866"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008AA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-890"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Cervical Cancer Screening Order Set"/>
+        <title value="Women's Health: Cervical Cancer Screening Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Designated Women’s Health Providers"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Gynecologists"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="83685006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Gynecologist (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="At least 21 years of age or older"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="248152002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="5351000124100 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Obstetrics/Gynecology"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="702892004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Obstetrics and gynecology clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Women's Health"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="2651000175101 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Women's health service (qualifier value)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Laboratory Studies"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="If Age >= 30, then co-testing for HPV and cervical cytology is recommended, although cervical cytology alone is an option if patient prefers"/>
+              <action>
+                <title value="[700152009 |Human papillomavirus screening (procedure)]                                             ->(405813007 |Procedure site - Direct (attribute))->[71252005 |Cervix uteri structure (body structure)]"/>
+                <description value="HPV screen cervical cells as part of cervical cancer cotesting routine"/>
+                <definitionCanonical>
+                  <display value="HPV screen cervical cells as part of cervical cancer cotesting routine"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="[440623000 |Microscopic examination of cervical Papanicolaou smear (procedure)]                                     ->(363702006 |Has focus (attribute))->[171149006 |Screening for malignant neoplasm of cervix (procedure)]"/>
+              <description value="Papanicolaou test cervical cells for cervical cancer screening routine"/>
+              <definitionCanonical>
+                <display value="Papanicolaou test cervical cells for cervical cancer screening routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="417036008 |Liquid based cervical cytology screening (procedure)|"/>
+              <description value="Liquid-based cytology cervical cells for cervical cancer screening routine"/>
+              <definitionCanonical>
+                <display value="Liquid-based cytology cervical cells for cervical cancer screening routine"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="[243072006 |Cancer education (procedure)]                                     ->(363702006 |Has focus (attribute))->[171149006 |Screening for malignant neoplasm of cervix (procedure)]                                     "/>
+              <description value="Cervical cancer screening education (Pap smear testing, liquid-based cervical cytology, HPV testing, and cervical cancer) routine"/>
+              <definitionCanonical>
+                <display value="Cervical cancer screening education (Pap smear testing, liquid-based cervical cytology, HPV testing, and cervical cancer) routine"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="HPV screen cervical cells as part of cervical cancer cotesting routine"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="700152009 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Human papillomavirus screening (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(405813007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+          </coding>
+          <coding>
+            <code value=" Direct (attribute))"/>
+          </coding>
+          <coding>
+            <code value="71252005 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Cervix uteri structure (body structure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Papanicolaou test cervical cells for cervical cancer screening routine"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="440623000 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Microscopic examination of cervical Papanicolaou smear (procedure)]                                     "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="171149006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of cervix (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Liquid-based cytology cervical cells for cervical cancer screening routine"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="417036008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Liquid based cervical cytology screening (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Cervical cancer screening education (Pap smear testing, liquid-based cervical cytology, HPV testing, and cervical cancer) routine"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="243072006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Cancer education (procedure)]                                     "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="171149006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of cervix (procedure)]                                     "/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

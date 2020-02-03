@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="6ab2870a-7bc5-53c9-be4e-9fb798c50e15"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0007BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-884"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Osteoporosis Screening Rule"/>
+        <title value="Women's Health: Osteoporosis Screening Rule"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description value="Women's Health: Osteoporosis Screening KNART"/>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="Female"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="248152002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Routine"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Gynecology"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="702892004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Obstetrics and gynecology clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Outpatient Visit, >= 65 Years of Age, No Prior Dual-Energy X-ray Absorptiometry (DXA)"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Identify the patient as an osteoporosis screening candidate."/>
+              <definitionCanonical>
+                <display value="Identify the patient as an osteoporosis screening candidate."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Documentation Template: Osteoporosis Screening KNART."/>
+              <definitionCanonical>
+                <display value="Open Documentation Template: Osteoporosis Screening KNART."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Order Set: Osteoporosis Screening KNART."/>
+              <definitionCanonical>
+                <display value="Open Order Set: Osteoporosis Screening KNART."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Make screening guideline recommendations available for review."/>
+              <definitionCanonical>
+                <display value="Make screening guideline recommendations available for review."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Outpatient Visit, &lt; 65 Years of Age"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Identify the patient as an osteoporosis screening candidate"/>
+              <definitionCanonical>
+                <display value="Identify the patient as an osteoporosis screening candidate"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Order Set: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Order Set: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Make screening guideline recommendations available for review"/>
+              <definitionCanonical>
+                <display value="Make screening guideline recommendations available for review"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="&lt;= 15 Years Since Previous Dual-Energy X-ray Absorptiometry (DXA) Scan, >= 65 Years of Age, Most Recent T-Score >= -1.5"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Identify the patient as an osteoporosis screening candidate"/>
+              <definitionCanonical>
+                <display value="Identify the patient as an osteoporosis screening candidate"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Order Set: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Order Set: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Make screening guideline recommendations available for review"/>
+              <definitionCanonical>
+                <display value="Make screening guideline recommendations available for review"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="5 Years Since Previous Dual-Energy X-ray Absorptiometry (DXA) Scan, >= 65 Years of Age, Most Recent T-Score is > -2.0 and &lt; -1.5"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Identify the patient as an osteoporosis screening candidate"/>
+              <definitionCanonical>
+                <display value="Identify the patient as an osteoporosis screening candidate"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Order Set: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Order Set: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Make screening guideline recommendations available for review"/>
+              <definitionCanonical>
+                <display value="Make screening guideline recommendations available for review"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="1 Year Since Previous Dual-Energy X-ray Absorptiometry (DXA) Scan, >= 65 Years of Age, Most Recent T-Score is >= -2.49 and &lt;= -2"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Identify the patient as an osteoporosis screening candidate"/>
+              <definitionCanonical>
+                <display value="Identify the patient as an osteoporosis screening candidate"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Order Set: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Order Set: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Make screening guideline recommendations available for review"/>
+              <definitionCanonical>
+                <display value="Make screening guideline recommendations available for review"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Patient-Preferred Screening Interval"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Identify the patient as an osteoporosis screening candidate"/>
+              <definitionCanonical>
+                <display value="Identify the patient as an osteoporosis screening candidate"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Documentation Template: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Open Order Set: Osteoporosis Screening KNART"/>
+              <definitionCanonical>
+                <display value="Open Order Set: Osteoporosis Screening KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Make screening guideline recommendations available for review"/>
+              <definitionCanonical>
+                <display value="Make screening guideline recommendations available for review"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Identify the patient as an osteoporosis screening candidate."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Documentation Template: Osteoporosis Screening KNART."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Order Set: Osteoporosis Screening KNART."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make screening guideline recommendations available for review."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Identify the patient as an osteoporosis screening candidate"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Documentation Template: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Order Set: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make screening guideline recommendations available for review"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Identify the patient as an osteoporosis screening candidate"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Documentation Template: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Order Set: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make screening guideline recommendations available for review"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Identify the patient as an osteoporosis screening candidate"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Documentation Template: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Order Set: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make screening guideline recommendations available for review"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Identify the patient as an osteoporosis screening candidate"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Documentation Template: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Order Set: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make screening guideline recommendations available for review"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Identify the patient as an osteoporosis screening candidate"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Documentation Template: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Open Order Set: Osteoporosis Screening KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Make screening guideline recommendations available for review"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="5adfc19e-51c4-5ec0-bbf6-dd6ca3ff9bc5"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AM"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-876"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Gastroenterology: Hepatitis C Documentation Template"/>
+        <title value="Gastroenterology: Hepatitis C Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care physicians"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Gastroenterologists"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Medical Service"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <action>
+          <title value="HPI, Problem List, Medication List, Labs and Imaging results for patients under treatment for Hepatitis C"/>
+          <action>
+            <title value="Demographics"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Problem List"/>
+          </action>
+          <action>
+            <title value="Medication List"/>
+            <description value="Include both prescription and OTC medications"/>
+          </action>
+          <action>
+            <title value="History of Present Illness"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Other medications or treatments?"/>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Liver Complications or Extrahepatic Manifestations."/>
+            <selectionBehavior value="any"/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action>
+              <action/>
+            </action>
+            <action>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Prior Lab Results"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <action>
+                <action>
+                  <definitionCanonical>
+                    <display/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+          </action>
+          <action>
+            <title value="Imaging Results"/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Demographics"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Problem List"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medication List"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="History of Present Illness"/>
+        <item>
+          <text value="Other medications or treatments?"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Liver Complications or Extrahepatic Manifestations."/>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Prior Lab Results"/>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging Results"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

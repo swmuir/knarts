@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="7b21baf4-5b61-52a6-bcb2-fa7b88c0bdc7"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AK"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-68"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Mental Health: Suicide Risk Assessment Documentation Template"/>
+        <title value="Mental Health: Suicide Risk Assessment Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Mental health providers; other physicians and nurses performing screening"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Patients identified as being at risk for suicide; members of patient cohorts identified for suicide risk screening"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Mental Health Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Reason for Visit"/>
+          </action>
+          <action>
+            <title value="Screening"/>
+            <action>
+              <title value="Primary Screen - Patient Health Questionnaire – Plus (PHQ-plus)"/>
+              <description value="Responses to the PHQ-plus are interpreted using the numbers following each response option below.  Any score greater than 0 on the third question is a positive result for suicide risk.  A score >=3 on the combined responses from the first 2 questions is considered a positive screen for depression."/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Primary screen (PHQ-plus) is defined as questions 1, 2, and 9 from PHQ-9, and the PHQ-2 is defined as questions 1 and 2 from the PHQ-9"/>
+              <description value="Components of this form below are adapted from (Kroenke 2001)"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Ask the patient the following questions:"/>
+              <description value="Over the past two weeks, how often have you been bothered by any of the following problems?"/>
+              <action>
+                <title value="Little interest or pleasure in doing things?"/>
+              </action>
+              <action>
+                <title value="Feeling down, depressed, or hopeless?"/>
+              </action>
+              <action>
+                <title value="Thoughts that you would be better off dead or of hurting yourself in some way?"/>
+              </action>
+            </action>
+            <action>
+              <title value="PHQ-plus results for suicide risk"/>
+            </action>
+            <action>
+              <title value="This screen has resulted in a positive result for suicide risk on the primary screen (PHQ-plus)"/>
+              <description value="The secondary screen [Columbia-Suicide Severity Rating Scale (C-SSRS) screen] is required."/>
+            </action>
+            <action>
+              <title value="This screen has resulted in a negative result for suicide risk on the primary screen (PHQ-plus)"/>
+              <description value="The secondary screen [Columbia-Suicide Severity Rating Scale (C-SSRS) screen] is not required."/>
+            </action>
+            <action>
+              <title value="Secondary Screen [Columbia-Suicide Severity Rating Scale (C-SSRS) Screen]"/>
+              <description value="The secondary screen (C-SSRS screen) must be evaluated based on a step-wise analysis of question answers as described in the behaviors below. Adapted from Posner 2009 and Tri-Service Workflow 2017. Select one response per question.The timeframe for questions 1 through 5 is within the past month"/>
+              <action>
+                <title value="The timeframe for questions 1 through 5 is within the past month"/>
+                <action>
+                  <title value="Wish to be dead: Person endorses thoughts about a wish to be dead or not alive anymore, or wish to fall asleep and not wake up."/>
+                </action>
+                <action>
+                  <title value="Suicidal thoughts: General non-specific thoughts of wanting to end one’s life/die by suicide, “I’ve thought about killing myself” without general thoughts of ways to kill oneself/associated methods, intent, or plan."/>
+                </action>
+                <action>
+                  <title value="Suicidal thoughts with method (without specific plan or intent to act): Person endorses thoughts of suicide and has thought of at least one method during the assessment period."/>
+                  <description value="This is different than a specific plan with time, place or method details worked out. &quot;I thought about taking an overdose, but I never made a specific plan as to when where or how I would actually do it....and I would never go through with it.&quot;"/>
+                </action>
+                <action>
+                  <title value="Suicidal intent (without specific plan): Active suicidal thoughts of killing oneself and patient reports having some intent to act on such thoughts, as opposed to &quot;I have the thoughts, but I definitely will not do anything about them.&quot;"/>
+                </action>
+              </action>
+              <action>
+                <action>
+                  <title value="Suicide intent with specific plan: Thoughts of killing oneself with details of plan fully or partially worked out and person has some intent to carry it out."/>
+                </action>
+              </action>
+              <action>
+                <title value="The timeframe for question 6a is the patient’s entire lifetime"/>
+                <description value="Suicidal behavior question:"/>
+              </action>
+              <action>
+                <title value="The timeframe for question 6b is the past 3 months"/>
+              </action>
+            </action>
+            <action>
+              <title value="This screen has resulted in a positive result on the C-SSRS and the VA Comprehensive Suicide Risk Assessment should be administered and used for risk factors and warning signs, protective factors, history of suicide attempts, and assessment and plan."/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="This screen has resulted in a negative result on the C-SSRS."/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Plan"/>
+            <action>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education."/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Reason for Visit"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Screening"/>
+        <item>
+          <text value="Primary Screen - Patient Health Questionnaire – Plus (PHQ-plus)"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Primary screen (PHQ-plus) is defined as questions 1, 2, and 9 from PHQ-9, and the PHQ-2 is defined as questions 1 and 2 from the PHQ-9"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Ask the patient the following questions:"/>
+          <item>
+            <text value="Little interest or pleasure in doing things?"/>
+          </item>
+          <item>
+            <text value="Feeling down, depressed, or hopeless?"/>
+          </item>
+          <item>
+            <text value="Thoughts that you would be better off dead or of hurting yourself in some way?"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="PHQ-plus results for suicide risk"/>
+        </item>
+        <item>
+          <text value="This screen has resulted in a positive result for suicide risk on the primary screen (PHQ-plus)"/>
+        </item>
+        <item>
+          <text value="This screen has resulted in a negative result for suicide risk on the primary screen (PHQ-plus)"/>
+        </item>
+        <item>
+          <text value="Secondary Screen [Columbia-Suicide Severity Rating Scale (C-SSRS) Screen]"/>
+          <item>
+            <text value="The timeframe for questions 1 through 5 is within the past month"/>
+            <item>
+              <text value="Wish to be dead: Person endorses thoughts about a wish to be dead or not alive anymore, or wish to fall asleep and not wake up."/>
+            </item>
+            <item>
+              <text value="Suicidal thoughts: General non-specific thoughts of wanting to end one’s life/die by suicide, “I’ve thought about killing myself” without general thoughts of ways to kill oneself/associated methods, intent, or plan."/>
+            </item>
+            <item>
+              <text value="Suicidal thoughts with method (without specific plan or intent to act): Person endorses thoughts of suicide and has thought of at least one method during the assessment period."/>
+            </item>
+            <item>
+              <text value="Suicidal intent (without specific plan): Active suicidal thoughts of killing oneself and patient reports having some intent to act on such thoughts, as opposed to &quot;I have the thoughts, but I definitely will not do anything about them.&quot;"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+            <item>
+              <text value="Suicide intent with specific plan: Thoughts of killing oneself with details of plan fully or partially worked out and person has some intent to carry it out."/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="The timeframe for question 6a is the patient’s entire lifetime"/>
+          </item>
+          <item>
+            <text value="The timeframe for question 6b is the past 3 months"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="This screen has resulted in a positive result on the C-SSRS and the VA Comprehensive Suicide Risk Assessment should be administered and used for risk factors and warning signs, protective factors, history of suicide attempts, and assessment and plan."/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="This screen has resulted in a negative result on the C-SSRS."/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Plan"/>
+        <item>
+          <text/>
+          <type value="choice"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Patient and Caregiver Education."/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

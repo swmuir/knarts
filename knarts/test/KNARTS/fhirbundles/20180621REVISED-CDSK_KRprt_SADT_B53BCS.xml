@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="2c790646-af49-53ef-983d-f2923f0afb9c"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AL"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-89"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Breast Cancer Screening Documentation Template"/>
+        <title value="Women's Health: Breast Cancer Screening Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Female outpatients over the age of 18"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Obstetrics/Gynecology"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="702892004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Obstetrics and gynecology clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Women's Health"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="2651000175101 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Women's health service (qualifier value)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Breast Cancer Screening History"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Last screening result"/>
+            </action>
+            <action>
+              <action>
+                <title value="Abnormal result"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Breast Cancer Risk Assessment"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <action>
+                <title/>
+                <description value="Evaluate the patient’s risk factors and determine the need for genetic evaluation and/or early, more frequent, or additional breast imaging."/>
+                <definitionCanonical>
+                  <display value="Evaluate the patient’s risk factors and determine the need for genetic evaluation and/or early, more frequent, or additional breast imaging."/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Decline Breast Cancer Screening"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Stop Breast Cancer Screening"/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Breast Cancer Screening History"/>
+        <item>
+          <text value="Last screening result"/>
+        </item>
+        <item>
+          <text/>
+          <item>
+            <text value="Abnormal result"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Breast Cancer Risk Assessment"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Decline Breast Cancer Screening"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Stop Breast Cancer Screening"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="47229c7e-522c-59c6-ab26-f8ddc2809e29"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0003AE"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-31"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Endocrinology: Hypoglycemia Rule"/>
+        <title value="Endocrinology: Hypoglycemia Rule"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Clinical Providers caring for adult patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Adult outpatient with an active problem of either diabetes mellitus, type 1 or type 2"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Emergency Department (ED)"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Inpatient hospital"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Urgent care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Care and Management of the Diabetic Patient"/>
+          </code>
+        </useContext>
+        <action>
+          <title value="Symptomatic Hypoglycemia"/>
+          <action>
+            <title value="Primary Care: Symptopatic Hypglycemia"/>
+            <description value="Patient Episode of Hypglycemia Alerts"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the independent practitioner saying, “Patient has had an episode of hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the independent practitioner saying, “Patient has had an episode of hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the pharmacist saying, “Patient has had an episode of hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the pharmacist saying, “Patient has had an episode of hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the care manager saying, “Patient has had an episode of hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, and psychosocial barriers. Refer to services as needed.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the care manager saying, “Patient has had an episode of hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, and psychosocial barriers. Refer to services as needed.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the certified diabetes educator saying, “Patient has had an episode of hypoglycemia. Address any identified self-management issues.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the certified diabetes educator saying, “Patient has had an episode of hypoglycemia. Address any identified self-management issues.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the dietitian saying, “Patient has had an episode of hypoglycemia. Address any identified nutritional issues.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the dietitian saying, “Patient has had an episode of hypoglycemia. Address any identified nutritional issues.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the social worker saying, “Patient has had an episode of hypoglycemia. Address any identified psychosocial barriers to care.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the social worker saying, “Patient has had an episode of hypoglycemia. Address any identified psychosocial barriers to care.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the care coordinator saying, “Patient has had an episode of hypoglycemia. Make sure that an urgent visit with the prescriber of their hypoglycemic medications is scheduled and completed.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the care coordinator saying, “Patient has had an episode of hypoglycemia. Make sure that an urgent visit with the prescriber of their hypoglycemic medications is scheduled and completed.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate Documentation Template: Hypoglycemia KNART"/>
+              <definitionCanonical>
+                <display value="Activate Documentation Template: Hypoglycemia KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate Order Set: Hypoglycemia KNART"/>
+              <definitionCanonical>
+                <display value="Activate Order Set: Hypoglycemia KNART"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Asymptomatic but at Risk for Hypoglycemia"/>
+            <description value="Hypoglycemia Risk Alerts"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the clinical provider saying, “Patient is at risk for hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the clinical provider saying, “Patient is at risk for hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the pharmacist saying, “Patient is at risk for hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the pharmacist saying, “Patient is at risk for hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the care manager saying, “Patient is at risk for hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, psychosocial barriers. Refer to services as needed.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the care manager saying, “Patient is at risk for hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, psychosocial barriers. Refer to services as needed.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the certified diabetes educator saying, “Patient is at risk for hypoglycemia. Address any identified self-management issues.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the certified diabetes educator saying, “Patient is at risk for hypoglycemia. Address any identified self-management issues.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the dietitian saying, “Patient is at risk for hypoglycemia. Address any identified nutritional issues.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the dietitian saying, “Patient is at risk for hypoglycemia. Address any identified nutritional issues.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the social worker saying, “Patient is at risk for hypoglycemia. Address any identified psychosocial barriers to care.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the social worker saying, “Patient is at risk for hypoglycemia. Address any identified psychosocial barriers to care.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the care coordinator saying, “Patient is at risk for hypoglycemia. Make sure that a visit with the prescriber  of their hypoglycemic medications is scheduled and completed.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the care coordinator saying, “Patient is at risk for hypoglycemia. Make sure that a visit with the prescriber  of their hypoglycemic medications is scheduled and completed.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
+              <definitionCanonical>
+                <display value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate Documentation Template: Hypoglycemia KNART"/>
+              <definitionCanonical>
+                <display value="Activate Documentation Template: Hypoglycemia KNART"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Actifvate Order Set: Hypoglycemia KNART"/>
+              <definitionCanonical>
+                <display value="Actifvate Order Set: Hypoglycemia KNART"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the independent practitioner saying, “Patient has had an episode of hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the pharmacist saying, “Patient has had an episode of hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the care manager saying, “Patient has had an episode of hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, and psychosocial barriers. Refer to services as needed.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the certified diabetes educator saying, “Patient has had an episode of hypoglycemia. Address any identified self-management issues.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the dietitian saying, “Patient has had an episode of hypoglycemia. Address any identified nutritional issues.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the social worker saying, “Patient has had an episode of hypoglycemia. Address any identified psychosocial barriers to care.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the care coordinator saying, “Patient has had an episode of hypoglycemia. Make sure that an urgent visit with the prescriber of their hypoglycemic medications is scheduled and completed.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate Documentation Template: Hypoglycemia KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate Order Set: Hypoglycemia KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the clinical provider saying, “Patient is at risk for hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the pharmacist saying, “Patient is at risk for hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the care manager saying, “Patient is at risk for hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, psychosocial barriers. Refer to services as needed.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the certified diabetes educator saying, “Patient is at risk for hypoglycemia. Address any identified self-management issues.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the dietitian saying, “Patient is at risk for hypoglycemia. Address any identified nutritional issues.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the social worker saying, “Patient is at risk for hypoglycemia. Address any identified psychosocial barriers to care.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the care coordinator saying, “Patient is at risk for hypoglycemia. Make sure that a visit with the prescriber  of their hypoglycemic medications is scheduled and completed.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate Documentation Template: Hypoglycemia KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Actifvate Order Set: Hypoglycemia KNART"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

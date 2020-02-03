@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="d56a4d73-6ff6-529c-b51c-af9d1f8db2f7"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0007CA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-59"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Inpatient Heparin Anticoagulation Protocol Rule"/>
+        <title value="Cardiology: Inpatient Heparin Anticoagulation Protocol Rule"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Hospitalists, Residents and other ordering providers involved in managing the patient cohort"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Inpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Surgical and Medical Service"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Adult inpatients requiring therapeutic anticoagulation management"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Acute DVT of Leg Treated with Vitamin K Antagonist"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="High Clinical Suspicion of Acute VTE"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Intermediate Clinical Suspicion of Acute VTE and Results of Diagnostic Tests Expected to Be Delayed > 4 Hours"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute Isolated Distal DVT of Leg and Severe Symptoms or Risk Factors for Extension"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute Isolated Distal DVT of Leg if Thrombus Extends within Distal System or into Proximal Veins"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute DVT of Leg with Thrombectomy"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient should be considered for the same intensity and duration of anticoagulation therapy irrespective of the thrombosis removal."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient should be considered for the same intensity and duration of anticoagulation therapy irrespective of the thrombosis removal."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute Proximal DVT of Leg and IVC Filter If Risk of Bleeding Resolves"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute Pulmonary Embolism (PE)"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="High Clinical Suspicion of Acute PE"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Intermediate Clinical Suspicion of Acute PE if Results of Diagnostic Tests Expected to Be Delayed > 4 Hours"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute PE and IVC Filter if Risk of Bleeding Resolves"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Asymptomatic PE"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient should be considered for the same anticoagulation therapy irrespective of the absence of symptoms related to the pulmonary embolism."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient should be considered for the same anticoagulation therapy irrespective of the absence of symptoms related to the pulmonary embolism."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute Upper-Extremity DVT That Involves Axillary or More Proximal Veins"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Acute Upper-Extremity DVT with Thrombolysis"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient should be considered for the same intensity and duration of anticoagulation therapy irrespective of the thrombolysis."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient should be considered for the same intensity and duration of anticoagulation therapy irrespective of the thrombolysis."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Symptomatic Splanchnic Vein Thrombosis"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Symptomatic Hepatic Vein Thrombosis"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              <definitionCanonical>
+                <display value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Perioperative Anticoagulation with Mechanical Heart Valve, Atrial Fibrillation, or VTE at High Risk for Additional Thromboembolism"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient should be managed according to the American College of Chest Physicians perioperative anticoagulation management guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278059/)."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient should be managed according to the American College of Chest Physicians perioperative anticoagulation management guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278059/)."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Perioperative Anticoagulation with UFH - Timing of Pre-surgical Stopping of UFH"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient should be managed according to the American College of Chest Physicians perioperative anticoagulation management guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278059/)."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient should be managed according to the American College of Chest Physicians perioperative anticoagulation management guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278059/)."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Pregnancy with Antiphospholipid Antibodies (APLA) Syndrome"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient should be managed according to the American College of Chest Physicians pregnancy anticoagulation guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278054/)."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient should be managed according to the American College of Chest Physicians pregnancy anticoagulation guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278054/)."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Pregnancy with Mechanical Heart Valve"/>
+            <action>
+              <title/>
+              <description value="Notify the provider that the patient should be managed according to the American College of Chest Physicians pregnancy anticoagulation guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278054/)."/>
+              <definitionCanonical>
+                <display value="Notify the provider that the patient should be managed according to the American College of Chest Physicians pregnancy anticoagulation guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278054/)."/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient should be considered for the same intensity and duration of anticoagulation therapy irrespective of the thrombosis removal."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient should be considered for the same anticoagulation therapy irrespective of the absence of symptoms related to the pulmonary embolism."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient should be considered for the same intensity and duration of anticoagulation therapy irrespective of the thrombolysis."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Generate the Inpatient Heparin Anticoagulation Order Set KNART."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient should be managed according to the American College of Chest Physicians perioperative anticoagulation management guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278059/)."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient should be managed according to the American College of Chest Physicians perioperative anticoagulation management guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278059/)."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient should be managed according to the American College of Chest Physicians pregnancy anticoagulation guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278054/)."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that the patient should be managed according to the American College of Chest Physicians pregnancy anticoagulation guidelines (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278054/)."/>
+        <kind/>
+        <code/>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

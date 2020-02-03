@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="ef9a8ba0-be72-55dd-b662-105d2182039f"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008CA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-93"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Osteoporosis Screening Order Set"/>
+        <title value="Women's Health: Osteoporosis Screening Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="Female"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Women's Health"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Laboratory Testing"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count"/>
+              <definitionCanonical>
+                <display value="Complete blood count"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
+              <description value="Complete metabolic panel"/>
+              <definitionCanonical>
+                <display value="Complete metabolic panel"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="61167004 |Thyroid stimulating hormone measurement (procedure)|"/>
+              <description value="Thyroid stimulating hormone"/>
+              <definitionCanonical>
+                <display value="Thyroid stimulating hormone"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="447678008 |Measurement of 25-hydroxyergocalciferol (procedure)|"/>
+              <description value="25- hydroxyvitamin D"/>
+              <definitionCanonical>
+                <display value="25- hydroxyvitamin D"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="313492004 |24 hour urine calcium output measurement (procedure)|"/>
+              <description value="24-hour urinary calcium"/>
+              <definitionCanonical>
+                <display value="24-hour urinary calcium"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging Studies"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="241686001 |Dual energy X-ray photon absorptiometry (procedure)|"/>
+              <description value="Dual-energy x-ray absorptiometry screen for osteoporosis"/>
+              <definitionCanonical>
+                <display value="Dual-energy x-ray absorptiometry screen for osteoporosis"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="394936006 |Osteoporosis health education (procedure)|"/>
+              <description value="Osteoporosis education"/>
+              <definitionCanonical>
+                <display value="Osteoporosis education"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <description value="Based upon the patient’s history, indicate the appropriate options for the screening osteoporosis order."/>
+            <action>
+              <title value="To determine appropriate osteoporosis screening for this patient, please provide the following information."/>
+              <action>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Referring Physician Information?"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Complete blood count"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="26604007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Complete metabolic panel"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="1411000205104 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Comprehensive metabolic panel (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Thyroid stimulating hormone"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="61167004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Thyroid stimulating hormone measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="25- hydroxyvitamin D"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="447678008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of 25"/>
+          </coding>
+          <coding>
+            <code value="hydroxyergocalciferol (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="24-hour urinary calcium"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="313492004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="24 hour urine calcium output measurement (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Dual-energy x-ray absorptiometry screen for osteoporosis"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="241686001 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Dual energy X"/>
+          </coding>
+          <coding>
+            <code value="ray photon absorptiometry (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Osteoporosis education"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="394936006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Osteoporosis health education (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="To determine appropriate osteoporosis screening for this patient, please provide the following information."/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Referring Physician Information?"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

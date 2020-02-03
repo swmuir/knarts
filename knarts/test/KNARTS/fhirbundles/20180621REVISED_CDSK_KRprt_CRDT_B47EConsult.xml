@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="8d4512ca-6e86-5a7e-ac2d-2ff6d15c7352"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AJ"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-63"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="General E-Consult Documentation Template"/>
+        <title value="General E-Consult Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Clinical Providers"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="All patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Stat E-Consult: response within 24 hours; Routine E-Consult: response as soon as possible, but within 7 days; Routine E-Consult with Scheduling Instructions: response time-frame specified by ordering provider"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="All to include Inpatient and outpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Any clinical specialty needing an E-Consult"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="E-Consult Request"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Select Specialty Service for E-Consult"/>
+            </action>
+            <action>
+              <title value="Surgery"/>
+            </action>
+            <action>
+              <title value="Obstetrics and Gynecology"/>
+            </action>
+            <action>
+              <title value="Radiology"/>
+            </action>
+            <action>
+              <title value="Ancillary Clinical Services"/>
+            </action>
+            <action>
+              <title value="Reason for E-Consult?"/>
+            </action>
+            <action>
+              <title value="Indicate patient’s location"/>
+            </action>
+            <action>
+              <title value="Other Specific Location"/>
+            </action>
+            <action>
+              <title value="Specify E-Consult Priority as follows"/>
+            </action>
+            <action>
+              <title value="STAT (Within 24 hours)"/>
+            </action>
+            <action>
+              <title value="ROUTINE (As soon as poosible but within 7 days)"/>
+            </action>
+            <action>
+              <title value="ROUTINE WITH SCHEDULING INSTRUCTIONS (Ordering provider specifies timeframe)"/>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="E-Consult Request"/>
+        <item>
+          <text value="Select Specialty Service for E-Consult"/>
+        </item>
+        <item>
+          <text value="Surgery"/>
+        </item>
+        <item>
+          <text value="Obstetrics and Gynecology"/>
+        </item>
+        <item>
+          <text value="Radiology"/>
+        </item>
+        <item>
+          <text value="Ancillary Clinical Services"/>
+        </item>
+        <item>
+          <text value="Reason for E-Consult?"/>
+        </item>
+        <item>
+          <text value="Indicate patient’s location"/>
+        </item>
+        <item>
+          <text value="Other Specific Location"/>
+        </item>
+        <item>
+          <text value="Specify E-Consult Priority as follows"/>
+        </item>
+        <item>
+          <text value="STAT (Within 24 hours)"/>
+        </item>
+        <item>
+          <text value="ROUTINE (As soon as poosible but within 7 days)"/>
+        </item>
+        <item>
+          <text value="ROUTINE WITH SCHEDULING INSTRUCTIONS (Ordering provider specifies timeframe)"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

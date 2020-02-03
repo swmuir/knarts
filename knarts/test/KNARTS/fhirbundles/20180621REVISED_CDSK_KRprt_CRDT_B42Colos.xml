@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="c9e94434-c685-5a5b-af50-29d0406e3894"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AK"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-875"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Gastroenterology: Colorectal Cancer Risk Documentation Template"/>
+        <title value="Gastroenterology: Colorectal Cancer Risk Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care Provider"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Colorectal Cancer Screening, Diagnostic Evaluation, or Surveillance"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <action>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Reason for Presentation"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Reason for Consult"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Colorectal Cancer Screening: Average Risk Patient"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Colorectal Cancer Screening Diagnostics: Follow-up Positive Stool Test"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Colorectal Cancer Diagnostics: Positive Imaging Screening Test"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <action/>
+            </action>
+            <action>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Follow-up Abnormal Flexible Sigmoidoscopy"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Follow-up Abnormal Colonoscopy"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Personal History of Colorectal Polyp"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Personal History of Colorectal Cancer"/>
+            <action>
+              <title value="Follow-up Personal History of Colorectal Cancer"/>
+            </action>
+            <action>
+              <title value="First Follow-up Colonoscopy Performed?"/>
+            </action>
+            <action>
+              <title value="Second Surveillance Colonoscopy Performed?"/>
+            </action>
+            <action>
+              <title value="Third Surveillance Colonoscopy Performed?"/>
+            </action>
+            <action>
+              <title value="Subsequent Surveillance Completed?"/>
+            </action>
+          </action>
+          <action>
+            <title value="Family History of Colon Cancer, Colon Cancer Syndrome or Advanced Adenoma"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action/>
+              <action/>
+            </action>
+            <action>
+              <title/>
+              <description value="Refer to Table 5"/>
+              <definitionCanonical>
+                <display value="Refer to Table 5"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Refer to Table 10"/>
+              <definitionCanonical>
+                <display value="Refer to Table 10"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Inflammatory Bowel Disease"/>
+            <selectionBehavior value="any"/>
+            <action/>
+            <action>
+              <title value="Most recent colonoscopy"/>
+            </action>
+          </action>
+          <action>
+            <title value="Pertinent History"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Signs and Symptoms"/>
+            </action>
+            <action>
+              <title value="Diagnostic Procedures"/>
+              <action/>
+              <action/>
+              <action/>
+            </action>
+            <action>
+              <title value="Medical History"/>
+            </action>
+            <action>
+              <title value="Surgical History"/>
+            </action>
+            <action>
+              <title value="Medications"/>
+            </action>
+            <action>
+              <title value="Laboratory Test Results"/>
+            </action>
+            <action>
+              <title value="Plan"/>
+              <description value="Plan, including tests, referrals, screening intervals, and screening start and discontinuation age as applicable, discussed with and agreed to by patient."/>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Reason for Presentation"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Reason for Consult"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Colorectal Cancer Screening: Average Risk Patient"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Colorectal Cancer Screening Diagnostics: Follow-up Positive Stool Test"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Colorectal Cancer Diagnostics: Positive Imaging Screening Test"/>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Follow-up Abnormal Flexible Sigmoidoscopy"/>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Follow-up Abnormal Colonoscopy"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Personal History of Colorectal Polyp"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Personal History of Colorectal Cancer"/>
+        <item>
+          <text value="Follow-up Personal History of Colorectal Cancer"/>
+        </item>
+        <item>
+          <text value="First Follow-up Colonoscopy Performed?"/>
+        </item>
+        <item>
+          <text value="Second Surveillance Colonoscopy Performed?"/>
+        </item>
+        <item>
+          <text value="Third Surveillance Colonoscopy Performed?"/>
+        </item>
+        <item>
+          <text value="Subsequent Surveillance Completed?"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Family History of Colon Cancer, Colon Cancer Syndrome or Advanced Adenoma"/>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Inflammatory Bowel Disease"/>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text value="Most recent colonoscopy"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Pertinent History"/>
+        <item>
+          <text value="Signs and Symptoms"/>
+        </item>
+        <item>
+          <text value="Diagnostic Procedures"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Medical History"/>
+        </item>
+        <item>
+          <text value="Surgical History"/>
+        </item>
+        <item>
+          <text value="Medications"/>
+        </item>
+        <item>
+          <text value="Laboratory Test Results"/>
+        </item>
+        <item>
+          <text value="Plan"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="d41ea9b1-89ab-55ac-885a-1e399ae4c3e3"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008CA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-905"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Rheumatology: Psoriatic Arthritis Order Set"/>
+        <title value="Rheumatology: Psoriatic Arthritis Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Medications"/>
+            <action>
+              <title value="Consider one of the following medications for alleviation of pain"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;197806 Ibuprofen 600 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ibuprofen 600 mg tablet oral every 6 hours as needed for pain 120 tablets 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Ibuprofen 600 mg tablet oral every 6 hours as needed for pain 120 tablets 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;197807 Ibuprofen 800 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Ibuprofen 800 mg tablet oral every 8 hours as needed for pain 90 tablets 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Ibuprofen 800 mg tablet oral every 8 hours as needed for pain 90 tablets 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;152695 meloxicam 15 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Meloxicam 15 mg tablet oral daily 1 time 30 tablets 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Meloxicam 15 mg tablet oral daily 1 time 30 tablets 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;198014 Naproxen 500 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                <description value="Naproxen 500 mg tablet oral daily 2 times as needed for pain 60 tablets 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Naproxen 500 mg tablet oral daily 2 times as needed for pain 60 tablets 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <action>
+              <action>
+                <title value="Laboratory Studies"/>
+                <description value="The following laboratory studies will display below for you to order only if the patient has not had the study done in the last 3 months: Complete Blood Count, Complete Metabolic Panel, C-reactive protein, Erythrocyte Sedimentation Rate."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="26604007 |Complete blood count (procedure)|"/>
+                  <description value="Complete blood count 1 time routine"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'completeBloodCountLabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Complete blood count 1 time routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="85acf077-d744-48bc-b57a-fa3b5ce12d97 |Complete metabolic profile (procedure)|"/>
+                  <description value="Complete metabolic panel 1 time routine"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'completeMetabolicPanelLabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Complete metabolic panel 1 time routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="55235003 |C-reactive protein measurement (procedure)|"/>
+                  <description value="C-reactive protein 1 time routine"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'cReactiveProteinLabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="C-reactive protein 1 time routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="416838001 |Erythrocyte sedimentation rate measurement (procedure)|"/>
+                  <description value="Erythrocyte Sedimentation Rate"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'erythrocyteSedimentationRateLabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Erythrocyte Sedimentation Rate"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="One-Time Laboratory Studies"/>
+                <description value="The following laboratory studies will display below for you to order only if the patient has never had this study done at any time in the past: Anti-cyclic citrullinated peptide, Human Leukocyte antigen B27, Rheumatoid factor, Serum Uric Acid."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="408200008 |Anti-cyclic citrullinated peptide antibody level (procedure)|"/>
+                  <description value="Anti-cyclic citrullinated peptide 1 time routine"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'antiCyclicCitrullinatedPeptideAntibodyLabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Anti-cyclic citrullinated peptide 1 time routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="314096001 |Human leukocyte antigen B27 screening test (procedure)|"/>
+                  <description value="Human leukocyte antigen B27 1 time routine"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'humanLeukocyteAntigenB27LabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Human leukocyte antigen B27 1 time routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="54921001 |Rheumatoid factor measurement (procedure)|"/>
+                  <description value="Rheumatoid factor 1 time routine"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'rheumatoidFactorLabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Rheumatoid factor 1 time routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="86228006 |Uric acid measurement (procedure)|"/>
+                  <description value="Uric acid 1 time routine"/>
+                  <condition>
+                    <kind value="applicability"/>
+                    <expression>
+                      <language value="text/cql"/>
+                      <expression value=" NOT EXISTS 'uricAcidLabPerformance'"/>
+                    </expression>
+                  </condition>
+                  <definitionCanonical>
+                    <display value="Uric acid 1 time routine"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and Diagnostic Studies"/>
+            <action>
+              <title value="To avoid unnecessary imaging, please order imaging for only the most severely affected joints based upon history and clinical examination."/>
+              <action>
+                <title value="X-ray symptomatic joints to evaluate for possible psoriatic arthritis, routine"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[363680008 |Radiographic imaging procedure (procedure)]-                                                         ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]                                                         ->(405813007 |Procedure site - Direct (attribute))->[85562004 |Hand structure (body structure)]-                                                         ->(272741003 |Laterality (attribute))->[7771000 |Left (qualifier value)];"/>
+                  <description value="X-ray Hand-Left to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray Hand-Left to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[363680008 |Radiographic imaging procedure (procedure)]-                                                     ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]                                                     ->(405813007 |Procedure site - Direct (attribute))->[85562004 |Hand structure (body structure)]-                                                     ->(272741003 |Laterality (attribute))->[24028007 |Right (qualifier value)];"/>
+                  <description value="X-ray Hand-Right to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray Hand-Right to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[363680008 |Radiographic imaging procedure (procedure)]-                                                     ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]                                                     ->(405813007 |Procedure site - Direct (attribute))->[56459004 |Foot structure (body structure)]-                                                     ->(272741003 |Laterality (attribute))->[7771000 |Left (qualifier value)];"/>
+                  <description value="X-ray Foot-Left to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray Foot-Left to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[363680008 |Radiographic imaging procedure (procedure)]-                                                     ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]                                                     ->(405813007 |Procedure site - Direct (attribute))->[56459004 |Foot structure (body structure)]-                                                     ->(272741003 |Laterality (attribute))->[24028007 |Right (qualifier value)];"/>
+                  <description value="X-ray Foot-Right to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray Foot-Right to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[363680008 |Radiographic imaging procedure (procedure)]-                                                     ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]                                                     ->(405813007 |Procedure site - Direct (attribute))->[49076000 |Knee joint structure (body structure)]-                                                     ->(272741003 |Laterality (attribute))->[7771000 |Left (qualifier value)];"/>
+                  <description value="X-ray Knee-Left to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray Knee-Left to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[363680008 |Radiographic imaging procedure (procedure)]-                                                     ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]                                                     ->(405813007 |Procedure site - Direct (attribute))->[49076000 |Knee joint structure (body structure)]-                                                     ->(272741003 |Laterality (attribute))->[24028007 |Right (qualifier value)];"/>
+                  <description value="X-ray Knee-right to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray Knee-right to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="TSR-NoCode"/>
+                  <description value="X-ray Other to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray Other to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="The following should be ordered for patients with complaint of low back pain."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="6238009 |Diagnostic radiography of sacroiliac joints (procedure)|"/>
+                  <description value="X-ray sacroiliac joint to evaluate for possible psoriatic arthritis, routine"/>
+                  <definitionCanonical>
+                    <display value="X-ray sacroiliac joint to evaluate for possible psoriatic arthritis, routine"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Consult Request"/>
+            <action/>
+            <action>
+              <title value="306127007 |Referral to rheumatology service (procedure)|"/>
+              <description value="Referral to rheumatology evaluate for possible psoriatic arthritis"/>
+              <definitionCanonical>
+                <display value="Referral to rheumatology evaluate for possible psoriatic arthritis"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education"/>
+            <description value="Consider the following links as examples of patient educational material:"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title/>
+              <description value="Provide &quot;Patient/Caregiver&quot; link to patient"/>
+              <definitionCanonical>
+                <display value="Provide &quot;Patient/Caregiver&quot; link to patient"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title/>
+              <description value="Provide &quot;Living with Arthritis&quot; link to patient"/>
+              <definitionCanonical>
+                <display value="Provide &quot;Living with Arthritis&quot; link to patient"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Reference for Provider Use"/>
+            <description value="The following links contain clinical practice guidelines for education for the clinical provider."/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications"/>
+        <item>
+          <text value="Consider one of the following medications for alleviation of pain"/>
+          <type value="choice"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+        <item>
+          <text/>
+          <item>
+            <text value="Laboratory Studies"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="One-Time Laboratory Studies"/>
+            <type value="any"/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging and Diagnostic Studies"/>
+        <item>
+          <text value="To avoid unnecessary imaging, please order imaging for only the most severely affected joints based upon history and clinical examination."/>
+          <item>
+            <text value="X-ray symptomatic joints to evaluate for possible psoriatic arthritis, routine"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="The following should be ordered for patients with complaint of low back pain."/>
+            <type value="any"/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consult Request"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Patient and Caregiver Education"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Reference for Provider Use"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="34d04a65-4d4b-5dd8-8632-beef77c9067b"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0009AA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-94"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Primary Care: Tobacco Assessment and Cessation Counseling Documentation Template"/>
+        <title value="Primary Care: Tobacco Assessment and Cessation Counseling Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Any clinical provider who is able to screen for current tobacco use, including physicians, APNs, PAs, RNs, LPNs, pharmacists, psychologists, social workers, dentists, and substance abuse counselors."/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Population 18 years old or older"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Any clinical setting to include outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Any clinical setting to include inpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Tobacco Use History"/>
+            <action>
+              <title value="Current Tobacco Use"/>
+            </action>
+            <action>
+              <title value="Length of Tobacco Use History"/>
+            </action>
+          </action>
+          <action>
+            <title value="Advising Users to Quit"/>
+            <action>
+              <title value="Advise tobacco user to quit."/>
+              <description value="Quitting smoking or tobacco use is one of the most important things patients can do to protect their health, and the VA has resources to support them. Advise the patient to set a quit date; get support from family and friends; encourage the patient to review past quit attempts (What helped? What didn’t?); anticipate triggers and/or challenges and plan how to cope with them; advise the patient to remove all tobacco products from home, car, work when ready to quit; include message that the combination of behavioral counseling plus the use of the United States Food and Drug Administration (FDA)-approved medications is the most effective way to quit tobacco use. (Items above are consistent with Joint Commission Practical Counseling language)"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Resources for VHA clinical providers"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Cessation Strategies-Counseling"/>
+            <description value="Advise Patient: Counseling increases your chances of successfully quitting tobacco use.  VA can help you to develop a plan and provide support, guidance, and tools to help you quit, such as a tobacco cessation clinic or group, a national quit line (1-855-QUIT-VET), and information about community options."/>
+            <action>
+              <title value="Patient educational materials available in English and Spanish"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Cessation Strategies-Medications"/>
+            <action>
+              <title value="Advise patient: The use of FDA-approved medications, such as nicotine replacement therapy including the patch, gum, and lozenge, and other medications such as varenicline, play an important role in the initial weeks and months after you quit tobacco. Medications help you cope with cravings and withdrawal symptoms and increase your chances of successfully quitting tobacco use."/>
+            </action>
+            <action>
+              <title value="Advise patient: The VA can provide you with FDA-approved tobacco cessation medications to help you quit."/>
+            </action>
+          </action>
+          <action>
+            <title value="Screening for Smoking Related Medical Conditions"/>
+            <action>
+              <title value="The United States Preventive Services Task Force (USPSTF) recommends one-time screening for abdominal aortic aneurysm (AAA) by ultrasonography in men aged 65-75 who have ever smoked. The USPSTF makes no recommendation for or against screening for AAA in asymptomatic men aged 65-75 who have never smoked.)"/>
+              <description value="Technical Note: Display the following section only for male patients age >= 65 and less than 75 years who have ever smoked."/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+            <action>
+              <title value="Technical Note: Display this section only for patients who meet all of the following criteria:                                         current smokers or former smokers who quit less than or equal to 15 years ago, age >= 55 and less than or equal to 80 years,                                        with a 30-pack year history or more, and who have not had Low-dose chest CT less than or equal to 1 year ago."/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Tobacco Use History"/>
+        <item>
+          <text value="Current Tobacco Use"/>
+        </item>
+        <item>
+          <text value="Length of Tobacco Use History"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Advising Users to Quit"/>
+        <item>
+          <text value="Advise tobacco user to quit."/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Resources for VHA clinical providers"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Cessation Strategies-Counseling"/>
+        <item>
+          <text value="Patient educational materials available in English and Spanish"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Cessation Strategies-Medications"/>
+        <item>
+          <text value="Advise patient: The use of FDA-approved medications, such as nicotine replacement therapy including the patch, gum, and lozenge, and other medications such as varenicline, play an important role in the initial weeks and months after you quit tobacco. Medications help you cope with cravings and withdrawal symptoms and increase your chances of successfully quitting tobacco use."/>
+        </item>
+        <item>
+          <text value="Advise patient: The VA can provide you with FDA-approved tobacco cessation medications to help you quit."/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Screening for Smoking Related Medical Conditions"/>
+        <item>
+          <text value="The United States Preventive Services Task Force (USPSTF) recommends one-time screening for abdominal aortic aneurysm (AAA) by ultrasonography in men aged 65-75 who have ever smoked. The USPSTF makes no recommendation for or against screening for AAA in asymptomatic men aged 65-75 who have never smoked.)"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="choice"/>
+        </item>
+        <item>
+          <text value="Technical Note: Display this section only for patients who meet all of the following criteria:                                         current smokers or former smokers who quit less than or equal to 15 years ago, age >= 55 and less than or equal to 80 years,                                        with a 30-pack year history or more, and who have not had Low-dose chest CT less than or equal to 1 year ago."/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="choice"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="9a42ab9d-ee66-57a5-aa54-c3055a9ff1fc"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-60"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Pre-Cardiac Catheterization Order Set"/>
+        <title value="Cardiology: Pre-Cardiac Catheterization Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Cardiologists"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Adult Catheterization lab patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Inpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Cardiology Service"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients with suspected cardiac disease requiring invasive diagnosis and/or treatment"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Cardiac Catheterization"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Medication Orders"/>
+            <action>
+              <title value="Order Pre Cardiac Catheterization Medications"/>
+              <action>
+                <title value="Oral Contrast Allergy Premedication Regimen"/>
+                <selectionBehavior value="at-most-one"/>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;198148 predniSONE 50 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Prednisone 50 mg tablet oral 1 time 13 hours before procedure"/>
+                  <definitionCanonical>
+                    <display value="Prednisone 50 mg tablet oral 1 time 13 hours before procedure"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;198148 predniSONE 50 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Prednisone 50 mg tablet oral 1 time 7 hours before procedure"/>
+                  <definitionCanonical>
+                    <display value="Prednisone 50 mg tablet oral 1 time 7 hours before procedure"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;198148 predniSONE 50 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Prednisone 50 mg tablet oral 1 time 1 hour before procedure"/>
+                  <definitionCanonical>
+                    <display value="Prednisone 50 mg tablet oral 1 time 1 hour before procedure"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;1085945 diphenhydrAMINE Hydrochloride 50 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Diphenhydramine 50 mg tablet oral 1 time 1 hour before procedure"/>
+                  <definitionCanonical>
+                    <display value="Diphenhydramine 50 mg tablet oral 1 time 1 hour before procedure"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;197506 Cimetidine 300 MG Oral Tablet]                                                     ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
+                  <description value="Cimetidine 300 mg tablet oral 1 time 1 hour before procedure"/>
+                  <definitionCanonical>
+                    <display value="Cimetidine 300 mg tablet oral 1 time 1 hour before procedure"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Intravenous Contrast Allergy Premedication Regimen"/>
+                <selectionBehavior value="at-most-one"/>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;1164003 Hydrocortisone Injectable Product]                                                     ->(410675002 |Route of administration (attribute))->[255560000 |Intravenous (qualifier value)]"/>
+                  <description value="Hydrocortisone 200 mg solution intraveneous 1 time 4 hours before procedure"/>
+                  <definitionCanonical>
+                    <display value="Hydrocortisone 200 mg solution intraveneous 1 time 4 hours before procedure"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;1158446 diphenhydrAMINE Injectable Product]                                                     ->(410675002 |Route of administration (attribute))->[255560000 |Intravenous (qualifier value)]"/>
+                  <description value="Diphenhydromine 50 mg solution intraveneous 1 time 4 hours before procedure"/>
+                  <definitionCanonical>
+                    <display value="Diphenhydromine 50 mg solution intraveneous 1 time 4 hours before procedure"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="Hold Medication Orders"/>
+              <description value="This section applies to patients who are on medications which should be held prior to cardiac catheterization."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="insulin"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[67866001 |Insulin (substance)];"/>
+                  <description value="Hold insulin and resume as directed after cardiac catheterization"/>
+                  <definitionCanonical>
+                    <display value="Hold insulin and resume as directed after cardiac catheterization"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="metformin"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[Rx;6809 metFORMIN];"/>
+                  <description value="Hold metformin and resume as directed after cardiac catheterization"/>
+                  <definitionCanonical>
+                    <display value="Hold metformin and resume as directed after cardiac catheterization"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="[182837001 |Restart of medication (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[Rx;6809 metFORMIN];"/>
+                  <description value="Restart metformin within specified timeframe"/>
+                  <definitionCanonical>
+                    <display value="Restart metformin within specified timeframe"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="anticoagulants"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[372862008 |Anticoagulant (substance)];"/>
+                  <description value="Hold anticoagulants and resume as directed after cardiac catheterization"/>
+                  <definitionCanonical>
+                    <display value="Hold anticoagulants and resume as directed after cardiac catheterization"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="aspirin"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[Rx;1191 Aspirin];"/>
+                  <description value="Hold aspirin and resume as directed after cardiac catheterization"/>
+                  <definitionCanonical>
+                    <display value="Hold aspirin and resume as directed after cardiac catheterization"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <action>
+              <title value="Possible laboratory tests and order schedules for patients who will undergo cardiac catheterization."/>
+              <action>
+                <title value="Comprehensive Metabolic Profile"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="1411000205104 |Comprehensive metabolic panel (procedure"/>
+                    <description value="Comprehensive Metabolic Profile at specified time"/>
+                    <definitionCanonical>
+                      <display value="Comprehensive Metabolic Profile at specified time"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
+                  <description value="STAT"/>
+                  <definitionCanonical>
+                    <display value="STAT"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
+                  <description value="Today"/>
+                  <definitionCanonical>
+                    <display value="Today"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="1411000205104 |Comprehensive metabolic panel (procedure"/>
+                  <description value="Upon admission to the catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Upon admission to the catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Complete Blood Count"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="26604007 |Complete blood count (procedure)|"/>
+                    <description value="Complete Blood Count at specified time"/>
+                    <definitionCanonical>
+                      <display value="Complete Blood Count at specified time"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="26604007 |Complete blood count (procedure)|"/>
+                  <description value="STAT"/>
+                  <definitionCanonical>
+                    <display value="STAT"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="26604007 |Complete blood count (procedure)|"/>
+                  <description value="Today"/>
+                  <definitionCanonical>
+                    <display value="Today"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="26604007 |Complete blood count (procedure)|"/>
+                  <description value="Upon admission to the catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Upon admission to the catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Brain natriuretic peptide"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+                    <description value="Brain natriuretic peptide test at specified time"/>
+                    <definitionCanonical>
+                      <display value="Brain natriuretic peptide test at specified time"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+                  <description value="STAT"/>
+                  <definitionCanonical>
+                    <display value="STAT"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+                  <description value="Today"/>
+                  <definitionCanonical>
+                    <display value="Today"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+                  <description value="Upon admission to the catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Upon admission to the catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="International Normalized Ratio (INR)"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
+                    <description value="INR test at specified time"/>
+                    <definitionCanonical>
+                      <display value="INR test at specified time"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
+                  <description value="STAT"/>
+                  <definitionCanonical>
+                    <display value="STAT"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
+                  <description value="Today"/>
+                  <definitionCanonical>
+                    <display value="Today"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
+                  <description value="Upon admission to the catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Upon admission to the catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Troponin"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="105000003 |Troponin measurement (procedure)|"/>
+                    <description value="Troponin test at specified time"/>
+                    <definitionCanonical>
+                      <display value="Troponin test at specified time"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="105000003 |Troponin measurement (procedure)|"/>
+                  <description value="STAT"/>
+                  <definitionCanonical>
+                    <display value="STAT"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="105000003 |Troponin measurement (procedure)|"/>
+                  <description value="Today"/>
+                  <definitionCanonical>
+                    <display value="Today"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="105000003 |Troponin measurement (procedure)|"/>
+                  <description value="Upon admission to the catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Upon admission to the catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Magnesium"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="38151008 |Magnesium measurement (procedure)|"/>
+                    <description value="Magnesium test specified time"/>
+                    <definitionCanonical>
+                      <display value="Magnesium test specified time"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="38151008 |Magnesium measurement (procedure)|"/>
+                  <description value="STAT"/>
+                  <definitionCanonical>
+                    <display value="STAT"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="38151008 |Magnesium measurement (procedure)|"/>
+                  <description value="Today"/>
+                  <definitionCanonical>
+                    <display value="Today"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="38151008 |Magnesium measurement (procedure)|"/>
+                  <description value="Upon admission to the catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Upon admission to the catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="aPTT"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+                    <description value="aPTT at specified time"/>
+                    <definitionCanonical>
+                      <display value="aPTT at specified time"/>
+                    </definitionCanonical>
+                  </action>
+                </action>
+                <action>
+                  <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+                  <description value="STAT"/>
+                  <definitionCanonical>
+                    <display value="STAT"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+                  <description value="Today"/>
+                  <definitionCanonical>
+                    <display value="Today"/>
+                  </definitionCanonical>
+                </action>
+                <action>
+                  <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+                  <description value="Upon admission to the catheterization lab"/>
+                  <definitionCanonical>
+                    <display value="Upon admission to the catheterization lab"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="IF patient is FEMALE AND &amp;lt; 52 years old AND has NOT had a hyterectomy, bilateral oophorectomy, or tubal ligation OR is NOT in menopause OR has NOT been previously designated as medically unable to conceive by their provider"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="67900009 |Human chorionic gonadotropin measurement (procedure)|"/>
+                  <description value="Human chorionic gonadotropin (HCG)"/>
+                  <definitionCanonical>
+                    <display value="Human chorionic gonadotropin (HCG)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Point-of-Care test"/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="302789003 |Capillary blood glucose measurement (procedure)|"/>
+                  <description value="Finger-stick Glucose"/>
+                  <definitionCanonical>
+                    <display value="Finger-stick Glucose"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and Diagnostic Testing"/>
+            <action>
+              <title value="Choose all that apply to patient"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[268400002 |12 lead electrocardiogram (procedure)]                                             ->(363702006 |Has focus (attribute))-[dffc9bef-d9a5-4b99-bf6a-a89511bf5410 |Evaluation of preoperative cardiac function (procedure))"/>
+                <description value="12-Lead ECG preprocedural evaluation for cardiac catheterization"/>
+                <definitionCanonical>
+                  <display value="12-Lead ECG preprocedural evaluation for cardiac catheterization"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[40701008 |Echocardiography (procedure)]                                             ->(363702006 |Has focus (attribute))-[dffc9bef-d9a5-4b99-bf6a-a89511bf5410 |Evaluation of preoperative cardiac function (procedure))"/>
+                <description value="Echocardiogram preprocedural evaluation for cardiac catheterization"/>
+                <definitionCanonical>
+                  <display value="Echocardiogram preprocedural evaluation for cardiac catheterization"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[42869005 |Diagnostic radiography of chest, combined posteroanterior and lateral (procedure)]                                             ->(363702006 |Has focus (attribute))-[dffc9bef-d9a5-4b99-bf6a-a89511bf5410 |Evaluation of preoperative cardiac function (procedure))"/>
+                <description value="X-ray chest posterioranterior (PA) and lateral preprocedural evaluation for cardiac catheterization"/>
+                <definitionCanonical>
+                  <display value="X-ray chest posterioranterior (PA) and lateral preprocedural evaluation for cardiac catheterization"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[394421000119103 |Plain x-ray of chest anteroposterior view (procedure)]                                             ->(424226004 |Using device (attribute))->[706348008 |Radiology mobile medical facility (physical object)]                                             ->(363702006 |Has focus (attribute))-[dffc9bef-d9a5-4b99-bf6a-a89511bf5410 |Evaluation of preoperative cardiac function (procedure))"/>
+                <description value="X-ray anteroposterior (AP) portable preprocedural evaluation for cardiac catheterization"/>
+                <definitionCanonical>
+                  <display value="X-ray anteroposterior (AP) portable preprocedural evaluation for cardiac catheterization"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Order Pre Cardiac Catheterization Medications"/>
+        <item>
+          <text value="Oral Contrast Allergy Premedication Regimen"/>
+          <type value="choice"/>
+        </item>
+        <item>
+          <text value="Intravenous Contrast Allergy Premedication Regimen"/>
+          <type value="choice"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Hold Medication Orders"/>
+        <item>
+          <text value="insulin"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="metformin"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="anticoagulants"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="aspirin"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Comprehensive Metabolic Profile"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Complete Blood Count"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Brain natriuretic peptide"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="International Normalized Ratio (INR)"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Troponin"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Magnesium"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="aPTT"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="IF patient is FEMALE AND &amp;lt; 52 years old AND has NOT had a hyterectomy, bilateral oophorectomy, or tubal ligation OR is NOT in menopause OR has NOT been previously designated as medically unable to conceive by their provider"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Point-of-Care test"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="12-Lead ECG preprocedural evaluation for cardiac catheterization"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="268400002 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="12 lead electrocardiogram (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="dffc9bef"/>
+          </coding>
+          <coding>
+            <code value="d9a5"/>
+          </coding>
+          <coding>
+            <code value="4b99"/>
+          </coding>
+          <coding>
+            <code value="bf6a"/>
+          </coding>
+          <coding>
+            <code value="a89511bf5410 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Echocardiogram preprocedural evaluation for cardiac catheterization"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="40701008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Echocardiography (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="dffc9bef"/>
+          </coding>
+          <coding>
+            <code value="d9a5"/>
+          </coding>
+          <coding>
+            <code value="4b99"/>
+          </coding>
+          <coding>
+            <code value="bf6a"/>
+          </coding>
+          <coding>
+            <code value="a89511bf5410 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="X-ray chest posterioranterior (PA) and lateral preprocedural evaluation for cardiac catheterization"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="42869005 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Diagnostic radiography of chest, combined posteroanterior and lateral (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="dffc9bef"/>
+          </coding>
+          <coding>
+            <code value="d9a5"/>
+          </coding>
+          <coding>
+            <code value="4b99"/>
+          </coding>
+          <coding>
+            <code value="bf6a"/>
+          </coding>
+          <coding>
+            <code value="a89511bf5410 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="X-ray anteroposterior (AP) portable preprocedural evaluation for cardiac catheterization"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="394421000119103 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Plain x"/>
+          </coding>
+          <coding>
+            <code value="ray of chest anteroposterior view (procedure)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(424226004 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Using device (attribute))"/>
+          </coding>
+          <coding>
+            <code value="706348008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Radiology mobile medical facility (physical object)]                                             "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="dffc9bef"/>
+          </coding>
+          <coding>
+            <code value="d9a5"/>
+          </coding>
+          <coding>
+            <code value="4b99"/>
+          </coding>
+          <coding>
+            <code value="bf6a"/>
+          </coding>
+          <coding>
+            <code value="a89511bf5410 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

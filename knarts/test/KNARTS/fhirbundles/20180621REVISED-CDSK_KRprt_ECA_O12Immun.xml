@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="5dbcf08a-507a-5107-9b38-170377cb334d"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0007CC"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-82"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Recommended Immunizations Rule"/>
+        <title value="Recommended Immunizations Rule"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="All clinical providers"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Any clinical setting (ambulatory, inpatient, etc.), including employees of the VA who are treated as patients of the VA."/>
+          </code>
+        </useContext>
+        <action>
+          <title value="Influenza Immunization: General"/>
+          <action>
+            <title value="[a997cc03-3e99-40eb-833a-6374c7750a3a |Observation procedure (procedure)]                             ->(363702006 |Has focus (attribute))->[86198006 |Influenza vaccination (procedure)]"/>
+            <description value="Identify the patient as an influenza vaccine candidate"/>
+            <definitionCanonical>
+              <display value="Identify the patient as an influenza vaccine candidate"/>
+            </definitionCanonical>
+          </action>
+          <action>
+            <title value="TSR-NoCode"/>
+            <description value="Ensure that the Immunization guidelines for Influenza Vaccination are available to the clinical care team"/>
+            <definitionCanonical>
+              <display value="Ensure that the Immunization guidelines for Influenza Vaccination are available to the clinical care team"/>
+            </definitionCanonical>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Identify the patient as an influenza vaccine candidate"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="a997cc03"/>
+          </coding>
+          <coding>
+            <code value="3e99"/>
+          </coding>
+          <coding>
+            <code value="40eb"/>
+          </coding>
+          <coding>
+            <code value="833a"/>
+          </coding>
+          <coding>
+            <code value="6374c7750a3a "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Observation procedure (procedure)]                             "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="86198006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Influenza vaccination (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Ensure that the Immunization guidelines for Influenza Vaccination are available to the clinical care team"/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

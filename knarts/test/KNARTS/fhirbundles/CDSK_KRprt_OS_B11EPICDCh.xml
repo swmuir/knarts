@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="777b989f-24a2-522b-a22e-84c137e6b2a9"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0004AH"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-39"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Electrophysiology (EP) Pacemaker/Implantable Cardioverter-defibrillator (ICD) Generator Change Order Set"/>
+        <title value="Electrophysiology (EP) Pacemaker/Implantable Cardioverter-defibrillator (ICD) Generator Change Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Previously received an ICD, CRT, or a similar device"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Is candidate for generator change"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <action>
+              <title value="Electrophysiology generator change consult order."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="1291000205108 |Referral to electrophysiology service (procedure)"/>
+                <description value="Referral to electrophysiology for generator change"/>
+                <definitionCanonical>
+                  <display value="Referral to electrophysiology for generator change"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Goal of Consult"/>
+              <action>
+                <title value="Consult Specialty: Electrophysiology"/>
+                <description value="Priority: Routine"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and Electrocardiogram"/>
+            <description value="Consider ordering prior to the electrophysiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months. Resting echocardiogram and chest x-ray are required if they have not been obtained within the past six months."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
+              <description value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
+              <definitionCanonical>
+                <display value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
+              <description value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted pacer device."/>
+              <definitionCanonical>
+                <display value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted pacer device."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
+              <description value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted CRT device."/>
+              <definitionCanonical>
+                <display value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted CRT device."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="40701008 |Echocardiography (procedure)|"/>
+              <description value="Echocardiogram to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
+              <definitionCanonical>
+                <display value="Echocardiogram to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="40701008 |Echocardiography (procedure)|"/>
+              <description value="Echocardiogram to evaluate for antiarrhythmic benefit of previously implanted pacer device."/>
+              <definitionCanonical>
+                <display value="Echocardiogram to evaluate for antiarrhythmic benefit of previously implanted pacer device."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="399208008 |Plain chest X-ray (procedure)|"/>
+              <description value="X-ray chest to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
+              <definitionCanonical>
+                <display value="X-ray chest to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="399208008 |Plain chest X-ray (procedure)|"/>
+              <description value="X-ray chest to evaluate for antiarrhythmic benefit of previously implanted CRT device."/>
+              <definitionCanonical>
+                <display value="X-ray chest to evaluate for antiarrhythmic benefit of previously implanted CRT device."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="399208008 |Plain chest X-ray (procedure)|"/>
+              <description value="X-ray chest to evaluate for antiarrhythmic benefit of previously implanted pacer device."/>
+              <definitionCanonical>
+                <display value="X-ray chest to evaluate for antiarrhythmic benefit of previously implanted pacer device."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <description value="Consider the following tests to be completed prior to the electrophysiology consultation."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
+              <description value="Comprehensive metabolic panel"/>
+              <definitionCanonical>
+                <display value="Comprehensive metabolic panel"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count"/>
+              <definitionCanonical>
+                <display value="Complete blood count"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
+              <description value="Brain natriuretic peptide"/>
+              <definitionCanonical>
+                <display value="Brain natriuretic peptide"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="25514001 |Digoxin measurement (procedure)|"/>
+              <description value="Digoxin level"/>
+              <definitionCanonical>
+                <display value="Digoxin level"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consults and Referrals"/>
+        <item>
+          <text value="Electrophysiology generator change consult order."/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Goal of Consult"/>
+          <item>
+            <text value="Consult Specialty: Electrophysiology"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging and Electrocardiogram"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

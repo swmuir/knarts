@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="495c933d-52a6-5e02-98fd-9813222014cf"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-88"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Mental Health: Chronic Noncancer Pain Order Set"/>
+        <title value="Mental Health: Chronic Noncancer Pain Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care Provider (PCP)"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Medications"/>
+            <description value="Oral Medications"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;310965 Ibuprofen 200 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Ibuprofen 200 mg tablet oral every 4 to 6 hours as needed for pain 100 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Ibuprofen 200 mg tablet oral every 4 to 6 hours as needed for pain 100 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;198013 Naproxen 250 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Naproxen 250 mg tablet oral 2 times daily as needed for pain 100 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Naproxen 250 mg tablet oral 2 times daily as needed for pain 100 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;313782 Acetaminophen 325 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Acetaminophen 325 mg tablet oral 2 tablets every 6 hours as needed for pain; may increase dose frequency to 2 tablets every 4 hours; do not take more than 10 tablets per day 100 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Acetaminophen 325 mg tablet oral 2 tablets every 6 hours as needed for pain; may increase dose frequency to 2 tablets every 4 hours; do not take more than 10 tablets per day 100 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;205322 celecoxib 100 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Celecoxib 100 mg capsule oral 2 times a day 60 capsules 2 refills"/>
+                <definitionCanonical>
+                  <display value="Celecoxib 100 mg capsule oral 2 times a day 60 capsules 2 refills"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="The following orders may be considered for patients who tolerate lower doses but whose pain control remains inadequate on lower doses"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;197805 Ibuprofen 400 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Ibuprofen 400 mg tablet oral every 4 to 6 hours as needed for pain 100 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Ibuprofen 400 mg tablet oral every 4 to 6 hours as needed for pain 100 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;198012 Naproxen 375 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Naproxen 375 mg tablet oral 2 times daily as needed for pain 100 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Naproxen 375 mg tablet oral 2 times daily as needed for pain 100 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;205323 celecoxib 200 MG Oral Capsule]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Celecoxib 200 mg capsule oral 2 times a day 60 capsules 2 refills"/>
+                <definitionCanonical>
+                  <display value="Celecoxib 200 mg capsule oral 2 times a day 60 capsules 2 refills"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="The following orders may be considered for patients who tolerate lower doses but whose pain control remains inadequate on lower doses"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;197806 Ibuprofen 600 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Ibuprofen 600 mg tablet oral every 6 hours as needed for pain 100 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Ibuprofen 600 mg tablet oral every 6 hours as needed for pain 100 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;198014 Naproxen 500 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Naproxen 500 mg tablet oral 2 times daily as needed for pain 100 tablets 2 refills"/>
+                <definitionCanonical>
+                  <display value="Naproxen 500 mg tablet oral 2 times daily as needed for pain 100 tablets 2 refills"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Topical Medications"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;646333 Capsaicin 1 MG/ML Topical Cream]                                             ->(410675002 |Route of administration (attribute))->[6064005 |Topical route (qualifier value)]"/>
+                <description value="Capsaicin 0.1% cream topical 3 times a day apply to affected area 1 tube 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Capsaicin 0.1% cream topical 3 times a day apply to affected area 1 tube 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1043479 Diclofenac Sodium 10 MG/ML Topical Cream]                                             ->(410675002 |Route of administration (attribute))->[6064005 |Topical route (qualifier value)]"/>
+                <description value="Diclofenac sodium 1% 2 g gel topical 4 times a day apply to affected area 1 tube 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Diclofenac sodium 1% 2 g gel topical 4 times a day apply to affected area 1 tube 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1745091 Lidocaine 0.05 MG/MG Medicated Patch]                                             ->(410675002 |Route of administration (attribute))->[6064005 |Topical route (qualifier value)]"/>
+                <description value="Lidocaine 5% patch topical apply to intact skin to cover most painful area; apply prescribed number of patches (maximum of 3); apply only 1 time for a maximum of 12 hours within a 24-hour period 30 patches 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Lidocaine 5% patch topical apply to intact skin to cover most painful area; apply prescribed number of patches (maximum of 3); apply only 1 time for a maximum of 12 hours within a 24-hour period 30 patches 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;311498 Menthol 100 MG/ML / methyl salicylate 150 MG/ML Topical Cream]                                             ->(410675002 |Route of administration (attribute))->[6064005 |Topical route (qualifier value)]"/>
+                <description value="Menthol 10%/methyl salicylate 15% cream topical 3 times a day apply to affected area 1 tube 0 refills routine"/>
+                <definitionCanonical>
+                  <display value="Menthol 10%/methyl salicylate 15% cream topical 3 times a day apply to affected area 1 tube 0 refills routine"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count 1 time routine"/>
+              <definitionCanonical>
+                <display value="Complete blood count 1 time routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="85acf077-d744-48bc-b57a-fa3b5ce12d97 |Comprehensive metabolic panel (procedure)|"/>
+              <description value="Comprehensive metabolic panel 1 time routine"/>
+              <definitionCanonical>
+                <display value="Comprehensive metabolic panel 1 time routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="43396009 |Hemoglobin A1c measurement (procedure)|"/>
+              <description value="Hemoglobin A1c 1 time routine"/>
+              <definitionCanonical>
+                <display value="Hemoglobin A1c 1 time routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="314076009 |Toxicology screening test (procedure)|"/>
+              <description value="Toxicology screen 1 time routine"/>
+              <definitionCanonical>
+                <display value="Toxicology screen 1 time routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="12199005 |Vitamin D, 25-hydroxy measurement (procedure)|"/>
+              <description value="25-hydroxyvitamin D 1 time routine"/>
+              <definitionCanonical>
+                <display value="25-hydroxyvitamin D 1 time routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="416838001 |Erythrocyte sedimentation rate measurement (procedure)|"/>
+              <description value="Erythrocyte sedimentation rate 1 time routine"/>
+              <definitionCanonical>
+                <display value="Erythrocyte sedimentation rate 1 time routine"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="[3457005 |Patient referral (procedure)]                                     ->(363702006 |Has focus (attribute))->[392134007 |Care regimes management (procedure)]"/>
+              <description value="C-reactive protein 1 time routine"/>
+              <definitionCanonical>
+                <display value="C-reactive protein 1 time routine"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Consults and Referrals"/>
+            <action>
+              <title value="Specify consults required for this patient"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="306238000 |Referral to Social Services (procedure)|"/>
+                <description value="Referral care management services evaluate needs related to chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral care management services evaluate needs related to chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="306238000 |Referral to Social Services (procedure)|"/>
+                <description value="Referral social services evaluate for needs related to chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral social services evaluate for needs related to chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="306320001 |Referral to clinical nurse specialist (procedure)|"/>
+                <description value="Referral clinical nurse specialist evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral clinical nurse specialist evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="390866009 |Referral to mental health team (procedure)|"/>
+                <description value="Referral mental health evaluate for mental health interventions related to chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral mental health evaluate for mental health interventions related to chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[390866009 |Referral to mental health team (procedure)]                                             ->(363702006 |Has focus (attribute))->[45392008 |Psychologic evaluation or test procedure (procedure)]"/>
+                <description value="Referral mental health evaluate for psychotherapy related to chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral mental health evaluate for psychotherapy related to chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[390866009 |Referral to mental health team (procedure)]                                             ->(363702006 |Has focus (attribute))->[704072009 |Cognitive behavior therapy care management (procedure)]"/>
+                <description value="Referral mental health evaluate for cognitive behavioral therapy related to chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral mental health evaluate for cognitive behavioral therapy related to chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[390866009 |Referral to mental health team (procedure)]                                             ->(363702006 |Has focus (attribute))->[710137005 |Promotion of acceptance of health status (procedure)]"/>
+                <description value="Referral mental health evaluate for acceptance and commitment therapy related to chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral mental health evaluate for acceptance and commitment therapy related to chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[266707007 |Drug addiction therapy (regime/therapy)]"/>
+                <description value="Referral addiction evaluate for substance use disorder with chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral addiction evaluate for substance use disorder with chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="449861000124107 |Referral to tobacco use cessation counseling program (procedure)|"/>
+                <description value="Referral addiction evaluate for tobacco cessation with chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral addiction evaluate for tobacco cessation with chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="306109009 |Referral to pain management service (procedure)|"/>
+                <description value="Referral pain management evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral pain management evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[306109009 |Referral to pain management service (procedure)]                                             ->(363702006 |Has focus (attribute))->[b6216dfc-5b5f-4823-9bc8-ce9c79d67709 |Management of opioid therapy (procedure)]"/>
+                <description value="Referral pain management evaluate for opioid management with chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral pain management evaluate for opioid management with chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="306179008 |Referral to pharmacy service (procedure)|"/>
+                <description value="Referral pharmacy evaluate for needs related to chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral pharmacy evaluate for needs related to chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="444831000124102 |Referral for physical therapy (procedure)|"/>
+                <description value="Referral physical therapy evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral physical therapy evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[44868003 |Acupuncture (procedure)]"/>
+                <description value="Referral acupuncture evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral acupuncture evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Referral tai chi evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral tai chi evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[229223006 |Participation in Tai Chi (regime/therapy)]"/>
+                <description value="Referral yoga evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral yoga evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[05257e84-e247-4f2e-bb83-dccd395d56a8 |Mindfulness therapy (procedure)]"/>
+                <description value="Referral mindfulness evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral mindfulness evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[386365008 |Meditation facilitation (procedure)]"/>
+                <description value="Referral meditation evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral meditation evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[228565006 |Imagery technique (regime/therapy)]"/>
+                <description value="Referral guided imagery evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral guided imagery evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[19997007 |Hypnotherapy (regime/therapy)]"/>
+                <description value="Referral hypnotherapy evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral hypnotherapy evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[3457005 |Patient referral (procedure)]                                             ->(363702006 |Has focus (attribute))->[28150003 |Biofeedback procedure (regime/therapy)]"/>
+                <description value="Referral biofeedback evaluate for chronic pain routine"/>
+                <definitionCanonical>
+                  <display value="Referral biofeedback evaluate for chronic pain routine"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Only applicable if referring to an outside facility. To inform appropriate opioid and chronic non-cancer pain treatment for this patient, please provide the following information"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Patient and Caregiver Education"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="408956004 |Chronic pain control education (procedure)|"/>
+              <description value="Chronic pain management education routine"/>
+              <definitionCanonical>
+                <display value="Chronic pain management education routine"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="The following orders may be considered for patients who tolerate lower doses but whose pain control remains inadequate on lower doses"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="The following orders may be considered for patients who tolerate lower doses but whose pain control remains inadequate on lower doses"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Topical Medications"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consults and Referrals"/>
+        <item>
+          <text value="Specify consults required for this patient"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Only applicable if referring to an outside facility. To inform appropriate opioid and chronic non-cancer pain treatment for this patient, please provide the following information"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Patient and Caregiver Education"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

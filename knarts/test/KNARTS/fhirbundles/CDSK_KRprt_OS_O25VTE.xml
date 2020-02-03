@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="78885b6c-569b-5a75-bc75-cef8b2d861dc"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0008BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-92"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Venous Thromboembolism (VTE) Prophylaxis Order Set"/>
+        <title value="Cardiology: Venous Thromboembolism (VTE) Prophylaxis Order Set"/>
+        <type>
+          <coding>
+            <code value="Order Set"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Hospitalist, residents, and other ordering providers involved in managing the patient cohort, and nurses"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="4a0ec59e-7f9a-452e-954c-01efd0b52c4e "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospitalist physician (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Inpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="416800000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Inpatient (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Medical and/or Surgical Service"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="702860000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="General surgery clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult inpatients without known VTE and not pregnant"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Resources and Risk Stratification: Medical Patients"/>
+            <description value="This section should be available for all medical patients."/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Medications: Medical Patients"/>
+            <description value="This section should be available for all medical patients requiring pharmacological VTE prophylaxis"/>
+            <action>
+              <title value="Acutely Ill Patients"/>
+              <description value="This subsection should be available for all acutely ill medical patients at increased risk of thrombosis who are not bleeding or at high risk for bleeding"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;849699 0.2 ML heparin calcium 25000 UNT/ML Prefilled Syringe]                                             ->(410675002 |Route of administration (attribute))->[34206005 |Subcutaneous route (qualifier value)]"/>
+                <description value="Heparin 5000 U solution subcutaneous daily 3 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 3 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Critically Ill Patients"/>
+              <description value="This subsection should be available for all critically ill medical patients at increased risk of thrombosis who are not bleeding or at high risk for bleeding"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Procedures: Medical Patients"/>
+            <description value="This section should be available for all medical patients requiring mechanical VTE prophylaxis, particularly those who are at increased risk of bleeding events"/>
+            <action>
+              <title value="Acutely Ill Patients"/>
+              <description value="This subsection should be available for all acutely ill medical patients at increased risk of thrombosis who are bleeding or at high risk for major bleeding"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Graduated compressed stockings (routine)"/>
+                <definitionCanonical>
+                  <display value="Graduated compressed stockings (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Critically Ill Patients"/>
+              <description value="This subsection should be available for all critically ill medical patients at increased risk of thrombosis who are bleeding or at high risk for major bleeding"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Graduated compressed stockings routine"/>
+                <definitionCanonical>
+                  <display value="Graduated compressed stockings routine"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression routine"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression routine"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Resources and Risk Stratification: Nonorthopedic Surgical Patients"/>
+            <description value="This section should be available for all nonorthopedic surgical patients."/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Activity: Nonorthopedic Surgical Patients"/>
+            <description value="This section should be available for all nonorthopedic surgery patients requiring VTE prophylaxis"/>
+            <action>
+              <title value="General and Abdominal-Pelvic Surgery Patients at Very Low Risk for VTE"/>
+              <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at very low risk for VTE"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="1111000205107 |Ambulating with assistance (regime/therapy)"/>
+                <description value="Ambulate with assistance 1 time per shift (routine)"/>
+                <definitionCanonical>
+                  <display value="Ambulate with assistance 1 time per shift (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="445970000 |Moving subject from bed to chair (procedure)|"/>
+                <description value="Bed to chair 1 time per shift (routine)"/>
+                <definitionCanonical>
+                  <display value="Bed to chair 1 time per shift (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="423791005 |Ambulation without limitation (regime/therapy)|"/>
+                <description value="Up ad lib now"/>
+                <definitionCanonical>
+                  <display value="Up ad lib now"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Medications: Nonorthopedic Surgical Patients"/>
+            <description value="This section should be available for all nonorthopedic surgery patients requiring pharmacological VTE prophylaxis"/>
+            <action>
+              <title value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
+              <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at moderate risk for VTE who are not at high risk for major bleeding complications"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;978725 0.2 ML Dalteparin Sodium 12500 UNT/ML Prefilled Syringe]                                             ->(410675002 |Route of administration (attribute))->[34206005 |Subcutaneous route (qualifier value)]"/>
+                <description value="Dalteparin 2500 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 2500 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
+              <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at high risk for VTE who are not at high risk for major bleeding complications"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE with Inability to Use Either LMWH or UFH"/>
+              <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at high risk for VTE for whom both LMWH and UFH are contraindicated or unavailable and who are not at high risk for major bleeding complications"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;243670 Aspirin 81 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Aspirin 160 mg tablet oral daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Aspirin 160 mg tablet oral daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Cardiac Surgery Patients with Nonhemorrhagic Surgical Complications"/>
+              <description value="This subsection should be available for all cardiac surgery patients whose inpatient stay is prolonged by nonhemorrhagic surgical complications"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Thoracic Surgery Patients at Moderate Risk for VTE"/>
+              <description value="This subsection should be available for all thoracic surgery patients at moderate risk for VTE who are not at high risk for perioperative bleeding"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Thoracic Surgery Patients at High Risk for VTE"/>
+              <description value="This subsection should be available for all thoracic surgery patients at high risk for VTE who are not at high risk for perioperative bleeding"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Craniotomy Patients at Very High Risk for VTE"/>
+              <description value="This subsection should be available for all craniotomy patients at very high risk for VTE once adequate hemostasis is established and the risk of bleeding decreases"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Spinal Surgery Patients at High Risk for VTE"/>
+              <description value="This subsection should be available for all spinal surgery patients at high risk for VTE once adequate hemostasis is established and the risk of bleeding decreases"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Major Trauma Patients"/>
+              <description value="This subsection should be available for all major trauma patients without contraindication"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Procedures: Nonorthopedic Surgical Patients"/>
+            <description value="This section should be available for all nonorthopedic surgical patients requiring mechanical VTE prophylaxis, particularly those who are at increased risk of bleeding events"/>
+            <action>
+              <title value="General and Abdominal-Pelvic Surgery Patients at Low Risk for VTE"/>
+              <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at low risk for VTE"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
+              <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at moderate risk for VTE"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[129425003 |Application - action (qualifier value)]                                             ->(363699004 |Direct device (attribute))->[465885d2-268c-49a8-93e3-c90ed3b6643b |Graduated compression stockings (physical object)]"/>
+                <description value="Graduated compression stockings (routine)"/>
+                <definitionCanonical>
+                  <display value="Graduated compression stockings (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
+              <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at high risk for VTE"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Cardiac Surgery Patients"/>
+              <description value="This subsection should be available for all cardiac surgery patients"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Thoracic Surgery Patients at High Risk for VTE"/>
+              <description value="This subsection should be available for all thoracic surgery patients at high risk for VTE"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[129425003 |Application - action (qualifier value)]                                             ->(363699004 |Direct device (attribute))->[465885d2-268c-49a8-93e3-c90ed3b6643b |Graduated compression stockings (physical object)]"/>
+                <description value="Graduated compression stockings (routine)"/>
+                <definitionCanonical>
+                  <display value="Graduated compression stockings (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Craniotomy Patients"/>
+              <description value="This subsection should be available for all craniotomy patients"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Spinal Surgery Patients"/>
+              <description value="This subsection should be available for all spinal surgery patients"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Major Trauma Patients"/>
+              <description value="This subsection should be available for all major trauma patients without contraindication due to lower-extremity injury"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Activity: Orthopedic Surgical Patients"/>
+            <description value="This section should be available for all orthopedic surgical patients requiring VTE prophylaxis."/>
+            <action>
+              <title value="This section should be available to clinical providers and should be prompted to consider early mobilization as indicated by postoperative activity orders for the given surgery, context, and objectives related to weightbearing status."/>
+            </action>
+          </action>
+          <action>
+            <title value="Medications: Orthopedic Surgical Patients"/>
+            <description value="This section should be available for all orthopedic surgery patients requiring pharmacological VTE prophylaxis."/>
+            <action>
+              <title value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
+              <description value="This subsection should be available for all total hip arthroplasty, total knee arthroplasty, and hip fracture surgery patients."/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;854228 0.3 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe]                                             ->(410675002 |Route of administration (attribute))->[34206005 |Subcutaneous route (qualifier value)]"/>
+                <description value="Enoxaparin 30 mg solution subcutaneous every 12 hours (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 30 mg solution subcutaneous every 12 hours (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;854235 0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe]                                             ->(410675002 |Route of administration (attribute))->[34206005 |Subcutaneous route (qualifier value)]"/>
+                <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Dalteparin 5000 U solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title/>
+                <description value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1161791 Warfarin Pill]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Warfarin tablet oral per protocol (routine)"/>
+                <definitionCanonical>
+                  <display value="Warfarin tablet oral per protocol (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1364435 apixaban 2.5 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Apixaban 2.5 mg tablet oral daily 2 times (routine)"/>
+                <definitionCanonical>
+                  <display value="Apixaban 2.5 mg tablet oral daily 2 times (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1114198 rivaroxaban 10 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Rivaroxaban 10 mg tablet oral daily 1 time (routine)"/>
+                <definitionCanonical>
+                  <display value="Rivaroxaban 10 mg tablet oral daily 1 time (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;243670 Aspirin 81 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
+                <description value="Aspirin 81 mg tablet oral daily 1 time with intermittent pneumatic compression device begun intraoperatively and continued postoperatively through duration of hospital stay (routine)"/>
+                <definitionCanonical>
+                  <display value="Aspirin 81 mg tablet oral daily 1 time with intermittent pneumatic compression device begun intraoperatively and continued postoperatively through duration of hospital stay (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Procedures: Orthopedic Surgical Patients"/>
+            <description value="This section should be available for all orthopedic surgical patients requiring mechanical VTE prophylaxis, particularly those who are at increased risk of bleeding events."/>
+            <action>
+              <title value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
+              <description value="This subsection should be available for all acutely ill medical patients at increased risk of thrombosis who are bleeding or at high risk for major bleeding"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title/>
+                <description value="Intermittent pneumatic compression (routine)"/>
+                <definitionCanonical>
+                  <display value="Intermittent pneumatic compression (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+            <description value="The following laboratory studies should be considered for patients who will receive warfarin. These laboratory studies may also be indicated for patients on other medications for VTE prophylaxis if clinically indicated per clinician judgment."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="26604007 |Complete blood count (procedure)|"/>
+              <description value="Complete blood count daily 1 time (routine)"/>
+              <definitionCanonical>
+                <display value="Complete blood count daily 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="1421000205106 |Basic metabolic panel (procedure)"/>
+              <description value="Basic metabolic panel daily 1 time (routine)"/>
+              <definitionCanonical>
+                <display value="Basic metabolic panel daily 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
+              <description value="Activated partial thromboplastin time daily 1 time (routine)"/>
+              <definitionCanonical>
+                <display value="Activated partial thromboplastin time daily 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
+              <description value="Complete International normalized ratio daily 1 time (routine)"/>
+              <definitionCanonical>
+                <display value="Complete International normalized ratio daily 1 time (routine)"/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Resources and Risk Stratification: Medical Patients"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications: Medical Patients"/>
+        <item>
+          <text value="Acutely Ill Patients"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Critically Ill Patients"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Procedures: Medical Patients"/>
+        <item>
+          <text value="Acutely Ill Patients"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Critically Ill Patients"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Resources and Risk Stratification: Nonorthopedic Surgical Patients"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Activity: Nonorthopedic Surgical Patients"/>
+        <item>
+          <text value="General and Abdominal-Pelvic Surgery Patients at Very Low Risk for VTE"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications: Nonorthopedic Surgical Patients"/>
+        <item>
+          <text value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE with Inability to Use Either LMWH or UFH"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Cardiac Surgery Patients with Nonhemorrhagic Surgical Complications"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Thoracic Surgery Patients at Moderate Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Thoracic Surgery Patients at High Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Craniotomy Patients at Very High Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Spinal Surgery Patients at High Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Major Trauma Patients"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Procedures: Nonorthopedic Surgical Patients"/>
+        <item>
+          <text value="General and Abdominal-Pelvic Surgery Patients at Low Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Cardiac Surgery Patients"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Thoracic Surgery Patients at High Risk for VTE"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Craniotomy Patients"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Spinal Surgery Patients"/>
+        </item>
+        <item>
+          <text value="Major Trauma Patients"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Activity: Orthopedic Surgical Patients"/>
+        <item>
+          <text value="This section should be available to clinical providers and should be prompted to consider early mobilization as indicated by postoperative activity orders for the given surgery, context, and objectives related to weightbearing status."/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medications: Orthopedic Surgical Patients"/>
+        <item>
+          <text value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Procedures: Orthopedic Surgical Patients"/>
+        <item>
+          <text value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Tests"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

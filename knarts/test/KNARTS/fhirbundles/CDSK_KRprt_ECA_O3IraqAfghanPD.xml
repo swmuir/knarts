@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <fhiRCore.resources:Bundle>
+    <entry>
+      <resource>
+        <planDefinition>
+          <identifier>
+            <value value="8bea8573-d9ed-510e-81a2-571c850cc022"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="CLIN0007AA"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="KP-881"/>
+            <assigner>
+              <display value="urn:cognitivemedicine.com:lab:jira"/>
+            </assigner>
+          </identifier>
+          <name value="Mental Health: Iraq &amp; Afghanistan Post-Deployment Screen - Rule to Create Appropriate Order Set Rule"/>
+          <title value="Mental Health: Iraq &amp; Afghanistan Post-Deployment Screen - Rule to Create Appropriate Order Set Rule"/>
+          <type>
+            <coding>
+              <code value="Rule"/>
+            </coding>
+          </type>
+          <status value="active"/>
+          <description value=""/>
+          <useContext>
+            <code>
+              <code value="TargetUser"/>
+              <display value="Primary Care Provider"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="453231000124104 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="TargetUser"/>
+              <display value="Mental Health Provider"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="310190000 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Mental health counselor (occupation)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="PatientAgeGroup"/>
+              <display value="Adult"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="133936004 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="WorkflowSetting"/>
+              <display value="Outpatient"/>
+            </code>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="WorkflowTask"/>
+              <display value="Post-deployment screening"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="10918624-0ba1-4f32-be0e-bf7fd0d0cca3"/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Defense force post-deployment health screening (procedure)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <action>
+            <action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[ef732ceb-c7fa-4c91-91d5-bbca6184db62 |Infectious disease consultation and report (procedure)]                                     ->(363702006 |Has focus (attribute)|)->[7520000 |Pyrexia of unknown origin (finding)]"/>
+                <description value="Display order for infectious diseases consult for unexplained fevers in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                <definitionCanonical>
+                  <display value="Display order for infectious diseases consult for unexplained fevers in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[311401005 |Patient education (procedure)]                                     ->(363702006 |Has focus (attribute)|)->[7520000 |Pyrexia of unknown origin (finding)]"/>
+                <description value="Display order for patient education for unexplained fevers in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                <definitionCanonical>
+                  <display value="Display order for patient education for unexplained fevers in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="50687007 |Digestive tract consultation and report (procedure)|"/>
+                <description value="Display order for gastroenterology consult in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                <definitionCanonical>
+                  <display value="Display order for gastroenterology consult in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[311401005 |Patient education (procedure)]                                     ->(363702006 |Has focus (attribute)|)->[236071009 |Chronic diarrhea (disorder)]"/>
+                <description value="Display order for patient education for chronic diarrhea and other gastrointestinal complaints in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                <definitionCanonical>
+                  <display value="Display order for patient education for chronic diarrhea and other gastrointestinal complaints in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[ef732ceb-c7fa-4c91-91d5-bbca6184db62 |Infectious disease consultation and report (procedure)]-                                     ->(363702006 |Has focus (attribute))->[271807003 |Eruption of skin (disorder)]-                                     ->(263502005 |Clinical course (attribute))->[90734009 |Chronic (qualifier value)];"/>
+                <description value="Display order for infectious diseases consult for persistent rash in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                <definitionCanonical>
+                  <display value="Display order for infectious diseases consult for persistent rash in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[311401005 |Patient education (procedure)]-                                     ->(363702006 |Has focus (attribute)|)->[271807003 |Eruption of skin (disorder)]-                                     ->(263502005 |Clinical course (attribute))->[90734009 |Chronic (qualifier value)];"/>
+                <description value="Display order for patient education for persistent rash in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                <definitionCanonical>
+                  <display value="Display order for patient education for persistent rash in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot;Generic E-Consult&quot; documentation template-consult request KNART."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot;Generic E-Consult&quot; documentation template-consult request KNART."/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[311401005 |Patient education (procedure)]                                     ->(363702006 |Has focus (attribute)|)->[219391000 |War injury due to fragments from shrapnel (disorder)]"/>
+                <description value="Display order for patient education for embedded fragments or shrapnel in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen &quot; order set."/>
+                <definitionCanonical>
+                  <display value="Display order for patient education for embedded fragments or shrapnel in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen &quot; order set."/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Provide link to &quot;Neurology – TBI Screening&quot; ECA Rule."/>
+                <definitionCanonical>
+                  <display value="Provide link to &quot;Neurology – TBI Screening&quot; ECA Rule."/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </planDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Display order for infectious diseases consult for unexplained fevers in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="ef732ceb"/>
+            </coding>
+            <coding>
+              <code value="c7fa"/>
+            </coding>
+            <coding>
+              <code value="4c91"/>
+            </coding>
+            <coding>
+              <code value="91d5"/>
+            </coding>
+            <coding>
+              <code value="bbca6184db62 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Infectious disease consultation and report (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+            </coding>
+            <coding>
+              <code value="7520000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Pyrexia of unknown origin (finding)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Display order for patient education for unexplained fevers in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="311401005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+            </coding>
+            <coding>
+              <code value="7520000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Pyrexia of unknown origin (finding)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Display order for gastroenterology consult in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="50687007 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Digestive tract consultation and report (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Display order for patient education for chronic diarrhea and other gastrointestinal complaints in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="311401005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+            </coding>
+            <coding>
+              <code value="236071009 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic diarrhea (disorder)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Display order for infectious diseases consult for persistent rash in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="ef732ceb"/>
+            </coding>
+            <coding>
+              <code value="c7fa"/>
+            </coding>
+            <coding>
+              <code value="4c91"/>
+            </coding>
+            <coding>
+              <code value="91d5"/>
+            </coding>
+            <coding>
+              <code value="bbca6184db62 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Infectious disease consultation and report (procedure)]"/>
+            </coding>
+            <coding>
+              <code value="                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            </coding>
+            <coding>
+              <code value="271807003 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Eruption of skin (disorder)]"/>
+            </coding>
+            <coding>
+              <code value="                                     "/>
+            </coding>
+            <coding>
+              <code value="(263502005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Clinical course (attribute))"/>
+            </coding>
+            <coding>
+              <code value="90734009 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic (qualifier value)];"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Display order for patient education for persistent rash in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="311401005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]"/>
+            </coding>
+            <coding>
+              <code value="                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+            </coding>
+            <coding>
+              <code value="271807003 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Eruption of skin (disorder)]"/>
+            </coding>
+            <coding>
+              <code value="                                     "/>
+            </coding>
+            <coding>
+              <code value="(263502005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Clinical course (attribute))"/>
+            </coding>
+            <coding>
+              <code value="90734009 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic (qualifier value)];"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot;Generic E-Consult&quot; documentation template-consult request KNART."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Display order for patient education for embedded fragments or shrapnel in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen &quot; order set."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="311401005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+            </coding>
+            <coding>
+              <code value="219391000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="War injury due to fragments from shrapnel (disorder)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Provide link to &quot;Neurology – TBI Screening&quot; ECA Rule."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+  </fhiRCore.resources:Bundle>
+  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
+  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
+  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
+  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
+  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
+</xmi:XMI>

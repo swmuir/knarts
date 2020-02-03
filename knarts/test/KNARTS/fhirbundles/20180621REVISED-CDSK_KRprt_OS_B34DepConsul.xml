@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <fhiRCore.resources:Bundle>
+    <entry>
+      <resource>
+        <planDefinition>
+          <identifier>
+            <value value="086f4505-711d-5eaa-8841-5190ecd571ea"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="CLIN0004AH"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="KP-899"/>
+            <assigner>
+              <display value="urn:cognitivemedicine.com:lab:jira"/>
+            </assigner>
+          </identifier>
+          <name value="Mental Health: Consult for Depression Order Set"/>
+          <title value="Mental Health: Consult for Depression Order Set"/>
+          <type>
+            <coding>
+              <code value="Order Set"/>
+            </coding>
+          </type>
+          <status value="active"/>
+          <description/>
+          <useContext>
+            <code>
+              <code value="TargetUser"/>
+              <display value="Primary Care Providers and Mental Health Providers embedded in primary care practice settings"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="453231000124104 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="PatientAgeGroup"/>
+              <display value="Adult patients"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="133936004 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="ClinicalFocus"/>
+              <display value="Evaluation for depression"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="171207006 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Depression screening (procedure)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="ClinicalFocus"/>
+              <display value="Treatment for depression"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="401174001 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="ClinicalVenue"/>
+              <display value="Outpatient"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="33022008 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <action>
+            <action>
+              <title value="Consults and Referrals"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Inform patient that referral order was placed, including location of consult and emergency contact details for informed consent and contingency planning."/>
+                <selectionBehavior value="any"/>
+                <action>
+                  <title value="390866009 |Referral to mental health team (procedure)|"/>
+                  <description value="Referral to mental health to evaluate and treat for depression (routine-within 30 days)"/>
+                  <definitionCanonical>
+                    <display value="Referral to mental health to evaluate and treat for depression (routine-within 30 days)"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Follow VA protocol for emergency situations. Information about the Veterans Crisis Line should be provided to the patient as appropriate, including the telephone number (800.273.8255), text message support (838255), and the website (https://www.veteranscrisisline.net/)."/>
+                <definitionCanonical>
+                  <display value="Follow VA protocol for emergency situations. Information about the Veterans Crisis Line should be provided to the patient as appropriate, including the telephone number (800.273.8255), text message support (838255), and the website (https://www.veteranscrisisline.net/)."/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Patient and Caregiver Education"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="401174001 |Depression management program (regime/therapy)|"/>
+                <description value="Depression education now"/>
+                <definitionCanonical>
+                  <display value="Depression education now"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </planDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Referral to mental health to evaluate and treat for depression (routine-within 30 days)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="390866009 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to mental health team (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Follow VA protocol for emergency situations. Information about the Veterans Crisis Line should be provided to the patient as appropriate, including the telephone number (800.273.8255), text message support (838255), and the website (https://www.veteranscrisisline.net/)."/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="TSR"/>
+            </coding>
+            <coding>
+              <code value="NoCode"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Depression education now"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="401174001 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+  </fhiRCore.resources:Bundle>
+  <fhiRCore.dataTypes:Code value="Depression management program (regime"/>
+  <fhiRCore.dataTypes:Code value="Depression management program (regime"/>
+</xmi:XMI>

@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="cf545df8-8afe-55b0-b4c0-a72c4dc9e2c6"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0009BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-891"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Cardiac Catheterization Documentation Template"/>
+        <title value="Cardiology: Cardiac Catheterization Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Cardiologists"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Adult Catheterization lab patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Inpatient"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Cardiology Service"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients with suspected cardiac disease requiring invavise diagnosis and/or treatment"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientGender"/>
+            <display value="All"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Cardiac Catheterization"/>
+          </code>
+        </useContext>
+        <action>
+          <title value="Cardiac Catheterization Indications, History of Prior Procedures, Plan, Consent, Special Considerations, Pre-cath labs and imaging, and Post-cath note"/>
+          <action>
+            <title value="Cardiac Catheterization Indications"/>
+            <description value="Indications for cardiac catheterization."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Suspected CAD Detail"/>
+            </action>
+          </action>
+          <action>
+            <title value="Prior Cardiac Procedures"/>
+            <description value="Prior Cardiac Procedures."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Most Recent Angiography"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Most Recent Percutaneous Coronary Intervention"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Prior Cardiac Operative Report"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Prior Cardiac Reports"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Prior Cardiac Operative Report"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Plan"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Planned Procedure?"/>
+              <action/>
+              <action/>
+            </action>
+            <action>
+              <title value="Planned Access Site?"/>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Consent"/>
+            <action>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Special Considerations"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Radiocontrast Allergy"/>
+            </action>
+            <action>
+              <title value="Diabetes?"/>
+              <action>
+                <title value="Insulin"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Metformin"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Anticoagulation?"/>
+              <action>
+                <title value="Modify Anticoagulant Therapy?"/>
+              </action>
+            </action>
+            <action>
+              <title value="Renal Disease"/>
+            </action>
+          </action>
+          <action>
+            <title value="Laboratory Studies"/>
+            <action>
+              <title value="Lab Results"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Point of Care Studies"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Imaging and Diagnostic Results"/>
+            <action>
+              <title value="12-Lead ECG"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Chest X-Ray"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Echocardiogram"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Brief Post-Catheterization Note"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Brief Post Catheterization Note"/>
+            </action>
+            <action>
+              <title value="Procedure Performed"/>
+              <action/>
+              <action/>
+            </action>
+            <action>
+              <title value="Interventions"/>
+              <action/>
+              <action>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Access Site"/>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Cardiac Catheterization Indications"/>
+        <item>
+          <text value="Suspected CAD Detail"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Prior Cardiac Procedures"/>
+        <item>
+          <text value="Most Recent Angiography"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Most Recent Percutaneous Coronary Intervention"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Prior Cardiac Operative Report"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Prior Cardiac Reports"/>
+          <type value="any"/>
+          <item>
+            <text value="Prior Cardiac Operative Report"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Plan"/>
+        <item>
+          <text value="Planned Procedure?"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Planned Access Site?"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Consent"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Special Considerations"/>
+        <item>
+          <text value="Radiocontrast Allergy"/>
+        </item>
+        <item>
+          <text value="Diabetes?"/>
+          <item>
+            <text value="Insulin"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Metformin"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Anticoagulation?"/>
+          <item>
+            <text value="Modify Anticoagulant Therapy?"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Renal Disease"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Laboratory Studies"/>
+        <item>
+          <text value="Lab Results"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Point of Care Studies"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging and Diagnostic Results"/>
+        <item>
+          <text value="12-Lead ECG"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Chest X-Ray"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Echocardiogram"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Brief Post-Catheterization Note"/>
+        <item>
+          <text value="Brief Post Catheterization Note"/>
+        </item>
+        <item>
+          <text value="Procedure Performed"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Interventions"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Access Site"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

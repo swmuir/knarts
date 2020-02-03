@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <fhiRCore.resources:Bundle>
+    <entry>
+      <resource>
+        <planDefinition>
+          <identifier>
+            <value value="53e4c891-786c-5d47-8998-d72439fd8731"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="CLIN0008BA"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="KP-84"/>
+            <assigner>
+              <display value="urn:cognitivemedicine.com:lab:jira"/>
+            </assigner>
+          </identifier>
+          <name value="Primary Care: Anaphylaxis Treatment Protocol Order Set"/>
+          <title value="Primary Care: Anaphylaxis Treatment Protocol Order Set"/>
+          <type>
+            <coding>
+              <code value="Order Set"/>
+            </coding>
+          </type>
+          <status value="active"/>
+          <description/>
+          <useContext>
+            <code>
+              <code value="PatientAgeGroup"/>
+              <display value="Adult Patient"/>
+            </code>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="WorkflowSetting"/>
+              <display value="Emergency Medicine"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="225728007 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Accident and Emergency department (environment)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="ClinicalVenue"/>
+              <display value="Outpatient"/>
+            </code>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="TargetUser"/>
+              <display value="Provider to include Emergency Medicine"/>
+            </code>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="WorkflowTask"/>
+              <display value="Routine"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="50811001 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Routine (qualifier value)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <action>
+            <action>
+              <title value="Medications"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                     ->(363701004 |Direct substance (attribute))->[Rx;1989112 0.3 ML EPINEPHrine 1 MG/ML Prefilled Syringe]                                     ->(410675002 |Route of administration (attribute))->[78421000 |Intramuscular route (qualifier value)]                                     ->(405813007 |Procedure site - Direct (attribute))->[68367000 |Thigh structure (body structure)]"/>
+                <description value="epinephrine auto-injector 0.3 mg solution intramuscular 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="epinephrine auto-injector 0.3 mg solution intramuscular 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[416118004 |Administration (procedure)]                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                     ->(363701004 |Direct substance (attribute))->[Rx;1989112 0.3 ML EPINEPHrine 1 MG/ML Prefilled Syringe]                                     ->(410675002 |Route of administration (attribute))->[34206005 |Subcutaneous route (qualifier value))]                                     ->(405813007 |Procedure site - Direct (attribute))->[68367000 |Thigh structure (body structure)]"/>
+                <description value="epinephrine auto-injector 0.3 mg solution subcutaneous 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
+                <definitionCanonical>
+                  <display value="epinephrine auto-injector 0.3 mg solution subcutaneous 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Consults and Referrals"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="1351000205108 |Allergy service consultation and report (procedure)"/>
+                <description value="consult Allergy Service to evaluate patient following episode of anaphylaxis (routine)"/>
+                <definitionCanonical>
+                  <display value="consult Allergy Service to evaluate patient following episode of anaphylaxis (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="1361000205106 |Immunology service consultation and report (procedure)"/>
+                <description value="consult Immunology Service to evaluate patient following episode of anaphylaxis (routine)"/>
+                <definitionCanonical>
+                  <display value="consult Immunology Service to evaluate patient following episode of anaphylaxis (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Patient and Caregiver Education"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="1251000205104 |Education about epinephrine autoinjector use (procedure)"/>
+                <description value="Use of epinephrine autoinjector education (routine)"/>
+                <definitionCanonical>
+                  <display value="Use of epinephrine autoinjector education (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[409073007 |Education (procedure)]                                     ->(363702006 |Has focus (attribute))->[386512002 |Anaphylaxis management (regime/therapy)]"/>
+                <description value="Anaphylaxis action plan education (routine)"/>
+                <definitionCanonical>
+                  <display value="Anaphylaxis action plan education (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="[428391000124104 |Medication interaction with medication education (procedure)]                                     ->(363702006 |Has focus (attribute))->[737855007 |Anaphylaxis care (regime/therapy)]"/>
+                <description value="Medications that can interfere with anaphylaxis treatment education (routine)"/>
+                <definitionCanonical>
+                  <display value="Medications that can interfere with anaphylaxis treatment education (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="1381000205101 |Allergy trigger education (procedure)"/>
+                <description value="Avoidance of potential triggers education (routine)"/>
+                <definitionCanonical>
+                  <display value="Avoidance of potential triggers education (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="1391000205104 |Education about medical identification jewelry (procedure)"/>
+                <description value="Medical identification jewelry education (routine)"/>
+                <definitionCanonical>
+                  <display value="Medical identification jewelry education (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="428391000124104 |Medication interaction with medication education (procedure)"/>
+                <description value="Medication cross-reactivity education (routine)"/>
+                <definitionCanonical>
+                  <display value="Medication cross-reactivity education (routine)"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="1401000205101 |Food interaction with food education (procedure)"/>
+                <description value="Food cross-reactivity education (routine)"/>
+                <definitionCanonical>
+                  <display value="Food cross-reactivity education (routine)"/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </planDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="epinephrine auto-injector 0.3 mg solution intramuscular 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
+          <kind value="MedicationRequest"/>
+          <code>
+            <coding>
+              <code value="416118004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(260686004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            </coding>
+            <coding>
+              <code value="129445006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+            </coding>
+            <coding>
+              <code value=" action (qualifier value)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363701004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            </coding>
+            <coding>
+              <code value="Rx;1989112 0.3 ML EPINEPHrine 1 MG"/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="ML Prefilled Syringe]                                     "/>
+            </coding>
+            <coding>
+              <code value="(410675002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            </coding>
+            <coding>
+              <code value="78421000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Intramuscular route (qualifier value)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(405813007 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+            </coding>
+            <coding>
+              <code value=" Direct (attribute))"/>
+            </coding>
+            <coding>
+              <code value="68367000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Thigh structure (body structure)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="epinephrine auto-injector 0.3 mg solution subcutaneous 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
+          <kind value="MedicationRequest"/>
+          <code>
+            <coding>
+              <code value="416118004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(260686004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            </coding>
+            <coding>
+              <code value="129445006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+            </coding>
+            <coding>
+              <code value=" action (qualifier value)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363701004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            </coding>
+            <coding>
+              <code value="Rx;1989112 0.3 ML EPINEPHrine 1 MG"/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="ML Prefilled Syringe]                                     "/>
+            </coding>
+            <coding>
+              <code value="(410675002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            </coding>
+            <coding>
+              <code value="34206005 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Subcutaneous route (qualifier value))]                                     "/>
+            </coding>
+            <coding>
+              <code value="(405813007 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+            </coding>
+            <coding>
+              <code value=" Direct (attribute))"/>
+            </coding>
+            <coding>
+              <code value="68367000 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Thigh structure (body structure)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="consult Allergy Service to evaluate patient following episode of anaphylaxis (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="1351000205108 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Allergy service consultation and report (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="consult Immunology Service to evaluate patient following episode of anaphylaxis (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="1361000205106 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Immunology service consultation and report (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Use of epinephrine autoinjector education (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="1251000205104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Education about epinephrine autoinjector use (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Anaphylaxis action plan education (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="409073007 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            </coding>
+            <coding>
+              <code value="386512002 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Medications that can interfere with anaphylaxis treatment education (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="428391000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Medication interaction with medication education (procedure)]                                     "/>
+            </coding>
+            <coding>
+              <code value="(363702006 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            </coding>
+            <coding>
+              <code value="737855007 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)]"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Avoidance of potential triggers education (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="1381000205101 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Allergy trigger education (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Medical identification jewelry education (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="1391000205104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Education about medical identification jewelry (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Medication cross-reactivity education (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="428391000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Medication interaction with medication education (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <activityDefinition>
+          <title value="Food cross-reactivity education (routine)"/>
+          <kind value="ServiceRequest"/>
+          <code>
+            <coding>
+              <code value="1401000205101 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Food interaction with food education (procedure)"/>
+            </coding>
+          </code>
+          <intent value="plan"/>
+          <priority value="routine"/>
+        </activityDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+  </fhiRCore.resources:Bundle>
+  <fhiRCore.dataTypes:Code value="Anaphylaxis management (regime"/>
+  <fhiRCore.dataTypes:Code value="Anaphylaxis care (regime"/>
+</xmi:XMI>

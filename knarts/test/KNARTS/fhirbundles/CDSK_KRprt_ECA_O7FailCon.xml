@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="fdfedf99-f760-5d18-a1d3-a4878297b972"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0007BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-882"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Primary Care: Failed or Delayed Consults Rule"/>
+        <title value="Primary Care: Failed or Delayed Consults Rule"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="All patients"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Outpatient Scheduling Staff"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Event Condition Action (ECA) Rule: Failed or Delayed Consults"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="The patient has been referred or a consult has been requested; A referral request exists; or A consult request exists; or A referral order exists; or A consult order exists; AND                              An encounter with the designated referral or consult provider has not been completed; AND EITHER                             An appointment with the designated referral or consult provider has not been scheduled for the patient for a future date and time; OR                             If the requesting provider specified a preferred date (PD) for completing the referral or consult, and the date and time of any scheduled                              appointment with the designated referral or consult provider exceeds the PD. Action: Notify the scheduler that the patient should be contacted and the appointment should be scheduled or rescheduled."/>
+              <definitionCanonical>
+                <display value="The patient has been referred or a consult has been requested; A referral request exists; or A consult request exists; or A referral order exists; or A consult order exists; AND                              An encounter with the designated referral or consult provider has not been completed; AND EITHER                             An appointment with the designated referral or consult provider has not been scheduled for the patient for a future date and time; OR                             If the requesting provider specified a preferred date (PD) for completing the referral or consult, and the date and time of any scheduled                              appointment with the designated referral or consult provider exceeds the PD. Action: Notify the scheduler that the patient should be contacted and the appointment should be scheduled or rescheduled."/>
+              </definitionCanonical>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="The patient has been referred or a consult has been requested; A referral request exists; or A consult request exists; or A referral order exists; or A consult order exists; AND                              An encounter with the designated referral or consult provider has not been completed; AND EITHER                             An appointment with the designated referral or consult provider has not been scheduled for the patient for a future date and time; OR                             If the requesting provider specified a preferred date (PD) for completing the referral or consult, and the date and time of any scheduled                              appointment with the designated referral or consult provider exceeds the PD. Action: Notify the scheduler that the patient should be contacted and the appointment should be scheduled or rescheduled."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

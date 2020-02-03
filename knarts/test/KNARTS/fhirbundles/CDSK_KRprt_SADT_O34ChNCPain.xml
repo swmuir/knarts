@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="32771ec0-ec22-5209-8b74-0d2a862a9c2f"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0009DA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-99"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Mental Health: Chronic Noncancer Pain Documentation Template"/>
+        <title value="Mental Health: Chronic Noncancer Pain Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care Provider (PCP)"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="5351000124100 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <action>
+          <action>
+            <title value="Visit Information"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <action/>
+            </action>
+            <action/>
+            <action/>
+          </action>
+          <action>
+            <title value="Physical Exam"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Pain Description"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Impact of pain on function"/>
+            </action>
+            <action>
+              <title value="Type of pain"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Pain location"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Location of pain:  Select all that apply (at least one)"/>
+                <selectionBehavior value="any"/>
+              </action>
+              <action>
+                <title value="Location of pain:  Select all that apply (at least one)"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Aggrevating factors"/>
+              <selectionBehavior value="any"/>
+              <action/>
+              <action>
+                <selectionBehavior value="any"/>
+                <action/>
+                <action/>
+                <action/>
+              </action>
+              <action>
+                <selectionBehavior value="any"/>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action/>
+                  <action/>
+                </action>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action>
+                    <selectionBehavior value="any"/>
+                    <action/>
+                    <action/>
+                  </action>
+                  <action>
+                    <selectionBehavior value="any"/>
+                    <action/>
+                    <action/>
+                  </action>
+                  <action>
+                    <selectionBehavior value="any"/>
+                    <action/>
+                    <action/>
+                  </action>
+                </action>
+              </action>
+              <action>
+                <action>
+                  <selectionBehavior value="any"/>
+                  <action/>
+                  <action/>
+                </action>
+                <action>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+              <action/>
+            </action>
+            <action>
+              <title value="Alleviating factors"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Relevant Vitals"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Relevant Laboratory Values"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Medication Profile"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action/>
+              <action/>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Nonpharmacologic treatment"/>
+            <description value="Nonpharmacologic treatment/complementary integrative health"/>
+            <selectionBehavior value="any"/>
+            <action/>
+            <action>
+              <action>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Patient Education"/>
+            <selectionBehavior value="any"/>
+            <action/>
+            <action/>
+            <action/>
+          </action>
+          <action>
+            <title value="Activities of Daily Living"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Energy level"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Early Awakening"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Cause of early awakening"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Affect/Mood"/>
+            <selectionBehavior value="any"/>
+            <action/>
+          </action>
+          <action>
+            <title value="Risk Mitigation Strategies"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <selectionBehavior value="any"/>
+            </action>
+            <action/>
+            <action/>
+          </action>
+          <action>
+            <title value="Assessment"/>
+            <selectionBehavior value="any"/>
+            <action/>
+          </action>
+          <action>
+            <title value="Plan"/>
+            <description value="Interventions in this section are presented in order of recommended sequence in the VA"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action/>
+              <action/>
+              <action/>
+              <action/>
+              <action/>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+              <action/>
+              <action/>
+            </action>
+            <action/>
+            <action>
+              <selectionBehavior value="any"/>
+              <action>
+                <selectionBehavior value="any"/>
+              </action>
+              <action/>
+              <action/>
+            </action>
+            <action/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Visit Information"/>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Physical Exam"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Pain Description"/>
+        <item>
+          <text value="Impact of pain on function"/>
+        </item>
+        <item>
+          <text value="Type of pain"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Pain location"/>
+          <type value="any"/>
+          <item>
+            <text value="Location of pain:  Select all that apply (at least one)"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text value="Location of pain:  Select all that apply (at least one)"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Aggrevating factors"/>
+          <type value="any"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+            <type value="any"/>
+            <item>
+              <text/>
+              <type value="any"/>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text/>
+              <type value="any"/>
+              <item>
+                <text/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="any"/>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+            <item>
+              <text/>
+              <type value="any"/>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Alleviating factors"/>
+          <type value="any"/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Relevant Vitals"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Relevant Laboratory Values"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Medication Profile"/>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Nonpharmacologic treatment"/>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Patient Education"/>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Activities of Daily Living"/>
+        <item>
+          <text value="Energy level"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Early Awakening"/>
+          <type value="any"/>
+          <item>
+            <text value="Cause of early awakening"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Affect/Mood"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Risk Mitigation Strategies"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Assessment"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Plan"/>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+          <item>
+            <text/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="693a6b6b-4ac2-5d20-b8f5-4050ebea0028"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AK"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-71"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Neurology: Traumatic Brain Injury (TBI) Screening Documentation Template"/>
+        <title value="Neurology: Traumatic Brain Injury (TBI) Screening Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Primary Care"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="5351000124100 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult patients"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Adult patients with suspected Traumatic Brain Injury"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Outpatient"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <code value="33022008 "/>
+              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Traumatic Brain Injury screening"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Reason for Presentation"/>
+          </action>
+          <action>
+            <title value="History of Present Illness"/>
+            <description value="Describe each instance of mild traumatic brain injury with symptomatology in chronological order."/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action>
+              <action/>
+            </action>
+          </action>
+          <action>
+            <title value="Neuropsychological Testing"/>
+            <action/>
+          </action>
+          <action>
+            <title value="Imaging and Electroencephalogram"/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+          </action>
+          <action>
+            <title value="Comorbid Conditions"/>
+            <action/>
+          </action>
+          <action>
+            <title value="Deployment History"/>
+            <action/>
+          </action>
+          <action>
+            <title value="Psychosocial History"/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+            <action/>
+          </action>
+          <action>
+            <title value="Additional Medical History"/>
+          </action>
+          <action>
+            <title value="Additional Surgical History"/>
+          </action>
+          <action>
+            <title value="Additional Treatment History"/>
+          </action>
+          <action>
+            <title value="Exam"/>
+          </action>
+          <action>
+            <title value="Plan"/>
+            <action/>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Reason for Presentation"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="History of Present Illness"/>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Neuropsychological Testing"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Imaging and Electroencephalogram"/>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Comorbid Conditions"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Deployment History"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Psychosocial History"/>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Additional Medical History"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Additional Surgical History"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Additional Treatment History"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Exam"/>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <questionnaire>
+        <title value="Plan"/>
+        <item>
+          <text/>
+        </item>
+      </questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>

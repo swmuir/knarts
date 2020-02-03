@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <entry>
+    <resource>
+      <planDefinition>
+        <identifier>
+          <value value="18bf1fa5-e352-5edb-8dd8-bc872a65d326"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0007BA"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-883"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Women's Health: Breast Cancer Screening Rule"/>
+        <title value="Women's Health: Breast Cancer Screening Rule"/>
+        <type>
+          <coding>
+            <code value="Rule"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Female outpatients >=40 and &lt;45 years of age."/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalFocus"/>
+            <display value="Breast Cancer Screening"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Obstetrics/Gynecology"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Women's Health"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="General information"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Outpatient Visit, Age >=40 to &lt;45 Years, Desires Early Breast Cancer Screening"/>
+            <action>
+              <title value="268547008 |Screening for malignant neoplasm of breast (procedure)|"/>
+              <description value="Set screening interval to annual."/>
+              <definitionCanonical>
+                <display value="Set screening interval to annual."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="[409073007 |Education (procedure)]                            ->(363702006 |Has focus (attribute))->[268547008 |Screening for malignant neoplasm of breast (procedure)]"/>
+              <description value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              <definitionCanonical>
+                <display value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening history section of the documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening history section of the documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer risk assessment of the documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer risk assessment of the documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening order set ECA rule."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening order set ECA rule."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Outpatient Visit, Age >=40 to &lt;45 Years, No Desire for Early Breast Cancer Screening"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate declines breast cancer screening section of the documentation template."/>
+              <definitionCanonical>
+                <display value="Activate declines breast cancer screening section of the documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="268547008 |Screening for malignant neoplasm of breast (procedure)|"/>
+              <description value="Set screening interval to declines early breast cancer screening."/>
+              <definitionCanonical>
+                <display value="Set screening interval to declines early breast cancer screening."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Outpatient Visit, Age >=45 to &lt;55 Years"/>
+            <action>
+              <title value="268547008 |Screening for malignant neoplasm of breast (procedure)|"/>
+              <description value="Set screening interval to annual."/>
+              <definitionCanonical>
+                <display value="Set screening interval to annual."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="[409073007 |Education (procedure)]                            ->(363702006 |Has focus (attribute))->[268547008 |Screening for malignant neoplasm of breast (procedure)]"/>
+              <description value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              <definitionCanonical>
+                <display value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening history section of the documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening history section of the documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer risk assessment of the documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer risk assessment of the documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening order set ECA rule."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening order set ECA rule."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Outpatient Visit, Age gt;=55 to &lt;75 Years"/>
+            <action>
+              <title value="268547008 |Screening for malignant neoplasm of breast (procedure)|"/>
+              <description value="Set screening interval to biennial."/>
+              <definitionCanonical>
+                <display value="Set screening interval to biennial."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="[409073007 |Education (procedure)]                            ->(363702006 |Has focus (attribute))->[268547008 |Screening for malignant neoplasm of breast (procedure)]"/>
+              <description value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              <definitionCanonical>
+                <display value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening history section of the documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening history section of the documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening order set ECA rule."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening order set ECA rule."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Outpatient Visit, Age >=75 Years, Desires to Continue Screening"/>
+            <action>
+              <title value="268547008 |Screening for malignant neoplasm of breast (procedure)|"/>
+              <description value="Set screening interval to biennial."/>
+              <definitionCanonical>
+                <display value="Set screening interval to biennial."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="[409073007 |Education (procedure)]                            ->(363702006 |Has focus (attribute))->[268547008 |Screening for malignant neoplasm of breast (procedure)]"/>
+              <description value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              <definitionCanonical>
+                <display value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening history section of the documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening history section of the documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening documentation template."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening documentation template."/>
+              </definitionCanonical>
+            </action>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening order set ECA rule."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening order set ECA rule."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Outpatient Visit, Age >=75 Years, Desires to Stop Screening"/>
+            <action>
+              <title value="268547008 |Screening for malignant neoplasm of breast (procedure)|"/>
+              <description value="Set screening interval to stop screening."/>
+              <definitionCanonical>
+                <display value="Set screening interval to stop screening."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Breast Cancer Screening Order Set ECA Rule"/>
+            <action>
+              <title value="TSR-NoCode"/>
+              <description value="Activate the breast cancer screening order set."/>
+              <definitionCanonical>
+                <display value="Activate the breast cancer screening order set."/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Periodic System Run"/>
+            <action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Notify the patient of their Breast Cancer Screening due date."/>
+                <definitionCanonical>
+                  <display value="Notify the patient of their Breast Cancer Screening due date."/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Add the patient to the report of patients due for breast cancer screening with their Breast Cancer Screening due date."/>
+                <definitionCanonical>
+                  <display value="Add the patient to the report of patients due for breast cancer screening with their Breast Cancer Screening due date."/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+      </planDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Set screening interval to annual."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="409073007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening history section of the documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer risk assessment of the documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening order set ECA rule."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate declines breast cancer screening section of the documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Set screening interval to declines early breast cancer screening."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Set screening interval to annual."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="409073007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening history section of the documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer risk assessment of the documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening order set ECA rule."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Set screening interval to biennial."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="409073007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening history section of the documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening order set ECA rule."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Set screening interval to biennial."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="409073007 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+          </coding>
+          <coding>
+            <code value="(363702006 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+          </coding>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening history section of the documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening documentation template."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening order set ECA rule."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Set screening interval to stop screening."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="268547008 "/>
+            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Activate the breast cancer screening order set."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Notify the patient of their Breast Cancer Screening due date."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <activityDefinition>
+        <title value="Add the patient to the report of patients due for breast cancer screening with their Breast Cancer Screening due date."/>
+        <kind value="ServiceRequest"/>
+        <code>
+          <coding>
+            <code value="TSR"/>
+          </coding>
+          <coding>
+            <code value="NoCode"/>
+          </coding>
+        </code>
+        <intent value="plan"/>
+        <priority value="routine"/>
+      </activityDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</fhiRCore.resources:Bundle>
