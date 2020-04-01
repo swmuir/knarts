@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="465b92c8-4864-5ef0-bd28-3997ce96c134"/>
           <assigner>
@@ -43,9 +44,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -56,9 +57,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="50811001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Routine (qualifier value)"/>
+              <display  value="Routine (qualifier value)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -84,7 +85,7 @@
           <action>
             <title value="Medications"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute DVT of Leg Treated with Vitamin K Antagonist"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                            dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -195,7 +196,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now."/>
@@ -222,7 +223,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="High Clinical Suspicion of Acute VTE"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -333,7 +334,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -360,7 +361,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Intermediate Clinical Suspicion of Acute VTE and Results of Diagnostic Tests Expect to Be Delayed > 4 Hours"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,subcutaneous unfractionated heparin,intravenous heparin. These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -471,7 +472,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -498,7 +499,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Isolated Distal DVT of Leg and Severe Symptoms or Risk Factors for Extension"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux, subcutaneous unfractionated heparin, intravenous heparin. These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -609,7 +610,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both"/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -636,7 +637,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Isolated Distal DVT of Leg if Thrombus Extends within Distal System or into Proximal Veins"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -747,7 +748,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now."/>
@@ -774,7 +775,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Deep Vein Thrombosis of Leg with Thrombosis Removal"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -885,7 +886,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -912,7 +913,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Proximal Deep Vein Thrombosis of Leg and Inferior Vena Cava Filter if Risk of Bleeding Resolves"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1023,7 +1024,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -1050,7 +1051,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Pulmonary Embolism"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1161,7 +1162,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -1188,7 +1189,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="High Clinical Suspicion of Acute Pulmonary Embolism"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1299,7 +1300,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -1326,7 +1327,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Intermediate Clinical Suspicion of Acute Pulmonary Embolism if Results of Diagnostic Tests Expected to Be Delayed >4 Hours"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1437,7 +1438,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now."/>
@@ -1464,7 +1465,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Pulmonary Embolism and Inferior Vena Cava Filter if Risk of Bleeding Resolves"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1575,7 +1576,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -1602,7 +1603,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Asymptomatic Pulmonary Embolism"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1713,7 +1714,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -1740,7 +1741,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Upper-Extremity Deep Vein Thrombosis that Involves Axillary or More Proximal Veins"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,                             subcutaneous unfractionated heparin,                            intravenous heparin.                            These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1851,7 +1852,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both."/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -1878,7 +1879,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Acute Upper-Extremity Deep Vein Thrombosis with Thrombolysis"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux, subcutaneous unfractionated heparin, intravenous heparin. These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -1989,7 +1990,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both"/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -2016,7 +2017,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Symptomatic Splanchnic Vein Thrombosis"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux, subcutaneous unfractionated heparin, intravenous heparin. These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -2127,7 +2128,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both"/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -2154,7 +2155,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Symptomatic Hepatic Vein Thrombosis"/>
                 <description value="Be advised that the patient is a candidate for intravenous unfractionated heparin, although other options may be preferred based on individual patient characteristics, clinical co-conditions or co-morbidities, and patient values and preferences.  The medication treatment options for this patient subpopulation include the following, but the options cannot be strictly rank-ordered in terms of a universal preference, and individual patient circumstances must be considered in selecting the optimal treatment:                             dalteparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            enoxaparin (a drug of choice in patients with cancer and in patients with recurrent venous thromboembolism on warfarin, rivaroxaban, apixaban, or edoxaban),                            fondaparinux,subcutaneous unfractionated heparin, intravenous heparin. These are links to the American College of Chest Physicians VTE treatment guidelines:"/>
@@ -2265,7 +2266,7 @@
                   <title value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
                   <action>
                     <title value="Select one or both"/>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action>
                       <title/>
                       <description value="Heparin 80 U/kg body weight intravenous solution 1 time bolus now"/>
@@ -2293,25 +2294,25 @@
             </action>
             <action>
               <title value="Perioperative Anticoagulation with Mechanical Heart Valve, Atrial Fibrillation or Venous Thromboembolism at High Risk for additional (perioperative) Thromboembolism"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Perioperative Anticoagulation with Unfractionated Heparin Timing of Pre-surgical Stopping of Unfractionated Heparin"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Pregnancy with Antiphospholipid Antibody Syndrome"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Pregnancy with Mechanical Heart Valve"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Laboratory Tests"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="26604007 |Complete blood count (procedure)|"/>
                 <description value="Complete blood count 1 time now"/>
@@ -2357,7 +2358,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -2365,11 +2366,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute DVT of Leg Treated with Vitamin K Antagonist"/>
             <item>
@@ -2409,14 +2410,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="High Clinical Suspicion of Acute VTE"/>
             <item>
@@ -2456,14 +2457,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Intermediate Clinical Suspicion of Acute VTE and Results of Diagnostic Tests Expect to Be Delayed > 4 Hours"/>
             <item>
@@ -2503,14 +2504,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Isolated Distal DVT of Leg and Severe Symptoms or Risk Factors for Extension"/>
             <item>
@@ -2550,14 +2551,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both"/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Isolated Distal DVT of Leg if Thrombus Extends within Distal System or into Proximal Veins"/>
             <item>
@@ -2597,14 +2598,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Deep Vein Thrombosis of Leg with Thrombosis Removal"/>
             <item>
@@ -2644,14 +2645,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion:"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Proximal Deep Vein Thrombosis of Leg and Inferior Vena Cava Filter if Risk of Bleeding Resolves"/>
             <item>
@@ -2691,14 +2692,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Pulmonary Embolism"/>
             <item>
@@ -2738,14 +2739,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="High Clinical Suspicion of Acute Pulmonary Embolism"/>
             <item>
@@ -2785,14 +2786,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Intermediate Clinical Suspicion of Acute Pulmonary Embolism if Results of Diagnostic Tests Expected to Be Delayed >4 Hours"/>
             <item>
@@ -2832,14 +2833,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Pulmonary Embolism and Inferior Vena Cava Filter if Risk of Bleeding Resolves"/>
             <item>
@@ -2879,14 +2880,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Asymptomatic Pulmonary Embolism"/>
             <item>
@@ -2926,14 +2927,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Upper-Extremity Deep Vein Thrombosis that Involves Axillary or More Proximal Veins"/>
             <item>
@@ -2973,14 +2974,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both."/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Acute Upper-Extremity Deep Vein Thrombosis with Thrombolysis"/>
             <item>
@@ -3020,14 +3021,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both"/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Symptomatic Splanchnic Vein Thrombosis"/>
             <item>
@@ -3067,14 +3068,14 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both"/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Symptomatic Hepatic Vein Thrombosis"/>
             <item>
@@ -3114,28 +3115,28 @@
               <text value="Orders for Initiation and Maintenance of IV Heparin infusion"/>
               <item>
                 <text value="Select one or both"/>
-                <type value="any"/>
+                <type value="choice"/>
               </item>
             </item>
           </item>
         </item>
         <item>
           <text value="Perioperative Anticoagulation with Mechanical Heart Valve, Atrial Fibrillation or Venous Thromboembolism at High Risk for additional (perioperative) Thromboembolism"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Perioperative Anticoagulation with Unfractionated Heparin Timing of Pre-surgical Stopping of Unfractionated Heparin"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Pregnancy with Antiphospholipid Antibody Syndrome"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Pregnancy with Mechanical Heart Valve"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -3143,16 +3144,16 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

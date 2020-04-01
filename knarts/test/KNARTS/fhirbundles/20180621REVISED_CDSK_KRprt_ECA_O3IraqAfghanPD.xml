@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+   <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="8bea8573-d9ed-510e-81a2-571c850cc022"/>
             <assigner>
@@ -38,9 +38,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="453231000124104 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+                <display  value="Primary care provider (occupation)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -51,9 +51,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="310190000 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Mental health counselor (occupation)"/>
+                <display  value="Mental health counselor (occupation)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -64,9 +64,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="133936004 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+                <display  value="Adult (person)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -83,9 +83,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="10918624-0ba1-4f32-be0e-bf7fd0d0cca3"/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Defense force post-deployment health screening (procedure)"/>
+                <display  value="Defense force post-deployment health screening (procedure)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -213,7 +213,7 @@
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -221,7 +221,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -234,7 +234,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -242,7 +242,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -255,7 +255,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -263,7 +263,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Display order for infectious diseases consult for unexplained fevers in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -281,20 +281,20 @@
             </coding>
             <coding>
               <code value="bbca6184db62 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Infectious disease consultation and report (procedure)]                                     "/>
+              <display  value="Infectious disease consultation and report (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+              <display  value=")"/>
             </coding>
             <coding>
               <code value="7520000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Pyrexia of unknown origin (finding)]"/>
+              <display  value="Pyrexia of unknown origin (finding)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -302,26 +302,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Display order for patient education for unexplained fevers in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="311401005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+              <display  value="Patient education (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+              <display  value=")"/>
             </coding>
             <coding>
               <code value="7520000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Pyrexia of unknown origin (finding)]"/>
+              <display  value="Pyrexia of unknown origin (finding)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -329,7 +329,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot; General Clinical Note &quot; documentation template KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -342,7 +342,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -350,7 +350,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -363,7 +363,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -371,18 +371,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Display order for gastroenterology consult in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="50687007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Digestive tract consultation and report (procedure)"/>
+              <display  value="Digestive tract consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -390,26 +390,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Display order for patient education for chronic diarrhea and other gastrointestinal complaints in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="311401005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+              <display  value="Patient education (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+              <display  value=")"/>
             </coding>
             <coding>
               <code value="236071009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic diarrhea (disorder)]"/>
+              <display  value="Chronic diarrhea (disorder)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -417,7 +417,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -430,7 +430,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -438,7 +438,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot; Generic E-Consult &quot; documentation template-consult request KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -451,7 +451,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -459,7 +459,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Display order for infectious diseases consult for persistent rash in the &quot;Consults and Referrals&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -477,34 +477,34 @@
             </coding>
             <coding>
               <code value="bbca6184db62 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Infectious disease consultation and report (procedure)]"/>
+              <display  value="Infectious disease consultation and report (procedure)]"/>
             </coding>
             <coding>
               <code value="                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+              <display  value="Has focus (attribute))"/>
             </coding>
             <coding>
               <code value="271807003 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Eruption of skin (disorder)]"/>
+              <display  value="Eruption of skin (disorder)]"/>
             </coding>
             <coding>
               <code value="                                     "/>
             </coding>
             <coding>
               <code value="(263502005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Clinical course (attribute))"/>
+              <display  value="Clinical course (attribute))"/>
             </coding>
             <coding>
               <code value="90734009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic (qualifier value)];"/>
+              <display  value="Chronic (qualifier value)];"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -512,40 +512,40 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Display order for patient education for persistent rash in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen&quot; order set."/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="311401005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]"/>
+              <display  value="Patient education (procedure)]"/>
             </coding>
             <coding>
               <code value="                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+              <display  value=")"/>
             </coding>
             <coding>
               <code value="271807003 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Eruption of skin (disorder)]"/>
+              <display  value="Eruption of skin (disorder)]"/>
             </coding>
             <coding>
               <code value="                                     "/>
             </coding>
             <coding>
               <code value="(263502005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Clinical course (attribute))"/>
+              <display  value="Clinical course (attribute))"/>
             </coding>
             <coding>
               <code value="90734009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic (qualifier value)];"/>
+              <display  value="Chronic (qualifier value)];"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -553,7 +553,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot;General Clinical Note&quot; documentation template KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -566,7 +566,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -574,7 +574,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot;Generic E-Consult&quot; documentation template-consult request KNART."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -587,7 +587,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -595,26 +595,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Display order for patient education for embedded fragments or shrapnel in Veterans who served in Iraq or Afghanistan after September 11, 2001, in the &quot;Patient and Caregiver Education&quot; section of the &quot;Mental Health – Iraq &amp; Afghanistan Post-Deployment Screen &quot; order set."/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="311401005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+              <display  value="Patient education (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+              <display  value=")"/>
             </coding>
             <coding>
               <code value="219391000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="War injury due to fragments from shrapnel (disorder)]"/>
+              <display  value="War injury due to fragments from shrapnel (disorder)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -622,7 +622,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide link to &quot;Neurology – TBI Screening&quot; ECA Rule."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -635,16 +635,11 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
-  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
-  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
-  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
-  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
-</xmi:XMI>
+  </Bundle>
+ 

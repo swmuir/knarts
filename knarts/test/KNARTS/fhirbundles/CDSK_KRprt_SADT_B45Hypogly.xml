@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="a3d8ea14-b1d9-56ec-9774-239ba16e16e4"/>
           <assigner>
@@ -43,9 +44,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -69,47 +70,47 @@
             </action>
             <action>
               <title value="Diabetes Control Status"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
               <title value="Medication Reconciliation: Potential medication interactions with antiglycemic agents and/or medication impact on hypoglycemic awareness"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Collect details about hypoglycemic episode(s)"/>
               <action>
                 <title value="Episode type(s)"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action/>
                 <action/>
                 <action/>
               </action>
               <action>
                 <title value="Methods Used to Treat Hypoglycemia"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                 </action>
               </action>
               <action>
                 <title value="How good is your ability to recognize your hypoglycemia symptoms?"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
               <title value="Hypoglycemic Assessment and Risk Factors"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action/>
               <action>
@@ -118,11 +119,11 @@
                 <action/>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action/>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action/>
                 <action/>
               </action>
@@ -134,39 +135,39 @@
             <title value="Past Medical History"/>
             <action>
               <title value="History of microvascular disease?"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Medications"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action/>
           </action>
           <action>
             <title value="Lifestyle"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
             <action/>
           </action>
           <action>
             <title value="Patient Preferences"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
           </action>
           <action>
             <title value="Plan"/>
             <action>
               <title value="HbA1c Target Range"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action/>
@@ -174,7 +175,7 @@
             <action/>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -182,17 +183,17 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="History of Present Illness"/>
         <item>
           <text value="Reason for Evaluation"/>
         </item>
         <item>
           <text value="Diabetes Control Status"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -203,13 +204,13 @@
         </item>
         <item>
           <text value="Medication Reconciliation: Potential medication interactions with antiglycemic agents and/or medication impact on hypoglycemic awareness"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Collect details about hypoglycemic episode(s)"/>
           <item>
             <text value="Episode type(s)"/>
-            <type value="any"/>
+            <type value="choice"/>
             <item>
               <text/>
             </item>
@@ -243,10 +244,10 @@
           </item>
           <item>
             <text value="Methods Used to Treat Hypoglycemia"/>
-            <type value="any"/>
+            <type value="choice"/>
             <item>
               <text/>
-              <type value="any"/>
+              <type value="choice"/>
             </item>
             <item>
               <text/>
@@ -260,11 +261,11 @@
           </item>
           <item>
             <text value="How good is your ability to recognize your hypoglycemia symptoms?"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -293,14 +294,14 @@
         </item>
         <item>
           <text value="Hypoglycemic Assessment and Risk Factors"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -328,16 +329,6 @@
             <item>
               <text/>
             </item>
-            <item>
-              <text/>
-            </item>
-            <item>
-              <text/>
-            </item>
-          </item>
-          <item>
-            <text/>
-            <type value="any"/>
             <item>
               <text/>
             </item>
@@ -347,7 +338,17 @@
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+            <type value="choice"/>
             <item>
               <text/>
             </item>
@@ -434,7 +435,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -442,17 +443,17 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Past Medical History"/>
         <item>
           <text value="History of microvascular disease?"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -460,20 +461,20 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -481,7 +482,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Lifestyle"/>
         <item>
           <text/>
@@ -489,7 +490,7 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -497,12 +498,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Patient Preferences"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -510,11 +511,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text value="HbA1c Target Range"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -531,10 +532,10 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

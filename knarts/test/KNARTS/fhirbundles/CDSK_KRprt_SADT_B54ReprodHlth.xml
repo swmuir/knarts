@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="f19ba3ec-f99a-5db6-97fc-70262594b5cf"/>
           <assigner>
@@ -43,9 +44,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="248152002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+              <display  value="Female (finding)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -56,9 +57,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -71,21 +72,21 @@
         <action>
           <action>
             <title value="Knowledge Narrative"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Menstrual History"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Menstrual Cycle Pattern?"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Regular"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
                 <title value="Irregular"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
@@ -98,13 +99,13 @@
           </action>
           <action>
             <title value="Medical Ability to Conceive"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Reproductive History"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Pregnancy Outcomes"/>
                 <action>
@@ -118,20 +119,20 @@
           </action>
           <action>
             <title value="Sexual History"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
           </action>
           <action>
             <title value="Medical/Surgical History"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
           </action>
           <action>
             <title value="Social History"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Substance Use History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
               <action/>
               <action/>
@@ -145,7 +146,7 @@
           </action>
           <action>
             <title value="Pertinent Family Medical History"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Affected Family Members"/>
               <action/>
@@ -344,29 +345,29 @@
           </action>
           <action>
             <title value="Reproductive Goals Assessment"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Same Day Start Criteria for Contraceptives"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Plan"/>
             <action>
               <title value="Review with patient the contraceptive options and the associated levels of effectiveness of those methods."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Review with patient emergency contraceptives in case of unprotected sex."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="If appropriate, address sexually transmitted infection risk reduction with use of barrier methods."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -374,9 +375,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Knowledge Narrative"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -384,18 +385,18 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Menstrual History"/>
         <item>
           <text value="Menstrual Cycle Pattern?"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Regular"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Irregular"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -431,7 +432,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -439,9 +440,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medical Ability to Conceive"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -449,11 +450,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Reproductive History"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Pregnancy Outcomes"/>
             <item>
@@ -479,7 +480,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -487,12 +488,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Sexual History"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -500,12 +501,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medical/Surgical History"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -513,11 +514,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Social History"/>
         <item>
           <text value="Substance Use History"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -570,7 +571,7 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -578,7 +579,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Pertinent Family Medical History"/>
         <item>
           <text value="Affected Family Members"/>
@@ -2071,7 +2072,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -2079,9 +2080,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Reproductive Goals Assessment"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -2089,9 +2090,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Same Day Start Criteria for Contraceptives"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -2099,24 +2100,24 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text value="Review with patient the contraceptive options and the associated levels of effectiveness of those methods."/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Review with patient emergency contraceptives in case of unprotected sex."/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="If appropriate, address sexually transmitted infection risk reduction with use of barrier methods."/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="d41ea9b1-89ab-55ac-885a-1e399ae4c3e3"/>
           <assigner>
@@ -90,7 +91,7 @@
               <action>
                 <title value="Laboratory Studies"/>
                 <description value="The following laboratory studies will display below for you to order only if the patient has not had the study done in the last 3 months: Complete Blood Count, Complete Metabolic Panel, C-reactive protein, Erythrocyte Sedimentation Rate."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="26604007 |Complete blood count (procedure)|"/>
                   <description value="Complete blood count 1 time routine"/>
@@ -151,7 +152,7 @@
               <action>
                 <title value="One-Time Laboratory Studies"/>
                 <description value="The following laboratory studies will display below for you to order only if the patient has never had this study done at any time in the past: Anti-cyclic citrullinated peptide, Human Leukocyte antigen B27, Rheumatoid factor, Serum Uric Acid."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="408200008 |Anti-cyclic citrullinated peptide antibody level (procedure)|"/>
                   <description value="Anti-cyclic citrullinated peptide 1 time routine"/>
@@ -217,7 +218,7 @@
               <title value="To avoid unnecessary imaging, please order imaging for only the most severely affected joints based upon history and clinical examination."/>
               <action>
                 <title value="X-ray symptomatic joints to evaluate for possible psoriatic arthritis, routine"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[363680008 |Radiographic imaging procedure (procedure)]-                                                         ->(260686004 |Method (attribute))->[278110001 |Radiographic imaging - action (qualifier value)]                                                         ->(405813007 |Procedure site - Direct (attribute))->[85562004 |Hand structure (body structure)]-                                                         ->(272741003 |Laterality (attribute))->[7771000 |Left (qualifier value)];"/>
                   <description value="X-ray Hand-Left to evaluate for possible psoriatic arthritis, routine"/>
@@ -270,7 +271,7 @@
               </action>
               <action>
                 <title value="The following should be ordered for patients with complaint of low back pain."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="6238009 |Diagnostic radiography of sacroiliac joints (procedure)|"/>
                   <description value="X-ray sacroiliac joint to evaluate for possible psoriatic arthritis, routine"/>
@@ -295,7 +296,7 @@
           <action>
             <title value="Patient and Caregiver Education"/>
             <description value="Consider the following links as examples of patient educational material:"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title/>
               <description value="Provide &quot;Patient/Caregiver&quot; link to patient"/>
@@ -316,7 +317,7 @@
             <description value="The following links contain clinical practice guidelines for education for the clinical provider."/>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -324,13 +325,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications"/>
         <item>
           <text value="Consider one of the following medications for alleviation of pain"/>
           <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -338,20 +339,20 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
         <item>
           <text/>
           <item>
             <text value="Laboratory Studies"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="One-Time Laboratory Studies"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -359,20 +360,20 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and Diagnostic Studies"/>
         <item>
           <text value="To avoid unnecessary imaging, please order imaging for only the most severely affected joints based upon history and clinical examination."/>
           <item>
             <text value="X-ray symptomatic joints to evaluate for possible psoriatic arthritis, routine"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="The following should be ordered for patients with complaint of low back pain."/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -380,12 +381,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consult Request"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -393,9 +394,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Patient and Caregiver Education"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -403,12 +404,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Reference for Provider Use"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

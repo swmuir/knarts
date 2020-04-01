@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?schematron-schema href="../main/schematron/knowledgeartifact.sch"?>
 <?schematron-schema href="../main/schematron/documentationtemplates.sch"?>
-<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:elm="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:a="urn:hl7-org:cql-annotations:r1" xmlns:p1="http://www.w3.org/1999/xhtml"
+<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:elm="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:a="urn:hl7-org:cql-annotations:r1" xmlns:p1="http://www.w3.org/1999/xhtml"
     xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:anf="urn:solor.io:anf:r1"
     xsi:schemaLocation="urn:hl7-org:knowledgeartifact:r2 ../../schema/knowledgeartifact/knowledgedocument.xsd urn:hl7-org:elm:r1 ../../schema/elm/clinicalexpression.xsd urn:hl7-org:elm-types:r1 ../../schema/elm/types.xsd 
     urn:hl7-org:cql-annotations:r1 ../../schema/elm/cqlannotations.xsd urn:solor.io:anf:r1 ../../schema/anf/anf.xsd">

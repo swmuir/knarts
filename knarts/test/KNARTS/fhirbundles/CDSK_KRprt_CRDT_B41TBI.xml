@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="80b3f7ad-54c5-565a-8a50-097a702f72f5"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -56,9 +57,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -69,9 +70,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -92,51 +93,51 @@
             <title value="Consults and Referrals"/>
             <action>
               <title value="Referral Request: Polytrauma Rehabilitation Clinic"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Referral Request: Physical Therapy"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Referral Request: Occupational Therapy"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Referral Request: Speech-Language Pathology"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Referral Request: Neurology"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Referral Request: Mental Health"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Consult Request: Social Services"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Consult Request: Integrative Health"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Referring Physician Information"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -144,11 +145,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consults and Referrals"/>
         <item>
           <text value="Referral Request: Polytrauma Rehabilitation Clinic"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -158,7 +159,7 @@
         </item>
         <item>
           <text value="Referral Request: Physical Therapy"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -168,7 +169,7 @@
         </item>
         <item>
           <text value="Referral Request: Occupational Therapy"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -178,7 +179,7 @@
         </item>
         <item>
           <text value="Referral Request: Speech-Language Pathology"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -188,7 +189,7 @@
         </item>
         <item>
           <text value="Referral Request: Neurology"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -198,7 +199,7 @@
         </item>
         <item>
           <text value="Referral Request: Mental Health"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -208,7 +209,7 @@
         </item>
         <item>
           <text value="Consult Request: Social Services"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -218,7 +219,7 @@
         </item>
         <item>
           <text value="Consult Request: Integrative Health"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -228,12 +229,12 @@
         </item>
         <item>
           <text value="Referring Physician Information"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

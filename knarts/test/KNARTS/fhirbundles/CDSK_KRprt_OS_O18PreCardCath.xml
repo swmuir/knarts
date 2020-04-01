@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="9a42ab9d-ee66-57a5-aa54-c3055a9ff1fc"/>
           <assigner>
@@ -61,9 +62,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -145,10 +146,10 @@
             <action>
               <title value="Hold Medication Orders"/>
               <description value="Hold and restart orders for patients taking insulin, metformin, anticoagulants, or aspirin"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="insulin"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[67866001 |Insulin (substance)];"/>
                   <description value="Hold insulin per Cardiac Catheterization Guidelines"/>
@@ -159,7 +160,7 @@
               </action>
               <action>
                 <title value="metformin"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[Rx;6809 metFORMIN];"/>
                   <description value="Hold metformin per Cardiac Catheterization Guidelines"/>
@@ -177,7 +178,7 @@
               </action>
               <action>
                 <title value="anticoagulants"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[372862008 |Anticoagulant (substance)];"/>
                   <description value="Hold anticoagulants per Cardiac Catheterization Guidelines"/>
@@ -188,7 +189,7 @@
               </action>
               <action>
                 <title value="aspirin"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[304540007 |Recommendation to stop drug treatment (procedure)]-                                                     ->363702006 |Has focus (attribute))->[416118004 |Administration (procedure)]-                                                     ->(363701004 |Direct substance (attribute))->[Rx;1191 Aspirin];"/>
                   <description value="Hold aspirin per Cardiac Catheterization Guidelines"/>
@@ -205,9 +206,9 @@
               <title value="Possible laboratory tests and order schedules for patients who will undergo cardiac catheterization."/>
               <action>
                 <title value="Comprehensive Metabolic Profile"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="1411000205104 |Comprehensive metabolic panel (procedure"/>
                     <description value="Comprehensive Metabolic Profile at specified time"/>
@@ -240,9 +241,9 @@
               </action>
               <action>
                 <title value="Complete Blood Count"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="26604007 |Complete blood count (procedure)|"/>
                     <description value="Complete Blood Count at specified time"/>
@@ -275,9 +276,9 @@
               </action>
               <action>
                 <title value="Brain natriuretic peptide"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="390917008 |Brain natriuretic peptide measurement (procedure)|"/>
                     <description value="Brain natriuretic peptide test at specified time"/>
@@ -310,9 +311,9 @@
               </action>
               <action>
                 <title value="International Normalized Ratio (INR)"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="440685005 |Calculation of international normalized ratio (procedure)|"/>
                     <description value="INR test at specified time"/>
@@ -345,9 +346,9 @@
               </action>
               <action>
                 <title value="Troponin"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="105000003 |Troponin measurement (procedure)|"/>
                     <description value="Troponin test at specified time"/>
@@ -380,9 +381,9 @@
               </action>
               <action>
                 <title value="Magnesium"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="38151008 |Magnesium measurement (procedure)|"/>
                     <description value="Magnesium test specified time"/>
@@ -415,9 +416,9 @@
               </action>
               <action>
                 <title value="aPTT"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="42525009 |Partial thromboplastin time, activated (procedure)|"/>
                     <description value="aPTT at specified time"/>
@@ -450,7 +451,7 @@
               </action>
               <action>
                 <title value="IF patient is FEMALE AND &amp;lt; 52 years old AND has NOT had a hyterectomy, bilateral oophorectomy, or tubal ligation OR is NOT in menopause OR has NOT been previously designated as medically unable to conceive by their provider"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="67900009 |Human chorionic gonadotropin measurement (procedure)|"/>
                   <description value="Human chorionic gonadotropin (HCG)"/>
@@ -461,7 +462,7 @@
               </action>
               <action>
                 <title value="Point-of-Care test"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="302789003 |Capillary blood glucose measurement (procedure)|"/>
                   <description value="Finger-stick Glucose"/>
@@ -476,7 +477,7 @@
             <title value="Imaging and Diagnostic Testing"/>
             <action>
               <title value="Choose all that apply to patient"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[268400002 |12 lead electrocardiogram (procedure)]                                             ->(363702006 |Has focus (attribute))-[dffc9bef-d9a5-4b99-bf6a-a89511bf5410 |Evaluation of preoperative cardiac function (procedure))"/>
                 <description value="12-Lead ECG preprocedural evaluation for cardiac catheterization"/>
@@ -508,7 +509,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -516,7 +517,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Order Pre Cardiac Catheterization Medications"/>
         <item>
           <text value="Oral Contrast Allergy Premedication Regimen"/>
@@ -526,7 +527,7 @@
           <text value="Intravenous Contrast Allergy Premedication Regimen"/>
           <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -534,25 +535,25 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Hold Medication Orders"/>
         <item>
           <text value="insulin"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="metformin"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="anticoagulants"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="aspirin"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -560,13 +561,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Comprehensive Metabolic Profile"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -574,13 +575,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Complete Blood Count"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -588,13 +589,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Brain natriuretic peptide"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -602,13 +603,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="International Normalized Ratio (INR)"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -616,13 +617,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Troponin"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -630,13 +631,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Magnesium"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -644,13 +645,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="aPTT"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -658,9 +659,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="IF patient is FEMALE AND &amp;lt; 52 years old AND has NOT had a hyterectomy, bilateral oophorectomy, or tubal ligation OR is NOT in menopause OR has NOT been previously designated as medically unable to conceive by their provider"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -668,9 +669,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Point-of-Care test"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -678,17 +679,17 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="12-Lead ECG preprocedural evaluation for cardiac catheterization"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="268400002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="12 lead electrocardiogram (procedure)]                                             "/>
+            <display  value="12 lead electrocardiogram (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="dffc9bef"/>
@@ -704,12 +705,12 @@
           </coding>
           <coding>
             <code value="a89511bf5410 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+            <display  value="Evaluation of preoperative cardiac function (procedure))"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -717,17 +718,17 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Echocardiogram preprocedural evaluation for cardiac catheterization"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="40701008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Echocardiography (procedure)]                                             "/>
+            <display  value="Echocardiography (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="dffc9bef"/>
@@ -743,12 +744,12 @@
           </coding>
           <coding>
             <code value="a89511bf5410 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+            <display  value="Evaluation of preoperative cardiac function (procedure))"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -756,17 +757,17 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="X-ray chest posterioranterior (PA) and lateral preprocedural evaluation for cardiac catheterization"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="42869005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Diagnostic radiography of chest, combined posteroanterior and lateral (procedure)]                                             "/>
+            <display  value="Diagnostic radiography of chest, combined posteroanterior and lateral (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="dffc9bef"/>
@@ -782,12 +783,12 @@
           </coding>
           <coding>
             <code value="a89511bf5410 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+            <display  value="Evaluation of preoperative cardiac function (procedure))"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -795,28 +796,28 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="X-ray anteroposterior (AP) portable preprocedural evaluation for cardiac catheterization"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="394421000119103 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Plain x"/>
+            <display  value="Plain x"/>
           </coding>
           <coding>
             <code value="ray of chest anteroposterior view (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(424226004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Using device (attribute))"/>
+            <display  value="Using device (attribute))"/>
           </coding>
           <coding>
             <code value="706348008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Radiology mobile medical facility (physical object)]                                             "/>
+            <display  value="Radiology mobile medical facility (physical object)]                                             "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="dffc9bef"/>
@@ -832,15 +833,15 @@
           </coding>
           <coding>
             <code value="a89511bf5410 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation of preoperative cardiac function (procedure))"/>
+            <display  value="Evaluation of preoperative cardiac function (procedure))"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

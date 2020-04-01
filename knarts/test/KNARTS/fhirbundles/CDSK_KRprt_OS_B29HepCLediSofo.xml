@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="51c64787-fe39-5740-b7d4-7713567d4a0e"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -56,9 +57,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -81,9 +82,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -93,7 +94,7 @@
             <description value="Ledipasvir/sofosbuvir should not be used in patients with severe renal impairment (eGFR&lt;30mL/min/1.73 m^2), with end-stage-renal disease, or on hemodialysis. Ledipasvir/sofosbuvir should not be used in combination with amiodarone, carbamazepine, oxcarbazepine, phenobarbital, phenytoin, rifabutin, rifampin, rifapentine, rosuvastatin, St. John’s wort, elvitegravir/cobicistat/emtricitabine/tenofovir, tipranavir/ritonavir, or simeprevir. Ledipasvir/sofosbuvir should not used in patients who require twice-daily proton pump inhibitor therapy for esophageal disease. Providers should check http://www.hep-druginteractions.org, https://www.hepatitis.va.gov/provider/guidelines/hcv-treatment-considerations.asp, and/or a pharmacist for additional drug interactions or contraindications before starting ledipasvir/sofosbuvir."/>
             <action>
               <title value="Non-African-Americans with Genotype 1, Treatment-Naïve, without Cirrhosis, HCV RNA &lt; 6 Million IU/mL"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 1 refill (routine)"/>
@@ -104,7 +105,7 @@
             </action>
             <action>
               <title value="African-Americans with Genotype 1, Treatment-Naïve, without Cirrhosis, HCV RNA &lt; 6 Million IU/mL"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -115,7 +116,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Naïve, without Cirrhosis, HCV RNA >= 6 Million IU/mL."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -126,7 +127,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Naïve, without Cirrhosis, with HIV Coinfection."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -137,7 +138,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Naïve, with Compensated Cirrhosis."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -148,7 +149,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Experienced (PEG-RBV with or without Protease Inhibitor), without Cirrhosis"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -159,7 +160,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Experienced (PEG-RBV with or without Protease Inhibitor), with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -184,7 +185,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Experienced (PEG-RBV with or without Protease Inhibitor), Ribavirin Intolerant, with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 5 refills (routine)"/>
@@ -195,7 +196,7 @@
             </action>
             <action>
               <title value="Genotype 1 with Decompensated Cirrhosis (CTP B or C)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -220,7 +221,7 @@
             </action>
             <action>
               <title value="Genotype 1, Ribavirin Intolerant, with Decompensated Cirrhosis (CTP B or C)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 5 refills (routine)"/>
@@ -231,7 +232,7 @@
             </action>
             <action>
               <title value="Genotype 1, Pre- or Post-Liver Transplant (Including CTP A, B, or C or Suitable Candidate with Hepatocellular Carcinoma)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -270,7 +271,7 @@
             </action>
             <action>
               <title value="Genotype 4, 5, or 6 without Cirrhosis or with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -281,7 +282,7 @@
             </action>
             <action>
               <title value="Genotype 4, 5, or 6 with Decompensated Cirrhosis (CTP B or C)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -306,7 +307,7 @@
             </action>
             <action>
               <title value="Genotype 4, Post-Liver Transplant."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
@@ -345,7 +346,7 @@
             </action>
             <action>
               <title value="Reduced-Dose Ribavirin for Patients with Renal Impairment (Creatinine Clearance 30–50 mL/min/1.73 m^2)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 2 refills (routine)"/>
@@ -359,7 +360,7 @@
             <title value="Laboratory Tests"/>
             <action>
               <title value="Routine tests in referrals for management of hepatitis C"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="26604007 |Complete blood count (procedure)|"/>
                 <description value="Complete blood count 1 time (routine)"/>
@@ -398,7 +399,7 @@
             </action>
             <action>
               <title value="The following lab is recommended if not performed within the previous 5 years."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="397662006 |Hepatitis C virus genotype determination (procedure)|"/>
                 <description value="HCV genotype 1 time (routine)"/>
@@ -409,7 +410,7 @@
             </action>
             <action>
               <title value="The following labs are recommended if not performed within the previous 10 years."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="47758006 |Hepatitis B surface antigen measurement (procedure)|"/>
                 <description value="Hepatitis B surface antigen (HBsAg) 1 time (routine)"/>
@@ -441,7 +442,7 @@
             </action>
             <action>
               <title value="The following lab is recommended if not performed within the previous 6 months."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="395197008 |Hepatitis C viral load (procedure)|"/>
                 <description value="HCV viral load (quantitative HCV RNA) 1 time (routine)"/>
@@ -452,7 +453,7 @@
             </action>
             <action>
               <title value="The following lab is recommended if not performed within the previous 5 years."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="359796005 |Measurement of both Human immunodeficiency virus 1 antibody and Human immunodeficiency virus 2 antibody (procedure)|"/>
                 <description value="HIV test 1 time (routine)"/>
@@ -463,7 +464,7 @@
             </action>
             <action>
               <title value="The following lab is recommended if not performed within the previous 2 weeks."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="386558001 |Chorionic gonadotropin, beta-subunit measurement (procedure)|"/>
                 <description value="Qualitative human chorionic gonadotropin 1 time (routine)"/>
@@ -477,7 +478,7 @@
             <title value="Patient and Caregiver Education"/>
             <action>
               <title value="This section should be available to users in gastroenterology settings and for primary care providers who are referring a patient to gastroenterology for management of hepatitis C"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="TSR-NoCode"/>
                 <description value="Hepatitis C Information for Veterans"/>
@@ -544,7 +545,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -552,13 +553,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 1 refill (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -566,13 +567,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -580,13 +581,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -594,13 +595,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -608,13 +609,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -622,13 +623,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -636,13 +637,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -650,13 +651,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -664,13 +665,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -678,13 +679,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 5 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -692,13 +693,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -706,13 +707,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 5 pills per day as tolerated 126 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -720,13 +721,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 6 pills per day as tolerated 140 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -734,13 +735,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 5 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -748,13 +749,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -762,13 +763,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 5 pills per day as tolerated 126 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -776,13 +777,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 6 pills per day as tolerated 140 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -790,13 +791,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -804,13 +805,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -818,13 +819,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -832,13 +833,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -846,13 +847,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 5 pills per day as tolerated 126 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -860,13 +861,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 6 pills per day as tolerated 140 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -874,13 +875,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ledipasvir/sofosbuvir (90 mg/400 mg) 1 tablet oral, daily, 28 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -888,13 +889,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 5 pills per day as tolerated 126 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -902,13 +903,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every morning and 2 capsules every evening; take with food; increase dose by 1 capsule every 2 weeks, up to 6 pills per day as tolerated 140 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -916,13 +917,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 2 capsules every morning and 3 capsules every evening; take with food 140 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -930,13 +931,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 3 capsules every morning and 3 capsules every evening; take with food 168 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -944,13 +945,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin 200 mg capsule oral, take 1 capsule every other day, alternating with 2 capsules on alternate days; on 2-capsule days, take 1 capsule in the morning and one capsule in the evening; take with food 42 capsules 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -958,18 +959,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Complete blood count 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="26604007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+            <display  value="Complete blood count (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -977,18 +978,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatic function panel 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="T26958001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatic function panel (procedure)"/>
+            <display  value="Hepatic function panel (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -996,18 +997,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="International normalized ratio 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="440685005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Calculation of international normalized ratio (procedure)"/>
+            <display  value="Calculation of international normalized ratio (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1015,18 +1016,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Basic metabolic panel 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="1421000205106 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Basic metabolic panel (procedure)"/>
+            <display  value="Basic metabolic panel (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1034,18 +1035,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glomerular Filtration rate 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="167181009 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of renal clearance of creatinine (procedure)"/>
+            <display  value="Measurement of renal clearance of creatinine (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1053,18 +1054,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="HCV genotype 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="397662006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis C virus genotype determination (procedure)"/>
+            <display  value="Hepatitis C virus genotype determination (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1072,18 +1073,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B surface antigen (HBsAg) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="47758006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B surface antigen measurement (procedure)"/>
+            <display  value="Hepatitis B surface antigen measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1091,18 +1092,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B core antibody (HBcAb) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="59582004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B core antibody measurement (procedure)"/>
+            <display  value="Hepatitis B core antibody measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1110,18 +1111,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B surface antibody (HBsAb) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="65911000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B surface antibody measurement (procedure)"/>
+            <display  value="Hepatitis B surface antibody measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1129,18 +1130,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis A antibody (HAVAb) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="697001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis A virus antibody measurement (procedure)"/>
+            <display  value="Hepatitis A virus antibody measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1148,18 +1149,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="HCV viral load (quantitative HCV RNA) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="395197008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis C viral load (procedure)"/>
+            <display  value="Hepatitis C viral load (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1167,18 +1168,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="HIV test 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="359796005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of both Human immunodeficiency virus 1 antibody and Human immunodeficiency virus 2 antibody (procedure)"/>
+            <display  value="Measurement of both Human immunodeficiency virus 1 antibody and Human immunodeficiency virus 2 antibody (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1186,13 +1187,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Qualitative human chorionic gonadotropin 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="386558001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Chorionic gonadotropin, beta"/>
+            <display  value="Chorionic gonadotropin, beta"/>
           </coding>
           <coding>
             <code value="subunit measurement (procedure)"/>
@@ -1200,7 +1201,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1208,7 +1209,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis C Information for Veterans"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1221,7 +1222,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1229,7 +1230,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Chronic Hepatitis C and Alcohol Use"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1242,7 +1243,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1250,7 +1251,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="What to Expect Before Your Treatment for Hepatitis C Virus"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1263,7 +1264,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1271,7 +1272,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ribavirin: Information for Patients"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1284,7 +1285,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1292,7 +1293,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Taking Your Hepatitis C Therapy: Harvoni(R) with or without Ribavirin"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1305,7 +1306,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1313,7 +1314,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Managing Side Effects of Harvoni(R)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1326,7 +1327,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1334,7 +1335,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Managing Side Effects of Harvoni(R) and Ribavirin"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1347,7 +1348,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1355,7 +1356,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Tracking My Hepatitis C Treatment Results"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1368,7 +1369,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1376,7 +1377,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="FAQs about Sustained Virologic Response to Treatment for Hepatitis C"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -1389,10 +1390,10 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="ce30ff93-c0ab-572b-bcfe-fbd34a085d21"/>
           <assigner>
@@ -67,11 +68,11 @@
           </action>
           <action>
             <title value="Consults and Referrals"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Cardiology consult order"/>
               <description value="Consider other consult modalities which might be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Referral to cardiology to evaluate chest pain (routine)"/>
@@ -86,7 +87,7 @@
             <action>
               <title value="Electrocardiogram/Chest X-ray"/>
               <description value="Consider ordering prior to the cardiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Order sentence: resting 12-lead electrocardiogram to evaluate chest pain (routine)"/>
@@ -112,7 +113,7 @@
             <action>
               <title value="Coronary CTA"/>
               <description value="Consider ordering prior to the cardiology consultation."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Coronary CTA angiogram (cCTA) chest to evaluate chest pain (routine)"/>
@@ -120,7 +121,7 @@
                   <kind value="applicability"/>
                   <expression>
                     <language value="text/cql"/>
-                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@95710f7 (localId: null)"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@7e85f0ba (localId: null)"/>
                   </expression>
                 </condition>
                 <definitionCanonical>
@@ -131,7 +132,7 @@
             <action>
               <title value="Echocardiogram"/>
               <description value="Consider for patients with suspected pericarditis, myocarditis, hypertrophic cardiomyopathy, or pulmonary hypertension."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Resting echocardiogram to evaluate chest pain (routine)"/>
@@ -139,7 +140,7 @@
                   <kind value="applicability"/>
                   <expression>
                     <language value="text/cql"/>
-                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@39620354 (localId: null)"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@275889b9 (localId: null)"/>
                   </expression>
                 </condition>
                 <definitionCanonical>
@@ -152,7 +153,7 @@
             <title value="Laboratory Tests"/>
             <action>
               <title value="Consider the following tests to be completed prior to the cardiology consultation."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="basic metabolic profile (routine)"/>
@@ -198,7 +199,7 @@
               <action>
                 <title value="Exercise Stress Testing"/>
                 <description value="Consider for patients with no known or prior coronary artery disease, low probability for coronary artery disease, ability to exercise, normal electrocardiogram, and heart rate > 60 beats per minute."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title/>
                   <description value="Exercise ECG (routine)"/>
@@ -210,7 +211,7 @@
               <action>
                 <title value="Stress Testing with Echocardiography"/>
                 <description value="Consider for patients with no known or prior coronary artery disease, low to intermediate probability for coronary artery disease, ability to exercise, and no evidence of significant regional wall motion abnormalities or conduction abnormalities (IVCD/bundle branch block or pacing) of 12-lead electrocardiogram."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title/>
                   <description value="Exercise Echocardiography (routine)"/>
@@ -222,7 +223,7 @@
               <action>
                 <title value="Dobutamine Stress Testing with Myocardial Perfusion Imaging (MPI)"/>
                 <description value="Consider for patients with no known or prior coronary artery disease, intermediate probability for coronary artery disease, inability to exercise, and normal electrocardiogram."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title/>
                   <description value="dobutamine stress myocardial perfusion imaging (routine)"/>
@@ -234,7 +235,7 @@
               <action>
                 <title value="Exercise Stress Testing with MPI"/>
                 <description value="Consider for patients with known or prior CAD, ability to exercise, and normal ST-T."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title/>
                   <description value="exercise stress myocardial perfusion imaging (routine)"/>
@@ -291,7 +292,7 @@
               <action>
                 <title value="Coronary CT Angiogram"/>
                 <description value="Consider for patients without known coronary artery disease, low or intermediate probability for coronary artery disease, especially in presence of a history of prior inconclusive or discrepant diagnostic testing, recurrent symptoms or significant family history of CAD/multiple risk factors in young patients. Additional postprocessing (CT-FFR) or CTA stress perfusion may be ordered where available."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title/>
                   <description value="coronary CT angiogram (routine)"/>
@@ -407,7 +408,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -415,9 +416,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Clinical Stability"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -425,13 +426,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consults and Referrals"/>
         <item>
           <text value="Cardiology consult order"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -439,21 +440,21 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and ECG"/>
         <item>
           <text value="Electrocardiogram/Chest X-ray"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Coronary CTA"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Echocardiogram"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -461,13 +462,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
         <item>
           <text value="Consider the following tests to be completed prior to the cardiology consultation."/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -475,25 +476,25 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Cardiac Risk Stratification"/>
         <item>
           <text value="Assess for contraindications to stress testing such as: Acute Congestive Heart Failure (CHF), acute MI or unstable angina, severe aortic stenosis, unstable rhythm, aortic aneurysm/dissection, endocarditis, acute pericarditis, acute pulmonary embolus/infarction, acute systemic illness/infection, severe hypertension, inability to cooperate, inability to exercise (&amp;lt;5 METs), left bundle branch block (LBBB), etc."/>
           <item>
             <text value="Exercise Stress Testing"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Stress Testing with Echocardiography"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Dobutamine Stress Testing with Myocardial Perfusion Imaging (MPI)"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Exercise Stress Testing with MPI"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Vasodilator Stress Testing with MPI"/>
@@ -505,10 +506,10 @@
           </item>
           <item>
             <text value="Coronary CT Angiogram"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -516,7 +517,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications"/>
         <item>
           <text value="Antianginal Therapy"/>
@@ -534,10 +535,10 @@
           <text value="Risk Factor Reduction"/>
           <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

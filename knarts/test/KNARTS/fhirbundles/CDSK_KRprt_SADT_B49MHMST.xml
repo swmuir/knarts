@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="af462d30-2b06-5d46-8760-1841f66d6791"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -77,7 +78,7 @@
           </action>
           <action>
             <title value="Patient Education"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="TSR-NoCode"/>
               <description value="Print Military Sexual Trauma document"/>
@@ -85,7 +86,7 @@
                 <kind value="applicability"/>
                 <expression>
                   <language value="text/cql"/>
-                  <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@137793fd (localId: null)"/>
+                  <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@608a5d50 (localId: null)"/>
                 </expression>
               </condition>
               <definitionCanonical>
@@ -94,7 +95,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -102,7 +103,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="MST Screening"/>
         <item>
           <text/>
@@ -110,7 +111,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -118,9 +119,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Referrals for MST"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -128,12 +129,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Patient Education"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

@@ -27,15 +27,15 @@ public class R1FactoryImpl extends EFactoryImpl implements R1Factory {
 	 * @generated
 	 */
 	public static R1Factory init() {
-		try {
-			R1Factory theR1Factory = (R1Factory)EPackage.Registry.INSTANCE.getEFactory(R1Package.eNS_URI);
-			if (theR1Factory != null) {
-				return theR1Factory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
+//		try {
+//			R1Factory theR1Factory = (R1Factory)EPackage.Registry.INSTANCE.getEFactory(R1Package.eNS_URI);
+//			if (theR1Factory != null) {
+//				return theR1Factory;
+//			}
+//		}
+//		catch (Exception exception) {
+//			EcorePlugin.INSTANCE.log(exception);
+//		}
 		return new R1FactoryImpl();
 	}
 

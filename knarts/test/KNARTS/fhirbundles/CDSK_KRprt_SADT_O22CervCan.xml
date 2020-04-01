@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="825376b8-b7d8-504b-8206-5f347b3870d4"/>
           <assigner>
@@ -43,9 +44,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="248152002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+              <display  value="Female (finding)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -62,9 +63,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="702892004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Obstetrics and gynecology clinic (environment)"/>
+              <display  value="Obstetrics and gynecology clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -75,9 +76,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="2651000175101 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Women's health service (qualifier value)"/>
+              <display  value="Women's health service (qualifier value)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -98,7 +99,7 @@
             <action/>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -106,9 +107,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="History"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -116,7 +117,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Studies"/>
         <item>
           <text/>
@@ -127,7 +128,7 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -135,7 +136,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan of Care"/>
         <item>
           <text/>
@@ -146,10 +147,10 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

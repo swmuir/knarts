@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="c9e94434-c685-5a5b-af50-29d0406e3894"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -69,26 +70,26 @@
           </code>
         </useContext>
         <action>
-          <selectionBehavior value="any"/>
+          <selectionBehavior value="at-most-one"/>
           <action>
             <title value="Reason for Presentation"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Reason for Consult"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Colorectal Cancer Screening: Average Risk Patient"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Colorectal Cancer Screening Diagnostics: Follow-up Positive Stool Test"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Colorectal Cancer Diagnostics: Positive Imaging Screening Test"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <action/>
             </action>
@@ -98,18 +99,18 @@
           </action>
           <action>
             <title value="Follow-up Abnormal Flexible Sigmoidoscopy"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <action/>
             </action>
           </action>
           <action>
             <title value="Follow-up Abnormal Colonoscopy"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Personal History of Colorectal Polyp"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Personal History of Colorectal Cancer"/>
@@ -132,7 +133,7 @@
           <action>
             <title value="Family History of Colon Cancer, Colon Cancer Syndrome or Advanced Adenoma"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
               <action/>
             </action>
@@ -153,7 +154,7 @@
           </action>
           <action>
             <title value="Inflammatory Bowel Disease"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
             <action>
               <title value="Most recent colonoscopy"/>
@@ -161,7 +162,7 @@
           </action>
           <action>
             <title value="Pertinent History"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Signs and Symptoms"/>
             </action>
@@ -189,7 +190,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -197,9 +198,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Reason for Presentation"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -207,9 +208,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Reason for Consult"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -217,9 +218,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Colorectal Cancer Screening: Average Risk Patient"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -227,9 +228,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Colorectal Cancer Screening Diagnostics: Follow-up Positive Stool Test"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -237,7 +238,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Colorectal Cancer Diagnostics: Positive Imaging Screening Test"/>
         <item>
           <text/>
@@ -269,7 +270,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -277,7 +278,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Follow-up Abnormal Flexible Sigmoidoscopy"/>
         <item>
           <text/>
@@ -297,7 +298,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -305,9 +306,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Follow-up Abnormal Colonoscopy"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -315,9 +316,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Personal History of Colorectal Polyp"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -325,7 +326,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Personal History of Colorectal Cancer"/>
         <item>
           <text value="Follow-up Personal History of Colorectal Cancer"/>
@@ -342,7 +343,7 @@
         <item>
           <text value="Subsequent Surveillance Completed?"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -350,11 +351,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Family History of Colon Cancer, Colon Cancer Syndrome or Advanced Adenoma"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -377,7 +378,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -385,7 +386,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Inflammatory Bowel Disease"/>
         <item>
           <text/>
@@ -393,7 +394,7 @@
         <item>
           <text value="Most recent colonoscopy"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -401,7 +402,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Pertinent History"/>
         <item>
           <text value="Signs and Symptoms"/>
@@ -454,10 +455,10 @@
         <item>
           <text value="Plan"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

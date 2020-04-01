@@ -1,8 +1,8 @@
-modeltype knart uses 'urn:hl7-org:knowledgeartifact:r2';
+modeltype knart uses 'urn:hl7-org:knowledgeartifact:r1';
 modeltype fhir uses 'http:///fhiRCore/resources.ecore';
 modeltype datatypes uses 'http:///fhiRCore/dataTypes.ecore';
 modeltype elm uses 'urn:hl7-org:elm:r1';
-
+modeltype r2 uses 'urn:hl7-org:cdsdt:r2';
 
 
 transformation Knart2FHIR(in knartdocument : knart,out fhirbundle :fhir);
@@ -15,25 +15,30 @@ main() {
 	
 }
 
-mapping knart::KnowledgeDocument::toFHIR() : fhir::Bundle {	
-log('Start Mapping KnowledgeDocument');
-result.entry += self -> map toPlanDefinition();
+mapping knart::KnowledgeDocument::toFHIR() : fhir::Bundle {
+	
+	log('Start Mapping KnowledgeDocument');
 
+	result.type := object datatypes::Code {
+		value := 'collection';
+	};
 
-//var planDefinition : fhir::PlanDefinition  := object  fhir::PlanDefinition {};
+	result.entry += self -> map toPlanDefinition();
 
+	result.entry += self.actionGroup->toQuestionaire(result);
 
-result.entry += self.actionGroup->go(result);
-//result.entry += self -> map toQuestionaire();
-log('End Mapping KnowledgeDocument');
+	log('End Mapping KnowledgeDocument');
 }
 
-mapping knart::ActionGroup::go(inout bundle :fhir::Bundle) {
-self.subElements->map go(bundle);	
-self.subElements->map goCollectInformationAction(bundle);
+mapping knart::ActionGroup::toQuestionaire(inout bundle :fhir::Bundle) {
+
+	self.subElements->map go(bundle);	
+	self.subElements->map goCollectInformationAction(bundle);
+	
 }
+
 mapping knart::SubElementsType::go(inout bundle :fhir::Bundle) when { self.actionGroup.subElements.actionGroup.subElements.simpleAction[CollectInformationAction]->isEmpty()  } {
-	self.actionGroup->map go(bundle);
+	self.actionGroup->map toQuestionaire(bundle);
 	self.simpleAction[CreateAction]->map go(bundle);
 //	self.simpleAction[CollectInformationAction]->map go(bundle);
 //	self.simpleAction[CollectInformationAction]->map go();
@@ -43,7 +48,7 @@ mapping knart::SubElementsType::goCollectInformationAction(inout bundle :fhir::B
 
 log('goCollectInformationActiongoCollectInformationAction');
 
-bundle.entry += self.actionGroup->map toQuestionnaire2();
+bundle.entry += self.actionGroup->map createQuestionnaireFromActionGroup(bundle);
 
 //	self.actionGroup->map go(bundle);
 //	self.simpleAction[CreateAction]->map go(bundle);
@@ -206,7 +211,7 @@ result.useContext +=    self.metadata.applicability.coverage->map applicabilityT
 mapping knart::ActionGroup::mapToActions() : fhir::PlanDefinitionAction {
 
 if (not self.title.value.oclIsInvalid()) then {
-	result.title :=  object  datatypes::String{ value:= self.title.value};	
+	result.title :=  object  datatypes::String{ value:= 'mapToActions '+self.title.value};	
 } endif;
 
 
@@ -218,9 +223,9 @@ if (not self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->fir
  				if ('AtMostOne'.equalsIgnoreCase(value)) then 
  					{ value := 'at-most-one' }
  				else if ('Any'.equalsIgnoreCase(value)) then 
- 						{ value := 'any' } 
+ 						{ value := 'at-most-one' } 
  					else 
- 						{ value := 'any' } 
+ 						{ value := 'at-most-one' } 
  					endif 
  				endif; 
  				
@@ -241,6 +246,8 @@ result.description :=  object  datatypes::String{ value:= self.description.value
 
 result.action += self.subElements.actionGroup->mapToActions();
 result.action += self.subElements.simpleAction[CreateAction]->mapToActions();
+//result.action += self.subElements.simpleAction[CollectInformationAction]->mapToActionsaa();
+
 
 	
 }
@@ -259,6 +266,28 @@ result.description :=  object  datatypes::String{ value:= self.textEquivalent.va
 	
 	 
 	result.condition += self.conditions.condition -> map mapCondition();
+}
+
+mapping knart::CollectInformationAction::mapToActionsaa() : fhir::QuestionnaireItem {
+
+
+//result.item +=  self.subElements.actionGroup.subElements.simpleAction[CollectInformationAction].documentationConcept->map mapDocumentationConcept();
+
+//asdfaf;
+
+//	if (not self.textEquivalent.value.oclIsInvalid()) then {
+//	result.title :=  object  datatypes::String{ value:=  value := self.actionSentence[elm::Instance].element->select(name='topic').value[elm::Code].code->asSequence()->first();};	
+//} endif;
+//
+//if (not self.textEquivalent.value.oclIsInvalid()) then {
+//result.description :=  object  datatypes::String{ value:= self.textEquivalent.value};
+//} endif;
+//	
+//	 result.definitionCanonical:= object dataTypes::Reference{ display:= object  datatypes::String{ value:= self.textEquivalent.value} };
+//	
+//	
+//	 
+//	result.condition += self.conditions.condition -> map mapCondition();
 }
 
 mapping knart::Condition::mapCondition() : fhir::PlanDefinitionActionCondition {
@@ -345,7 +374,7 @@ method :=  object datatypes::Code { value := 'POST'};
 
 result.resource :=  object Entry_Resource{ };
 
-result.resource.planDefinition :=  self ->map toPlanDefinition2()->asSequence()->first(); 
+result.resource.PlanDefinition :=  self ->map toPlanDefinition2()->asSequence()->first(); 
 
 
  
@@ -354,99 +383,299 @@ result.resource.planDefinition :=  self ->map toPlanDefinition2()->asSequence()-
 log('End Mapping PlanDefinition');
 }
 
-mapping knart::ActionGroup::toQuestionnaire2() : fhir::BundleEntry {	
-log('Start Mapping to Questionnaire');
-//log(self.textEquivalent.value);
-result.request := object BundleEntryRequest {
-method :=  object datatypes::Code { value := 'POST'};
-};
+mapping knart::ActionGroup::createQuestionnaireFromActionGroup(inout bundle :fhir::Bundle) : fhir::BundleEntry {	
 
-var questionnaire := object fhir::Questionnaire
- {
+	log('Start Mapping to Questionnaire ' + self.title.value);
  
- };
- 
- //self.documentationConcept.
- 
-  questionnaire.title :=  object  datatypes::String{ value:= self.title.value };
+	result.request := object BundleEntryRequest {
+		method :=  object datatypes::Code { value := 'POST'};
+	};
+
+	var questionnaire := object fhir::Questionnaire {};
+
+	questionnaire.title :=  object  datatypes::String{ value:= self.title.value };
+	
+	var qitem : QuestionnaireItem := object QuestionnaireItem{};
   
-  questionnaire.item += self.subElements.actionGroup->map toItem();
+	self.subElements->map createQuestionnaireItemFromSubElement(qitem,bundle);
+	
+	questionnaire.item += qitem;
   
-// self.documentationConcept.
+ 	result.resource := object Entry_Resource {};
  
- result.resource := object Entry_Resource {};
- 
- result.resource.questionnaire :=  questionnaire;
- log('End Mapping to Questionnaire');
+ 	result.resource.Questionnaire :=  questionnaire;
+ 	
+ 	log('End Mapping to Questionnaire');
 }
 
-mapping knart::ActionGroup::toItem() : fhir::QuestionnaireItem {	
+
+mapping knart::SubElementsType::createQuestionnaireItemFromSubElement(inout qitem : fhir::QuestionnaireItem , inout bundle :fhir::Bundle )  {	
+	//result.text :=  object  datatypes::String{ value:=  'createQuestionnaireItemFromSubElement';};
+	//result.item +=
+	 self.actionGroup->map createQuestionaireItemFromActionGroup(bundle,qitem);
+
+	qitem.item += self.simpleAction[CollectInformationAction]->createQuestionaireItemFromCollectInformationAction(bundle);
+}
+
+mapping knart::ActionGroup::createQuestionaireItemFromActionGroup(inout bundle :fhir::Bundle,inout qitem : fhir::QuestionnaireItem ) {	
+
+//	qitem.text :=  object  datatypes::String{ value:=  'From Action Group ' + self.title.value; };
+	
+//	if (not self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().oclIsInvalid()) then {
+//		result.type  :=  object datatypes::Code {
+// 			value := self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().toString();
+// 			if ('AtMostOne'.equalsIgnoreCase(value)) then 
+// 				{ value := 'choice' }
+// 				else if ('Any'.equalsIgnoreCase(value)) then 
+// 					{ value := 'choice' } 
+// 				else 
+// 					{ value := 'choice' } 
+// 				endif 
+// 			endif; 
+// 		};
+//	} endif;
+		 qitem.text :=  object  datatypes::String{ value:= 'createQuestionaireItemFromActionGroup ' + self.title.value };	
+ 	self.subElements->map createQuestionnaireItemFromSubElement(qitem ,bundle);
+}
+
+mapping knart::CollectInformationAction::createQuestionaireItemFromCollectInformationAction(inout bundle :fhir::Bundle) : fhir::QuestionnaireItem {	
+	result.text :=  object  datatypes::String{ value:= 'From Collection Information Action ' };	
+	result.item += self.documentationConcept->map createQuestionaireItemFromDocumentationConcept(bundle);
+}
+
+mapping knart::DocumentationItem::createQuestionaireItemFromDocumentationConcept(inout bundle :fhir::Bundle) : fhir::QuestionnaireItem {	
+//	self.prompt.value;
+//	self.description.value;
+//	self.responseDataType.value;	
+	result.text :=  object  datatypes::String{ value:=  'createQuestionaireItemFromActionGroup ' + self.prompt.value;};
+	//result.item += 
+	self.responseRange[EnumerationConstraint]->createQuestionaireItemFromEnumerationConstraint(bundle,result);
+}
+
+mapping knart::EnumerationConstraint::createQuestionaireItemFromEnumerationConstraint(inout bundle :fhir::Bundle,inout qitem : fhir::QuestionnaireItem)  {
+	//qitem.text :=  object  datatypes::String{ value:=  ;};
+	//qitem.item += self.item->map createQuestionaireItemFromEnumerationItem();
+	qitem.answerValueSet := object ValueSet { url := object Url { value:='valuesetid'};} ;
+	
+//	result.request := object BundleEntryRequest {
+//method :=  object datatypes::Code { value := 'POST'};
+//};
+
+//result.resource :=  object Entry_Resource{ };
+
+//result.resource.PlanDefinition :=  self ->map toPlanDefinition2()->asSequence()->first(); 
+	
+	var bundleEntry := object BundleEntry {};
+	bundleEntry.request := object BundleEntryRequest {
+		method :=  object datatypes::Code { value := 'POST'};
+	};
+	
+	bundleEntry.resource :=  object Entry_Resource{ };
+	
+	bundleEntry.resource.ValueSet := object ValueSet{};
+	
+	var compose : ValueSetCompose := object ValueSetCompose {};
+	var include : ValueSetComposeConceptSet := object ValueSetComposeConceptSet{};
+	
+	//var concept : ValueSetComposeConceptSetConceptReference := object ValueSetComposeConceptSetConceptReference{};
+	
+	
+	include.concept += self.item->map createValueSetComposeConceptSetConceptReference();
+	compose.include += include;
+	
+	bundleEntry.resource.ValueSet.compose := compose;
+	
+	
+//	compose.in
+//	bundleEntry.resource.ValueSet.compose 
+	
+	
+	
+	//bundleEntry.resource.ValueSet.compose  .include.concept += self.item->map createValueSetComposeConceptSetConceptReference();
+	
+	// += self.item-> createQuestionaireItemFromEnumerationItemA(); // += 
+	
+	
+	
+	
+	//result.entry += self -> map toValueSet();
+	
+//	bundle.
+}
+
+mapping knart::EnumerationItem::createValueSetComposeConceptSetConceptReference() : ValueSetComposeConceptSetConceptReference {
+result.display :=  object  datatypes::String{ value:= self.displayText.value;};
+
+//result.concept;
+
+//result.  .displayText.value :=  object  datatypes::String{ value:=  'createQuestionaireItemFromEnumerationItem '; };
+	//	result.display :=  object  datatypes::String{ value:=  'createQuestionaireItemFromEnumerationItem ' + self.displayText.value;};
+//	result.code += self.codes.code[r2::CD] ->map createCodingFromCD();
+}
+
+mapping knart::EnumerationItem::createQuestionaireItemFromEnumerationItem() : fhir::QuestionnaireItem {	
+	result.text :=  object  datatypes::String{ value:=  'createQuestionaireItemFromEnumerationItem ' + self.displayText.value;};
+	result.code += self.codes.code[r2::CD] ->map createCodingFromCD();
+}
+
+mapping r2::CD::createCodingFromCD() : Coding {
+result.code := object datatypes::Code { value := self.code; };
+//esult.code.	
+}
+
+
+mapping knart::ActionGroup::createQuestionaireItemFromActionGroupOriginal(inout bundle :fhir::Bundle) : fhir::QuestionnaireItem {	
 	//result.text.value := self.title.value;
+//	log('start createQuestionaireItemFromActionGroup');
+//	log ('create QuestionnaireItem ' + self.title.value);
+//	
+//	result.text :=  object  datatypes::String{ value:=  'createQuestionaireItemFromActionGroup ' + self.title.value; };
+//	
+//	if (not self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().oclIsInvalid()) then {
+//	
+//	 
+//	result.type  :=  object datatypes::Code {
+// 				value := self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().toString();
+// 				
+// 				
+// 				if ('AtMostOne'.equalsIgnoreCase(value)) then 
+// 					{ value := 'choice' }
+// 				else if ('Any'.equalsIgnoreCase(value)) then 
+// 						{ value := 'choice' } 
+// 					else 
+// 						{ value := 'choice' } 
+// 					endif 
+// 				endif; 
+// 				
+// 			 
+// 	};
+// 	
+// 	
+// 		 
+// 	
+// 	
+// 	
+//} endif;
+//	log('start sub loop');
+////	self.
+
+//self.subElements.simpleAction
+	result.item += self.subElements.actionGroup->map createQuestionaireItemFromActionGroup(bundle,result);
+	result.item += self.subElements.simpleAction[CollectInformationAction]->map createQuestionaireItemFromAtomicAction();
+	log('end sub loop');
 	
-	result.text :=  object  datatypes::String{ value:= self.title.value; };
+	log('end createQuestionaireItemFromActionGroup');
+//	result.item +=  self.subElements.actionGroup.subElements.simpleAction[CollectInformationAction].documentationConcept->map mapDocumentationConcept();
 	
-	if (not self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().oclIsInvalid()) then {
+}
+
+
+
+
+mapping knart::CollectInformationAction::createQuestionaireItemFromAtomicAction() : fhir::QuestionnaireItem {	
+	//result.text.value := self.title.value;
+	log('start createQuestionaireItemFromAtomicAction ' + self.toString());
+	
+	
+	
+	result.text :=  object  datatypes::String{ value:= 'createQuestionaireItemFromAtomicAction ' +self.documentationConcept.prompt.value; };
+	
+	result.item += self.documentationConcept.responseRange[EnumerationConstraint].item ->createItemFromEnumerationItem();
+	
+	
 	
 	 
-	result.type  :=  object datatypes::Code {
- 				value := self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().toString();
- 				
- 				
- 				if ('AtMostOne'.equalsIgnoreCase(value)) then 
- 					{ value := 'choice' }
- 				else if ('Any'.equalsIgnoreCase(value)) then 
- 						{ value := 'any' } 
- 					else 
- 						{ value := 'any' } 
- 					endif 
- 				endif; 
- 				
- 			 
- 	};
- 	
- 	
- 		 
- 	
- 	
- 	
-} endif;
-	
-	result.item += self.subElements.actionGroup->map toItem();
-	
-	result.item +=  self.subElements.actionGroup.subElements.simpleAction[CollectInformationAction].documentationConcept->map toItem();
+//	log ('create createQuestionaireItemFromAtomicAction ' + self.textEquivalent.value);
+//	
+//	result.text :=  object  datatypes::String{ value:=  'createQuestionaireItemFromActionGroup ' + self.textEquivalent.value; };
+//	
+//	if (not self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().oclIsInvalid()) then {
+//	
+//	 
+//	result.type  :=  object datatypes::Code {
+// 				value := self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().toString();
+// 				
+// 				
+// 				if ('AtMostOne'.equalsIgnoreCase(value)) then 
+// 					{ value := 'choice' }
+// 				else if ('Any'.equalsIgnoreCase(value)) then 
+// 						{ value := 'choice' } 
+// 					else 
+// 						{ value := 'choice' } 
+// 					endif 
+// 				endif; 
+// 				
+// 			 
+// 	};
+// 	
+// 	
+// 		 
+// 	
+// 	
+// 	
+//} endif;
+//	log('start sub loop');
+////	self.
+//
+////self.subElements.simpleAction
+////	result.item += self.subElements.actionGroup->map createQuestionaireItemFromActionGroup();
+////	result.item += self.subElements.simpleAction->map createQuestionaireItemFromActionGroup();
+//	log('end sub loop');
+//	
+//	log('end createQuestionaireItemFromAtomicAction');
+//	result.item +=  self.subElements.actionGroup.subElements.simpleAction[CollectInformationAction].documentationConcept->map mapDocumentationConcept();
 	
 }
 
-mapping knart::DocumentationItem::toItem() : fhir::QuestionnaireItem {
+
+
+
+mapping knart::EnumerationItem::createItemFromEnumerationItem() : fhir::QuestionnaireItem {
+	result.text :=  object  datatypes::String{ value:= self.displayText.value; };
 	
+	
+	
+	 
+	
+}
+
+
+
+
+mapping knart::DocumentationItem::mapDocumentationConcept() : fhir::QuestionnaireItem {
+	log('mapDocumentationConceptmapDocumentationConceptmapDocumentationConceptmapDocumentationConceptmapDocumentationConceptmapDocumentationConceptmapDocumentationConcept');
+	
+	log ('self.prompt.value '+ self.prompt.value) ;
+	result.required := object dataTypes::Boolean {value:=false};
+	result.prefix := object datatypes::String { value := 'prefix'; }; 
 	result.text :=   object datatypes::String {
-						value := self.description.value;
+						value := 'knart::DocumentationItem::toItem()' +self.description.value;
 				};
 	
 	
 }
 
 mapping knart::CollectInformationAction::toQuestionnaire() : fhir::BundleEntry {	
-log('Start Mapping to Questionnaire');
-//log(self.textEquivalent.value);
-result.request := object BundleEntryRequest {
-method :=  object datatypes::Code { value := 'POST'};
-};
+	log('Start Mapping to Questionnaire');
+	//log(self.textEquivalent.value);
+	result.request := object BundleEntryRequest {
+		method :=  object datatypes::Code { value := 'POST'};
+	};
 
-var questionnaire := object fhir::Questionnaire
- {
- 
- };
+	var questionnaire := object fhir::Questionnaire
+ 	{
+ 	
+ 	};
  
  //self.documentationConcept.
  
-  questionnaire.title :=  object  datatypes::String{ value:= self.textEquivalent.value; };
+  	questionnaire.title :=  object  datatypes::String{ value:= self.textEquivalent.value; };
   
 // self.documentationConcept.
  
- result.resource := object Entry_Resource {};
+ 	result.resource := object Entry_Resource {};
  
- result.resource.questionnaire :=  questionnaire;
+ 	result.resource.Questionnaire :=  questionnaire;
  log('End Mapping to Questionnaire');
 }
 
@@ -633,7 +862,7 @@ log(self.textEquivalent.value);
  
  result.resource :=  object Entry_Resource{ };
  
-result.resource.activityDefinition := activityDefinition;
+result.resource.ActivityDefinition := activityDefinition;
 //result.entry += map toPlanDefinition();
 log('End Mapping ActivityDefinition');
 }
@@ -651,7 +880,7 @@ endif;
 	 
 }
 
-mapping knart::KnowledgeDocument::toQuestionaire() : fhir::BundleEntry {
+mapping knart::KnowledgeDocument::toQuestionairexxx() : fhir::BundleEntry {
 
 result.request := object BundleEntryRequest {
 method :=  object datatypes::Code { value := 'POST'};
@@ -660,7 +889,7 @@ method :=  object datatypes::Code { value := 'POST'};
 log('Start Mapping Questionnaire');
 result.resource :=  object Entry_Resource{ };
 
-result.resource.questionnaire := object fhir::Questionnaire{};
+result.resource.Questionnaire := object fhir::Questionnaire{};
 //result.entry += map toPlanDefinition();
 log('End Mapping Questionnaire');
 }

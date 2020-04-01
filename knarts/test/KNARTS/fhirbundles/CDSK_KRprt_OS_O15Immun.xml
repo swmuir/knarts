@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="4d362567-c693-5541-a2b0-fb1fa7eb9d1e"/>
           <assigner>
@@ -43,9 +44,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -73,7 +74,7 @@
             <title value="Hepatitis Immunizations"/>
             <action>
               <title value="Hepatitis A Vaccine (0 and 6 to 18 Months)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Hepatitis A vaccine 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -84,7 +85,7 @@
             </action>
             <action>
               <title value="Combined Hepatitis A and B Vaccine Series (0, 1, and 6 Months)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Hepatitis A and hepatitis B (recombinant) vaccine 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -95,7 +96,7 @@
             </action>
             <action>
               <title value="Hepatitis B Vaccine (0, 1, and 6 Months) for Age &lt; 20 Years"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Hepatitis B vaccine (recombinant) 10 micrograms/mL formulation 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -114,7 +115,7 @@
             <action>
               <title value="Hepatitis B Vaccine Series (0, 1, and 6 Months) for Age >= 20 Years"/>
               <description value="Adults in the following settings are assumed to be at risk for hepatitis B virus infection and should receive a HepB series: sexually transmitted disease treatment facilities, HIV testing and treatment facilities, facilities providing drug-abuse treatment and prevention services, healthcare settings targeting services to persons who inject drugs, correctional facilities, healthcare settings targeting services to men who have sex with men, hemodialysis facilities and end-stage renal disease programs, and institutions and nonresidential day care facilities for developmentally disabled persons"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Hepatitis B vaccine (recombinant) 10 micrograms/mL formulation 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -132,7 +133,7 @@
             </action>
             <action>
               <title value="Hepatitis B Vaccine Series (0, 1, and 6 Months or 0, 1, 2, and 6 Months) for Dialysis Patients"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Hepatitis B vaccine (recombinant) 40 micrograms/mL formulation 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -152,7 +153,7 @@
           <action>
             <title value="Herpes Zoster (Shingles) Immunization"/>
             <description value="The new version released January 2018 by the CDC https://www.cdc.gov/mmwr/volumes/67/wr/mm6703a5.htm"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title/>
               <description value="Zoster vaccine live injection, powder, lyophilized 0.65 mL solution subcutaneous 1 time give injection in deltoid region now"/>
@@ -164,7 +165,7 @@
           <action>
             <title value="Human Papillomavirus (HPV) Vaccine Series (0, 2, and 6 Months)"/>
             <description value="Human Papillomavirus (HPV) Vaccine CDC guidelines https://www.cdc.gov/hpv/index.html"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title/>
               <description value="HPV 9-valent vaccine, recombinant injection 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -178,7 +179,7 @@
             <description value="Please see ACIP’s Recommended Immunization Schedule for Adults Aged 19 Years or Older, United States, 2017 (https://www.cdc.gov/vaccines/schedules/downloads/adult/adult-combined-schedule.pdf)."/>
             <action>
               <title value="Standard-Dose Inactivated Influenza Vaccine (IIV)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129326001 |Injection - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[408752008 |Inactivated influenza split virion vaccine (product)]-                                             ->(410675002 |Route of administration (attribute))->[78421000 |Intramuscular route (qualifier value)]-                                             ->(405813007 |Procedure site - Direct (attribute))->[37622008 |Deltoid region structure (body structure)];"/>
                 <description value="Influenza inactivated virus vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now."/>
@@ -189,7 +190,7 @@
             </action>
             <action>
               <title value="Recombinant Influenza Vaccine (RIV)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129326001 |Injection - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[46233009 |Influenza virus vaccine (product)]-                                             ->(410675002 |Route of administration (attribute))->[78421000 |Intramuscular route (qualifier value)]-                                             ->(405813007 |Procedure site - Direct (attribute))->[37622008 |Deltoid region structure (body structure)];"/>
                 <description value="Influenza virus vaccine (recombinant) 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -200,7 +201,7 @@
             </action>
             <action>
               <title value="Intradermal IIV"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129326001 |Injection - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[46233009 |Influenza virus vaccine (product)]-                                             ->(410675002 |Route of administration (attribute))->[372464004 |Intradermal route (qualifier value)]-                                             ->(405813007 |Procedure site - Direct (attribute))->[37622008 |Deltoid region structure (body structure)];"/>
                 <description value="Intradermal influenza inactivated virus vaccine 0.1 mL solution intradermal 1 time give injection in the deltoid region now"/>
@@ -211,7 +212,7 @@
             </action>
             <action>
               <title value="High-Dose or Adjuvanted IIV"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129326001 |Injection - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[408752008 |Inactivated influenza split virion vaccine (product)]-                                             ->(410675002 |Route of administration (attribute))->[78421000 |Intramuscular route (qualifier value)]-                                             ->(405813007 |Procedure site - Direct (attribute))->[37622008 |Deltoid region structure (body structure)];"/>
                 <description value="Influenza high-dose inactivated virus vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -227,7 +228,7 @@
             <action>
               <title value="Serogroups A, C, W, and Y Conjugate Vaccine (MenACWY) Series and Boosters"/>
               <description value="CDC newly published this recommendation regarding eculizumab and meningococcal vaccination in the July 7, 2017 https://www.cdc.gov/meningococcal/clinical/eculizumab.html."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Meningococcal (groups a, c, y, and w-135) oligosaccharide diphtheria crm197 conjugate vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -238,7 +239,7 @@
             </action>
             <action>
               <title value="Serogroup B Meningococcal Vaccine: MenB-4C Series (0 and 1 Month)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Neisseria meningitidis serogroup b-4c protein antigen vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -249,7 +250,7 @@
             </action>
             <action>
               <title value="Serogroup B Meningococcal Vaccine: MenB-Fhbp Series (0, 1 to 2, and 6 Months or 0 and 6 Months, Based on Indications)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Neisseria meningitidis serogroup b-FHbp protein antigen vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -264,7 +265,7 @@
             <description value="Please note that ACIP published updated guidance on MMR immunizations https://www.cdc.gov/mmwr/volumes/67/wr/mm6701a7.htm"/>
             <action>
               <title value="Measles, Mumps, and Rubella Vaccine Series (0 and 28 Days)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Measles, mumps, and rubella virus vaccine live injection, powder, lyophilized 0.5 mL solution subcutaneous 1 time give injection in the deltoid region now"/>
@@ -275,7 +276,7 @@
             </action>
             <action>
               <title value="Measles, Mumps, and Rubella Vaccine"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Measles, mumps, and rubella virus vaccine live injection, powder, lyophilized 0.5 mL solution subcutaneous 1 time give injection in the deltoid region now"/>
@@ -290,7 +291,7 @@
             <description value="Pneumococcal Immunization CDC guidelines https://www.cdc.gov/vaccines/vpd/pneumo/hcp/recommendations.html. Both Pneumococcal Polysaccharide Vaccine (PPSV23) and Pneumococcal Conjugate Vaccine (PCV13) should be given to a pregnant woman only if clearly needed. Pregnancy is not an absolute contraindication."/>
             <action>
               <title value="13-Valent Pneumococcal Conjugate Vaccine"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Pneumococcal 13-valent conjugate vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -301,7 +302,7 @@
             </action>
             <action>
               <title value="23-Valent Pneumococcal Polysaccharide Vaccine"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Pneumococcal polyvalent-23 vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -316,7 +317,7 @@
             <description value="Tetanus, Diphtheria, and Pertussis Immunization CDC Guidelines https://www.cdc.gov/vaccines/vpd/dtap-tdap-td/hcp/recommendations.html"/>
             <action>
               <title value="Tetanus, Diphtheria, and Pertussis Vaccine"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -327,7 +328,7 @@
             </action>
             <action>
               <title value="Tetanus and Diphtheria Vaccine"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Tetanus and diphtheria toxoids vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
@@ -340,7 +341,7 @@
           <action>
             <title value="Varicella Immunization"/>
             <description value="Varicella Immunization CDC Guidelines https://www.cdc.gov/vaccines/vpd/varicella/hcp/index.html"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title/>
               <description value="Varicella live virus vaccine 0.5 mL solution subcutaneous 1 time give injection in the deltoid region now"/>
@@ -351,7 +352,7 @@
           </action>
           <action>
             <title value="Patient and Caregiver Education"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title/>
               <description value="Vaccine education (patient-appropriate material regarding ordered vaccines) now"/>
@@ -361,7 +362,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -369,13 +370,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis A vaccine 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -383,13 +384,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis A and hepatitis B (recombinant) vaccine 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -397,13 +398,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B vaccine (recombinant) 10 micrograms/mL formulation 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -411,13 +412,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B vaccine (recombinant) 20 micrograms/mL formulation 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -425,13 +426,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B vaccine (recombinant) 10 micrograms/mL formulation 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -439,13 +440,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B vaccine (recombinant) 20 micrograms/mL formulation 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -453,13 +454,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B vaccine (recombinant) 40 micrograms/mL formulation 1 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -467,13 +468,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B vaccine (recombinant) 20 micrograms/mL formulation 2 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -481,13 +482,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Zoster vaccine live injection, powder, lyophilized 0.65 mL solution subcutaneous 1 time give injection in deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -495,13 +496,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="HPV 9-valent vaccine, recombinant injection 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -509,21 +510,21 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Influenza inactivated virus vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now."/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129326001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Injection "/>
+            <display  value="Injection "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]"/>
@@ -533,41 +534,41 @@
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="408752008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Inactivated influenza split virion vaccine (product)]"/>
+            <display  value="Inactivated influenza split virion vaccine (product)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="78421000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Intramuscular route (qualifier value)]"/>
+            <display  value="Intramuscular route (qualifier value)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(405813007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+            <display  value="Procedure site "/>
           </coding>
           <coding>
             <code value=" Direct (attribute))"/>
           </coding>
           <coding>
             <code value="37622008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Deltoid region structure (body structure)];"/>
+            <display  value="Deltoid region structure (body structure)];"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -575,21 +576,21 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Influenza virus vaccine (recombinant) 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129326001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Injection "/>
+            <display  value="Injection "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]"/>
@@ -599,41 +600,41 @@
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="46233009 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Influenza virus vaccine (product)]"/>
+            <display  value="Influenza virus vaccine (product)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="78421000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Intramuscular route (qualifier value)]"/>
+            <display  value="Intramuscular route (qualifier value)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(405813007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+            <display  value="Procedure site "/>
           </coding>
           <coding>
             <code value=" Direct (attribute))"/>
           </coding>
           <coding>
             <code value="37622008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Deltoid region structure (body structure)];"/>
+            <display  value="Deltoid region structure (body structure)];"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -641,21 +642,21 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Intradermal influenza inactivated virus vaccine 0.1 mL solution intradermal 1 time give injection in the deltoid region now"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129326001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Injection "/>
+            <display  value="Injection "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]"/>
@@ -665,41 +666,41 @@
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="46233009 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Influenza virus vaccine (product)]"/>
+            <display  value="Influenza virus vaccine (product)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="372464004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Intradermal route (qualifier value)]"/>
+            <display  value="Intradermal route (qualifier value)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(405813007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+            <display  value="Procedure site "/>
           </coding>
           <coding>
             <code value=" Direct (attribute))"/>
           </coding>
           <coding>
             <code value="37622008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Deltoid region structure (body structure)];"/>
+            <display  value="Deltoid region structure (body structure)];"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -707,21 +708,21 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Influenza high-dose inactivated virus vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129326001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Injection "/>
+            <display  value="Injection "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]"/>
@@ -731,41 +732,41 @@
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="408752008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Inactivated influenza split virion vaccine (product)]"/>
+            <display  value="Inactivated influenza split virion vaccine (product)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="78421000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Intramuscular route (qualifier value)]"/>
+            <display  value="Intramuscular route (qualifier value)]"/>
           </coding>
           <coding>
             <code value="                                             "/>
           </coding>
           <coding>
             <code value="(405813007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+            <display  value="Procedure site "/>
           </coding>
           <coding>
             <code value=" Direct (attribute))"/>
           </coding>
           <coding>
             <code value="37622008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Deltoid region structure (body structure)];"/>
+            <display  value="Deltoid region structure (body structure)];"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -773,13 +774,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Meningococcal (groups a, c, y, and w-135) oligosaccharide diphtheria crm197 conjugate vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -787,13 +788,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Neisseria meningitidis serogroup b-4c protein antigen vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -801,13 +802,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Neisseria meningitidis serogroup b-FHbp protein antigen vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -815,13 +816,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Measles, mumps, and rubella virus vaccine live injection, powder, lyophilized 0.5 mL solution subcutaneous 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -829,13 +830,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Measles, mumps, and rubella virus vaccine live injection, powder, lyophilized 0.5 mL solution subcutaneous 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -843,13 +844,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Pneumococcal 13-valent conjugate vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -857,13 +858,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Pneumococcal polyvalent-23 vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -871,13 +872,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -885,13 +886,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Tetanus and diphtheria toxoids vaccine 0.5 mL solution intramuscular 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -899,13 +900,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Varicella live virus vaccine 0.5 mL solution subcutaneous 1 time give injection in the deltoid region now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -913,16 +914,16 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Vaccine education (patient-appropriate material regarding ordered vaccines) now"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

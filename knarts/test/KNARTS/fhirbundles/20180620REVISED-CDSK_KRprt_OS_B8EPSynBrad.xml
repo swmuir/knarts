@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+
+  <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="2f1da8f8-1c06-575a-b49a-9c7be74cb440"/>
             <assigner>
@@ -68,7 +69,7 @@
                 <title value="Consults and Referrals"/>
                 <description value="Consider other consult modalities which may be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent."/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)"/>
                   </action>
@@ -85,7 +86,7 @@
                 <title value="Imaging and ECG"/>
                 <action>
                   <title value="Consider ordering prior to the cardiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months."/>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
                     <description value="Resting 12-lead electrocardiogram to evaluate for arrhythmia now"/>
@@ -126,7 +127,7 @@
               <action>
                 <title value="Laboratory Tests"/>
                 <description value="Consider the following tests to be completed prior to the cardiology consultation."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="bd01faa8-443c-4ad6-9cb6-ea50b4d7a093 |Basic metabolic profile (procedure)"/>
                   <description value="Basic metabolic panel now"/>
@@ -180,7 +181,7 @@
               <action>
                 <title value="Medications"/>
                 <description value="Consider discontinuation of nonessential negative chronotropic drugs (e.g., beta-blockers, calcium channel blockers, etc.)."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="4701000124104 |Recommendation to discontinue medication (procedure)|"/>
                   <description value="Discontinue nonessential negative chronotropic drugs (e.g., beta-blockers, calcium channel blockers, etc.)"/>
@@ -194,7 +195,7 @@
               <title value="Syncope/Presyncope"/>
               <action>
                 <title value="Consults and Referrals"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="183519002 |Referral to cardiology service (procedure)|"/>
                   <description value="Referral to cardiology to evaluate syncope"/>
@@ -212,10 +213,10 @@
               </action>
               <action>
                 <title value="Imaging and ECG"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="Holter monitor to evaluate for syncope/presyncope now"/>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="427047002 |Holter extended electrocardiographic recording (procedure)|"/>
                     <description value="Holter monitor to evaluate for syncope/presyncope now"/>
@@ -226,7 +227,7 @@
                 </action>
                 <action>
                   <title value="Cardiac event monitor to evaluate for syncope/presyncope now"/>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="395148004 |Cardiac event recording (regime/therapy)|"/>
                     <description value="Cardiac event monitor to evaluate for syncope/presyncope now"/>
@@ -237,7 +238,7 @@
                 </action>
                 <action>
                   <title value="X-ray chest to evaluate for heart failure now"/>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="399208008 |Plain chest X-ray (procedure)|"/>
                     <description value="X-ray chest to evaluate for heart failure now"/>
@@ -264,7 +265,7 @@
               <action>
                 <title value="Laboratory Tests"/>
                 <description value="Consider the following tests to be completed prior to the cardiology consultation."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="bd01faa8-443c-4ad6-9cb6-ea50b4d7a093 |Basic metabolic profile (procedure)"/>
                   <description value="Basic metabolic panel now"/>
@@ -318,11 +319,11 @@
               <action>
                 <title value="Medications"/>
                 <description value="Consider discontinuation of nonessential negative chronotropic drugs (e.g., beta-blockers, calcium channel blockers, etc.)."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -330,12 +331,12 @@
     </entry>
     <entry>
       <resource>
-        <questionnaire>
+        <Questionnaire>
           <title/>
           <item>
             <text value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)"/>
           </item>
-        </questionnaire>
+        </Questionnaire>
       </resource>
       <request>
         <method value="POST"/>
@@ -343,18 +344,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Resting 12-lead electrocardiogram to evaluate for arrhythmia now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="447113005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="12 lead electrocardiogram at rest (procedure)"/>
+              <display  value="12 lead electrocardiogram at rest (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -362,18 +363,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Holter monitor to evaluate for bradycardia now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="427047002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Holter extended electrocardiographic recording (procedure)"/>
+              <display  value="Holter extended electrocardiographic recording (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -381,18 +382,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Cardiac event monitor to evaluate for bradycardia now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="395148004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)"/>
+              <display  value="therapy)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -400,13 +401,13 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="X-ray chest to evaluate for heart failure now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="399208008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Plain chest X"/>
+              <display  value="Plain chest X"/>
             </coding>
             <coding>
               <code value="ray (procedure)"/>
@@ -414,7 +415,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -422,7 +423,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Basic metabolic panel now"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -440,12 +441,12 @@
             </coding>
             <coding>
               <code value="ea50b4d7a093 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Basic metabolic profile (procedure)"/>
+              <display  value="Basic metabolic profile (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -453,18 +454,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Complete blood count now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="26604007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+              <display  value="Complete blood count (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -472,18 +473,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Lipid panel now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="16254007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Lipid panel (procedure)"/>
+              <display  value="Lipid panel (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -491,18 +492,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Thyroid function testing now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="35650009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Thyroid panel (procedure)"/>
+              <display  value="Thyroid panel (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -510,18 +511,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Troponin now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="105000003 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Troponin measurement (procedure)"/>
+              <display  value="Troponin measurement (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -529,18 +530,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Brain natriuretic peptide now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="390917008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Brain natriuretic peptide measurement (procedure)"/>
+              <display  value="Brain natriuretic peptide measurement (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -548,13 +549,13 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="D-dimer now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="70648006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="D"/>
+              <display  value="D"/>
             </coding>
             <coding>
               <code value="dimer assay (procedure)"/>
@@ -562,7 +563,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -570,18 +571,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Discontinue nonessential negative chronotropic drugs (e.g., beta-blockers, calcium channel blockers, etc.)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="4701000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Recommendation to discontinue medication (procedure)"/>
+              <display  value="Recommendation to discontinue medication (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -589,9 +590,9 @@
     </entry>
     <entry>
       <resource>
-        <questionnaire>
+        <Questionnaire>
           <title value="Consults and Referrals"/>
-        </questionnaire>
+        </Questionnaire>
       </resource>
       <request>
         <method value="POST"/>
@@ -599,21 +600,21 @@
     </entry>
     <entry>
       <resource>
-        <questionnaire>
+        <Questionnaire>
           <title value="Imaging and ECG"/>
           <item>
             <text value="Holter monitor to evaluate for syncope/presyncope now"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Cardiac event monitor to evaluate for syncope/presyncope now"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="X-ray chest to evaluate for heart failure now"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
-        </questionnaire>
+        </Questionnaire>
       </resource>
       <request>
         <method value="POST"/>
@@ -621,9 +622,9 @@
     </entry>
     <entry>
       <resource>
-        <questionnaire>
+        <Questionnaire>
           <title value="Laboratory Tests"/>
-        </questionnaire>
+        </Questionnaire>
       </resource>
       <request>
         <method value="POST"/>
@@ -631,14 +632,14 @@
     </entry>
     <entry>
       <resource>
-        <questionnaire>
+        <Questionnaire>
           <title value="Medications"/>
-        </questionnaire>
+        </Questionnaire>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value="Cardiac event recording (regime"/>
-</xmi:XMI>
+  </Bundle>
+  <Code value="Cardiac event recording (regime"/>
+

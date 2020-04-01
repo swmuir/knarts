@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="18bf1fa5-e352-5edb-8dd8-bc872a65d326"/>
           <assigner>
@@ -63,7 +64,7 @@
         <action>
           <action>
             <title value="General information"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Outpatient Visit, Age >=40 to &lt;45 Years, Desires Early Breast Cancer Screening"/>
@@ -276,7 +277,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -284,18 +285,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Set screening interval to annual."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -303,26 +304,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="409073007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+            <display  value="Education (procedure)]                            "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -330,7 +331,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening history section of the documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -343,7 +344,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -351,7 +352,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer risk assessment of the documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -364,7 +365,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -372,7 +373,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening order set ECA rule."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -385,7 +386,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -393,7 +394,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate declines breast cancer screening section of the documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -406,7 +407,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -414,18 +415,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Set screening interval to declines early breast cancer screening."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -433,18 +434,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Set screening interval to annual."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -452,26 +453,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="409073007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+            <display  value="Education (procedure)]                            "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -479,7 +480,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening history section of the documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -492,7 +493,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -500,7 +501,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer risk assessment of the documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -513,7 +514,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -521,7 +522,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening order set ECA rule."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -534,7 +535,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -542,18 +543,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Set screening interval to biennial."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -561,26 +562,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="409073007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+            <display  value="Education (procedure)]                            "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -588,7 +589,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening history section of the documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -601,7 +602,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -609,7 +610,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -622,7 +623,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -630,7 +631,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening order set ECA rule."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -643,7 +644,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -651,18 +652,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Set screening interval to biennial."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -670,26 +671,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Notify the provider that options for breast cancer screening should be discussed with patient and that the discussion should be documented."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="409073007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                            "/>
+            <display  value="Education (procedure)]                            "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)]"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -697,7 +698,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening history section of the documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -710,7 +711,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -718,7 +719,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening documentation template."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -731,7 +732,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -739,7 +740,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening order set ECA rule."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -752,7 +753,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -760,18 +761,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Set screening interval to stop screening."/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="268547008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of breast (procedure)"/>
+            <display  value="Screening for malignant neoplasm of breast (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -779,7 +780,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate the breast cancer screening order set."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -792,7 +793,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -800,7 +801,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Notify the patient of their Breast Cancer Screening due date."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -813,7 +814,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -821,7 +822,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Add the patient to the report of patients due for breast cancer screening with their Breast Cancer Screening due date."/>
         <kind value="ServiceRequest"/>
         <code>
@@ -834,10 +835,10 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

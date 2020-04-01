@@ -1,0 +1,7417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <fhiRCore.resources:Bundle>
+    <entry>
+      <resource planDefinition="/1"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/2"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/3"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/4"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/5"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/6"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/7"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/8"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/9"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/10"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/11"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/12"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/13"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/14"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+  </fhiRCore.resources:Bundle>
+  <fhiRCore.resources:PlanDefinition>
+    <identifier>
+      <value value="045fc473-16ee-5d98-ba99-830f628ba865"/>
+      <assigner>
+        <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+      </assigner>
+    </identifier>
+    <identifier>
+      <value value="CLIN0009DA"/>
+      <assigner>
+        <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+      </assigner>
+    </identifier>
+    <identifier>
+      <value value="KP-100"/>
+      <assigner>
+        <display value="urn:cognitivemedicine.com:lab:jira"/>
+      </assigner>
+    </identifier>
+    <name value="Eye Care Documentation Template"/>
+    <title value="Eye Care Documentation Template"/>
+    <type>
+      <coding>
+        <code value="Documentation Template"/>
+      </coding>
+    </type>
+    <status value="draft"/>
+    <description value="The Veterans Health Administration seeks to further standardize eye care data output from routine clinical documentation in support of quality clinical care delivery, performance improvement, interoperability across health care platforms, and clinical research activities. Prototype work has been done in both the DoD/VA Vision Center of Excellence (Optimal Vision Care Prototype) and the VA (Eye Care SmartForm) to define eye care documentation requirements and to promote standardized data output. While not yet implemented in the VA, this draft documentation template content goes a step farther than earlier projects by conforming to HL7 standards for clinical decision support, furthering the aim of an easily shareable tool with shareable data output from routine clinical documentation."/>
+    <useContext>
+      <code>
+        <code value="TargetUser"/>
+        <display value="Provider in an Ophthalmology or Optometry clinic"/>
+      </code>
+    </useContext>
+    <useContext>
+      <code>
+        <code value="PatientAgeGroup"/>
+        <display value="Adult patients"/>
+      </code>
+      <valueCodeableConcept>
+        <coding>
+          <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+          <code value="133936004 "/>
+          <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+        </coding>
+      </valueCodeableConcept>
+    </useContext>
+    <useContext>
+      <code>
+        <code value="WorkflowSetting"/>
+        <display value="Eye Care"/>
+      </code>
+      <valueCodeableConcept>
+        <coding>
+          <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+          <code value="702894003 "/>
+          <display xsi:type="fhiRCore.dataTypes:Code" value="Ophthalmology clinic (environment)"/>
+        </coding>
+      </valueCodeableConcept>
+    </useContext>
+    <useContext>
+      <code>
+        <code value="ClinicalVenue"/>
+        <display value="Outpatient"/>
+      </code>
+      <valueCodeableConcept>
+        <coding>
+          <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+          <code value="33022008 "/>
+          <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+        </coding>
+      </valueCodeableConcept>
+    </useContext>
+    <action>
+      <action>
+        <title value="Chief Complaint/Reason for Visit"/>
+        <action/>
+        <action>
+          <title value="Chief Complaint/Reason for Visit"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Eye Symptoms"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Follow Up Visit"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Post Op Visit"/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+      </action>
+      <action>
+        <title value="History of Present Illness"/>
+        <selectionBehavior value="any"/>
+      </action>
+      <action>
+        <title value="Past Ocular History"/>
+        <selectionBehavior value="any"/>
+        <action>
+          <title value="Eye Conditions"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Age-Related Macular Degeneration (AMD)"/>
+            <description value="The following AMD classification system is adapted from American Academy of Ophthalmology’s 2015 Age-Related Macular Degeneration Preferred Practice Pattern Guidelines (American Academy of Ophthalmology Retina/Vitreous Panel, 2015)."/>
+            <selectionBehavior value="at-most-one"/>
+            <action>
+              <title value="Early AMD"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Intermediate AMD"/>
+            </action>
+            <action>
+              <title value="Advanced AMD: Neovascular"/>
+            </action>
+            <action>
+              <title value="Advanced AMD: Geographic Atrophy"/>
+            </action>
+            <action>
+              <title/>
+              <description value="Provide a link to the Age-Related Eye Disease Study (AREDS) AMD Category definitions"/>
+              <definitionCanonical>
+                <display value="Provide a link to the Age-Related Eye Disease Study (AREDS) AMD Category definitions"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Amblyopia"/>
+          </action>
+          <action>
+            <title value="Blepharitis"/>
+          </action>
+          <action>
+            <title value="Blindness"/>
+          </action>
+          <action>
+            <title value="Cataract"/>
+          </action>
+          <action>
+            <title value="Chalazion"/>
+          </action>
+          <action>
+            <title value="Corneal Guttata"/>
+          </action>
+          <action>
+            <title value="Cystoid Macular Edema"/>
+          </action>
+          <action>
+            <title value="Diabetes Mellitus without Retinopathy"/>
+          </action>
+          <action>
+            <title value="Diabetic Retinopathy"/>
+            <action>
+              <title value="Diabetic Retinopathy"/>
+              <description value="Diabetic retinopathy definitions are adapted from American Academy of Ophthalmology’s Diabetic Retinopathy Preferred Practice Pattern, updated 2017 (American Academy of Ophthalmology Retina/Vitreous Panel, 2016)."/>
+              <action>
+                <title value="Mild Nonproliferative Diabetic Retinopathy"/>
+              </action>
+              <action>
+                <title value="Moderate Nonproliferative Diabetic Retinopathy"/>
+              </action>
+              <action>
+                <title value="Severe Nonproliferative Diabetic Retinopathy"/>
+              </action>
+              <action>
+                <title value="Non-High-Risk Proliferative Diabetic Retinopathy"/>
+              </action>
+              <action>
+                <title value="High Risk Proliferative Diabetic Retinopathy"/>
+              </action>
+              <action>
+                <title value="Clinically Significant Diabetic Macular Edema"/>
+              </action>
+            </action>
+            <action>
+              <title/>
+              <description value="Provide a link to the Diabetic Retinopathy Preferred Practice Patterns"/>
+              <condition>
+                <kind value="applicability"/>
+                <expression>
+                  <language value="text/cql"/>
+                  <expression value=" org.hl7.elm.r1.impl.PropertyImpl@4bbdbb58 (localId: null) (path: Diabetic Retinopathy, scope: null)"/>
+                </expression>
+              </condition>
+              <definitionCanonical>
+                <display value="Provide a link to the Diabetic Retinopathy Preferred Practice Patterns"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Dry Eye"/>
+          </action>
+          <action>
+            <title value="Endophthalmitis"/>
+          </action>
+          <action>
+            <title value="Epiretinal Membrane"/>
+          </action>
+          <action>
+            <title value="Eye Trauma"/>
+            <action>
+              <title value="Nature of Injury"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Blunt"/>
+              </action>
+              <action>
+                <title value="Penetrating"/>
+              </action>
+              <action>
+                <title value="Chemical"/>
+              </action>
+              <action>
+                <title value="Optic Nerve"/>
+              </action>
+              <action>
+                <title value="Other"/>
+              </action>
+            </action>
+            <action>
+              <title value="Date of Injury"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Fuchs Endothelial Corneal Dystrophy"/>
+          </action>
+          <action>
+            <title value="Glaucoma Suspect"/>
+            <action>
+              <title value="Physiologic Cupping/Asymmetry"/>
+            </action>
+            <action>
+              <title value="Ocular Hypertension"/>
+            </action>
+            <action>
+              <title/>
+              <description value="Provide a link to the American Academy of Ophthalmology Preferred Practice Pattern Glaucoma Suspect"/>
+              <definitionCanonical>
+                <display value="Provide a link to the American Academy of Ophthalmology Preferred Practice Pattern Glaucoma Suspect"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Glaucoma"/>
+            <action>
+              <title value="Type of Glaucoma"/>
+              <action>
+                <title value="Glaucoma Staging"/>
+                <action>
+                  <title value="Mild Glaucoma"/>
+                </action>
+                <action>
+                  <title/>
+                  <description value="For assistance with glaucoma billing codes: ICD-10 Glaucoma Staging Definitions, American Academy of Ophthalmology website"/>
+                  <definitionCanonical>
+                    <display value="For assistance with glaucoma billing codes: ICD-10 Glaucoma Staging Definitions, American Academy of Ophthalmology website"/>
+                  </definitionCanonical>
+                </action>
+              </action>
+              <action>
+                <title value="Moderate Glaucoma"/>
+              </action>
+              <action>
+                <title value="Severe Glaucoma"/>
+              </action>
+              <action>
+                <title value="Indeterminate Glaucoma"/>
+              </action>
+              <action>
+                <title/>
+                <description value="Disease definition, clinical findings, and severity categories derived from the American Academy of Ophthalmology’s Preferred Pattern for Primary Open Angle Glaucoma."/>
+                <definitionCanonical>
+                  <display value="Disease definition, clinical findings, and severity categories derived from the American Academy of Ophthalmology’s Preferred Pattern for Primary Open Angle Glaucoma."/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title/>
+              <description value="Provide a link to the American Academy of Ophthalmology Preferred Practice Pattern Glaucoma Panel"/>
+              <definitionCanonical>
+                <display value="Provide a link to the American Academy of Ophthalmology Preferred Practice Pattern Glaucoma Panel"/>
+              </definitionCanonical>
+            </action>
+          </action>
+          <action>
+            <title value="Macular Hole"/>
+          </action>
+          <action>
+            <title value="Nonglaucomatous Visual Field Defects"/>
+          </action>
+          <action>
+            <title value="Optic Atrophy"/>
+          </action>
+          <action>
+            <title value="Pseudophakia"/>
+          </action>
+          <action>
+            <title value="Pterygium"/>
+          </action>
+          <action>
+            <title value="Retinal Detachment"/>
+          </action>
+          <action>
+            <title value="Retinal Tear or Hole"/>
+          </action>
+          <action>
+            <title value="Strabismus"/>
+          </action>
+          <action>
+            <title value="Other"/>
+          </action>
+        </action>
+      </action>
+      <action>
+        <title value="Past Ocular Procedures"/>
+        <selectionBehavior value="any"/>
+        <action>
+          <title value="Cataract Surgery"/>
+          <action>
+            <title value="Right Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Complications"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Complications"/>
+              </action>
+            </action>
+            <action>
+              <title value="Lens Type"/>
+            </action>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Complications"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Complications"/>
+              </action>
+            </action>
+            <action>
+              <title value="Lens Type"/>
+            </action>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Corneal Surgery"/>
+          <action>
+            <title value="Right Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Refractive Surgery"/>
+          <action>
+            <title value="Right Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="YAG (Yttrium Aluminum Garnet) Laser Capsulotomy"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Cyclodestruction"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Goniotomy"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Laser Iridotomy"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Laser Trabeculoplasty"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Minimally Invasive Glaucoma Surgery"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Trabeculectomy"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Tube Shunt"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Focal Macular Laser Retina"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Intravitreal Injection"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Panretinal Photocoagulation"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Posterior Vitrectomy"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Retinal Detachment Repair (Scleral Buckle)"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Retinopexy"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Procedure"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Blepharoplasty"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Enucleation"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Ptosis Repair"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Strabismus Surgery"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Other Surgery/Procedure"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Date of Surgery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="About"/>
+              </action>
+              <action>
+                <title value="Around"/>
+              </action>
+              <action>
+                <title value="During"/>
+              </action>
+            </action>
+          </action>
+        </action>
+      </action>
+      <action>
+        <title value="Family History of Ocular Conditions"/>
+        <selectionBehavior value="any"/>
+        <action>
+          <title value="Blindness"/>
+        </action>
+        <action>
+          <title value="Corneal Dystrophy"/>
+        </action>
+        <action>
+          <title value="Glaucoma"/>
+        </action>
+        <action>
+          <title value="Macular Degeneration"/>
+        </action>
+        <action>
+          <title value="Retinal Detachment"/>
+        </action>
+        <action>
+          <title value="Retinal Dystrophy"/>
+        </action>
+        <action>
+          <title value="Other Ocular Condition"/>
+        </action>
+      </action>
+      <action>
+        <title value="Pertinent Systematic Medical History"/>
+        <selectionBehavior value="any"/>
+        <action>
+          <title value="Asthma"/>
+        </action>
+        <action>
+          <title value="Atrial Fibrillation"/>
+        </action>
+        <action>
+          <title value="Benign Prostatic Hypertrophy"/>
+        </action>
+        <action>
+          <title value="Carotid Artery Disease"/>
+        </action>
+        <action>
+          <title value="Coronary Artery Disease"/>
+        </action>
+        <action>
+          <title value="Chronic Obstructive Pulmonary Disease"/>
+        </action>
+        <action>
+          <title value="Congestive Heart Failure"/>
+        </action>
+        <action>
+          <title value="Connective Tissue Disease/Rheumatologic Conditions"/>
+        </action>
+        <action>
+          <title value="Diabetes Mellitus"/>
+        </action>
+        <action>
+          <title value="Other Endocrine Disorder"/>
+        </action>
+        <action>
+          <title value="HIV Infection"/>
+        </action>
+        <action>
+          <title value="Hypertension"/>
+        </action>
+        <action>
+          <title value="Hyperthyroidism"/>
+        </action>
+        <action>
+          <title value="Multiple Sclerosis"/>
+        </action>
+        <action>
+          <title value="Myocardial Infarction"/>
+        </action>
+        <action>
+          <title value="Renal Failure"/>
+        </action>
+        <action>
+          <title value="Sleep Apnea"/>
+        </action>
+        <action>
+          <title value="Stroke/Transient Ischemic Attack (TIA)"/>
+        </action>
+        <action>
+          <title value="Syphilis"/>
+        </action>
+        <action>
+          <title value="Traumatic Brain Injury"/>
+        </action>
+      </action>
+      <action>
+        <title value="Pertinent Social History"/>
+        <selectionBehavior value="any"/>
+        <action>
+          <title value="Smoking and Substance Use"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Tobacco Use"/>
+            <description value="Tobacco includes cigarettes, pipe, cigars, and smokeless tobacco, such as dip, chew, snuff, and snus. Excludes e-cigarettes, ENDS (electronic nicotine delivery systems), and vaping devices."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Do you currently use tobacco?"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Not at all"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Substance Use History"/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+      </action>
+      <action>
+        <title value="Medications"/>
+        <selectionBehavior value="any"/>
+      </action>
+      <action>
+        <title value="Allergies"/>
+        <selectionBehavior value="any"/>
+      </action>
+      <action>
+        <title value="Ocular Exam"/>
+        <action>
+          <title value="Visual Acuity"/>
+          <action>
+            <title value="Distance Vision"/>
+            <description value="Snellen is default for the Visual Acuity Chart.  The default chart distance is 10 feet"/>
+            <action>
+              <title value="Right Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+                <action/>
+                <action/>
+              </action>
+            </action>
+            <action>
+              <title value="Left Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+                <action/>
+                <action/>
+              </action>
+            </action>
+            <action>
+              <title value="Both Eyes"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+                <action/>
+                <action/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Near Vision"/>
+            <description value="Snellen is default for the Visual Acuity Chart"/>
+            <action>
+              <title value="Right Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+            <action>
+              <title value="Left Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+            <action>
+              <title value="Both Eyes"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Lensometry"/>
+          <action>
+            <title value="Optical Correction Type"/>
+            <action>
+              <title value="Other"/>
+            </action>
+          </action>
+          <action>
+            <title value="Right Eye"/>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+          </action>
+          <action>
+            <title value="Interpupillary Distance"/>
+          </action>
+        </action>
+        <action>
+          <title value="Refraction"/>
+          <action>
+            <title value="Refraction Testing Method and Conditions"/>
+            <action>
+              <title value="Other"/>
+            </action>
+          </action>
+          <action>
+            <title value="Right Eye"/>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+          </action>
+          <action>
+            <title value="Distance Visual Acuity with Refraction"/>
+            <description value="Snellen is default for the Visual Acuity Chart"/>
+            <action>
+              <title value="Right Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+            <action>
+              <title value="Left Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+            <action>
+              <title value="Both Eyes"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Near Visual Acuity with Refraction"/>
+            <description value="Snellen is default for the Visual Acuity Chart"/>
+            <action>
+              <title value="Right Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+            <action>
+              <title value="Left Eye"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+            <action>
+              <title value="Both Eyes"/>
+              <description value="The values represent the visual acuity scale in feet, with the corresponding values for meters, decimal, and LogMar in parentheses."/>
+              <action>
+                <title value="Visual Acuity"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Intraocular Pressure Measurement"/>
+          <action>
+            <title value="Intraocular Pressure"/>
+            <action>
+              <title value="Right Eye"/>
+            </action>
+            <action>
+              <title value="Left Eye"/>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="External Eye Exam"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Findings"/>
+          </action>
+          <action>
+            <title value="Pupil Exam"/>
+            <action>
+              <title value="Normal (Equal, Round, Reactive to Light, No Afferent Pupillary Defect)"/>
+            </action>
+            <action>
+              <title value="Relative Afferent Pupillary Defect (RAPD)"/>
+              <action>
+                <title value="Right Eye"/>
+              </action>
+              <action>
+                <title value="Left Eye"/>
+              </action>
+            </action>
+            <action>
+              <title value="Other Pupil Abnormality"/>
+            </action>
+          </action>
+          <action>
+            <title value="Motility"/>
+            <action>
+              <title value="Findings"/>
+              <action>
+                <title value="Both Eyes"/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action>
+                  <title value=""/>
+                </action>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action>
+                  <title value=""/>
+                </action>
+                <action/>
+                <action/>
+              </action>
+              <action>
+                <title value="Right Eye"/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action>
+                  <title value=""/>
+                </action>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action>
+                  <title value=""/>
+                </action>
+                <action/>
+                <action/>
+              </action>
+              <action>
+                <title value="Left Eye"/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action>
+                  <title value=""/>
+                </action>
+                <action/>
+                <action/>
+                <action/>
+                <action/>
+                <action>
+                  <title value=""/>
+                </action>
+                <action/>
+                <action/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Slit Lamp Exam"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Lids and Lashes"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Conjunctiva"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Cornea"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Anterior Chamber"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Iris/Ciliary Body/Pupil"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Lens"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Anterior Vitreous"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Lids and Lashes"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Conjunctiva"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Cornea"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Anterior Chamber"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Iris/Ciliary Body/Pupil"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Lens"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Anterior Vitreous"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Fundoscopic Exam"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Vitreous"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Optic Nerve"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Macula"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Vessels"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Periphery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Vitreous"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Optic Nerve"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+                <selectionBehavior value="any"/>
+              </action>
+            </action>
+            <action>
+              <title value="Macula"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Vessels"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+            <action>
+              <title value="Periphery"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Findings"/>
+              </action>
+            </action>
+          </action>
+        </action>
+      </action>
+      <action>
+        <title value="Special Testing"/>
+        <selectionBehavior value="any"/>
+        <action>
+          <title value="Color Vision Testing"/>
+        </action>
+        <action>
+          <title value="Stereo Vision Testing"/>
+          <action>
+            <title value="Stereo Vision Testing Method"/>
+            <selectionBehavior value="at-most-one"/>
+            <action>
+              <title value="Titmus Fly Stereo Test"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Randot Stereo Test"/>
+              <selectionBehavior value="any"/>
+              <action>
+                <title value="Other"/>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Amsler Grid Testing"/>
+          <action>
+            <title value="Right Eye Findings"/>
+            <selectionBehavior value="at-most-one"/>
+            <action>
+              <title value="Abnormal"/>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye Findings"/>
+            <selectionBehavior value="at-most-one"/>
+            <action>
+              <title value="Abnormal"/>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="A-Scan Ultrasound"/>
+          <action>
+            <title value="Right Eye Findings"/>
+          </action>
+          <action>
+            <title value="Left Eye Findings"/>
+          </action>
+        </action>
+        <action>
+          <title value="Optical Biometry"/>
+          <action>
+            <title value="Right Eye Findings"/>
+          </action>
+          <action>
+            <title value="Left Eye Findings"/>
+          </action>
+        </action>
+        <action>
+          <title value="Anterior Segment Optical Coherence Tomography (OCT)"/>
+          <action>
+            <title value="Right Eye Findings"/>
+          </action>
+          <action>
+            <title value="Left Eye Findings"/>
+          </action>
+        </action>
+        <action>
+          <title value="B-Scan Ultrasound"/>
+        </action>
+        <action>
+          <title value="Confrontation Visual Field Testing"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Other"/>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Other"/>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Corneal Topography/Tomography"/>
+        </action>
+        <action>
+          <title value="Gonioscopy"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="General Findings"/>
+              <action>
+                <title value="Open"/>
+              </action>
+              <action>
+                <title value="Occludable"/>
+              </action>
+              <action>
+                <title value="Recessed"/>
+              </action>
+              <action>
+                <title value="Closed"/>
+              </action>
+            </action>
+            <action>
+              <title value="Classification"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Spaeth"/>
+                <action>
+                  <title value="Iris Insertion"/>
+                </action>
+                <action>
+                  <title value="Iris Angularity (10-40 Degrees)"/>
+                </action>
+                <action>
+                  <title value="Iris Configuration"/>
+                </action>
+                <action>
+                  <title value="Pigmentation"/>
+                </action>
+              </action>
+              <action>
+                <title/>
+                <description value="Provide a link to the American Academy of Ophthalmology guidance for these classification systems."/>
+                <definitionCanonical>
+                  <display value="Provide a link to the American Academy of Ophthalmology guidance for these classification systems."/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="General Findings"/>
+              <action>
+                <title value="Open"/>
+              </action>
+              <action>
+                <title value="Occludable"/>
+              </action>
+              <action>
+                <title value="Recessed"/>
+              </action>
+              <action>
+                <title value="Closed"/>
+              </action>
+            </action>
+            <action>
+              <title value="Classification"/>
+              <selectionBehavior value="at-most-one"/>
+              <action>
+                <title value="Spaeth"/>
+                <action>
+                  <title value="Iris Insertion"/>
+                </action>
+                <action>
+                  <title value="Iris Angularity (10-40 Degrees)"/>
+                </action>
+                <action>
+                  <title value="Iris Configuration"/>
+                </action>
+                <action>
+                  <title value="Pigmentation"/>
+                </action>
+              </action>
+              <action>
+                <title/>
+                <description value="Provide a link to the American Academy of Ophthalmology guidance for these classification systems."/>
+                <definitionCanonical>
+                  <display value="Provide a link to the American Academy of Ophthalmology guidance for these classification systems."/>
+                </definitionCanonical>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Intraocular Lens (IOL) Calculations"/>
+          <action>
+            <title value="Right Eye Findings"/>
+          </action>
+          <action>
+            <title value="Left Eye Findings"/>
+          </action>
+        </action>
+        <action>
+          <title value="Keratometry"/>
+          <action>
+            <title value="Right Eye"/>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+          </action>
+        </action>
+        <action>
+          <title value="Optic Nerve Analysis"/>
+          <action>
+            <title value="Right Eye"/>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+          </action>
+        </action>
+        <action>
+          <title value="Pachymetry"/>
+          <action>
+            <title value="Pachymetry Findings"/>
+          </action>
+        </action>
+        <action>
+          <title value="Perimetry"/>
+          <action>
+            <title value="Right Eye"/>
+            <action>
+              <title value="Machine Used"/>
+              <action>
+                <title value="Reliability"/>
+              </action>
+              <action>
+                <title value="Findings"/>
+                <action>
+                  <title value="Abnormal Findings"/>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Left Eye"/>
+            <action>
+              <title value="Machine Used"/>
+              <action>
+                <title value="Reliability"/>
+              </action>
+              <action>
+                <title value="Findings"/>
+                <action>
+                  <title value="Abnormal Findings"/>
+                </action>
+              </action>
+            </action>
+          </action>
+        </action>
+        <action>
+          <title value="Retinal Imaging"/>
+        </action>
+      </action>
+      <action>
+        <title value="Procedure Notes"/>
+        <action>
+          <title value="Procedures"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Injection(s)"/>
+          </action>
+          <action>
+            <title value="Laser(s)"/>
+          </action>
+        </action>
+      </action>
+      <action>
+        <title value="Assessment and Plan"/>
+        <action>
+          <title value="Plan"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title value="Vision Correction Prescription Glasses"/>
+            <action>
+              <title value="Prescription for glasses- Right Eye"/>
+            </action>
+            <action>
+              <title value="Prescription for glasses- Left Eye"/>
+            </action>
+          </action>
+          <action>
+            <title value="Vision Correction Prescription – Contact Lenses"/>
+            <action>
+              <title value="Contact lenses- Right Eye"/>
+            </action>
+            <action>
+              <title value="Contact lenses- Left Eye"/>
+              <selectionBehavior value="any"/>
+            </action>
+          </action>
+          <action>
+            <title value="Eye Prosthetic Devices"/>
+          </action>
+          <action>
+            <title value="Laboratory Tests"/>
+          </action>
+          <action>
+            <title value="Imaging Studies"/>
+          </action>
+          <action>
+            <title value="Eye Clinic Ancillary Study and Procedure Orders"/>
+            <action>
+              <title value="External Eye Photography"/>
+            </action>
+            <action>
+              <title value="Slit Lamp Photography"/>
+            </action>
+            <action>
+              <title value="Fundus Photography"/>
+            </action>
+            <action>
+              <title value="Other"/>
+            </action>
+          </action>
+          <action>
+            <title value="Medications"/>
+            <action>
+              <title value="Current Medications"/>
+            </action>
+            <action>
+              <title value="Current Eye Medications"/>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Print Prescription"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.EqualImpl@6354cc0c (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Print Prescription"/>
+                </definitionCanonical>
+              </action>
+              <action>
+                <title value="TSR-NoCode"/>
+                <description value="Transmit Prescription"/>
+                <condition>
+                  <kind value="applicability"/>
+                  <expression>
+                    <language value="text/cql"/>
+                    <expression value=" org.hl7.elm.r1.impl.EqualImpl@4fdb8734 (localId: null)"/>
+                  </expression>
+                </condition>
+                <definitionCanonical>
+                  <display value="Transmit Prescription"/>
+                </definitionCanonical>
+              </action>
+            </action>
+            <action>
+              <title value="Medication"/>
+              <action>
+                <title value="Acetazolamide"/>
+              </action>
+              <action>
+                <title value="Acyclovir"/>
+              </action>
+              <action>
+                <title value="Aflibercept (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Artificial Tears"/>
+              </action>
+              <action>
+                <title value="Atropine Sulfate 1% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Bacitracin/Polymyxin Ophthalmic Ointment"/>
+              </action>
+              <action>
+                <title value="Betaxolol Hydrochloride 0.25% Ophthalmic Suspension (Restricted to Eye Clinic)"/>
+              </action>
+              <action>
+                <title value="Bevacizumab Intravitreal Injection (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Brimonidine 0.2% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Brimonidine 0.2%/Brinzolamide Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Carboxymethylcellulose 1% Ophthalmic Gel"/>
+              </action>
+              <action>
+                <title value="Carboxymethylcellulose 0.5% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Cromolyn 4% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Cyclosporine 0.05% Ophthalmic Emulsion (Restricted to Eye Clinic)"/>
+              </action>
+              <action>
+                <title value="Diclofenac Sodium 0.1% Ophthalmic Solution (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Dorzolamide Hydrochloride 2% Ophthalmic Solution (Restricted to Eye Clinic)"/>
+              </action>
+              <action>
+                <title value="Dorzolamide Hydrochloride 2%/Timolol 0.5% Ophthalmic Solution (Restricted to Eye Clinic)"/>
+              </action>
+              <action>
+                <title value="Doxycycline"/>
+              </action>
+              <action>
+                <title value="Erythromycin 0.5% Ophthalmic Ointment"/>
+              </action>
+              <action>
+                <title value="Fluorometholone 0.1% Ophthalmic Suspension (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Ketorolac 0.025% Ophthalmic"/>
+              </action>
+              <action>
+                <title value="Ketorolac Tromethamine 0.5% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Latanoprost 0.005% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Levobunolol Hydrochloride 0.25% Ophthalmic Solution (Restricted to Eye Clinic)"/>
+              </action>
+              <action>
+                <title value="Lubricating Ophthalmic Ointment"/>
+              </action>
+              <action>
+                <title value="Methazolamide"/>
+              </action>
+              <action>
+                <title value="Mitomycin (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Multivitamin/Ophthalmologic AREDS2/Lutein/Zeaxanthin"/>
+              </action>
+              <action>
+                <title value="Naphazoline/Pheniramine Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Ofloxacin 0.3% Ophthalmic Suspension (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Pilocarpine Hydrochloride 1% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Pilocarpine Hydrochloride 2% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Prednisolone Acetate 1% Ophthalmic Suspension (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Ranibizumab Injection (Restricted to Ophthalmology)"/>
+              </action>
+              <action>
+                <title value="Sodium Chloride Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Timolol Maleate 0.25% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Timolol Maleate 0.5% Ophthalmic Solution"/>
+              </action>
+              <action>
+                <title value="Travoprost Z Ophthalmic Solution (Restricted; Submit National Formulary Request)"/>
+              </action>
+              <action>
+                <title value="Other"/>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Patient Education and Instructions"/>
+          </action>
+          <action>
+            <title value="Consultation Requests"/>
+          </action>
+          <action>
+            <title value="Surgery Requests"/>
+          </action>
+          <action>
+            <title value="Return for Follow-Up"/>
+            <action>
+              <title value="Follow up location"/>
+            </action>
+            <action>
+              <title value="Follow up timing"/>
+            </action>
+          </action>
+        </action>
+      </action>
+    </action>
+  </fhiRCore.resources:PlanDefinition>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Chief Complaint/Reason for Visit"/>
+    <item>
+      <text/>
+    </item>
+    <item>
+      <text value="Chief Complaint/Reason for Visit"/>
+      <type value="any"/>
+      <item>
+        <text value="Eye Symptoms"/>
+        <type value="any"/>
+      </item>
+      <item>
+        <text value="Follow Up Visit"/>
+        <type value="any"/>
+      </item>
+      <item>
+        <text value="Post Op Visit"/>
+        <type value="any"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text value="The eye(s) on which the above procedure was performed."/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="History of Present Illness"/>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Past Ocular History"/>
+    <item>
+      <text value="Eye Conditions"/>
+      <type value="any"/>
+      <item>
+        <text value="Age-Related Macular Degeneration (AMD)"/>
+        <type value="choice"/>
+        <item>
+          <text value="Early AMD"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Intermediate AMD"/>
+        </item>
+        <item>
+          <text value="Advanced AMD: Neovascular"/>
+        </item>
+        <item>
+          <text value="Advanced AMD: Geographic Atrophy"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Amblyopia"/>
+      </item>
+      <item>
+        <text value="Blepharitis"/>
+      </item>
+      <item>
+        <text value="Blindness"/>
+      </item>
+      <item>
+        <text value="Cataract"/>
+      </item>
+      <item>
+        <text value="Chalazion"/>
+      </item>
+      <item>
+        <text value="Corneal Guttata"/>
+      </item>
+      <item>
+        <text value="Cystoid Macular Edema"/>
+      </item>
+      <item>
+        <text value="Diabetes Mellitus without Retinopathy"/>
+      </item>
+      <item>
+        <text value="Diabetic Retinopathy"/>
+        <item>
+          <text value="Diabetic Retinopathy"/>
+          <item>
+            <text value="Mild Nonproliferative Diabetic Retinopathy"/>
+          </item>
+          <item>
+            <text value="Moderate Nonproliferative Diabetic Retinopathy"/>
+          </item>
+          <item>
+            <text value="Severe Nonproliferative Diabetic Retinopathy"/>
+          </item>
+          <item>
+            <text value="Non-High-Risk Proliferative Diabetic Retinopathy"/>
+          </item>
+          <item>
+            <text value="High Risk Proliferative Diabetic Retinopathy"/>
+          </item>
+          <item>
+            <text value="Clinically Significant Diabetic Macular Edema"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </item>
+      <item>
+        <text value="Dry Eye"/>
+      </item>
+      <item>
+        <text value="Endophthalmitis"/>
+      </item>
+      <item>
+        <text value="Epiretinal Membrane"/>
+      </item>
+      <item>
+        <text value="Eye Trauma"/>
+        <item>
+          <text value="Nature of Injury"/>
+          <type value="choice"/>
+          <item>
+            <text value="Blunt"/>
+          </item>
+          <item>
+            <text value="Penetrating"/>
+          </item>
+          <item>
+            <text value="Chemical"/>
+          </item>
+          <item>
+            <text value="Optic Nerve"/>
+          </item>
+          <item>
+            <text value="Other"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Date of Injury"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Fuchs Endothelial Corneal Dystrophy"/>
+      </item>
+      <item>
+        <text value="Glaucoma Suspect"/>
+        <item>
+          <text value="Physiologic Cupping/Asymmetry"/>
+        </item>
+        <item>
+          <text value="Ocular Hypertension"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Glaucoma"/>
+        <item>
+          <text value="Type of Glaucoma"/>
+          <item>
+            <text value="Glaucoma Staging"/>
+            <item>
+              <text value="Mild Glaucoma"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Moderate Glaucoma"/>
+          </item>
+          <item>
+            <text value="Severe Glaucoma"/>
+          </item>
+          <item>
+            <text value="Indeterminate Glaucoma"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Macular Hole"/>
+      </item>
+      <item>
+        <text value="Nonglaucomatous Visual Field Defects"/>
+      </item>
+      <item>
+        <text value="Optic Atrophy"/>
+      </item>
+      <item>
+        <text value="Pseudophakia"/>
+      </item>
+      <item>
+        <text value="Pterygium"/>
+      </item>
+      <item>
+        <text value="Retinal Detachment"/>
+      </item>
+      <item>
+        <text value="Retinal Tear or Hole"/>
+      </item>
+      <item>
+        <text value="Strabismus"/>
+      </item>
+      <item>
+        <text value="Other"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Past Ocular Procedures"/>
+    <item>
+      <text value="Cataract Surgery"/>
+      <item>
+        <text value="Right Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Complications"/>
+          <type value="choice"/>
+          <item>
+            <text value="Complications"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Lens Type"/>
+        </item>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Complications"/>
+          <type value="choice"/>
+          <item>
+            <text value="Complications"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Lens Type"/>
+        </item>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Corneal Surgery"/>
+      <item>
+        <text value="Right Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Refractive Surgery"/>
+      <item>
+        <text value="Right Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="YAG (Yttrium Aluminum Garnet) Laser Capsulotomy"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Cyclodestruction"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Goniotomy"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Laser Iridotomy"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Laser Trabeculoplasty"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Minimally Invasive Glaucoma Surgery"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Trabeculectomy"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Tube Shunt"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Focal Macular Laser Retina"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <type value="any"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Intravitreal Injection"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <type value="any"/>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Panretinal Photocoagulation"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Posterior Vitrectomy"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Retinal Detachment Repair (Scleral Buckle)"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Retinopexy"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Procedure"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Blepharoplasty"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Enucleation"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Ptosis Repair"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Strabismus Surgery"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Other Surgery/Procedure"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Date of Surgery"/>
+          <type value="choice"/>
+          <item>
+            <text value="About"/>
+          </item>
+          <item>
+            <text value="Around"/>
+          </item>
+          <item>
+            <text value="During"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Family History of Ocular Conditions"/>
+    <item>
+      <text value="Blindness"/>
+    </item>
+    <item>
+      <text value="Corneal Dystrophy"/>
+    </item>
+    <item>
+      <text value="Glaucoma"/>
+    </item>
+    <item>
+      <text value="Macular Degeneration"/>
+    </item>
+    <item>
+      <text value="Retinal Detachment"/>
+    </item>
+    <item>
+      <text value="Retinal Dystrophy"/>
+    </item>
+    <item>
+      <text value="Other Ocular Condition"/>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Pertinent Systematic Medical History"/>
+    <item>
+      <text value="Asthma"/>
+    </item>
+    <item>
+      <text value="Atrial Fibrillation"/>
+    </item>
+    <item>
+      <text value="Benign Prostatic Hypertrophy"/>
+    </item>
+    <item>
+      <text value="Carotid Artery Disease"/>
+    </item>
+    <item>
+      <text value="Coronary Artery Disease"/>
+    </item>
+    <item>
+      <text value="Chronic Obstructive Pulmonary Disease"/>
+    </item>
+    <item>
+      <text value="Congestive Heart Failure"/>
+    </item>
+    <item>
+      <text value="Connective Tissue Disease/Rheumatologic Conditions"/>
+    </item>
+    <item>
+      <text value="Diabetes Mellitus"/>
+    </item>
+    <item>
+      <text value="Other Endocrine Disorder"/>
+    </item>
+    <item>
+      <text value="HIV Infection"/>
+    </item>
+    <item>
+      <text value="Hypertension"/>
+    </item>
+    <item>
+      <text value="Hyperthyroidism"/>
+    </item>
+    <item>
+      <text value="Multiple Sclerosis"/>
+    </item>
+    <item>
+      <text value="Myocardial Infarction"/>
+    </item>
+    <item>
+      <text value="Renal Failure"/>
+    </item>
+    <item>
+      <text value="Sleep Apnea"/>
+    </item>
+    <item>
+      <text value="Stroke/Transient Ischemic Attack (TIA)"/>
+    </item>
+    <item>
+      <text value="Syphilis"/>
+    </item>
+    <item>
+      <text value="Traumatic Brain Injury"/>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Pertinent Social History"/>
+    <item>
+      <text value="Smoking and Substance Use"/>
+      <type value="any"/>
+      <item>
+        <text value="Tobacco Use"/>
+        <type value="any"/>
+        <item>
+          <text value="Do you currently use tobacco?"/>
+          <type value="any"/>
+          <item>
+            <text value="Not at all"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Substance Use History"/>
+        <type value="any"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Medications"/>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Allergies"/>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Ocular Exam"/>
+    <item>
+      <text value="Visual Acuity"/>
+      <item>
+        <text value="Distance Vision"/>
+        <item>
+          <text value="Right Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Left Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Both Eyes"/>
+          <item>
+            <text value="Visual Acuity"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </item>
+      <item>
+        <text value="Near Vision"/>
+        <item>
+          <text value="Right Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Left Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Both Eyes"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text value="Description of glasses or contact lenses."/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text value="Description of glasses or contact lenses."/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Lensometry"/>
+      <item>
+        <text value="Optical Correction Type"/>
+        <item>
+          <text value="Other"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Right Eye"/>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+      </item>
+      <item>
+        <text value="Interpupillary Distance"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Refraction"/>
+      <item>
+        <text value="Refraction Testing Method and Conditions"/>
+        <item>
+          <text value="Other"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Right Eye"/>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+      </item>
+      <item>
+        <text value="Distance Visual Acuity with Refraction"/>
+        <item>
+          <text value="Right Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Left Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Both Eyes"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </item>
+      <item>
+        <text value="Near Visual Acuity with Refraction"/>
+        <item>
+          <text value="Right Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Left Eye"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Both Eyes"/>
+          <item>
+            <text value="Visual Acuity"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Intraocular Pressure Measurement"/>
+      <item>
+        <text value="Intraocular Pressure"/>
+        <item>
+          <text value="Right Eye"/>
+        </item>
+        <item>
+          <text value="Left Eye"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+    </item>
+    <item>
+      <text value="External Eye Exam"/>
+      <type value="any"/>
+      <item>
+        <text value="Findings"/>
+      </item>
+      <item>
+        <text value="Pupil Exam"/>
+        <item>
+          <text value="Normal (Equal, Round, Reactive to Light, No Afferent Pupillary Defect)"/>
+        </item>
+        <item>
+          <text value="Relative Afferent Pupillary Defect (RAPD)"/>
+          <item>
+            <text value="Right Eye"/>
+          </item>
+          <item>
+            <text value="Left Eye"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Other Pupil Abnormality"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Motility"/>
+        <item>
+          <text value="Findings"/>
+          <item>
+            <text value="Both Eyes"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text value=""/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text value=""/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Right Eye"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text value=""/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text value=""/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text value="Left Eye"/>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text value=""/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text value=""/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Slit Lamp Exam"/>
+      <type value="any"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Lids and Lashes"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Conjunctiva"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Cornea"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Anterior Chamber"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Iris/Ciliary Body/Pupil"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Lens"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Anterior Vitreous"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Lids and Lashes"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Conjunctiva"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Cornea"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Anterior Chamber"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Iris/Ciliary Body/Pupil"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Lens"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Anterior Vitreous"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+    </item>
+    <item>
+      <text value="Fundoscopic Exam"/>
+      <type value="any"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Vitreous"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Optic Nerve"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Macula"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Vessels"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Periphery"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Vitreous"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Optic Nerve"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+            <type value="any"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Macula"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Vessels"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Periphery"/>
+          <type value="choice"/>
+          <item>
+            <text value="Findings"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Special Testing"/>
+    <item>
+      <text value="Color Vision Testing"/>
+    </item>
+    <item>
+      <text value="Stereo Vision Testing"/>
+      <item>
+        <text value="Stereo Vision Testing Method"/>
+        <type value="choice"/>
+        <item>
+          <text value="Titmus Fly Stereo Test"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Randot Stereo Test"/>
+          <type value="any"/>
+          <item>
+            <text value="Other"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Amsler Grid Testing"/>
+      <item>
+        <text value="Right Eye Findings"/>
+        <type value="choice"/>
+        <item>
+          <text value="Abnormal"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye Findings"/>
+        <type value="choice"/>
+        <item>
+          <text value="Abnormal"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="A-Scan Ultrasound"/>
+      <item>
+        <text value="Right Eye Findings"/>
+      </item>
+      <item>
+        <text value="Left Eye Findings"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Optical Biometry"/>
+      <item>
+        <text value="Right Eye Findings"/>
+      </item>
+      <item>
+        <text value="Left Eye Findings"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Anterior Segment Optical Coherence Tomography (OCT)"/>
+      <item>
+        <text value="Right Eye Findings"/>
+      </item>
+      <item>
+        <text value="Left Eye Findings"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="B-Scan Ultrasound"/>
+    </item>
+    <item>
+      <text value="Confrontation Visual Field Testing"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Other"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Other"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Corneal Topography/Tomography"/>
+    </item>
+    <item>
+      <text value="Gonioscopy"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="General Findings"/>
+          <item>
+            <text value="Open"/>
+          </item>
+          <item>
+            <text value="Occludable"/>
+          </item>
+          <item>
+            <text value="Recessed"/>
+          </item>
+          <item>
+            <text value="Closed"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Classification"/>
+          <type value="choice"/>
+          <item>
+            <text value="Spaeth"/>
+            <item>
+              <text value="Iris Insertion"/>
+            </item>
+            <item>
+              <text value="Iris Angularity (10-40 Degrees)"/>
+            </item>
+            <item>
+              <text value="Iris Configuration"/>
+            </item>
+            <item>
+              <text value="Pigmentation"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="General Findings"/>
+          <item>
+            <text value="Open"/>
+          </item>
+          <item>
+            <text value="Occludable"/>
+          </item>
+          <item>
+            <text value="Recessed"/>
+          </item>
+          <item>
+            <text value="Closed"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text value="Classification"/>
+          <type value="choice"/>
+          <item>
+            <text value="Spaeth"/>
+            <item>
+              <text value="Iris Insertion"/>
+            </item>
+            <item>
+              <text value="Iris Angularity (10-40 Degrees)"/>
+            </item>
+            <item>
+              <text value="Iris Configuration"/>
+            </item>
+            <item>
+              <text value="Pigmentation"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Intraocular Lens (IOL) Calculations"/>
+      <item>
+        <text value="Right Eye Findings"/>
+      </item>
+      <item>
+        <text value="Left Eye Findings"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Keratometry"/>
+      <item>
+        <text value="Right Eye"/>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Optic Nerve Analysis"/>
+      <item>
+        <text value="Right Eye"/>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Pachymetry"/>
+      <item>
+        <text value="Pachymetry Findings"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="Perimetry"/>
+      <item>
+        <text value="Right Eye"/>
+        <item>
+          <text value="Machine Used"/>
+          <item>
+            <text value="Reliability"/>
+          </item>
+          <item>
+            <text value="Findings"/>
+            <item>
+              <text value="Abnormal Findings"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Left Eye"/>
+        <item>
+          <text value="Machine Used"/>
+          <item>
+            <text value="Reliability"/>
+          </item>
+          <item>
+            <text value="Findings"/>
+            <item>
+              <text value="Abnormal Findings"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+    </item>
+    <item>
+      <text value="Retinal Imaging"/>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Procedure Notes"/>
+    <item>
+      <text value="Procedures"/>
+      <type value="any"/>
+      <item>
+        <text value="Injection(s)"/>
+      </item>
+      <item>
+        <text value="Laser(s)"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Assessment and Plan"/>
+    <item>
+      <text value="Plan"/>
+      <type value="any"/>
+      <item>
+        <text value="Vision Correction Prescription Glasses"/>
+        <item>
+          <text value="Prescription for glasses- Right Eye"/>
+        </item>
+        <item>
+          <text value="Prescription for glasses- Left Eye"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Vision Correction Prescription – Contact Lenses"/>
+        <item>
+          <text value="Contact lenses- Right Eye"/>
+        </item>
+        <item>
+          <text value="Contact lenses- Left Eye"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Eye Prosthetic Devices"/>
+      </item>
+      <item>
+        <text value="Laboratory Tests"/>
+      </item>
+      <item>
+        <text value="Imaging Studies"/>
+      </item>
+      <item>
+        <text value="Eye Clinic Ancillary Study and Procedure Orders"/>
+        <item>
+          <text value="External Eye Photography"/>
+        </item>
+        <item>
+          <text value="Slit Lamp Photography"/>
+        </item>
+        <item>
+          <text value="Fundus Photography"/>
+        </item>
+        <item>
+          <text value="Other"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Medications"/>
+        <item>
+          <text value="Current Medications"/>
+        </item>
+        <item>
+          <text value="Current Eye Medications"/>
+        </item>
+        <item>
+          <text value="Medication"/>
+          <item>
+            <text value="Acetazolamide"/>
+          </item>
+          <item>
+            <text value="Acyclovir"/>
+          </item>
+          <item>
+            <text value="Aflibercept (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Artificial Tears"/>
+          </item>
+          <item>
+            <text value="Atropine Sulfate 1% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Bacitracin/Polymyxin Ophthalmic Ointment"/>
+          </item>
+          <item>
+            <text value="Betaxolol Hydrochloride 0.25% Ophthalmic Suspension (Restricted to Eye Clinic)"/>
+          </item>
+          <item>
+            <text value="Bevacizumab Intravitreal Injection (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Brimonidine 0.2% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Brimonidine 0.2%/Brinzolamide Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Carboxymethylcellulose 1% Ophthalmic Gel"/>
+          </item>
+          <item>
+            <text value="Carboxymethylcellulose 0.5% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Cromolyn 4% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Cyclosporine 0.05% Ophthalmic Emulsion (Restricted to Eye Clinic)"/>
+          </item>
+          <item>
+            <text value="Diclofenac Sodium 0.1% Ophthalmic Solution (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Dorzolamide Hydrochloride 2% Ophthalmic Solution (Restricted to Eye Clinic)"/>
+          </item>
+          <item>
+            <text value="Dorzolamide Hydrochloride 2%/Timolol 0.5% Ophthalmic Solution (Restricted to Eye Clinic)"/>
+          </item>
+          <item>
+            <text value="Doxycycline"/>
+          </item>
+          <item>
+            <text value="Erythromycin 0.5% Ophthalmic Ointment"/>
+          </item>
+          <item>
+            <text value="Fluorometholone 0.1% Ophthalmic Suspension (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Ketorolac 0.025% Ophthalmic"/>
+          </item>
+          <item>
+            <text value="Ketorolac Tromethamine 0.5% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Latanoprost 0.005% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Levobunolol Hydrochloride 0.25% Ophthalmic Solution (Restricted to Eye Clinic)"/>
+          </item>
+          <item>
+            <text value="Lubricating Ophthalmic Ointment"/>
+          </item>
+          <item>
+            <text value="Methazolamide"/>
+          </item>
+          <item>
+            <text value="Mitomycin (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Multivitamin/Ophthalmologic AREDS2/Lutein/Zeaxanthin"/>
+          </item>
+          <item>
+            <text value="Naphazoline/Pheniramine Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Ofloxacin 0.3% Ophthalmic Suspension (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Pilocarpine Hydrochloride 1% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Pilocarpine Hydrochloride 2% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Prednisolone Acetate 1% Ophthalmic Suspension (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Ranibizumab Injection (Restricted to Ophthalmology)"/>
+          </item>
+          <item>
+            <text value="Sodium Chloride Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Timolol Maleate 0.25% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Timolol Maleate 0.5% Ophthalmic Solution"/>
+          </item>
+          <item>
+            <text value="Travoprost Z Ophthalmic Solution (Restricted; Submit National Formulary Request)"/>
+          </item>
+          <item>
+            <text value="Other"/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Patient Education and Instructions"/>
+      </item>
+      <item>
+        <text value="Consultation Requests"/>
+      </item>
+      <item>
+        <text value="Surgery Requests"/>
+      </item>
+      <item>
+        <text value="Return for Follow-Up"/>
+        <item>
+          <text value="Follow up location"/>
+        </item>
+        <item>
+          <text value="Follow up timing"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+</xmi:XMI>

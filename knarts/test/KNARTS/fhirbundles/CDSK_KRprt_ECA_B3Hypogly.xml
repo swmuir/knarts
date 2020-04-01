@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="47229c7e-522c-59c6-ab26-f8ddc2809e29"/>
           <assigner>
@@ -43,9 +44,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -62,9 +63,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -243,7 +244,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -251,7 +252,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the independent practitioner saying, “Patient has had an episode of hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -264,7 +265,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -272,7 +273,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the pharmacist saying, “Patient has had an episode of hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -285,7 +286,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -293,7 +294,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the care manager saying, “Patient has had an episode of hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, and psychosocial barriers. Refer to services as needed.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -306,7 +307,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -314,7 +315,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the certified diabetes educator saying, “Patient has had an episode of hypoglycemia. Address any identified self-management issues.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -327,7 +328,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -335,7 +336,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the dietitian saying, “Patient has had an episode of hypoglycemia. Address any identified nutritional issues.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -348,7 +349,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -356,7 +357,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the social worker saying, “Patient has had an episode of hypoglycemia. Address any identified psychosocial barriers to care.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -369,7 +370,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -377,7 +378,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the care coordinator saying, “Patient has had an episode of hypoglycemia. Make sure that an urgent visit with the prescriber of their hypoglycemic medications is scheduled and completed.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -390,7 +391,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -398,7 +399,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -411,7 +412,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -419,7 +420,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate Documentation Template: Hypoglycemia KNART"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -432,7 +433,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -440,7 +441,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate Order Set: Hypoglycemia KNART"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -453,7 +454,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -461,7 +462,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the clinical provider saying, “Patient is at risk for hypoglycemia. Assess hypoglycemia awareness, review management plan, and adjust medications and glycemic target range as appropriate.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -474,7 +475,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -482,7 +483,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the pharmacist saying, “Patient is at risk for hypoglycemia. Review prescriptions and dosing instructions with the patient to help ensure understanding of medication use.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -495,7 +496,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -503,7 +504,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the care manager saying, “Patient is at risk for hypoglycemia. Assess self-management adherence risks, understanding of action plan, hypoglycemia risk factors, psychosocial barriers. Refer to services as needed.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -516,7 +517,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -524,7 +525,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the certified diabetes educator saying, “Patient is at risk for hypoglycemia. Address any identified self-management issues.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -537,7 +538,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -545,7 +546,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the dietitian saying, “Patient is at risk for hypoglycemia. Address any identified nutritional issues.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -558,7 +559,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -566,7 +567,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the social worker saying, “Patient is at risk for hypoglycemia. Address any identified psychosocial barriers to care.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -579,7 +580,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -587,7 +588,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the care coordinator saying, “Patient is at risk for hypoglycemia. Make sure that a visit with the prescriber  of their hypoglycemic medications is scheduled and completed.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -600,7 +601,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -608,7 +609,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Send a message to the patient saying, “Review your self-management plan, including what to do if you have low blood sugar. If you have any questions, do not hesitate to contact your care team.”"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -621,7 +622,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -629,7 +630,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Activate Documentation Template: Hypoglycemia KNART"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -642,7 +643,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -650,7 +651,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Actifvate Order Set: Hypoglycemia KNART"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -663,10 +664,10 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

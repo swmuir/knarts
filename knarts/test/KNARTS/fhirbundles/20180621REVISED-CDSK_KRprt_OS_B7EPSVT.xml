@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="5eea1cce-d8bb-5bc7-aafa-fb1904bf5231"/>
           <assigner>
@@ -66,7 +67,7 @@
             <action>
               <title value="Cardiology consult order"/>
               <description value="Consider other consult modalities which may be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)."/>
               </action>
@@ -83,7 +84,7 @@
             <title value="Imaging and ECG"/>
             <action>
               <title value="Consider ordering prior to the cardiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past 2 months."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
                 <description value="Resting 12-lead electrocardiogram to evaluate for arrhythmia now"/>
@@ -125,7 +126,7 @@
             <title value="Laboratory Tests"/>
             <action>
               <title value="Consider ordering the following tests to be completed prior to the cardiology consultation."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="bd01faa8-443c-4ad6-9cb6-ea50b4d7a093 |Basic metabolic profile (procedure)"/>
                 <description value="Basic metabolic panel now"/>
@@ -231,7 +232,7 @@
             <title value="Patient and Caregiver Education"/>
             <action>
               <title value="Consider the following patient education order."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[409073007 |Education (procedure)]                                             ->(363702006 |Has focus (attribute))->[261039008 |Valsalva maneuver (qualifier value)]"/>
                 <description value="Provide vagal maneuver education"/>
@@ -242,7 +243,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -250,12 +251,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Cardiology consult order"/>
         <item>
           <text value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)."/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -263,18 +264,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Resting 12-lead electrocardiogram to evaluate for arrhythmia now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="447113005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="12 lead electrocardiogram at rest (procedure)"/>
+            <display  value="12 lead electrocardiogram at rest (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -282,18 +283,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Echocardiogram to evaluate for left ventricular function now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="40701008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Echocardiography (procedure)"/>
+            <display  value="Echocardiography (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -301,13 +302,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="X-ray chest to evaluate for heart failure now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="399208008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Plain chest X"/>
+            <display  value="Plain chest X"/>
           </coding>
           <coding>
             <code value="ray (procedure)"/>
@@ -315,7 +316,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -323,18 +324,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Study for possible ablation"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="252425004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Cardiac electrophysiology (procedure)"/>
+            <display  value="Cardiac electrophysiology (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -342,7 +343,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Basic metabolic panel now"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -360,12 +361,12 @@
           </coding>
           <coding>
             <code value="ea50b4d7a093 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Basic metabolic profile (procedure)"/>
+            <display  value="Basic metabolic profile (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -373,18 +374,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Complete blood count now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="26604007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+            <display  value="Complete blood count (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -392,18 +393,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Lipid panel now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="16254007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Lipid panel (procedure)"/>
+            <display  value="Lipid panel (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -411,18 +412,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Thyroid function testing now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="35650009 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Thyroid panel (procedure)"/>
+            <display  value="Thyroid panel (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -430,18 +431,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Troponin now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="105000003 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Troponin measurement (procedure)"/>
+            <display  value="Troponin measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -449,18 +450,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Brain natriuretic peptide now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="390917008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Brain natriuretic peptide measurement (procedure)"/>
+            <display  value="Brain natriuretic peptide measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -468,13 +469,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="D-dimer now"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="70648006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="D"/>
+            <display  value="D"/>
           </coding>
           <coding>
             <code value="dimer assay (procedure)"/>
@@ -482,7 +483,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -490,18 +491,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Flecainide level"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="113086001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Flecainide measurement (procedure)"/>
+            <display  value="Flecainide measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -509,44 +510,44 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Metoprolol tartrate 50 mg tablet oral daily 2 times 60 tablets 2 refills"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129445006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+            <display  value="Administration "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]                                             "/>
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="Rx;866514 Metoprolol Tartrate 50 MG Oral Tablet]                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="260548002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+            <display  value="Oral (qualifier value)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -554,44 +555,44 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Metoprolol XL (succinate) 25 mg tablet oral daily 1 time 30 tablets 2 refills"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129445006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+            <display  value="Administration "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]                                             "/>
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="Rx;866427 24 HR metoprolol succinate 25 MG Extended Release Oral Tablet]                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="260548002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+            <display  value="Oral (qualifier value)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -599,44 +600,44 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Diltiazem 30 mg tablet oral daily 4 times 120 tablets 2 refills"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129445006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+            <display  value="Administration "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]                                             "/>
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="Rx;833217 Diltiazem Hydrochloride 30 MG Oral Tablet]                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="260548002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+            <display  value="Oral (qualifier value)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -644,44 +645,44 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Diltiazem ER 120 mg capsule oral daily 1 time 30 capsules 2 refills"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129445006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+            <display  value="Administration "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]                                             "/>
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="Rx;830861 24 HR Diltiazem Hydrochloride 120 MG Extended Release Oral Capsule]                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="260548002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+            <display  value="Oral (qualifier value)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -689,44 +690,44 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Verapamil SR 180 mg tablet oral daily 1 time 30 tablets 2 refills"/>
         <kind value="MedicationRequest"/>
         <code>
           <coding>
             <code value="416118004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+            <display  value="Administration (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(260686004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+            <display  value="Method (attribute))"/>
           </coding>
           <coding>
             <code value="129445006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+            <display  value="Administration "/>
           </coding>
           <coding>
             <code value=" action (qualifier value)]                                             "/>
           </coding>
           <coding>
             <code value="(363701004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+            <display  value="Direct substance (attribute))"/>
           </coding>
           <coding>
             <code value="Rx;897640 Verapamil hydrochloride 180 MG Extended Release Oral Tablet]                                             "/>
           </coding>
           <coding>
             <code value="(410675002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+            <display  value="Route of administration (attribute))"/>
           </coding>
           <coding>
             <code value="260548002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+            <display  value="Oral (qualifier value)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -734,29 +735,29 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Provide vagal maneuver education"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="409073007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                                             "/>
+            <display  value="Education (procedure)]                                             "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="261039008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Valsalva maneuver (qualifier value)]"/>
+            <display  value="Valsalva maneuver (qualifier value)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

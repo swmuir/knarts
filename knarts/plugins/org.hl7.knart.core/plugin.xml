@@ -33,7 +33,7 @@
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <!-- @generated knowledgedocument -->
       <parser
-            type="r2"
+            type="aa"
             class="org.hl7.cdsdt.r2.util.R2ResourceFactoryImpl"/>
    </extension>
 
@@ -48,7 +48,7 @@
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <!-- @generated knowledgedocument -->
       <parser
-            type="r1"
+            type="xx"
             class="org.hl7.elm.r1.util.R1ResourceFactoryImpl"/>
    </extension>
 

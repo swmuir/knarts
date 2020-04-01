@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="9ec4fd1c-aa93-541f-a2d3-932f3a518171"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -80,11 +81,11 @@
             <action>
               <title value="Cardiology consult order"/>
               <description value="Consider other consult modalities which may be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="183519002 |Referral to cardiology service (procedure)|"/>
                     <description value="Referral to cardiology for other (specify)"/>
@@ -110,17 +111,17 @@
               </action>
               <action>
                 <title value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
           </action>
           <action>
             <title value="Imaging and ECG"/>
             <description value="Consider ordering prior to the cardiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past 2 months."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Cardiac event monitor to evaluate for arrhythmia now"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="395148004 |Cardiac event recording (regime/therapy)|"/>
                 <description value="Cardiac event monitor to evaluate for arrhythmia now"/>
@@ -131,7 +132,7 @@
             </action>
             <action>
               <title value="X-ray chest to evaluate for heart failure now"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="399208008 |Plain chest X-ray (procedure)|"/>
                 <description value="X-ray chest to evaluate for heart failure now"/>
@@ -165,7 +166,7 @@
           <action>
             <title value="Laboratory Tests"/>
             <description value="Consider the following tests to be completed prior to the cardiology consultation."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="bd01faa8-443c-4ad6-9cb6-ea50b4d7a093 |Basic metabolic profile (procedure)"/>
               <description value="Basic metabolic panel now"/>
@@ -220,11 +221,11 @@
             <title value="Medications"/>
             <description value="Consider discontinuation of nonessential medications that may contribute to the patient's symptoms."/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -232,17 +233,17 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consults and Referrals"/>
         <item>
           <text value="Cardiology consult order"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
             <item>
               <text/>
-              <type value="any"/>
+              <type value="choice"/>
             </item>
             <item>
               <text/>
@@ -250,13 +251,13 @@
           </item>
           <item>
             <text value="Specific goal of the cardiology consultation (e.g., cardiology to manage patient, cardiology to risk stratify and recommend management, etc.)"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -264,17 +265,17 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and ECG"/>
         <item>
           <text value="Cardiac event monitor to evaluate for arrhythmia now"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="X-ray chest to evaluate for heart failure now"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -282,9 +283,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -292,16 +293,16 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+
+  <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="323d2f5b-b412-59f3-8f44-2703a9ad420e"/>
             <assigner>
@@ -38,9 +39,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="274075007 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Optional surgery (procedure)"/>
+                <display  value="Optional surgery (procedure)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -48,13 +49,13 @@
             <action>
               <title value="Order Set Applicability"/>
               <description value="This order set is not applicable to emergency surgery patients or patients with an acute coronary syndrome. It is intended for patients anticipating an elective, non-cardiac surgery. This order set should be used for a patient who is being referred to cardiology for preoperative cardiac risk stratification prior to non-cardiac surgery, subsequent to determination during use of the documentation template that the patient requires this evaluation. The referring provider should also consider ordering an appropriate risk stratification study from the options presented within this order set in conjunction with the cardiology consult. All orders are routine unless otherwise specified."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Consults and Referrals"/>
               <action>
                 <title value="Order referral to cardiology for preoperative assessment prior to elective non-cardiac surgery"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="183519002 |Referral to cardiology service (procedure)|"/>
                   <description value="Order referral to cardiology for preoperative assessment prior to elective non-cardiac surgery"/>
@@ -69,7 +70,7 @@
               <action>
                 <title value="Exercise Stress testing"/>
                 <description value="Consider for patients with no known or suspected  coronary artery disease, low probability for coronary artery disease, ability to exercise, normal electrocardiogram, and heart rate > 60 beats per minute."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="447346005 |Cardiopulmonary exercise test (procedure)|"/>
                   <description value="Exercise Stress Testing"/>
@@ -81,7 +82,7 @@
               <action>
                 <title value="Stress Testing with Echocardiography"/>
                 <description value="Consider for patients with no known or suspected  coronary artery disease, low to intermediate probability for coronary artery disease, ability to exercise, and normal electrocardiogram."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="433233004 |Exercise stress echocardiography (procedure)|"/>
                   <description value="Stress Testing with Echocardiography"/>
@@ -93,7 +94,7 @@
               <action>
                 <title value="Dobutamine Stress Testing with Myocardial Perfusion Imaging (MPI)"/>
                 <description value="Consider for patients with no known or suspected coronary artery disease, intermediate probability for coronary artery disease, inability to exercise, inability to tolerate other vasodilator stress agents and normal electrocardiogram."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[16545191000119100 |Radionuclide myocardial perfusion stress study (procedure)]                                             ->(424361007 |Using substance (attribute))->[387145002 |Dobutamine (substance)]"/>
                   <description value="Dobutamine stress testing with Myocardial Perfusion Imaging (MPI)"/>
@@ -105,7 +106,7 @@
               <action>
                 <title value="Coronary CT Angiogram"/>
                 <description value="Consider for patients with no known or suspected  coronary artery disease, high probability for coronary artery disease, inability to exercise, and normal electrocardiogram."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="419545005 |Computed tomography angiography of coronary arteries (procedure)|"/>
                   <description value="Coronary CT Angiogram"/>
@@ -117,7 +118,7 @@
               <action>
                 <title value="Vasodilator Stress Testing with MPI"/>
                 <description value="Consider for patients with no known or suspected coronary artery disease, intermediate probability for coronary artery disease, inability to exercise, and abnormal electrocardiogram."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[16545191000119100 |Radionuclide myocardial perfusion stress study (procedure)]                                             ->(424361007 |Using substance (attribute))->[372787008 |Vasodilator (substance)]"/>
                   <description value="Vasodilator Stress Testing with MPI"/>
@@ -129,7 +130,7 @@
               <action>
                 <title value="Vasodilator Stress Testing with MPI"/>
                 <description value="Consider for patients with no known or suspected coronary artery disease, intermediate probability for coronary artery disease, inability to exercise, and abnormal electrocardiogram."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[16545191000119100 |Radionuclide myocardial perfusion stress study (procedure)]                                             ->(424361007 |Using substance (attribute))->[35431001 |Adenosine (substance)]"/>
                   <description value="Adenosine Stress Testing Myocardial Perfusion Imaging"/>
@@ -141,7 +142,7 @@
               <action>
                 <title value="Exercise Stress Testing with MPI"/>
                 <description value="Consider for patients with known or suspected  coronary artery disease, ability to exercise, and normal ST-T."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="703338002 |Stress echocardiography using dobutamine (procedure)|                                             "/>
                   <description value="Exercise Stress Testing Myocardial Perfusion Imaging"/>
@@ -153,7 +154,7 @@
               <action>
                 <title value="Dobutamine Stress Testing with Echocardiography or MPI"/>
                 <description value="Consider for patients with known or suspected  coronary artery disease, inability to exercise, normal electrocardiogram, and no prior myocardial infarction. Only one should be selected."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="703338002 |Stress echocardiography using dobutamine (procedure)|                                             "/>
                   <description value="Dobutamine Stress Testing Echocardiography"/>
@@ -172,7 +173,7 @@
               <action>
                 <title value="Vasodilator Stress Testing with MPI"/>
                 <description value="Consider for patients with known or suspected coronary artery disease who have any of the following: abnormal electrocardiogram; permanent pacemaker with ventricular-paced rhythm; poor exercise tolerance.  Also consider for patients with a history of myocardial infarction (MI) or regional wall motion abnormalities, especially for more severe/extensive disease."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[16545191000119100 |Radionuclide myocardial perfusion stress study (procedure)]                                             ->(424361007 |Using substance (attribute))->[35431001 |Adenosine (substance)]"/>
                   <description value="Adenosine Stress Testing Myocardial Perfusion Imaging"/>
@@ -183,7 +184,7 @@
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -191,18 +192,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Order referral to cardiology for preoperative assessment prior to elective non-cardiac surgery"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="183519002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to cardiology service (procedure)"/>
+              <display  value="Referral to cardiology service (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -210,18 +211,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Exercise Stress Testing"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="447346005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Cardiopulmonary exercise test (procedure)"/>
+              <display  value="Cardiopulmonary exercise test (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -229,18 +230,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Stress Testing with Echocardiography"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="433233004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Exercise stress echocardiography (procedure)"/>
+              <display  value="Exercise stress echocardiography (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -248,26 +249,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Dobutamine stress testing with Myocardial Perfusion Imaging (MPI)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="16545191000119100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
+              <display  value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(424361007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Using substance (attribute))"/>
+              <display  value="Using substance (attribute))"/>
             </coding>
             <coding>
               <code value="387145002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Dobutamine (substance)]"/>
+              <display  value="Dobutamine (substance)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -275,18 +276,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Coronary CT Angiogram"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="419545005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Computed tomography angiography of coronary arteries (procedure)"/>
+              <display  value="Computed tomography angiography of coronary arteries (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -294,26 +295,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Vasodilator Stress Testing with MPI"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="16545191000119100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
+              <display  value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(424361007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Using substance (attribute))"/>
+              <display  value="Using substance (attribute))"/>
             </coding>
             <coding>
               <code value="372787008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Vasodilator (substance)]"/>
+              <display  value="Vasodilator (substance)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -321,26 +322,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Adenosine Stress Testing Myocardial Perfusion Imaging"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="16545191000119100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
+              <display  value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(424361007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Using substance (attribute))"/>
+              <display  value="Using substance (attribute))"/>
             </coding>
             <coding>
               <code value="35431001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adenosine (substance)]"/>
+              <display  value="Adenosine (substance)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -348,18 +349,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Exercise Stress Testing Myocardial Perfusion Imaging"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="703338002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="                                             "/>
+              <display  value="                                             "/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -367,18 +368,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Dobutamine Stress Testing Echocardiography"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="703338002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="                                             "/>
+              <display  value="                                             "/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -386,26 +387,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Dobutamine Stress Testing Myocardial Perfusion Imaging"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="16545191000119100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
+              <display  value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(424361007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Using substance (attribute))"/>
+              <display  value="Using substance (attribute))"/>
             </coding>
             <coding>
               <code value="387145002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Dobutamine (substance)]"/>
+              <display  value="Dobutamine (substance)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -413,32 +414,32 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Adenosine Stress Testing Myocardial Perfusion Imaging"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="16545191000119100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
+              <display  value="Radionuclide myocardial perfusion stress study (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(424361007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Using substance (attribute))"/>
+              <display  value="Using substance (attribute))"/>
             </coding>
             <coding>
               <code value="35431001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adenosine (substance)]"/>
+              <display  value="Adenosine (substance)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value="Stress echocardiography using dobutamine (procedure)"/>
-  <fhiRCore.dataTypes:Code value="Stress echocardiography using dobutamine (procedure)"/>
-</xmi:XMI>
+  </Bundle>
+  <Code value="Stress echocardiography using dobutamine (procedure)"/>
+  <Code value="Stress echocardiography using dobutamine (procedure)"/>
+

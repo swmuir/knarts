@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="b6bede46-4000-506c-a616-256f35bd0cf2"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="5351000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+              <display  value="Primary care clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -69,9 +70,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -82,9 +83,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="225728007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Accident and Emergency department (environment)"/>
+              <display  value="Accident and Emergency department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -95,9 +96,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="1311000205109 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Anesthesiology department (environment)"/>
+              <display  value="Anesthesiology department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -108,9 +109,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="702897005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Pain clinic (environment)"/>
+              <display  value="Pain clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -121,9 +122,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="7a8d82a5-6876-4b44-985c-6d6d483072c0 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Physical therapy department (environment)"/>
+              <display  value="Physical therapy department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -155,7 +156,7 @@
             <description value="Which conservative therapies have been tried?"/>
             <action>
               <title value="Medications"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Non-steroidal anti-inflammatory drug (NSAIDs)"/>
                 <action>
@@ -194,7 +195,7 @@
             </action>
             <action>
               <title value="Other therapies"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Occupational Therapy"/>
                 <action>
@@ -259,7 +260,7 @@
           <action>
             <title value="Medical History"/>
             <description value="Select items that apply from the patient's medical history."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Chronic pain"/>
               <action>
@@ -330,7 +331,7 @@
             <description value="Select items that apply from the patient's social history."/>
             <action>
               <title value="Alcohol use"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -339,7 +340,7 @@
             </action>
             <action>
               <title value="Alcohol abuse"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -348,7 +349,7 @@
             </action>
             <action>
               <title value="Rehabilitation"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -357,7 +358,7 @@
             </action>
             <action>
               <title value="Detoxification"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -366,7 +367,7 @@
             </action>
             <action>
               <title value="Current or former tobacco user"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -375,7 +376,7 @@
             </action>
             <action>
               <title value="Cocaine use"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -384,7 +385,7 @@
             </action>
             <action>
               <title value="Cocaine abuse"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -393,11 +394,11 @@
             </action>
             <action>
               <title value="Other substance use/abuse"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Homeless"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -406,7 +407,7 @@
             </action>
             <action>
               <title value="Unstable home environment"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -415,7 +416,7 @@
             </action>
             <action>
               <title value="Home environment conducive to healing"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -424,7 +425,7 @@
             </action>
             <action>
               <title value="Geographically remote (40+mile drive to medical care)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <definitionCanonical>
                   <display/>
@@ -436,15 +437,15 @@
             <title value="Imaging History"/>
             <action>
               <title value="Lumbar/Thoracic Spine MRI Interpretation"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Lumbar/Thoracic Spine CT Myelogram Interpretation"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Lumbar/Thoracic Spine CT Interpretation"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
@@ -458,10 +459,10 @@
           </action>
           <action>
             <title value="Surgical Candidacy"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -469,7 +470,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Chief Complaint"/>
         <item>
           <text value="What are the patient’s chief complaints?"/>
@@ -498,7 +499,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -506,11 +507,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Prior Conservative Therapies"/>
         <item>
           <text value="Medications"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Non-steroidal anti-inflammatory drug (NSAIDs)"/>
           </item>
@@ -589,7 +590,7 @@
         </item>
         <item>
           <text value="Other therapies"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Occupational Therapy"/>
           </item>
@@ -738,7 +739,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -746,7 +747,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medical History"/>
         <item>
           <text value="Chronic pain"/>
@@ -772,7 +773,7 @@
         <item>
           <text value="Cadiovascular conditions"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -780,7 +781,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Surgical History"/>
         <item>
           <text value="Spinal surgery"/>
@@ -788,7 +789,7 @@
         <item>
           <text value="Other prior surgeries"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -796,57 +797,57 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Social History"/>
         <item>
           <text value="Alcohol use"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Alcohol abuse"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Rehabilitation"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Detoxification"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Current or former tobacco user"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Cocaine use"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Cocaine abuse"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Other substance use/abuse"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Homeless"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Unstable home environment"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Home environment conducive to healing"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Geographically remote (40+mile drive to medical care)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -854,21 +855,21 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging History"/>
         <item>
           <text value="Lumbar/Thoracic Spine MRI Interpretation"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Lumbar/Thoracic Spine CT Myelogram Interpretation"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Lumbar/Thoracic Spine CT Interpretation"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -876,7 +877,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications"/>
         <item>
           <text value="Current pain medication list"/>
@@ -884,7 +885,7 @@
         <item>
           <text value="Current anticoagulation and antiplatelet list"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -892,12 +893,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Surgical Candidacy"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

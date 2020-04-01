@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="777b989f-24a2-522b-a22e-84c137e6b2a9"/>
           <assigner>
@@ -59,7 +60,7 @@
             <title value="Consults and Referrals"/>
             <action>
               <title value="Electrophysiology generator change consult order."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="1291000205108 |Referral to electrophysiology service (procedure)"/>
                 <description value="Referral to electrophysiology for generator change"/>
@@ -79,7 +80,7 @@
           <action>
             <title value="Imaging and Electrocardiogram"/>
             <description value="Consider ordering prior to the electrophysiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months. Resting echocardiogram and chest x-ray are required if they have not been obtained within the past six months."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
               <description value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
@@ -140,7 +141,7 @@
           <action>
             <title value="Laboratory Tests"/>
             <description value="Consider the following tests to be completed prior to the electrophysiology consultation."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
               <description value="Comprehensive metabolic panel"/>
@@ -171,7 +172,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -179,11 +180,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consults and Referrals"/>
         <item>
           <text value="Electrophysiology generator change consult order."/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Goal of Consult"/>
@@ -206,7 +207,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -214,9 +215,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and Electrocardiogram"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -224,12 +225,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

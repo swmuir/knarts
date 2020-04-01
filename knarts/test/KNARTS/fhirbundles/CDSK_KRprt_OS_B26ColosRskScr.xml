@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="f26871e4-c788-5242-a53c-cb061d431158"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -63,9 +64,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="5351000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+              <display  value="Primary care clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -79,7 +80,7 @@
           <title value="Colorectal Cancer Risk – Average Risk Screening"/>
           <action>
             <title value="Consults and Referrals"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="183523005 |Referral to gastroenterology service (procedure)|"/>
               <description value="Referral Gastroenterology evaluate for colonoscopy (routine)"/>
@@ -90,7 +91,7 @@
           </action>
           <action>
             <title value="Patient and Caregiver Education"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="d3cbd87d-bba7-415b-bd95-c2912a8d6042 |Education about screening colonoscopy (procedure)"/>
               <description value="Colonoscopy screening education (routine)"/>
@@ -107,7 +108,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -115,18 +116,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Referral Gastroenterology evaluate for colonoscopy (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="183523005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to gastroenterology service (procedure)"/>
+            <display  value="Referral to gastroenterology service (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -134,7 +135,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Colonoscopy screening education (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -152,12 +153,12 @@
           </coding>
           <coding>
             <code value="c2912a8d6042 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education about screening colonoscopy (procedure)"/>
+            <display  value="Education about screening colonoscopy (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -165,7 +166,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Bowel prep for colonoscopy screening education (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -183,15 +184,15 @@
           </coding>
           <coding>
             <code value="d41b4cf3eaac "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education about bowel prep for colonoscopy (procedure)"/>
+            <display  value="Education about bowel prep for colonoscopy (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

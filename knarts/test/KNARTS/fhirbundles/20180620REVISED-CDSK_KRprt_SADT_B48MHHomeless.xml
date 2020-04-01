@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="e9531500-5e74-5d9a-9360-c417a36a5197"/>
           <assigner>
@@ -69,7 +70,7 @@
               <action>
                 <title value="Homeless screen"/>
                 <description value="Ask Patient: In the past 2 months, have you been living in stable housing? By that, we mean housing that is affordable, permanent, safe, decent, and livable."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="Where have you lived for MOST of the past 2 months?"/>
                 </action>
@@ -79,11 +80,11 @@
               </action>
               <action>
                 <title value="Ask Patient: What is the best way to reach you?"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
                 <title value="Homeless screen not peformed"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
@@ -91,7 +92,7 @@
               <action>
                 <title value="Food insecurity screen"/>
                 <description value="Ask Patient “In the past 3 months, did you ever run out of food and you were not able to access more food or have the money to buy more food?"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="Ask patient “Are you confident that you will continue to have enough food or money to buy food for at least the next 3 months?"/>
                 </action>
@@ -101,7 +102,7 @@
               </action>
               <action>
                 <title value="Food insecurity screen not performed"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
           </action>
@@ -109,7 +110,7 @@
             <title value="Plan"/>
             <action>
               <title value="Provide homelessness educational materials"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Provide link"/>
@@ -120,15 +121,15 @@
             </action>
             <action>
               <title value="Order consult for homeless program"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Order consult for social work or for nutrition and food services"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -136,13 +137,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Screening"/>
         <item>
           <text value="Homelessness Screening:"/>
           <item>
             <text value="Homeless screen"/>
-            <type value="any"/>
+            <type value="choice"/>
             <item>
               <text value="Where have you lived for MOST of the past 2 months?"/>
             </item>
@@ -161,11 +162,11 @@
           </item>
           <item>
             <text value="Ask Patient: What is the best way to reach you?"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Homeless screen not peformed"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -190,7 +191,7 @@
           <text value="All Veterans should be screened for food insecurity unless the Veteran is a resident of a nursing home/long-term care facility"/>
           <item>
             <text value="Food insecurity screen"/>
-            <type value="any"/>
+            <type value="choice"/>
             <item>
               <text value="Ask patient “Are you confident that you will continue to have enough food or money to buy food for at least the next 3 months?"/>
             </item>
@@ -209,7 +210,7 @@
           </item>
           <item>
             <text value="Food insecurity screen not performed"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -221,7 +222,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -229,24 +230,24 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text value="Provide homelessness educational materials"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Order consult for homeless program"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Order consult for social work or for nutrition and food services"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

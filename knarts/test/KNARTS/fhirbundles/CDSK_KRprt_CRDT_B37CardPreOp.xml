@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="39398641-f6f4-5cc7-b295-eccff0549ae5"/>
           <assigner>
@@ -62,13 +63,13 @@
           <action>
             <title value="Procedure Risk"/>
             <description value="With respect to the surgical procedure that the patient requires, define the procedure as Low, Medium or High surgical risk by selecting the appropriate checkbox from just one of the three category options shown below. Note that a NON-LOW-RISK PROCEDURE is defined as any surgery that is medium or high risk, based on the modified Johns Hopkins surgical criteria  (Donati 2004).  To assist the clinical provider in decision making, representative examples of procedures that would be defined as Low, Medium, or High risk appear below the checkbox options."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Patient Risk"/>
             <action>
               <title value="Revised Cardiac Risk Index (RCRI)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Risk of Major Adverse Cardiac Event (MACE)"/>
@@ -85,12 +86,12 @@
           </action>
           <action>
             <title value="Laboratory Studies"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Imaging and Diagnostic Studies"/>
             <description value="For this documentation template, the following information should be included, if available from the prior year."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="12-Lead Electrocardiogram"/>
             </action>
@@ -126,7 +127,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -134,9 +135,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Documentaton Template Applicability"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -144,9 +145,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Procedure Risk"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -154,11 +155,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Patient Risk"/>
         <item>
           <text value="Revised Cardiac Risk Index (RCRI)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Risk of Major Adverse Cardiac Event (MACE)"/>
@@ -169,7 +170,7 @@
         <item>
           <text value="RISK OF MACE is NOT less than 1%"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -177,9 +178,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Studies"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -187,7 +188,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and Diagnostic Studies"/>
         <item>
           <text value="12-Lead Electrocardiogram"/>
@@ -222,10 +223,10 @@
         <item>
           <text value="X-Ray Chest"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="a9d27bc2-1096-5258-9198-f9ad4ae2430a"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="248152002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+              <display  value="Female (finding)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -63,9 +64,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="5351000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+              <display  value="Primary care clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -86,10 +87,10 @@
             <title value="Breast Cancer Screening"/>
             <description value="Based upon the patient’s history, provide the appropriate detail for the screening mammography order."/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Additional views"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Perform Additional Mamography Screening View (Specify)"/>
@@ -108,7 +109,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -116,23 +117,23 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Breast Cancer Screening"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Additional views"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

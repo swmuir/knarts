@@ -1,4 +1,4 @@
-<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r2" xmlns:a="urn:hl7-org:cql-annotations:r1" xmlns:anf="http://hl7.org/anf"
+<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1" xmlns:a="urn:hl7-org:cql-annotations:r1" xmlns:anf="http://hl7.org/anf"
     xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:elm="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:vmr="urn:hl7-org:vmr:r2"
     xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

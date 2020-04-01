@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+
+  <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="683f0f1d-fd16-509f-ab27-e2b9ba8a503f"/>
             <assigner>
@@ -41,7 +42,7 @@
             <action>
               <title value="Medications"/>
               <description value="Based upon clinical judgment and if not otherwise contraindicated, consider initiating a new order for one or more of the following medications prior to the neurosurgery consultation."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="NSAIDs"/>
                 <description value="Based upon clinical judgment and if not otherwise contraindicated, consider initiating a new order for one or more of the following medications prior to the neurosurgery consultation. NSAIDs increase the risk of serious gastrointestinal adverse events including bleeding, ulceration, and perforation of the stomach or intestines, which can be fatal. The prevailing recommendations in consensus-based clinical guidelines recommend that NSAID/Cyclo-oxygenase-2 (COX-2) should be avoided in Chronic Kidney Disease (CKD)."/>
@@ -63,7 +64,7 @@
               </action>
               <action>
                 <title value="Other Analgesics"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;313782 Acetaminophen 325 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
                   <description value="Acetaminophen 325 mg tablet oral two tablets every 6 hours as needed for neck or arm pain; may increase dose frequency to two tablets every 4 hours; do not take more than 10 tablets per day 100 tablets 2 refills"/>
@@ -74,7 +75,7 @@
               </action>
               <action>
                 <title value="Glucocorticoids, Oral"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;259966 methylPREDNISolone 4 MG Oral Tablet]                                             ->(410675002 |Route of administration (attribute))->[260548002 |Oral (qualifier value)]"/>
                   <description value="Methylprednisolone 4 mg tablet oral by taper: take 6 tablets at once on day 1; on day 2 take one tablet before breakfast, one after lunch, one after dinner, and two at bedtime; on day 3 take one tablet before breakfast, one after lunch, one after dinner, and one at bedtime;on day 4 take one tablet before breakfast, one after lunch, and one at bedtime; on day 5 take one tablet before breakfast and one at bedtime; and on day 6 take one tablet before breakfast. 21 tablets 0 refills"/>
@@ -87,7 +88,7 @@
             <action>
               <title value="Procedures"/>
               <description value="Consider ordering the following procedures in conjunction with the neurosurgery consult. Typically for pain management, unless contraindicated for any reason, one would order glucocorticoid injection from the list below first, and if indicated, proceed to selective nerve block based on clinical outcome of patient's symptoms following completion of the series of 3 glucocorticoid injections."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[431612008 |Epidural injection using fluoroscopic guidance (procedure)]                                     ->(260686004 |Method (attribute))->[129326001 |Injection - action (qualifier value)]                                     ->(363701004 |Direct substance (attribute))->[116596006 |Glucocorticoid preparation (product)]"/>
                 <description value="Epidural glucocorticoid injection under fluoroscopic or CT guidance per interventionist (series of three)"/>
@@ -153,7 +154,7 @@
             <action>
               <title value="Additional Consults"/>
               <description value="Consider ordering from the following consults in conjunction with the neurosurgery consult."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="71318009 |Physical medicine consultation and report (procedure)|"/>
                 <description value="Consult physical therapy to evaluate for conservative therapy for cervical radiculopathy (e.g., cervical halter traction, electrical stimulation, acupuncture, exercise instruction)"/>
@@ -186,7 +187,7 @@
             <action>
               <title value="Patient Education"/>
               <description value="Consider ordering patient education in conjunction with the neurosurgery consult."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[409073007 |Education (procedure)]                                     ->(363702006 |Has focus (attribute)|)->[54404000 |Cervical radiculopathy (disorder)]"/>
                 <description value="Cervical radiculopathy education (level-appropriate materials on natural progression, conservative management, and procedural management)"/>
@@ -196,7 +197,7 @@
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -204,44 +205,44 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ibuprofen 400 mg tablet oral every 6 hours as needed for neck or arm pain; may increase dose frequency to one tablet every 4 hours 100 tablets 2 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+              <display  value="Administration (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                             "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;197805 Ibuprofen 400 MG Oral Tablet]                                             "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="260548002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+              <display  value="Oral (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -249,44 +250,44 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Naproxen sodium 550 mg tablet oral every 12 hours as needed for neck or arm pain 100 tablets 2 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+              <display  value="Administration (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                             "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;849431 Naproxen sodium 550 MG Oral Tablet]                                             "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="260548002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+              <display  value="Oral (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -294,44 +295,44 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Acetaminophen 325 mg tablet oral two tablets every 6 hours as needed for neck or arm pain; may increase dose frequency to two tablets every 4 hours; do not take more than 10 tablets per day 100 tablets 2 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+              <display  value="Administration (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                             "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;313782 Acetaminophen 325 MG Oral Tablet]                                             "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="260548002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+              <display  value="Oral (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -339,44 +340,44 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Methylprednisolone 4 mg tablet oral by taper: take 6 tablets at once on day 1; on day 2 take one tablet before breakfast, one after lunch, one after dinner, and two at bedtime; on day 3 take one tablet before breakfast, one after lunch, one after dinner, and one at bedtime;on day 4 take one tablet before breakfast, one after lunch, and one at bedtime; on day 5 take one tablet before breakfast and one at bedtime; and on day 6 take one tablet before breakfast. 21 tablets 0 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                             "/>
+              <display  value="Administration (procedure)]                                             "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                             "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;259966 methylPREDNISolone 4 MG Oral Tablet]                                             "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="260548002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral (qualifier value)]"/>
+              <display  value="Oral (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -384,37 +385,37 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Epidural glucocorticoid injection under fluoroscopic or CT guidance per interventionist (series of three)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="431612008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Epidural injection using fluoroscopic guidance (procedure)]                                     "/>
+              <display  value="Epidural injection using fluoroscopic guidance (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129326001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Injection "/>
+              <display  value="Injection "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                     "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="116596006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Glucocorticoid preparation (product)]"/>
+              <display  value="Glucocorticoid preparation (product)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -422,17 +423,17 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Selective nerve root block per interventionist to distinguish symptomatic level(s) following identification of compressive lesions at multiple levels on MRI or CT myelography"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="386053000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Evaluation procedure (procedure)]                                     "/>
+              <display  value="Evaluation procedure (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+              <display  value="Has focus (attribute))"/>
             </coding>
             <coding>
               <code value="1d7d2d75"/>
@@ -448,12 +449,12 @@
             </coding>
             <coding>
               <code value="d4798512c0b4 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Symptomatic compression of cervical nerve root (disorder)]"/>
+              <display  value="Symptomatic compression of cervical nerve root (disorder)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -461,18 +462,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Selective nerve root block per interventionist to distinguish symptomatic level(s) in patient with discordance between clinical symptoms and findings on MRI or CT myelography"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="231043002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Local anesthetic block on spinal nerve root (procedure)]"/>
+              <display  value="Local anesthetic block on spinal nerve root (procedure)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -480,18 +481,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="X-ray cervical spine anteroposterior (AP) and lateral neck pain"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="21613005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Radiologic examination of cervical spine, anteroposterior and lateral (procedure)"/>
+              <display  value="Radiologic examination of cervical spine, anteroposterior and lateral (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -499,18 +500,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="MRI cervical spine without intravenous (IV) contrast (consider for: chronic neck pain, failed conservative management, candidate for surgical intervention)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="571891000119109 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Magnetic resonance imaging of cervical spine without contrast (procedure)"/>
+              <display  value="Magnetic resonance imaging of cervical spine without contrast (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -518,18 +519,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="CT cervical spine without IV contrast (consider for: chronic neck pain, failed conservative management, candidate for surgical intervention, MRI contraindicated, IV contrast contraindicated)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="572061000119104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Computed tomography of cervical spine without contrast (procedure)"/>
+              <display  value="Computed tomography of cervical spine without contrast (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -537,18 +538,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="CT myelography cervical spine (consider for: chronic neck pain, failed conservative management, candidate for surgical intervention, MRI contraindicated"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="241590005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Computed tomography myelogram of cervical region (procedure)"/>
+              <display  value="Computed tomography myelogram of cervical region (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -556,18 +557,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="CT myelography cervical spine (consider for: chronic neck pain, failed conservative management, candidate for surgical intervention, clinical findings discordant with MRI findings)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="241590005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Computed tomography myelogram of cervical region (procedure)"/>
+              <display  value="Computed tomography myelogram of cervical region (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -575,18 +576,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Consult physical therapy to evaluate for conservative therapy for cervical radiculopathy (e.g., cervical halter traction, electrical stimulation, acupuncture, exercise instruction)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="71318009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Physical medicine consultation and report (procedure)"/>
+              <display  value="Physical medicine consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -594,7 +595,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Consult psychiatry to evaluate for depression and other psychological factors that may affect patient's perception of pain and ability to manage pain"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -612,12 +613,12 @@
             </coding>
             <coding>
               <code value="ef2d2187bb11 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Psychiatric consultation and report (procedure)"/>
+              <display  value="Psychiatric consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -625,7 +626,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Consult social services to evaluate social factors (e.g., joblessness, homelessness, financial concerns) that may affect patient's ability to adhere to conservative treatment"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -643,12 +644,12 @@
             </coding>
             <coding>
               <code value="2348ff364b7d "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Social services consultation and report (procedure)"/>
+              <display  value="Social services consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -656,7 +657,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Consult pain management to address modalities for treating chronic pain"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -674,12 +675,12 @@
             </coding>
             <coding>
               <code value="839a9c2034bb "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Consultation for pain management and report (procedure)"/>
+              <display  value="Consultation for pain management and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -687,31 +688,31 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Cervical radiculopathy education (level-appropriate materials on natural progression, conservative management, and procedural management)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="409073007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                                     "/>
+              <display  value="Education (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=")"/>
+              <display  value=")"/>
             </coding>
             <coding>
               <code value="54404000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Cervical radiculopathy (disorder)]"/>
+              <display  value="Cervical radiculopathy (disorder)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value="Has focus (attribute)"/>
-</xmi:XMI>
+  </Bundle>
+  <Code value="Has focus (attribute)"/>
+

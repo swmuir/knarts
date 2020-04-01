@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="32771ec0-ec22-5209-8b74-0d2a862a9c2f"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -63,9 +64,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="5351000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+              <display  value="Primary care clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -76,16 +77,16 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
         <action>
           <action>
             <title value="Visit Information"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <action/>
             </action>
@@ -94,61 +95,61 @@
           </action>
           <action>
             <title value="Physical Exam"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Pain Description"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Impact of pain on function"/>
             </action>
             <action>
               <title value="Type of pain"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Pain location"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Location of pain:  Select all that apply (at least one)"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
                 <title value="Location of pain:  Select all that apply (at least one)"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
               <title value="Aggrevating factors"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action/>
                 <action/>
                 <action/>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action/>
                   <action/>
                 </action>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action/>
                     <action/>
                   </action>
                   <action>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action/>
                     <action/>
                   </action>
                   <action>
-                    <selectionBehavior value="any"/>
+                    <selectionBehavior value="at-most-one"/>
                     <action/>
                     <action/>
                   </action>
@@ -156,34 +157,34 @@
               </action>
               <action>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action/>
                   <action/>
                 </action>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                 </action>
               </action>
               <action/>
             </action>
             <action>
               <title value="Alleviating factors"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Relevant Vitals"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Relevant Laboratory Values"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Medication Profile"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
               <action/>
               <action/>
@@ -192,66 +193,66 @@
           <action>
             <title value="Nonpharmacologic treatment"/>
             <description value="Nonpharmacologic treatment/complementary integrative health"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
             <action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
           </action>
           <action>
             <title value="Patient Education"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
             <action/>
             <action/>
           </action>
           <action>
             <title value="Activities of Daily Living"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Energy level"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Early Awakening"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Cause of early awakening"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
           </action>
           <action>
             <title value="Affect/Mood"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
           </action>
           <action>
             <title value="Risk Mitigation Strategies"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action/>
             <action/>
           </action>
           <action>
             <title value="Assessment"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action/>
           </action>
           <action>
             <title value="Plan"/>
             <description value="Interventions in this section are presented in order of recommended sequence in the VA"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
               <action/>
               <action/>
@@ -259,15 +260,15 @@
               <action/>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
               <action/>
             </action>
             <action/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action/>
               <action/>
@@ -275,7 +276,7 @@
             <action/>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -283,7 +284,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Visit Information"/>
         <item>
           <text/>
@@ -300,7 +301,7 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -308,9 +309,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Physical Exam"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -318,25 +319,25 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Pain Description"/>
         <item>
           <text value="Impact of pain on function"/>
         </item>
         <item>
           <text value="Type of pain"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Pain location"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Location of pain:  Select all that apply (at least one)"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Location of pain:  Select all that apply (at least one)"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -362,132 +363,15 @@
         </item>
         <item>
           <text value="Aggrevating factors"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
             <item>
               <text/>
-            </item>
-            <item>
-              <text/>
-            </item>
-            <item>
-              <text/>
-            </item>
-            <item>
-              <text/>
-            </item>
-            <item>
-              <text/>
-            </item>
-            <item>
-              <text/>
-            </item>
-          </item>
-          <item>
-            <text/>
-            <type value="any"/>
-            <item>
-              <text/>
-              <type value="any"/>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-            </item>
-            <item>
-              <text/>
-              <type value="any"/>
-              <item>
-                <text/>
-                <type value="any"/>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-              </item>
-              <item>
-                <text/>
-                <type value="any"/>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-              </item>
-              <item>
-                <text/>
-                <type value="any"/>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-                <item>
-                  <text/>
-                </item>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
-              <item>
-                <text/>
-              </item>
             </item>
             <item>
               <text/>
@@ -507,9 +391,10 @@
           </item>
           <item>
             <text/>
+            <type value="choice"/>
             <item>
               <text/>
-              <type value="any"/>
+              <type value="choice"/>
               <item>
                 <text/>
               </item>
@@ -528,7 +413,123 @@
             </item>
             <item>
               <text/>
-              <type value="any"/>
+              <type value="choice"/>
+              <item>
+                <text/>
+                <type value="choice"/>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="choice"/>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+                <type value="choice"/>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+                <item>
+                  <text/>
+                </item>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+            <item>
+              <text/>
+              <type value="choice"/>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+              <item>
+                <text/>
+              </item>
+            </item>
+            <item>
+              <text/>
+              <type value="choice"/>
             </item>
             <item>
               <text/>
@@ -612,9 +613,9 @@
         </item>
         <item>
           <text value="Alleviating factors"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -622,9 +623,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Relevant Vitals"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -632,9 +633,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Relevant Laboratory Values"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -642,11 +643,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medication Profile"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -684,7 +685,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -692,7 +693,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Nonpharmacologic treatment"/>
         <item>
           <text/>
@@ -701,7 +702,7 @@
           <text/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -728,7 +729,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -736,7 +737,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Patient Education"/>
         <item>
           <text/>
@@ -747,7 +748,7 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -755,18 +756,18 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Activities of Daily Living"/>
         <item>
           <text value="Energy level"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Early Awakening"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Cause of early awakening"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -783,7 +784,7 @@
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -791,7 +792,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -799,12 +800,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Affect/Mood"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -812,11 +813,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Risk Mitigation Strategies"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
@@ -824,7 +825,7 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -832,12 +833,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Assessment"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -845,11 +846,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -892,7 +893,7 @@
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -932,10 +933,10 @@
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -965,10 +966,10 @@
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

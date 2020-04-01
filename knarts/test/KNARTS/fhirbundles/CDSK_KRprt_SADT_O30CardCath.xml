@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="cf545df8-8afe-55b0-b4c0-a72c4dc9e2c6"/>
           <assigner>
@@ -61,9 +62,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -84,7 +85,7 @@
           <action>
             <title value="Cardiac Catheterization Indications"/>
             <description value="Indications for cardiac catheterization."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Suspected CAD Detail"/>
             </action>
@@ -92,31 +93,31 @@
           <action>
             <title value="Prior Cardiac Procedures"/>
             <description value="Prior Cardiac Procedures."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Most Recent Angiography"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Most Recent Percutaneous Coronary Intervention"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Prior Cardiac Operative Report"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Prior Cardiac Reports"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Prior Cardiac Operative Report"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
           </action>
           <action>
             <title value="Plan"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Planned Procedure?"/>
               <action/>
@@ -133,7 +134,7 @@
           </action>
           <action>
             <title value="Special Considerations"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Radiocontrast Allergy"/>
             </action>
@@ -141,11 +142,11 @@
               <title value="Diabetes?"/>
               <action>
                 <title value="Insulin"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
                 <title value="Metformin"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
@@ -181,7 +182,7 @@
           </action>
           <action>
             <title value="Brief Post-Catheterization Note"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Brief Post Catheterization Note"/>
             </action>
@@ -194,7 +195,7 @@
               <title value="Interventions"/>
               <action/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
                 <title value="Access Site"/>
@@ -202,7 +203,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -210,12 +211,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Cardiac Catheterization Indications"/>
         <item>
           <text value="Suspected CAD Detail"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -223,26 +224,26 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Prior Cardiac Procedures"/>
         <item>
           <text value="Most Recent Angiography"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Most Recent Percutaneous Coronary Intervention"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Prior Cardiac Operative Report"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Prior Cardiac Reports"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Prior Cardiac Operative Report"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -251,7 +252,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -259,7 +260,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text value="Planned Procedure?"/>
@@ -288,7 +289,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -296,12 +297,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consent"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -309,7 +310,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Special Considerations"/>
         <item>
           <text value="Radiocontrast Allergy"/>
@@ -318,11 +319,11 @@
           <text value="Diabetes?"/>
           <item>
             <text value="Insulin"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Metformin"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -352,7 +353,7 @@
         <item>
           <text value="Renal Disease"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -360,7 +361,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Studies"/>
         <item>
           <text value="Lab Results"/>
@@ -368,7 +369,7 @@
         <item>
           <text value="Point of Care Studies"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -376,7 +377,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and Diagnostic Results"/>
         <item>
           <text value="12-Lead ECG"/>
@@ -387,7 +388,7 @@
         <item>
           <text value="Echocardiogram"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -395,7 +396,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Brief Post-Catheterization Note"/>
         <item>
           <text value="Brief Post Catheterization Note"/>
@@ -425,7 +426,7 @@
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Access Site"/>
@@ -449,10 +450,10 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

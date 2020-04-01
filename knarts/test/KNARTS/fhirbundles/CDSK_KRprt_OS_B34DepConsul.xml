@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+  <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="086f4505-711d-5eaa-8841-5190ecd571ea"/>
             <assigner>
@@ -38,9 +38,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="453231000124104 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+                <display  value="Primary care provider (occupation)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -51,9 +51,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="133936004 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+                <display  value="Adult (person)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -64,9 +64,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="171207006 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Depression screening (procedure)"/>
+                <display  value="Depression screening (procedure)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -77,9 +77,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="401174001 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)"/>
+                <display  value="therapy)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -90,19 +90,19 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="33022008 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+                <display  value="Hospital-based outpatient department (environment)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
           <action>
             <action>
               <title value="Consults and Referrals"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Inform patient that referral order was placed, including location of consult and emergency contact details for informed consent and contingency planning."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="390866009 |Referral to mental health team (procedure)|"/>
                   <description value="Referral to mental health to evaluate and treat for depression (routine-within 30 days)"/>
@@ -121,7 +121,7 @@
             </action>
             <action>
               <title value="Patient and Caregiver Education"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="401174001 |Depression management program (regime/therapy)|"/>
                 <description value="Depression education now"/>
@@ -131,7 +131,7 @@
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -139,18 +139,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral to mental health to evaluate and treat for depression (routine-within 30 days)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="390866009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to mental health team (procedure)"/>
+              <display  value="Referral to mental health team (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -158,7 +158,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Follow VA protocol for emergency situations. Information about the Veterans Crisis Line should be provided to the patient as appropriate, including the telephone number (800.273.8255), text message support (838255), and the website (https://www.veteranscrisisline.net/)."/>
           <kind value="ServiceRequest"/>
           <code>
@@ -171,7 +171,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -179,24 +179,22 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Depression education now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="401174001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)"/>
+              <display  value="therapy)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value="Depression management program (regime"/>
-  <fhiRCore.dataTypes:Code value="Depression management program (regime"/>
-</xmi:XMI>
+  </Bundle>
+ 

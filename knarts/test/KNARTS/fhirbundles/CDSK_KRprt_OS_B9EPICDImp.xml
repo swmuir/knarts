@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="f7bf24fa-9c7a-5054-a7c6-9896e84e556f"/>
           <assigner>
@@ -59,7 +60,7 @@
             <title value="Consults and Referrals"/>
             <action>
               <title value="Electrophysiology Device Placement Referral"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="3926f554-a4c5-40d3-bcc5-03a2c9aa6a20 |Referral to electrophysiology service (procedure)"/>
                 <description value="Referral electrophysiology placement of ICD device"/>
@@ -86,7 +87,7 @@
           <action>
             <title value="Imaging and Electrocardiogram"/>
             <description value="Consider ordering prior to the electrophysiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months. Resting echocardiogram and chest x-ray are required if they have not been obtained within the past six months."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="29303009 |Electrocardiographic procedure (procedure)|"/>
               <description value="Electrocardiogram to evaluate for potential ICD/CRT device implantation."/>
@@ -112,7 +113,7 @@
           <action>
             <title value="Laboratory Tests"/>
             <description value="Consider the following tests to be completed prior to the electrophysiology consultation."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="85acf077-d744-48bc-b57a-fa3b5ce12d97 |Comprehensive metabolic panel (procedure)"/>
               <description value="Comprehensive metabolic panel"/>
@@ -143,7 +144,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -151,11 +152,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consults and Referrals"/>
         <item>
           <text value="Electrophysiology Device Placement Referral"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Goal of Consult"/>
@@ -178,7 +179,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -186,9 +187,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and Electrocardiogram"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -196,12 +197,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

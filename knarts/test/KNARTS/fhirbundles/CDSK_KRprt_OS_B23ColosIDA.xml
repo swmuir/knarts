@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="ea404948-68ef-5eff-9964-cf56e70ca975"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -63,9 +64,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="50811001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Routine (qualifier value)"/>
+              <display  value="Routine (qualifier value)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -76,9 +77,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="5351000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+              <display  value="Primary care clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -89,9 +90,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -105,7 +106,7 @@
           <title value="Colorectal Cancer Risk – Iron Deficiency"/>
           <action>
             <title value="Laboratory Tests"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="26604007 |Complete blood count (procedure)|"/>
               <description value="Complete blood count 1 time (routine)"/>
@@ -165,7 +166,7 @@
           </action>
           <action>
             <title value="Consults and Referrals"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="183523005 |Referral to gastroenterology service (procedure)|"/>
               <description value="Referral Gastroenterology evaluate iron deficiency (routine)"/>
@@ -176,7 +177,7 @@
           </action>
           <action>
             <title value="Patient and Caregiver Education"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="[223464006 |Procedure education (procedure)]                                     ->(363702006 |Has focus (attribute))->[268548003 |Screening for malignant neoplasm of large intestine (procedure)]"/>
               <description value="Colorectal cancer testing education (routine)"/>
@@ -193,7 +194,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -201,18 +202,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Complete blood count 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="26604007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+            <display  value="Complete blood count (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -220,18 +221,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Iron 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="42950004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Iron measurement (procedure)"/>
+            <display  value="Iron measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -239,18 +240,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ferritin 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="489004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Ferritin measurement (procedure)"/>
+            <display  value="Ferritin measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -258,18 +259,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Total iron binding capacity 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="359979000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Total iron binding capacity measurement (procedure)"/>
+            <display  value="Total iron binding capacity measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -277,18 +278,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Referral Gastroenterology evaluate iron deficiency (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="183523005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to gastroenterology service (procedure)"/>
+            <display  value="Referral to gastroenterology service (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -296,26 +297,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Colorectal cancer testing education (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="223464006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure education (procedure)]                                     "/>
+            <display  value="Procedure education (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="268548003 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Screening for malignant neoplasm of large intestine (procedure)]"/>
+            <display  value="Screening for malignant neoplasm of large intestine (procedure)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -323,7 +324,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Bowel prep for colonoscopy education (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -341,15 +342,15 @@
           </coding>
           <coding>
             <code value="d41b4cf3eaac "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education about bowel prep for colonoscopy (procedure)"/>
+            <display  value="Education about bowel prep for colonoscopy (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

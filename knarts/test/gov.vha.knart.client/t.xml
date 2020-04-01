@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <entry>
+    <resource>
+      <PlanDefinition>
+        <identifier>
+          <value value="b098e1ee-609b-5225-b023-56083333057c"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="CLIN0005AL"/>
+          <assigner>
+            <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+          </assigner>
+        </identifier>
+        <identifier>
+          <value value="KP-873"/>
+          <assigner>
+            <display value="urn:cognitivemedicine.com:lab:jira"/>
+          </assigner>
+        </identifier>
+        <name value="Cardiology: Electrophysiology (EP) Documentation Template"/>
+        <title value="Cardiology: Electrophysiology (EP) Documentation Template"/>
+        <type>
+          <coding>
+            <code value="Documentation Template"/>
+          </coding>
+        </type>
+        <status value="active"/>
+        <description/>
+        <useContext>
+          <code>
+            <code value="PatientAgeGroup"/>
+            <display value="Adult outpatient needing Cardiology consult for arrhythmia evaluation"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system  value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display  value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="ClinicalVenue"/>
+            <display value="Primary Care Clinic"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system  value="SNOMED CT"/>
+              <code value="133936004 "/>
+              <display  value="Adult (person)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="TargetUser"/>
+            <display value="Clinical Providers in Primary Care Clinic"/>
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system  value="SNOMED CT"/>
+              <code value="453231000124104 "/>
+              <display  value="Primary care provider (occupation)"/>
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowSetting"/>
+            <display value="Cardiology Consultation"/>
+          </code>
+        </useContext>
+        <useContext>
+          <code>
+            <code value="WorkflowTask"/>
+            <display value="Ensure a minimum workup is initiated prior to a Cardiology Consultation for adult patients who present to a Primary Care Clinic for evaluation of atrial fibrillation, atrial flutter"/>
+          </code>
+        </useContext>
+        <action>
+          <action>
+            <title value="Clinical Stability"/>
+            <description value="This documentation template is not applicable for use with patients who are unstable based on clinician judgement. Examples of unstable patients include, but are not limited to, patients with chest pain pattern suggestive of Acute Coronary Syndrome ( ACS ), symptomatic hypotension, or unstable arrhythmia.                     Consider transferring these unstable patients to the nearest emergency department immediately."/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="History and Physical"/>
+            <action>
+              <title value="History"/>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <selectionBehavior value="any"/>
+            </action>
+            <action>
+              <title value="Implanted Device History"/>
+              <action>
+                <title value="If a device is selected, then enter Current arrhythmia device programmer interrogation report."/>
+                <action>
+                  <selectionBehavior value="any"/>
+                </action>
+              </action>
+            </action>
+          </action>
+          <action>
+            <title value="Treatment Provided"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Laboratory Studies"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Imaging and Diagnostic Studies"/>
+            <description value="For this documentation template, the following information should be included, if available from the prior year."/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Reason for Cardiology Arrhythmia Consult"/>
+            <description value="Select one."/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Stroke and Bleeding Risk"/>
+            <description value="Ask the following questions and check any of the following that apply to the patient."/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+      </PlanDefinition>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <Questionnaire>
+        <title value="Clinical Stability"/>
+      </Questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <Questionnaire>
+        <title value="History and Physical"/>
+        <item>
+          <text value="History"/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text/>
+          <type value="any"/>
+        </item>
+        <item>
+          <text value="Implanted Device History"/>
+          <item>
+            <text value="If a device is selected, then enter Current arrhythmia device programmer interrogation report."/>
+            <item>
+              <text/>
+              <type value="any"/>
+            </item>
+            <item>
+              <text/>
+            </item>
+          </item>
+          <item>
+            <text/>
+          </item>
+        </item>
+      </Questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <Questionnaire>
+        <title value="Treatment Provided"/>
+      </Questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <Questionnaire>
+        <title value="Laboratory Studies"/>
+      </Questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <Questionnaire>
+        <title value="Imaging and Diagnostic Studies"/>
+      </Questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <Questionnaire>
+        <title value="Reason for Cardiology Arrhythmia Consult"/>
+      </Questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+  <entry>
+    <resource>
+      <Questionnaire>
+        <title value="Stroke and Bleeding Risk"/>
+      </Questionnaire>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </entry>
+</Bundle>

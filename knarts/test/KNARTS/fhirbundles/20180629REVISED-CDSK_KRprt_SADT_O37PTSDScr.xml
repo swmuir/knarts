@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="62bfd568-9741-5d6d-b944-f66d28abc59a"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="310190000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Mental health counselor (occupation)"/>
+              <display  value="Mental health counselor (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -69,9 +70,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -81,12 +82,12 @@
             <action>
               <title value="Primary Care Posttraumatic Stress Disorder Screen for DSM-5 (PC-PTSD-5)."/>
               <description value="The PC-PTSD-5 score is calculated by totaling the numbers following each response option below. A score of >= 3 on any of the five questions about how the traumatic event(s) have affected him or her over the past month is a positive result."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action/>
             </action>
             <action>
               <title value="Patient Health Questionnaire-Plus (PHQ-plus)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Patient Health Questionnaire-plus (PHQ-plus)"/>
                 <description value="Calculated by totaling the form label values (indicated by a number following each response option) for the form labels selected by the user. Note that the following form components are adapted from Kroenke 2001."/>
@@ -98,12 +99,12 @@
             <action>
               <title value="GAD-2 (Optional Screening Tool for Generalized Anxiety Disorder)"/>
               <description value="2 item (GAD-2) screen score is calculated by totaling the numbers following each response option below; a positive screen is 3 or more."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="(Optional Screening Tool) Alcohol Use Disorders Identification Test—Consumption (AUDIT-C)"/>
               <description value="AUDIT-C score calculated based on weighting for responses below.  Males with a score of 4 or more are at increased risk of harm from drinking, Females with a score of 3 or more are at increased risk of harm from drinking.  Scores are calculated by totaling the numbers following each response"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
@@ -111,31 +112,31 @@
             <action>
               <title value="PCL-5 with Criterion A"/>
               <description value="The PCL-5 may be used either for monitoring the severity of symptoms of PTSD or as a screening tool. The recommended screening threshold (for diagnosis of PTSD) is 33 points.  The instructions and questions on the PCL-5 with Criterion A may be read to the patient and answers recorded by the tool administrator or may be printed, read, and completed by the patient"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="PTSD Checklist for DSM-5 (PCL-5)"/>
               <description value="The following written or verbal instructions should be provided to the patient with administration of the PCL-5 questions:PCL-5 score is calculated by adding the numbers following each response option below."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Assessment"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Plan"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Specific therapeutic modalities"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Principal Treatment Setting"/>
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -143,11 +144,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Initial Screening"/>
         <item>
           <text value="Primary Care Posttraumatic Stress Disorder Screen for DSM-5 (PC-PTSD-5)."/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
           </item>
@@ -175,7 +176,7 @@
         </item>
         <item>
           <text value="Patient Health Questionnaire-Plus (PHQ-plus)"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Patient Health Questionnaire-plus (PHQ-plus)"/>
             <item>
@@ -200,13 +201,13 @@
         </item>
         <item>
           <text value="GAD-2 (Optional Screening Tool for Generalized Anxiety Disorder)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="(Optional Screening Tool) Alcohol Use Disorders Identification Test—Consumption (AUDIT-C)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -214,17 +215,17 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Evaluation"/>
         <item>
           <text value="PCL-5 with Criterion A"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="PTSD Checklist for DSM-5 (PCL-5)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -232,9 +233,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Assessment"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -242,19 +243,19 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text value="Specific therapeutic modalities"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Principal Treatment Setting"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

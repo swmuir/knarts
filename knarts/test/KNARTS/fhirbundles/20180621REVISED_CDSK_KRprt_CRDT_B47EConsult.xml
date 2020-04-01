@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="8d4512ca-6e86-5a7e-ac2d-2ff6d15c7352"/>
           <assigner>
@@ -63,7 +64,7 @@
         <action>
           <action>
             <title value="E-Consult Request"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Select Specialty Service for E-Consult"/>
             </action>
@@ -102,7 +103,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -110,7 +111,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="E-Consult Request"/>
         <item>
           <text value="Select Specialty Service for E-Consult"/>
@@ -148,10 +149,10 @@
         <item>
           <text value="ROUTINE WITH SCHEDULING INSTRUCTIONS (Ordering provider specifies timeframe)"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

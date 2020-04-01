@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="78885b6c-569b-5a75-bc75-cef8b2d861dc"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="4a0ec59e-7f9a-452e-954c-01efd0b52c4e "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospitalist physician (occupation)"/>
+              <display  value="Hospitalist physician (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="416800000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Inpatient (person)"/>
+              <display  value="Inpatient (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -63,9 +64,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="702860000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="General surgery clinic (environment)"/>
+              <display  value="General surgery clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -85,7 +86,7 @@
           <action>
             <title value="Resources and Risk Stratification: Medical Patients"/>
             <description value="This section should be available for all medical patients."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Medications: Medical Patients"/>
@@ -93,7 +94,7 @@
             <action>
               <title value="Acutely Ill Patients"/>
               <description value="This subsection should be available for all acutely ill medical patients at increased risk of thrombosis who are not bleeding or at high risk for bleeding"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
@@ -133,7 +134,7 @@
             <action>
               <title value="Critically Ill Patients"/>
               <description value="This subsection should be available for all critically ill medical patients at increased risk of thrombosis who are not bleeding or at high risk for bleeding"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
@@ -163,7 +164,7 @@
             <action>
               <title value="Acutely Ill Patients"/>
               <description value="This subsection should be available for all acutely ill medical patients at increased risk of thrombosis who are bleeding or at high risk for major bleeding"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Graduated compressed stockings (routine)"/>
@@ -182,7 +183,7 @@
             <action>
               <title value="Critically Ill Patients"/>
               <description value="This subsection should be available for all critically ill medical patients at increased risk of thrombosis who are bleeding or at high risk for major bleeding"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Graduated compressed stockings routine"/>
@@ -202,7 +203,7 @@
           <action>
             <title value="Resources and Risk Stratification: Nonorthopedic Surgical Patients"/>
             <description value="This section should be available for all nonorthopedic surgical patients."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Activity: Nonorthopedic Surgical Patients"/>
@@ -210,7 +211,7 @@
             <action>
               <title value="General and Abdominal-Pelvic Surgery Patients at Very Low Risk for VTE"/>
               <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at very low risk for VTE"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="1111000205107 |Ambulating with assistance (regime/therapy)"/>
                 <description value="Ambulate with assistance 1 time per shift (routine)"/>
@@ -240,7 +241,7 @@
             <action>
               <title value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
               <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at moderate risk for VTE who are not at high risk for major bleeding complications"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
@@ -266,7 +267,7 @@
             <action>
               <title value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
               <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at high risk for VTE who are not at high risk for major bleeding complications"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Enoxaparin 40 mg solution subcutaneous daily 1 time (routine)"/>
@@ -292,7 +293,7 @@
             <action>
               <title value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE with Inability to Use Either LMWH or UFH"/>
               <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at high risk for VTE for whom both LMWH and UFH are contraindicated or unavailable and who are not at high risk for major bleeding complications"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Fondaparinux 2.5 mg solution subcutaneous daily 1 time (routine)"/>
@@ -311,7 +312,7 @@
             <action>
               <title value="Cardiac Surgery Patients with Nonhemorrhagic Surgical Complications"/>
               <description value="This subsection should be available for all cardiac surgery patients whose inpatient stay is prolonged by nonhemorrhagic surgical complications"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
@@ -337,7 +338,7 @@
             <action>
               <title value="Thoracic Surgery Patients at Moderate Risk for VTE"/>
               <description value="This subsection should be available for all thoracic surgery patients at moderate risk for VTE who are not at high risk for perioperative bleeding"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
@@ -363,7 +364,7 @@
             <action>
               <title value="Thoracic Surgery Patients at High Risk for VTE"/>
               <description value="This subsection should be available for all thoracic surgery patients at high risk for VTE who are not at high risk for perioperative bleeding"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
@@ -389,7 +390,7 @@
             <action>
               <title value="Craniotomy Patients at Very High Risk for VTE"/>
               <description value="This subsection should be available for all craniotomy patients at very high risk for VTE once adequate hemostasis is established and the risk of bleeding decreases"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
@@ -422,7 +423,7 @@
             <action>
               <title value="Spinal Surgery Patients at High Risk for VTE"/>
               <description value="This subsection should be available for all spinal surgery patients at high risk for VTE once adequate hemostasis is established and the risk of bleeding decreases"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
@@ -455,7 +456,7 @@
             <action>
               <title value="Major Trauma Patients"/>
               <description value="This subsection should be available for all major trauma patients without contraindication"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Heparin 5000 U solution subcutaneous daily 2 times (routine)"/>
@@ -485,7 +486,7 @@
             <action>
               <title value="General and Abdominal-Pelvic Surgery Patients at Low Risk for VTE"/>
               <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at low risk for VTE"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -497,7 +498,7 @@
             <action>
               <title value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
               <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at moderate risk for VTE"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -516,7 +517,7 @@
             <action>
               <title value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
               <description value="This subsection should be available for all general and abdominal-pelvic surgery patients at high risk for VTE"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -528,7 +529,7 @@
             <action>
               <title value="Cardiac Surgery Patients"/>
               <description value="This subsection should be available for all cardiac surgery patients"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -540,7 +541,7 @@
             <action>
               <title value="Thoracic Surgery Patients at High Risk for VTE"/>
               <description value="This subsection should be available for all thoracic surgery patients at high risk for VTE"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -559,7 +560,7 @@
             <action>
               <title value="Craniotomy Patients"/>
               <description value="This subsection should be available for all craniotomy patients"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -582,7 +583,7 @@
             <action>
               <title value="Major Trauma Patients"/>
               <description value="This subsection should be available for all major trauma patients without contraindication due to lower-extremity injury"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -605,7 +606,7 @@
             <action>
               <title value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
               <description value="This subsection should be available for all total hip arthroplasty, total knee arthroplasty, and hip fracture surgery patients."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;854228 0.3 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe]                                             ->(410675002 |Route of administration (attribute))->[34206005 |Subcutaneous route (qualifier value)]"/>
                 <description value="Enoxaparin 30 mg solution subcutaneous every 12 hours (routine)"/>
@@ -670,7 +671,7 @@
             <action>
               <title value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
               <description value="This subsection should be available for all acutely ill medical patients at increased risk of thrombosis who are bleeding or at high risk for major bleeding"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Intermittent pneumatic compression (routine)"/>
@@ -683,7 +684,7 @@
           <action>
             <title value="Laboratory Tests"/>
             <description value="The following laboratory studies should be considered for patients who will receive warfarin. These laboratory studies may also be indicated for patients on other medications for VTE prophylaxis if clinically indicated per clinician judgment."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="26604007 |Complete blood count (procedure)|"/>
               <description value="Complete blood count daily 1 time (routine)"/>
@@ -714,7 +715,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -722,9 +723,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Resources and Risk Stratification: Medical Patients"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -732,17 +733,17 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications: Medical Patients"/>
         <item>
           <text value="Acutely Ill Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Critically Ill Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -750,17 +751,17 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Procedures: Medical Patients"/>
         <item>
           <text value="Acutely Ill Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Critically Ill Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -768,9 +769,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Resources and Risk Stratification: Nonorthopedic Surgical Patients"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -778,13 +779,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Activity: Nonorthopedic Surgical Patients"/>
         <item>
           <text value="General and Abdominal-Pelvic Surgery Patients at Very Low Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -792,45 +793,45 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications: Nonorthopedic Surgical Patients"/>
         <item>
           <text value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE with Inability to Use Either LMWH or UFH"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Cardiac Surgery Patients with Nonhemorrhagic Surgical Complications"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Thoracic Surgery Patients at Moderate Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Thoracic Surgery Patients at High Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Craniotomy Patients at Very High Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Spinal Surgery Patients at High Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Major Trauma Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -838,40 +839,40 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Procedures: Nonorthopedic Surgical Patients"/>
         <item>
           <text value="General and Abdominal-Pelvic Surgery Patients at Low Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="General and Abdominal-Pelvic Surgery Patients at Moderate Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="General and Abdominal-Pelvic Surgery Patients at High Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Cardiac Surgery Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Thoracic Surgery Patients at High Risk for VTE"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Craniotomy Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Spinal Surgery Patients"/>
         </item>
         <item>
           <text value="Major Trauma Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -879,12 +880,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Activity: Orthopedic Surgical Patients"/>
         <item>
           <text value="This section should be available to clinical providers and should be prompted to consider early mobilization as indicated by postoperative activity orders for the given surgery, context, and objectives related to weightbearing status."/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -892,13 +893,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications: Orthopedic Surgical Patients"/>
         <item>
           <text value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -906,13 +907,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Procedures: Orthopedic Surgical Patients"/>
         <item>
           <text value="Total Hip Arthoplasty, Total Knee Arthoplasty, and Hip Fracture Surgery Patients"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -920,12 +921,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

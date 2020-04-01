@@ -1,4 +1,4 @@
-modeltype knart uses 'urn:hl7-org:knowledgeartifact:r2';
+modeltype knart uses 'urn:hl7-org:knowledgeartifact:r1';
 modeltype fhir uses 'http:///fhiRCore/resources.ecore';
 modeltype datatypes uses 'http:///fhiRCore/dataTypes.ecore';
 modeltype elm uses 'urn:hl7-org:elm:r1';

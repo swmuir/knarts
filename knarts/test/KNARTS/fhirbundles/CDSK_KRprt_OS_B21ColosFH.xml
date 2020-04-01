@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="c2d53d08-af01-594b-a670-d8fc2bf71da6"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -63,9 +64,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="50811001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Routine (qualifier value)"/>
+              <display  value="Routine (qualifier value)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -76,9 +77,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="5351000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+              <display  value="Primary care clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -89,9 +90,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -105,7 +106,7 @@
           <title value="Colorectal Cancer Risk - Family History of Colon Cancer, Colon Cancer Syndrome, or Advanced Adenoma"/>
           <action>
             <title value="Consults and Referrals"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="183523005 |Referral to gastroenterology service (procedure)|"/>
               <description value="Referral Gastroenterology evaluate colorectal cancer risk (routine)"/>
@@ -116,7 +117,7 @@
           </action>
           <action>
             <title value="Patient and Caregiver Education"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="02fd98af-afc3-4281-a574-45c897dd5c8c |Education about colorectal cancer screening and surveillance (procedure)"/>
               <description value="Colorectal cancer screening and surveillance education (routine)"/>
@@ -133,7 +134,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -141,18 +142,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Referral Gastroenterology evaluate colorectal cancer risk (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="183523005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to gastroenterology service (procedure)"/>
+            <display  value="Referral to gastroenterology service (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -160,7 +161,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Colorectal cancer screening and surveillance education (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -178,12 +179,12 @@
           </coding>
           <coding>
             <code value="45c897dd5c8c "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education about colorectal cancer screening and surveillance (procedure)"/>
+            <display  value="Education about colorectal cancer screening and surveillance (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -191,7 +192,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Bowel prep for colonoscopy education (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -209,15 +210,15 @@
           </coding>
           <coding>
             <code value="d41b4cf3eaac "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Education about bowel prep for colonoscopy (procedure)"/>
+            <display  value="Education about bowel prep for colonoscopy (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

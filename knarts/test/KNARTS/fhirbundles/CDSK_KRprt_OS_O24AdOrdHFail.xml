@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="d65f4c6f-d870-5ecd-9df7-eb935c920d92"/>
           <assigner>
@@ -43,9 +44,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -56,9 +57,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="84114007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Heart failure (disorder)"/>
+              <display  value="Heart failure (disorder)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -69,9 +70,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="305056002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Admission procedure (procedure)"/>
+              <display  value="Admission procedure (procedure)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -79,9 +80,9 @@
           <action>
             <title value="Admit to"/>
             <description value="Admit To?"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="305342007 |Admission to ward (procedure)|"/>
                 <description value="Medical Ward"/>
@@ -89,7 +90,7 @@
                   <kind value="applicability"/>
                   <expression>
                     <language value="text/cql"/>
-                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@4ae10b6b (localId: null)"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@61275738 (localId: null)"/>
                   </expression>
                 </condition>
                 <definitionCanonical>
@@ -98,7 +99,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="75f0ca2c-e68a-44ca-81f8-10e53ff7a855 |Admission to telemetry department (procedure)|"/>
                 <description value="Telemetry"/>
@@ -106,7 +107,7 @@
                   <kind value="applicability"/>
                   <expression>
                     <language value="text/cql"/>
-                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@18706735 (localId: null)"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@7934ccdf (localId: null)"/>
                   </expression>
                 </condition>
                 <definitionCanonical>
@@ -115,7 +116,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="4d555c8a-d2af-4dbf-b81a-9eaddec2a7d8 |Admission to stepdown unit (procedure)|"/>
                 <description value="Stepdown unit"/>
@@ -123,7 +124,7 @@
                   <kind value="applicability"/>
                   <expression>
                     <language value="text/cql"/>
-                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@6225b973 (localId: null)"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@42a21b1a (localId: null)"/>
                   </expression>
                 </condition>
                 <definitionCanonical>
@@ -132,7 +133,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="305351004 |Admission to intensive care unit (procedure)|"/>
                 <description value="ICU"/>
@@ -140,7 +141,7 @@
                   <kind value="applicability"/>
                   <expression>
                     <language value="text/cql"/>
-                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@33f610b1 (localId: null)"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@1b316461 (localId: null)"/>
                   </expression>
                 </condition>
                 <definitionCanonical>
@@ -149,7 +150,7 @@
               </action>
             </action>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="305056002 |Admission procedure (procedure)|"/>
                 <description value="Other Location"/>
@@ -157,7 +158,7 @@
                   <kind value="applicability"/>
                   <expression>
                     <language value="text/cql"/>
-                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@4cdadc95 (localId: null)"/>
+                    <expression value=" org.hl7.elm.r1.impl.IsTrueImpl@1c7e16b8 (localId: null)"/>
                   </expression>
                 </condition>
                 <definitionCanonical>
@@ -168,25 +169,25 @@
           </action>
           <action>
             <title value="Diagnosis?"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Allergies"/>
             <description value="Medication Allergies?"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Code Status"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Vital Signs and Monitoring"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Vital signs"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="61746007 |Taking patient vital signs (procedure)|"/>
                     <description value="Obtain Vital Sign Every User Input Hours"/>
@@ -235,12 +236,12 @@
             <action>
               <title value="Medical Ward?"/>
               <description value="If admitted to medical ward, then display the medical ward section."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Intake/output recording"/>
                 <selectionBehavior value="at-most-one"/>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="63061008 |Measuring intake and output (procedure)|"/>
                     <description value="Intake/Output Recording Frequency in Hours"/>
@@ -275,7 +276,7 @@
             <action>
               <title value="ICU?"/>
               <description value="If admitted to ICU, then display the ICU section."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Intake and output"/>
                 <selectionBehavior value="at-most-one"/>
@@ -330,9 +331,9 @@
           <action>
             <title value="Activity"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="b43fa6a5-94a3-4098-8514-b4b5da9b899d |Ambulating with assistance (regime/therapy)"/>
                   <description value="Ambulate with assistance with user provided frequency"/>
@@ -342,7 +343,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="445970000 |Moving subject from bed to chair (procedure)|"/>
                   <description value="Out of bed to chair with user provided Frequency"/>
@@ -352,7 +353,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title/>
                   <description value="User Specified Other activity"/>
@@ -362,7 +363,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title/>
                   <description value="May be off telemetry for Reason"/>
@@ -405,10 +406,10 @@
             <title value="Nursing"/>
             <action>
               <title value="Urinary Catheter"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <action>
-                  <selectionBehavior value="any"/>
+                  <selectionBehavior value="at-most-one"/>
                   <action>
                     <title value="446583004 |Insertion of indwelling catheter into urinary bladder (procedure)|"/>
                     <description value="Discontinue urinary catheter after 48hrs (reorder for continued use)"/>
@@ -435,7 +436,7 @@
             </action>
             <action>
               <title value="Peripheral Intravenous (IV) Line"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Insert peripheral IV line"/>
                 <selectionBehavior value="at-most-one"/>
@@ -464,9 +465,9 @@
             </action>
             <action>
               <title value="Fluid Restriction"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="25389001 |Fluid restriction (procedure)|"/>
                   <description value="Restrict Fluids"/>
@@ -478,10 +479,10 @@
             </action>
             <action>
               <title value="Diet"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Cardiac diet"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="437421000124105 |Decreased sodium diet (regime/therapy)|"/>
                   <description value="Low sodium"/>
@@ -505,7 +506,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="a6894e46-3838-430b-b163-99fc45eada51 |Diabetic diet (regime/therapy)"/>
                   <description value="Calories"/>
@@ -515,7 +516,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Other Diet"/>
@@ -557,7 +558,7 @@
           <action>
             <title value="Venous Thromboembolism (VTE) Prophylaxis"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="443749004 |Assessment of risk of venous thromboembolism (procedure)|"/>
                 <description value="Conduct VTE prophylaxis risk screening"/>
@@ -575,9 +576,9 @@
             </action>
             <action>
               <title value="Notify Clinician for:"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Temperature greater than high temperature notification limit"/>
@@ -585,7 +586,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@3326b308 (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@4df5a96b (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -594,7 +595,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Systolic blood pressure (BP) measurement is greater than high notification limit"/>
@@ -602,7 +603,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@ab365c1 (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@46d72a0b (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -611,7 +612,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Systolic blood pressure (BP) measurement is lower than low notification limit"/>
@@ -619,7 +620,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.LessImpl@7e578de3 (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@e1d306e (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -628,7 +629,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Diastolic blood pressure (BP) is greater than high notification limit"/>
@@ -636,7 +637,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@1fd31878 (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@2e2a6c75 (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -645,7 +646,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Diastolic blood pressure (BP) measurement is lower than low notification limit"/>
@@ -653,7 +654,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.LessImpl@731f4abf (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@606f7780 (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -662,7 +663,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Heart Rate is greater than high notification limit"/>
@@ -670,7 +671,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@65876235 (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@4a123c8b (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -679,7 +680,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Heart Rate is less than high notification limit"/>
@@ -687,7 +688,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.LessImpl@1e07915f (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@6e8a03a9 (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -696,7 +697,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Respiratory Rate is greater than high notification limit"/>
@@ -704,7 +705,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@7b0646d0 (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.GreaterImpl@2e34ddcb (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -713,7 +714,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Respiratory Rate is greater than high notification limit"/>
@@ -721,7 +722,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.LessImpl@23e70bff (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@68274a9e (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -730,7 +731,7 @@
                 </action>
               </action>
               <action>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="TSR-NoCode"/>
                   <description value="Urine Output is less than low notification limit"/>
@@ -738,7 +739,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.LessImpl@442e01ac (localId: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.LessImpl@48207529 (localId: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -750,7 +751,7 @@
           </action>
           <action>
             <title value="Immunizations"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="[416118004 |Administration (procedure)]                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                     ->(363701004 |Direct substance (attribute))->[398730001 |Pneumococcal vaccine (substance)]"/>
               <description value="Pneumovax"/>
@@ -768,10 +769,10 @@
           </action>
           <action>
             <title value="Laboratory Tests"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Point of Care Tests"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="33747003 |Glucose measurement, blood (procedure)|"/>
                 <description value="Blood glucose every 4 hours"/>
@@ -951,7 +952,7 @@
           </action>
           <action>
             <title value="Diagnostic Testing"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="X-ray chest (Dx: heart failure)"/>
               <action>
@@ -1056,7 +1057,7 @@
           </action>
           <action>
             <title value="Oxygen"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <action>
                 <title value="371907003 |Oxygen administration by nasal cannula (procedure)|"/>
@@ -1097,7 +1098,7 @@
           </action>
           <action>
             <title value="Consults and Referrals"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="1221000205105 |Cardiology consultation and report (procedure)"/>
               <description value="Consult cardiology"/>
@@ -1122,10 +1123,10 @@
           </action>
           <action>
             <title value="Medications"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="IV Fluid"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="297751002 |Infusion of saline solution (procedure)|"/>
                 <description value="Normal saline (NS)"/>
@@ -1175,7 +1176,7 @@
             </action>
             <action>
               <title value="Diuretics"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]-                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]-                                             ->(363701004 |Direct substance (attribute))->[Rx;1162712 Furosemide Injectable Product]                                              ->(410675002 |Route of administration (attribute))->[47625008 |Intravenous route (qualifier value)]                                             ->(246501002 |Technique (attribute))->[397801003 |Single bolus (qualifier value)];-"/>
                 <description value="Furosemide specify: 20-120 mg solution IV bolus now"/>
@@ -1214,10 +1215,10 @@
             </action>
             <action>
               <title value="Potassium Replacement"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Potassium chloride 10-20 meq"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[416118004 |Administration (procedure)]                                                     ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                                     ->(363701004 |Direct substance (attribute))->[Rx;8591 Potassium Chloride]"/>
                   <description value="Potassium chloride X meq (max 60 meq) oral ONCE"/>
@@ -1250,7 +1251,7 @@
             </action>
             <action>
               <title value="Angiotensin-Converting Enzyme (ACE-I) Inhibitors [if not on Angiotensin Receptor Blockers (ARBs)]"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1155754 Captopril Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
                 <description value="Captopril [initial 6.25-12.5, max 50] mg oral, three times daily (tid)"/>
@@ -1275,7 +1276,7 @@
             </action>
             <action>
               <title value="Angiotensin II Receptor Blockers (ARBs) [if not on ACE-I]"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1165343 Losartan Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
                 <description value="Losartan [initial 25-50, max 150] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
@@ -1293,7 +1294,7 @@
             </action>
             <action>
               <title value="Angiotensin Receptor-Neprilysin Inhibitors (ARNIs)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1656349 sacubitril 49 MG / valsartan 51 MG Oral Tablet]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
                 <description value="Sacubitril 49 mg / Valsartan 51 mg 1 tablet oral daily 2 times hold for symptomatic systolic BP less than 90"/>
@@ -1304,7 +1305,7 @@
             </action>
             <action>
               <title value="Beta-Blockers"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1163524 Metoprolol Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
                 <description value="Metoprolol succinate [initial 12.5-25, max 200] mg tablet oral daily hold for symptomatic systolic BP less than 90"/>
@@ -1322,7 +1323,7 @@
             </action>
             <action>
               <title value="Aldosterone Antagonists"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;1161123 Spironolactone Pill]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
                 <description value="Spflironolactone [initial 12.5, max] 25 mg tablet oral daily"/>
@@ -1340,7 +1341,7 @@
             </action>
             <action>
               <title value="Hydralazine/Nitrates"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;905377 hydrALAZINE Hydrochloride 37.5 MG / Isosorbide Dinitrate 20 MG Oral Tablet]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
                 <description value="Hydralazine 37.5 mg/ Isosorbide dinitrate 20 mg 1 tablet oral 3 times daily (tid)"/>
@@ -1351,7 +1352,7 @@
             </action>
             <action>
               <title value="Cardiac Glycosides"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="[416118004 |Administration (procedure)]                                             ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                             ->(363701004 |Direct substance (attribute))->[Rx;197604 Digoxin 0.125 MG Oral Tablet]                                              ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
                 <description value="Digoxin 0.125 micrograms tablet oral daily"/>
@@ -1362,7 +1363,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -1370,29 +1371,29 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Admit to"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1400,9 +1401,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Diagnosis?"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1410,9 +1411,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Allergies"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1420,9 +1421,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Code Status"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1430,16 +1431,16 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Vital Signs and Monitoring"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Vital signs"/>
             <item>
               <text/>
-              <type value="any"/>
+              <type value="choice"/>
             </item>
             <item>
               <text/>
@@ -1448,13 +1449,13 @@
         </item>
         <item>
           <text value="Medical Ward?"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Intake/output recording"/>
             <type value="choice"/>
             <item>
               <text/>
-              <type value="any"/>
+              <type value="choice"/>
             </item>
             <item>
               <text/>
@@ -1463,7 +1464,7 @@
         </item>
         <item>
           <text value="ICU?"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Intake and output"/>
             <type value="choice"/>
@@ -1472,7 +1473,7 @@
             <text value="Invasive hemodynamic monitoring"/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1480,26 +1481,26 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Activity"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -1514,7 +1515,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1522,22 +1523,22 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Nursing"/>
         <item>
           <text value="Urinary Catheter"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
             <item>
               <text/>
-              <type value="any"/>
+              <type value="choice"/>
             </item>
           </item>
         </item>
         <item>
           <text value="Peripheral Intravenous (IV) Line"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Insert peripheral IV line"/>
             <type value="choice"/>
@@ -1545,10 +1546,10 @@
         </item>
         <item>
           <text value="Fluid Restriction"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -1556,18 +1557,18 @@
         </item>
         <item>
           <text value="Diet"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Cardiac diet"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -1576,7 +1577,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1584,54 +1585,54 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Venous Thromboembolism (VTE) Prophylaxis"/>
         <item>
           <text/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Notify Clinician for:"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -1694,7 +1695,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1702,9 +1703,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Immunizations"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1712,13 +1713,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
         <item>
           <text value="Point of Care Tests"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1726,12 +1727,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Diagnostic Testing"/>
         <item>
           <text value="X-ray chest (Dx: heart failure)"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1739,12 +1740,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Oxygen"/>
         <item>
           <text/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1752,9 +1753,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Consults and Referrals"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -1762,11 +1763,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Medications"/>
         <item>
           <text value="IV Fluid"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Aspirin enteric coated, select one of the following:"/>
@@ -1774,48 +1775,48 @@
         </item>
         <item>
           <text value="Diuretics"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Potassium Replacement"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Potassium chloride 10-20 meq"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
         </item>
         <item>
           <text value="Angiotensin-Converting Enzyme (ACE-I) Inhibitors [if not on Angiotensin Receptor Blockers (ARBs)]"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Angiotensin II Receptor Blockers (ARBs) [if not on ACE-I]"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Angiotensin Receptor-Neprilysin Inhibitors (ARNIs)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Beta-Blockers"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Aldosterone Antagonists"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Hydralazine/Nitrates"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Cardiac Glycosides"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

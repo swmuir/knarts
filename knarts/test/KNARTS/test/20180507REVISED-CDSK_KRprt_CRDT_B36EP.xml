@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <fhiRCore.resources:Bundle>
+    <type value="collection"/>
+    <entry>
+      <resource>
+        <PlanDefinition>
+          <identifier>
+            <value value="b098e1ee-609b-5225-b023-56083333057c"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="CLIN0005AL"/>
+            <assigner>
+              <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+            </assigner>
+          </identifier>
+          <identifier>
+            <value value="KP-873"/>
+            <assigner>
+              <display value="urn:cognitivemedicine.com:lab:jira"/>
+            </assigner>
+          </identifier>
+          <name value="Cardiology: Electrophysiology (EP) Documentation Template"/>
+          <title value="Cardiology: Electrophysiology (EP) Documentation Template"/>
+          <type>
+            <coding>
+              <code value="Documentation Template"/>
+            </coding>
+          </type>
+          <status value="active"/>
+          <description/>
+          <useContext>
+            <code>
+              <code value="PatientAgeGroup"/>
+              <display value="Adult outpatient needing Cardiology consult for arrhythmia evaluation"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="133936004 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="ClinicalVenue"/>
+              <display value="Primary Care Clinic"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="133936004 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="TargetUser"/>
+              <display value="Clinical Providers in Primary Care Clinic"/>
+            </code>
+            <valueCodeableConcept>
+              <coding>
+                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <code value="453231000124104 "/>
+                <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              </coding>
+            </valueCodeableConcept>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="WorkflowSetting"/>
+              <display value="Cardiology Consultation"/>
+            </code>
+          </useContext>
+          <useContext>
+            <code>
+              <code value="WorkflowTask"/>
+              <display value="Ensure a minimum workup is initiated prior to a Cardiology Consultation for adult patients who present to a Primary Care Clinic for evaluation of atrial fibrillation, atrial flutter"/>
+            </code>
+          </useContext>
+          <action>
+            <action>
+              <title value="mapToActions Clinical Stability"/>
+              <description value="This documentation template is not applicable for use with patients who are unstable based on clinician judgement. Examples of unstable patients include, but are not limited to, patients with chest pain pattern suggestive of Acute Coronary Syndrome ( ACS ), symptomatic hypotension, or unstable arrhythmia.                     Consider transferring these unstable patients to the nearest emergency department immediately."/>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+            <action>
+              <title value="mapToActions History and Physical"/>
+              <action>
+                <title value="mapToActions History"/>
+                <selectionBehavior value="at-most-one"/>
+              </action>
+              <action>
+                <selectionBehavior value="at-most-one"/>
+              </action>
+              <action>
+                <title value="mapToActions Implanted Device History"/>
+                <action>
+                  <title value="mapToActions If a device is selected, then enter Current arrhythmia device programmer interrogation report."/>
+                  <action>
+                    <selectionBehavior value="at-most-one"/>
+                  </action>
+                </action>
+              </action>
+            </action>
+            <action>
+              <title value="mapToActions Treatment Provided"/>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+            <action>
+              <title value="mapToActions Laboratory Studies"/>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+            <action>
+              <title value="mapToActions Imaging and Diagnostic Studies"/>
+              <description value="For this documentation template, the following information should be included, if available from the prior year."/>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+            <action>
+              <title value="mapToActions Reason for Cardiology Arrhythmia Consult"/>
+              <description value="Select one."/>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+            <action>
+              <title value="mapToActions Stroke and Bleeding Risk"/>
+              <description value="Ask the following questions and check any of the following that apply to the patient."/>
+              <selectionBehavior value="at-most-one"/>
+            </action>
+          </action>
+        </PlanDefinition>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <Questionnaire>
+          <title value="Clinical Stability"/>
+          <item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Acknowledge"/>
+              </item>
+            </item>
+          </item>
+        </Questionnaire>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <Questionnaire>
+          <title value="History and Physical"/>
+          <item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup History, Brief"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup History of prior cardiac evaluations (e.g., prior hospitalization or evaluations for: chest pain, rule/out MI, angina, heart failure, etc.)"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Results of prior cardiac diagnostic procedures performed (resting ECG, echocardiogram, stress testing  (echo, nuclear, MRI), Cardiac CT ( CCT ) and Coronary CT Angiography ( CCTA )"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Physical Exam, Pertinent Positive and Negative Findings"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Family History of"/>
+                <answerValueSet>
+                  <url xsi:type="fhiRCore.dataTypes:Url" value="valuesetid"/>
+                </answerValueSet>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Prior Radiofrequency Catheter Ablation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Select at most one:"/>
+                <answerValueSet>
+                  <url xsi:type="fhiRCore.dataTypes:Url" value="valuesetid"/>
+                </answerValueSet>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Current arrhythmia device programmer interrogation report"/>
+              </item>
+            </item>
+          </item>
+        </Questionnaire>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <Questionnaire>
+          <title value="Treatment Provided"/>
+          <item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Pharmacologic Therapy"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Other Pertinent Treatment"/>
+              </item>
+            </item>
+          </item>
+        </Questionnaire>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <Questionnaire>
+          <title value="Laboratory Studies"/>
+          <item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Basic Metabolic Panel Lab Result"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Complete Blood Count Lab Result"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Lipid Panel Lab Result"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Thyroid Function Testing Lab Result"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Troponin Lab Result"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Brain Natriuretic Peptide Lab Result"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup D-dimer Lab Result"/>
+              </item>
+            </item>
+          </item>
+        </Questionnaire>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <Questionnaire>
+          <title value="Imaging and Diagnostic Studies"/>
+          <item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Resting 12-Lead Electrocardiogram Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Resting 12-Lead Electrocardiogram"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Stress Electrocardiography Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Stress Electrocardiography"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Resting Echocardiogram/Doppler Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Resting Echocardiogram/Doppler"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Stress Echocardiogram Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Stress Echocardiogram"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Stress Myocardial Perfusion Imaging (MPI) Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Stress Myocardial Perfusion Imaging (MPI)"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Rest/Stress Magenetic Resonance Imaging (MRI) Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Rest/Stress Magnetic Resonance Imaging (MRI)"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Chest CT Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Chest CT"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Coronary/Cardiac CTA Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Coronary/Cardiac CTA"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup X-Ray Chest Interpretation"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup X-Ray Chest"/>
+              </item>
+            </item>
+          </item>
+        </Questionnaire>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <Questionnaire>
+          <title value="Reason for Cardiology Arrhythmia Consult"/>
+          <item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Reason for consult:"/>
+                <answerValueSet>
+                  <url xsi:type="fhiRCore.dataTypes:Url" value="valuesetid"/>
+                </answerValueSet>
+              </item>
+            </item>
+          </item>
+        </Questionnaire>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource>
+        <Questionnaire>
+          <title value="Stroke and Bleeding Risk"/>
+          <item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Active problem of congestive heart failure or active problem of left ventricular systolic dysfunction?"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Active problem of hypertension?"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Age ≥ 75 years?"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Active problem of diabetes mellitus?"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup History of stroke or of problem of transient ischemic attack or thromboembolism?"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Active problem of vascular disease?"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Age ≥ 65 years and age ≤ 74 years?"/>
+              </item>
+            </item>
+            <item>
+              <text value="From Collection Information Action "/>
+              <item>
+                <text value="createQuestionaireItemFromActionGroup Female?"/>
+              </item>
+            </item>
+          </item>
+        </Questionnaire>
+      </resource>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+  </fhiRCore.resources:Bundle>
+  <fhiRCore.resources:BundleEntry>
+    <resource>
+      <ValueSet>
+        <compose>
+          <include>
+            <concept>
+              <display value="Sudden Unexplained Death"/>
+            </concept>
+            <concept>
+              <display value="Drowning"/>
+            </concept>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </fhiRCore.resources:BundleEntry>
+  <fhiRCore.resources:BundleEntry>
+    <resource>
+      <ValueSet>
+        <compose>
+          <include>
+            <concept>
+              <display value="Prior Implantable Cardioverter-Defibrillator (ICD) Device Implantation"/>
+            </concept>
+            <concept>
+              <display value="Prior Cardiac Resynchronization Therapy plus Implantable Cardioverter-Defibrillator (CRT-D) Device Implantation"/>
+            </concept>
+            <concept>
+              <display value="Prior Cardiac Pacemaker Implantation"/>
+            </concept>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </fhiRCore.resources:BundleEntry>
+  <fhiRCore.resources:BundleEntry>
+    <resource>
+      <ValueSet>
+        <compose>
+          <include>
+            <concept>
+              <display value="Atrial Fibrillation Evaluation"/>
+            </concept>
+            <concept>
+              <display value="Atrial Flutter Evaluation"/>
+            </concept>
+            <concept>
+              <display value="Supraventricular Tachycardia Evaluation"/>
+            </concept>
+            <concept>
+              <display value="Syncope Evaluation"/>
+            </concept>
+            <concept>
+              <display value="Presyncope Evaluation"/>
+            </concept>
+            <concept>
+              <display value="Other Arrhythmia Evaluation"/>
+            </concept>
+            <concept>
+              <display value="Pacemaker followup"/>
+            </concept>
+            <concept>
+              <display value="ICD follow-up"/>
+            </concept>
+            <concept>
+              <display value="Pacemaker generator change"/>
+            </concept>
+            <concept>
+              <display value="ICD generator change"/>
+            </concept>
+            <concept>
+              <display value="Primary prevention pacemaker"/>
+            </concept>
+            <concept>
+              <display value="ICD Implant"/>
+            </concept>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+    <request>
+      <method value="POST"/>
+    </request>
+  </fhiRCore.resources:BundleEntry>
+</xmi:XMI>

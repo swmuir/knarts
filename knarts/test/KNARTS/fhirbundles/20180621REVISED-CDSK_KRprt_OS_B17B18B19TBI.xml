@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+
+  <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="7efa8cba-ad31-5e77-ac09-0b3ecfd0a13b"/>
             <assigner>
@@ -38,9 +39,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="453231000124104 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+                <display  value="Primary care provider (occupation)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -57,9 +58,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="33022008 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+                <display  value="Hospital-based outpatient department (environment)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -70,9 +71,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="133936004 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+                <display  value="Adult (person)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -89,16 +90,16 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="664c7c9e-52dc-4788-805c-2c550668d6ee "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Neurology consultation and report (procedure)"/>
+                <display  value="Neurology consultation and report (procedure)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
           <action>
             <action>
               <title value="Consults and Referrals"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="183521007 |Referral to neurology service (procedure)|"/>
                 <description value="Referral to Neurology: Evaluate for mild traumatic brain injury with current symptomatology (routine)"/>
@@ -193,7 +194,7 @@
             </action>
             <action>
               <title value="Patient and Caregiver Education"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Provide a link to relevant educational materials that may be specific to the implementing institution."/>
@@ -203,7 +204,7 @@
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -211,18 +212,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral to Neurology: Evaluate for mild traumatic brain injury with current symptomatology (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="183521007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to neurology service (procedure)"/>
+              <display  value="Referral to neurology service (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -230,7 +231,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Polytrauma/Physical Medicine and Rehabilitation: Evaluate and manage rehabilitation needs for mild traumatic brain injury with current symptomatology (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -248,12 +249,12 @@
             </coding>
             <coding>
               <code value="1f337dfd3238 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to polytrauma physical medicine and rehabilitation service (procedure)"/>
+              <display  value="Referral to polytrauma physical medicine and rehabilitation service (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -261,18 +262,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Physical Therapy: Evaluate and manage mobility issues related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="444831000124102 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral for physical therapy (procedure)"/>
+              <display  value="Referral for physical therapy (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -280,18 +281,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Occupational Therapy: Evaluate and manage activities of daily living issues related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="453581000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral for occupational therapy (procedure)"/>
+              <display  value="Referral for occupational therapy (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -299,18 +300,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Speech–Language Pathology: Evaluate and manage speech, language, and cognitive issues related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="306173009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to speech and language therapy service (procedure)"/>
+              <display  value="Referral to speech and language therapy service (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -318,18 +319,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Speech–Language Pathology: Evaluate and manage speech, language, and cognitive issues related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="306173009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to speech and language therapy service (procedure)"/>
+              <display  value="Referral to speech and language therapy service (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -337,18 +338,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Speech–Language Pathology: Evaluate and manage speech, language, and cognitive issues related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="306173009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to speech and language therapy service (procedure)"/>
+              <display  value="Referral to speech and language therapy service (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -356,18 +357,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Mental Health: Evaluate and manage mental health issues related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="390866009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to mental health team (procedure)"/>
+              <display  value="Referral to mental health team (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -375,7 +376,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Consult Social Work/Case Management: Evaluate need for social services related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -393,12 +394,12 @@
             </coding>
             <coding>
               <code value="4135409ce715 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Social services consultation and report (procedure)"/>
+              <display  value="Social services consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -406,7 +407,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Consult Integrative Health: Evaluate wellness needs related to mild traumatic brain injury (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -424,12 +425,12 @@
             </coding>
             <coding>
               <code value="455a1c298af5 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Integrative health consultation and report (procedure)"/>
+              <display  value="Integrative health consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -437,7 +438,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Rehabilitation Medicine Spasticity Clinic: Evaluate for mild traumatic brain injury with current symptomatology that includes spasticity (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -455,12 +456,12 @@
             </coding>
             <coding>
               <code value="020a657ab6ea "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to rehabilitation medicine spasticity clinic (procedure)"/>
+              <display  value="Referral to rehabilitation medicine spasticity clinic (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -468,7 +469,7 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Referral Polytrauma Interdisciplinary Rehabilitation Clinic: Evaluate for mild traumatic brain injury with current symptomatology (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
@@ -486,12 +487,12 @@
             </coding>
             <coding>
               <code value="6686cfdae3cb "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to polytrauma interdisciplinary rehabilitation clinic (procedure)"/>
+              <display  value="Referral to polytrauma interdisciplinary rehabilitation clinic (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -499,18 +500,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Consult Psychiatry (Psychiatry referral is suggested for patient being referred to the Polytrauma Interdisciplinary Rehabilitation Clinic): Evaluate for psychiatric comorbidity for patients with mild traumatic brain injury with current symptomatology (routine).  (NOTE: Psychiatry referral is suggested for patient being referred to the Polytrauma Interdisciplinary Rehabilitation Clinic)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="108311000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="OR consultation (procedure)"/>
+              <display  value="OR consultation (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -518,18 +519,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Provide a link to relevant educational materials that may be specific to the implementing institution."/>
           <kind/>
           <code/>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value="Psychiatric procedure, interview AND"/>
-</xmi:XMI>
+  </Bundle>
+  <Code value="Psychiatric procedure, interview AND"/>
+

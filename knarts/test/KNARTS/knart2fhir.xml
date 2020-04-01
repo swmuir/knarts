@@ -1,79 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="project" default="default" xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
-	
-	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="/path/to/ant-contrib/ant-contrib-1.0b3.jar"/>
-	
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="/path/to/ant-contrib/ant-contrib-1.0b3.jar" />
+
 	<target name="default">
-		  
+
 		<foreach target="knart2fhir" param="theFile" inheritall="true">
-		      <path>
-		          <fileset dir="vhaknarts">
-		               <include name="*.r1"/>
-		          </fileset>
-		      </path>
-		 </foreach>
+			<path>
+				<fileset dir="foo">
+					<include name="*.r1" />
+				</fileset>
+			</path>
+		</foreach>
+
+
+		<echo message="here">
+		</echo>
+		<replace dir="fhirbundles" token="fhiRCore.resources:" value="">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='xsi:type="fhiRCore.dataTypes:Url"' value="">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='xsi:type="fhiRCore.dataTypes:Code"' value="">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources:="http:///fhiRCore/resources.ecore"' value="">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='xmlns:fhiRCore.resources:="http:///fhiRCore/resources.ecore"' value="">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='&lt;xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" &gt;' value="">
+			<include name="*.xml" />
+
+		</replace>
+
+
+		<replace dir="fhirbundles" token='xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore"' value="">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore"' value="">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='fhiRCore.dataTypes:Code' value="Code">
+			<include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='&lt;xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >'>
+													  <include name="*.xml" />
+
+		</replace>
+
+		<replace dir="fhirbundles" token='&lt;/xmi:XMI>'>
+															  <include name="*.xml" />
+
+		</replace>
+
+
+
+		<replace dir="fhirbundles" token='&lt;xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >'>
+															  <include name="*.xml" />
+
+		</replace>
+
+
+
+
+
 	</target>
-	
-	
+
+
 	<target name="bar">
-	  <echo message="${theFile}"/>
+		<echo message="${theFile}" />
 	</target>
-	
-	
+
+
 	<target name="knart2fhir">
 
-		 <echo message="${theFile}"/>
-		
-		<basename property="fhirTarget" file="${theFile}"
-		          suffix=".r1"/>
-		
-		 <echo message="${fhirTarget}"/>
-		
-		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
-						<in uri="file:${theFile}" />
-						<out uri="platform:/resource/KNARTS/fhirbundles/${fhirTarget}.xml" />
-					</qvto:transformation>
-			
-			
-	 
-			 
-			
-			
+		<echo message="${theFile}" />
 
-		</target>
-	
+		<basename property="fhirTarget" file="${theFile}" suffix=".r1" />
+
+		<echo message="${fhirTarget}" />
+
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+			<in uri="file:${theFile}" />
+			<out uri="platform:/resource/KNARTS/test/${fhirTarget}.xml" />
+		</qvto:transformation>
+
+
+
+
+
+
+
+	</target>
+
 	<target name="defaultb">
 
-		 
+
 
 		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
 			<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/EyeKNART.r1" />
-				<out uri="platform:/resource/KNARTS/knart2fhir/EyeCareOrderSet.xml" />
-					</qvto:transformation>
+			<out uri="platform:/resource/KNARTS/knart2fhir/EyeCareOrderSet.xml" />
+		</qvto:transformation>
 
-		
-		
-		
-	<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
-				<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/GastroenterologyHepatitisCElbasvirGrazoprevirOrderSet.r1" />
-				<out uri="platform:/resource/KNARTS/knart2fhir/GastroenterologyHepatitisCElbasvirGrazoprevirOrderSet.xml" />
-			</qvto:transformation>
-		
-		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
-				<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/RheumatologyPsoriaticArthritisOrderSet.r1" />
-				<out uri="platform:/resource/KNARTS/knart2fhir/RheumatologyPsoriaticArthritisOrderSet.xml" />
-			</qvto:transformation>
-		
-		
-		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
-				<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/MentalHealthHomelessnessDocumentationTemplate.r1" />
-				<out uri="platform:/resource/KNARTS/knart2fhir/MentalHealthHomelessnessDocumentationTemplate.xml" />
-			</qvto:transformation>
 
-	
-		 
-		
-		
+
+
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+			<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/GastroenterologyHepatitisCElbasvirGrazoprevirOrderSet.r1" />
+			<out uri="platform:/resource/KNARTS/knart2fhir/GastroenterologyHepatitisCElbasvirGrazoprevirOrderSet.xml" />
+		</qvto:transformation>
+
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+			<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/RheumatologyPsoriaticArthritisOrderSet.r1" />
+			<out uri="platform:/resource/KNARTS/knart2fhir/RheumatologyPsoriaticArthritisOrderSet.xml" />
+		</qvto:transformation>
+
+
+		<qvto:transformation uri="platform:/plugin/gov.hl7.knart2fhir.transformation/transforms/Knart2FHIR.qvto">
+			<in uri="platform:/resource/gov.hl7.knart2fhir.transformation/example/MentalHealthHomelessnessDocumentationTemplate.r1" />
+			<out uri="platform:/resource/KNARTS/knart2fhir/MentalHealthHomelessnessDocumentationTemplate.xml" />
+		</qvto:transformation>
+
+
+
+
+
 
 	</target>
 

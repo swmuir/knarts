@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="5e1276d7-e331-5dd6-a774-4404ab0b36d0"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -50,9 +51,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -63,9 +64,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -76,16 +77,16 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="5351000124100 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care clinic (environment)"/>
+              <display  value="Primary care clinic (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
         <action>
           <action>
             <title value="Demographics"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="Other Current Clinical Providers?"/>
             </action>
@@ -97,15 +98,15 @@
             <title value="History"/>
             <action>
               <title value="Visit Reason/Chief Complaint"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="History of Present Illness"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Past Medical History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Mental Health History"/>
                 <action>
@@ -121,14 +122,14 @@
             </action>
             <action>
               <title value="Military History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Military History"/>
               </action>
             </action>
             <action>
               <title value="Medication History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Medication History"/>
               </action>
@@ -138,83 +139,83 @@
             </action>
             <action>
               <title value="Surgical History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Family Medical History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Preventive Services History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Personal and Social History"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Living Situation/Social Support/Financial Support"/>
               </action>
               <action>
                 <title value="Substance Use"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
                 <title value="Sexual and Abuse History"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
               <action>
                 <title value="Disability Rating"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
             <action>
               <title value="Review of Systems"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Screening"/>
             <action>
               <title value="Screening"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Functional Assessment"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Advance Directive Confirmed Accessible to Providers"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Physical Examination"/>
             <action>
               <title value="Vital Signs"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Physical Exam"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Laboratory Results"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Imaging Results"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Assessment and Plan"/>
             <action>
               <title value="Assessment"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Plan of Treatment"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="Medications Plan"/>
               </action>
@@ -227,7 +228,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -235,7 +236,7 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Demographics"/>
         <item>
           <text value="Other Current Clinical Providers?"/>
@@ -243,7 +244,7 @@
         <item>
           <text value="Preferred Language"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -251,19 +252,19 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="History"/>
         <item>
           <text value="Visit Reason/Chief Complaint"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="History of Present Illness"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Past Medical History"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Mental Health History"/>
             <item>
@@ -288,7 +289,7 @@
         </item>
         <item>
           <text value="Military History"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Military History"/>
           </item>
@@ -322,7 +323,7 @@
         </item>
         <item>
           <text value="Medication History"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Medication History"/>
           </item>
@@ -344,33 +345,33 @@
         </item>
         <item>
           <text value="Surgical History"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Family Medical History"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Preventive Services History"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Personal and Social History"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Living Situation/Social Support/Financial Support"/>
           </item>
           <item>
             <text value="Substance Use"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Sexual and Abuse History"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text value="Disability Rating"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -408,9 +409,9 @@
         </item>
         <item>
           <text value="Review of Systems"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -418,21 +419,21 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Screening"/>
         <item>
           <text value="Screening"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Functional Assessment"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Advance Directive Confirmed Accessible to Providers"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -440,25 +441,25 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Physical Examination"/>
         <item>
           <text value="Vital Signs"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Physical Exam"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Laboratory Results"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Imaging Results"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -466,15 +467,15 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Assessment and Plan"/>
         <item>
           <text value="Assessment"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Plan of Treatment"/>
-          <type value="any"/>
+          <type value="choice"/>
           <item>
             <text value="Medications Plan"/>
           </item>
@@ -497,10 +498,10 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

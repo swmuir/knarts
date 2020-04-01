@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="c9ea7de5-6287-5165-bf86-200e32cc4107"/>
           <assigner>
@@ -60,7 +61,7 @@
             <action>
               <title value="EP Follow-up Referral"/>
               <description value="Electrophysiology follow-up consult order."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="1241000205102 |Electrophysiology service consultation and report (procedure)"/>
                 <description value="Referral to Electrophysiology"/>
@@ -79,14 +80,14 @@
               <action>
                 <title value="Consult Specialty: Electrophysiology"/>
                 <description value="Priority: Routine"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
               </action>
             </action>
           </action>
           <action>
             <title value="Imaging and Electrocardiogram"/>
             <description value="Consider ordering prior to the electrophysiology consultation. Resting 12-lead electrocardiogram is required if it has not been obtained within the past two months. Resting echocardiogram and chest x-ray are required if they have not been obtained within the past six months."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="447113005 |12 lead electrocardiogram at rest (procedure)|"/>
               <description value="Resting 12-lead electrocardiogram to evaluate for antiarrhythmic benefit of previously implanted ICD device."/>
@@ -154,7 +155,7 @@
           <action>
             <title value="Laboratory Tests"/>
             <description value="Consider the following tests to be completed prior to the electrophysiology consultation."/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="1411000205104 |Comprehensive metabolic panel (procedure)"/>
               <description value="Comprehensive metabolic panel"/>
@@ -185,7 +186,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -193,11 +194,11 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Electrophysiology Follow-up Consult Order"/>
         <item>
           <text value="EP Follow-up Referral"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Reason for Consultation"/>
@@ -206,7 +207,7 @@
           <text value="Goal of Consult"/>
           <item>
             <text value="Consult Specialty: Electrophysiology"/>
-            <type value="any"/>
+            <type value="choice"/>
           </item>
           <item>
             <text/>
@@ -224,7 +225,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -232,9 +233,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Imaging and Electrocardiogram"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -242,12 +243,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Laboratory Tests"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

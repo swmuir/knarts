@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+  <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="53e4c891-786c-5d47-8998-d72439fd8731"/>
             <assigner>
@@ -44,9 +44,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="225728007 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Accident and Emergency department (environment)"/>
+                <display  value="Accident and Emergency department (environment)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -69,9 +69,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="50811001 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Routine (qualifier value)"/>
+                <display  value="Routine (qualifier value)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -96,7 +96,7 @@
             </action>
             <action>
               <title value="Consults and Referrals"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="1351000205108 |Allergy service consultation and report (procedure)"/>
                 <description value="consult Allergy Service to evaluate patient following episode of anaphylaxis (routine)"/>
@@ -114,7 +114,7 @@
             </action>
             <action>
               <title value="Patient and Caregiver Education"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="1251000205104 |Education about epinephrine autoinjector use (procedure)"/>
                 <description value="Use of epinephrine autoinjector education (routine)"/>
@@ -166,7 +166,7 @@
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -174,56 +174,56 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="epinephrine auto-injector 0.3 mg solution intramuscular 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                     "/>
+              <display  value="Administration (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                     "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;1989112 0.3 ML EPINEPHrine 1 MG"/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="ML Prefilled Syringe]                                     "/>
+              <display  value="ML Prefilled Syringe]                                     "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="78421000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Intramuscular route (qualifier value)]                                     "/>
+              <display  value="Intramuscular route (qualifier value)]                                     "/>
             </coding>
             <coding>
               <code value="(405813007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+              <display  value="Procedure site "/>
             </coding>
             <coding>
               <code value=" Direct (attribute))"/>
             </coding>
             <coding>
               <code value="68367000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Thigh structure (body structure)]"/>
+              <display  value="Thigh structure (body structure)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -231,56 +231,56 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="epinephrine auto-injector 0.3 mg solution subcutaneous 1 time inject into anterolateral thigh as needed; repeat once if needed; seek medical care immediately upon use. Quantity 2 auto-injectors with 2 refills (routine)"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                     "/>
+              <display  value="Administration (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                     "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;1989112 0.3 ML EPINEPHrine 1 MG"/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="ML Prefilled Syringe]                                     "/>
+              <display  value="ML Prefilled Syringe]                                     "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="34206005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Subcutaneous route (qualifier value))]                                     "/>
+              <display  value="Subcutaneous route (qualifier value))]                                     "/>
             </coding>
             <coding>
               <code value="(405813007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Procedure site "/>
+              <display  value="Procedure site "/>
             </coding>
             <coding>
               <code value=" Direct (attribute))"/>
             </coding>
             <coding>
               <code value="68367000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Thigh structure (body structure)]"/>
+              <display  value="Thigh structure (body structure)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -288,18 +288,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="consult Allergy Service to evaluate patient following episode of anaphylaxis (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="1351000205108 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Allergy service consultation and report (procedure)"/>
+              <display  value="Allergy service consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -307,18 +307,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="consult Immunology Service to evaluate patient following episode of anaphylaxis (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="1361000205106 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Immunology service consultation and report (procedure)"/>
+              <display  value="Immunology service consultation and report (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -326,18 +326,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Use of epinephrine autoinjector education (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="1251000205104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Education about epinephrine autoinjector use (procedure)"/>
+              <display  value="Education about epinephrine autoinjector use (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -345,26 +345,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Anaphylaxis action plan education (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="409073007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Education (procedure)]                                     "/>
+              <display  value="Education (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+              <display  value="Has focus (attribute))"/>
             </coding>
             <coding>
               <code value="386512002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)]"/>
+              <display  value="therapy)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -372,26 +372,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Medications that can interfere with anaphylaxis treatment education (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="428391000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Medication interaction with medication education (procedure)]                                     "/>
+              <display  value="Medication interaction with medication education (procedure)]                                     "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+              <display  value="Has focus (attribute))"/>
             </coding>
             <coding>
               <code value="737855007 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="therapy)]"/>
+              <display  value="therapy)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -399,18 +399,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Avoidance of potential triggers education (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="1381000205101 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Allergy trigger education (procedure)"/>
+              <display  value="Allergy trigger education (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -418,18 +418,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Medical identification jewelry education (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="1391000205104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Education about medical identification jewelry (procedure)"/>
+              <display  value="Education about medical identification jewelry (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -437,18 +437,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Medication cross-reactivity education (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="428391000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Medication interaction with medication education (procedure)"/>
+              <display  value="Medication interaction with medication education (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -456,24 +456,22 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Food cross-reactivity education (routine)"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="1401000205101 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Food interaction with food education (procedure)"/>
+              <display  value="Food interaction with food education (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value="Anaphylaxis management (regime"/>
-  <fhiRCore.dataTypes:Code value="Anaphylaxis care (regime"/>
-</xmi:XMI>
+  </Bundle>
+

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
-  <fhiRCore.resources:Bundle>
+
+  <Bundle>
+    <type value="collection"/>
     <entry>
       <resource>
-        <planDefinition>
+        <PlanDefinition>
           <identifier>
             <value value="adf20fe0-7b1c-555b-958c-1fdc00de60bf"/>
             <assigner>
@@ -44,9 +45,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="248152002 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Female (finding)"/>
+                <display  value="Female (finding)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -57,9 +58,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="33022008 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+                <display  value="Hospital-based outpatient department (environment)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -70,9 +71,9 @@
             </code>
             <valueCodeableConcept>
               <coding>
-                <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+                <system  value="SNOMED CT"/>
                 <code value="453231000124104 "/>
-                <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+                <display  value="Primary care provider (occupation)"/>
               </coding>
             </valueCodeableConcept>
           </useContext>
@@ -111,7 +112,7 @@
               </action>
               <action>
                 <title value="Sexually Transmitted Infection Screening"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[398452009 |Chlamydia trachomatis nucleic acid assay (procedure)]->(116686009 |Has specimen (attribute))->[ 258520000 |Vaginal swab (specimen)]"/>
                   <description value="chlamydia nucleic acid amplification testing vaginal swab now"/>
@@ -137,7 +138,7 @@
             </action>
             <action>
               <title value="Point of Care Tests"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="104405006 |Urine pregnancy test, by visual color comparison methods (procedure)|"/>
                 <description value="Point of Care Urine pregnancy test now"/>
@@ -184,7 +185,7 @@
               </action>
               <action>
                 <title value="Contraceptive Injection"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129326001 |Injection - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;1000153 1 ML medroxyPROGESTERone acetate 150 MG/ML Prefilled Syringe]                                  ->(410675002 |Route of administration (attribute))->[78421000 |Intramuscular route (qualifier value)]"/>
                   <description value="Medroxyprogesterone acetate injectable suspension 150 mg/mL. Give 1 mL solution intramuscular every 3 months, first dose now"/>
@@ -269,7 +270,7 @@
               </action>
               <action>
                 <title value="Combined Contraceptive Vaginal Ring"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[257867005 |Insertion - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;1367436 21 DAY Ethinyl Estradiol 0.000625 MG/HR / Etonogestrel 0.005 MG/HR Vaginal Ring]"/>
                   <description value="Ethinyl estradiol 0.015 mg/day/etonogestrel ethinyl 0.120 mg/day.  1 vaginal ring.  Insert ring into vagina. Leave in place continuously for 3 weeks. Remove for 1 week. Then immediately replace. Dispense 1 box.  3 refills"/>
@@ -280,7 +281,7 @@
               </action>
               <action>
                 <title value="Progestin-Only Contraceptive Pill"/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;198042 Norethindrone 0.35 MG Oral Tablet]"/>
                   <description value="Norethindrone 0.35 mg. Take 1 tablet oral daily 1 time. Take pills in sequence. Do not skip pills.  Dispense 3 kits. 3 refills"/>
@@ -313,7 +314,7 @@
               <title value="Procedures"/>
               <action>
                 <title value="Select procedures from the following list.  All procedures are priority of &quot;now&quot; unless otherwise specified."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="[410538000 |Scheduling (procedure)]                                  ->(363702006 |Has focus (attribute))->[65200003 |Insertion of intrauterine contraceptive device (procedure)]"/>
                   <description value="Essure permanent contraceptive device. Schedule for insertion now"/>
@@ -352,7 +353,7 @@
               </action>
             </action>
           </action>
-        </planDefinition>
+        </PlanDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -360,18 +361,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="quantitative human chorionic gonadotropin-serum now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="167037004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of serum total human chorionic gonadotropin (procedure)"/>
+              <display  value="Measurement of serum total human chorionic gonadotropin (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -379,18 +380,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="qualitative human chorionic gonadotropin-urine now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="104405006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Urine pregnancy test, by visual color comparison methods"/>
+              <display  value="Urine pregnancy test, by visual color comparison methods"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -398,26 +399,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="chlamydia nucleic acid amplification testing vaginal swab now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="398452009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Chlamydia trachomatis nucleic acid assay (procedure)]"/>
+              <display  value="Chlamydia trachomatis nucleic acid assay (procedure)]"/>
             </coding>
             <coding>
               <code value="(116686009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Has specimen (attribute))"/>
+              <display  value="Has specimen (attribute))"/>
             </coding>
             <coding>
               <code value=" 258520000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Vaginal swab (specimen)]"/>
+              <display  value="Vaginal swab (specimen)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -425,26 +426,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="gonorrhea nucleic acid amplification testing vaginal swab now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="398381009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Neisseria gonorrhoeae nucleic acid assay (procedure)] "/>
+              <display  value="Neisseria gonorrhoeae nucleic acid assay (procedure)] "/>
             </coding>
             <coding>
               <code value="(116686009 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Has specimen (attribute))"/>
+              <display  value="Has specimen (attribute))"/>
             </coding>
             <coding>
               <code value=" 258520000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Vaginal swab (specimen)]"/>
+              <display  value="Vaginal swab (specimen)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -452,18 +453,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="HIV screen-serum now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="171121004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Human immunodeficiency virus screening (procedure)"/>
+              <display  value="Human immunodeficiency virus screening (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -471,18 +472,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Point of Care Urine pregnancy test now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="104405006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Urine pregnancy test, by visual color comparison methods (procedure)"/>
+              <display  value="Urine pregnancy test, by visual color comparison methods (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -490,28 +491,28 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Etonogestrel 68 mg implant subdermal for implantation now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="71861002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Implantation (procedure)]                                  "/>
+              <display  value="Implantation (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="257867005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Insertion "/>
+              <display  value="Insertion "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;389221 Etonogestrel 68 MG Drug Implant]"/>
@@ -519,7 +520,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -527,37 +528,37 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Levonorgestrel 20 micrograms/day device intrauterine for insertion now"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="257867005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Insertion "/>
+              <display  value="Insertion "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;804156 Levonorgestrel 0.000833 MG"/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="HR Intrauterine System]"/>
+              <display  value="HR Intrauterine System]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -565,37 +566,37 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Levonorgestrel 14 micrograms/day device intrauterine for insertion now"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="257867005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Insertion "/>
+              <display  value="Insertion "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;1366334 Levonorgestrel 0.000583 MG"/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="HR Intrauterine System]"/>
+              <display  value="HR Intrauterine System]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -603,18 +604,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Copper T 380A device intrauterine for insertion now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="65200003 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Insertion of intrauterine contraceptive device (procedure)"/>
+              <display  value="Insertion of intrauterine contraceptive device (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -622,45 +623,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Medroxyprogesterone acetate injectable suspension 150 mg/mL. Give 1 mL solution intramuscular every 3 months, first dose now"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129326001 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Injection "/>
+              <display  value="Injection "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;1000153 1 ML medroxyPROGESTERone acetate 150 MG"/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="ML Prefilled Syringe]                                  "/>
+              <display  value="ML Prefilled Syringe]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="78421000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Intramuscular route (qualifier value)]"/>
+              <display  value="Intramuscular route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -668,45 +669,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Desogestrel 0.15 mg/ethinyl estradiol 0.03 mg. Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;240707 Desogestrel 0.15 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" Ethinyl Estradiol 0.03 MG Oral Tablet]                                  "/>
+              <display  value=" Ethinyl Estradiol 0.03 MG Oral Tablet]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;240707 Desogestrel 0.15 MG / Ethinyl Estradiol 0.03 MG Oral Tablet]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -724,7 +725,7 @@
                 <periodUnit value="258773002 |Milliliter (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -735,17 +736,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -753,45 +754,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.02 mg/levonorgestrel 0.1 mg. Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;242297 Ethinyl Estradiol 0.02 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" Levonorgestrel 0.1 MG Oral Tablet]                                  "/>
+              <display  value=" Levonorgestrel 0.1 MG Oral Tablet]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;242297 Ethinyl Estradiol 0.02 MG / Levonorgestrel 0.1 MG Oral Tablet]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -809,7 +810,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -820,17 +821,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -838,45 +839,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.03 mg/levonorgestrel 0.15 mg. Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;238019 Ethinyl Estradiol 0.03 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" Levonorgestrel 0.15 MG Oral Tablet]                                  "/>
+              <display  value=" Levonorgestrel 0.15 MG Oral Tablet]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;238019 Ethinyl Estradiol 0.03 MG / Levonorgestrel 0.15 MG Oral Tablet]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -894,7 +895,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -905,17 +906,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -923,45 +924,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.03 mg/levonorgestrel 0.05 mg, ethinyl estradiol 0.04 mg/levonorgestrel 0.075 mg, ethinyl estradiol 0.03 mg/levonorgestrel 0.125 mg (triphasic).  Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;748832 {6 (Ethinyl Estradiol 0.03 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  "/>
+              <display  value=" 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;748832 {6 (Ethinyl Estradiol 0.03 MG / Levonorgestrel 0.05 MG Oral Tablet) / 10 (Ethinyl Estradiol 0.03 MG / Levonorgestrel 0.125 MG Oral Tablet) / 5 (Ethinyl Estradiol 0.04 MG / Levonorgestrel 0.075 MG Oral Tablet) / 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -979,7 +980,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -990,17 +991,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1008,13 +1009,13 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.035 mg/norethindrone 1 mg. Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind/>
           <code/>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1022,45 +1023,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.035 mg/norethindrone 0.5 mg, ethinyl estradiol 0.035 mg/norethindrone 0.75 mg, ethinyl estradiol 0.035 mg/norethindrone 1 mg (triphasic). Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;749852 {7 (Ethinyl Estradiol 0.035 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  "/>
+              <display  value=" 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;749852 {7 (Ethinyl Estradiol 0.035 MG / Norethindrone 0.5 MG Oral Tablet) / 7 (Ethinyl Estradiol 0.035 MG / Norethindrone 0.75 MG Oral Tablet) / 7 (Ethinyl Estradiol 0.035 MG / Norethindrone 1 MG Oral Tablet) / 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -1078,7 +1079,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1089,17 +1090,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1107,45 +1108,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.035 mg/norgestimate 0.25 mg. Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;240128 Ethinyl Estradiol 0.035 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" norgestimate 0.25 MG Oral Tablet]                                  "/>
+              <display  value=" norgestimate 0.25 MG Oral Tablet]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;240128 Ethinyl Estradiol 0.035 MG / norgestimate 0.25 MG Oral Tablet]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -1163,7 +1164,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1174,17 +1175,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1192,45 +1193,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.035 mg/norgestimate 0.18 mg, ethinyl estradiol 0.035 mg/norgestimate 0.215 mg, ethinyl estradiol 0.035 mg/norgestimate 0.25 mg (triphasic).  Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;749784 {7 (Ethinyl Estradiol 0.035 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  "/>
+              <display  value=" 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;749784 {7 (Ethinyl Estradiol 0.035 MG / norgestimate 0.18 MG Oral Tablet) / 7 (Ethinyl Estradiol 0.035 MG / norgestimate 0.215 MG Oral Tablet) / 7 (Ethinyl Estradiol 0.035 MG / norgestimate 0.25 MG Oral Tablet) / 7 (Inert Ingredients 1 MG Oral Tablet) } Pack]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -1248,7 +1249,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1259,17 +1260,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1277,45 +1278,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Mestranol 0.05 mg/norethindrone 1 mg. Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;198043 Mestranol 0.05 MG "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" Norethindrone 1 MG Oral Tablet]                                  "/>
+              <display  value=" Norethindrone 1 MG Oral Tablet]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;198043 Mestranol 0.05 MG / Norethindrone 1 MG Oral Tablet]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -1333,7 +1334,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1344,17 +1345,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1362,45 +1363,45 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.03 mg/levonorgestrel 0.15 mg, ethinyl estradiol 0.01 mg.  Take 1 tablet oral daily 1 time. Take pills in sequence.  Do not skip pills.  Dispense 3 kits.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;749761 {7 (Ethinyl Estradiol 0.01 MG Oral Tablet) "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value=" Levonorgestrel 0.15 MG Oral Tablet) } Pack]                                  "/>
+              <display  value=" Levonorgestrel 0.15 MG Oral Tablet) } Pack]                                  "/>
             </coding>
             <coding>
               <code value="(410675002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Route of administration (attribute))"/>
+              <display  value="Route of administration (attribute))"/>
             </coding>
             <coding>
               <code value="26643006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Oral route (qualifier value)]"/>
+              <display  value="Oral route (qualifier value)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;749761 {7 (Ethinyl Estradiol 0.01 MG Oral Tablet) / 84 (Ethinyl Estradiol 0.03 MG / Levonorgestrel 0.15 MG Oral Tablet) } Pack]                                  ->(410675002 |Route of administration (attribute))->[26643006 |Oral route (qualifier value)]"/>
             </coding>
@@ -1418,7 +1419,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1429,17 +1430,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1447,37 +1448,37 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Ethinyl estradiol 0.015 mg/day/etonogestrel ethinyl 0.120 mg/day.  1 vaginal ring.  Insert ring into vagina. Leave in place continuously for 3 weeks. Remove for 1 week. Then immediately replace. Dispense 1 box.  3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="257867005 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Insertion "/>
+              <display  value="Insertion "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;1367436 21 DAY Ethinyl Estradiol 0.000625 MG"/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="HR Vaginal Ring]"/>
+              <display  value="HR Vaginal Ring]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[257867005 |Insertion - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;1367436 21 DAY Ethinyl Estradiol 0.000625 MG/HR / Etonogestrel 0.005 MG/HR Vaginal Ring]"/>
             </coding>
@@ -1495,7 +1496,7 @@
                 <periodUnit/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1506,17 +1507,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1524,28 +1525,28 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Norethindrone 0.35 mg. Take 1 tablet oral daily 1 time. Take pills in sequence. Do not skip pills.  Dispense 3 kits. 3 refills"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;198042 Norethindrone 0.35 MG Oral Tablet]"/>
@@ -1553,7 +1554,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;198042 Norethindrone 0.35 MG Oral Tablet]"/>
             </coding>
@@ -1571,7 +1572,7 @@
                 <periodUnit value="258703001 |day (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1582,17 +1583,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1600,28 +1601,28 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Levonorgestrel 0.75 mg tablet.  Take one tablet oral every 12 hours.  Take first tablet as soon as possible after and within 72 hours of unprotected intercourse.  Take second tablet 12 hours after first tablet.  Dispense 1 box containing 2 tablets.  1 refill now"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;259218 Levonorgestrel 0.75 MG Oral Tablet]"/>
@@ -1629,7 +1630,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;259218 Levonorgestrel 0.75 MG Oral Tablet]"/>
             </coding>
@@ -1647,7 +1648,7 @@
                 <periodUnit value="258702006 |hour (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1658,17 +1659,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1676,28 +1677,28 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Levonorgestrel 1.5 mg tablet oral 1 time.  Take as soon as possible after and within 72 hours of unprotected intercourse.  Dispense 1 box containing 1 tablet. 1 refill now"/>
           <kind value="MedicationRequest"/>
           <code>
             <coding>
               <code value="416118004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration (procedure)]                                  "/>
+              <display  value="Administration (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(260686004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Method (attribute))"/>
+              <display  value="Method (attribute))"/>
             </coding>
             <coding>
               <code value="129445006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Administration "/>
+              <display  value="Administration "/>
             </coding>
             <coding>
               <code value=" action (qualifier value)]                                  "/>
             </coding>
             <coding>
               <code value="(363701004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct substance (attribute))"/>
+              <display  value="Direct substance (attribute))"/>
             </coding>
             <coding>
               <code value="Rx;483325 Levonorgestrel 1.5 MG Oral Tablet]"/>
@@ -1705,7 +1706,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-          <productx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+          <productx >
             <coding>
               <code value="[416118004 |Administration (procedure)]                                  ->(260686004 |Method (attribute))->[129445006 |Administration - action (qualifier value)]                                  ->(363701004 |Direct substance (attribute))->[Rx;483325 Levonorgestrel 1.5 MG Oral Tablet]"/>
             </coding>
@@ -1723,7 +1724,7 @@
                 <periodUnit value="246432004 |Number of occurrences (qualifier value)|"/>
               </repeat>
             </timing>
-            <asNeededx xsi:type="fhiRCore.dataTypes:CodeableConcept">
+            <asNeededx >
               <coding>
                 <code/>
               </coding>
@@ -1734,17 +1735,17 @@
               </coding>
             </route>
             <doseAndRate>
-              <dosex xsi:type="fhiRCore.dataTypes:Range">
-                <low xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+              <dosex >
+                <low >
                   <value value="1.0"/>
                 </low>
-                <high xsi:type="fhiRCore.dataTypes:SimpleQuantity">
+                <high >
                   <value value="1.0"/>
                 </high>
               </dosex>
             </doseAndRate>
           </dosage>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1752,26 +1753,26 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Essure permanent contraceptive device. Schedule for insertion now"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="410538000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Scheduling (procedure)]                                  "/>
+              <display  value="Scheduling (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(363702006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+              <display  value="Has focus (attribute))"/>
             </coding>
             <coding>
               <code value="65200003 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Insertion of intrauterine contraceptive device (procedure)]"/>
+              <display  value="Insertion of intrauterine contraceptive device (procedure)]"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1779,21 +1780,21 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Contraceptive implant implantation"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="71861002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Implantation (procedure)]                                  "/>
+              <display  value="Implantation (procedure)]                                  "/>
             </coding>
             <coding>
               <code value="(363699004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Direct device (attribute))"/>
+              <display  value="Direct device (attribute))"/>
             </coding>
             <coding>
               <code value="468312002 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Drug"/>
+              <display  value="Drug"/>
             </coding>
             <coding>
               <code value="eluting contraceptive implant (physical object)]"/>
@@ -1801,7 +1802,7 @@
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1809,18 +1810,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Intrauterine device insertion"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="65200003 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Insertion of intrauterine contraceptive device (procedure)"/>
+              <display  value="Insertion of intrauterine contraceptive device (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1828,18 +1829,18 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Diaphragm fitting"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="275811000 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Diaphragm fit (procedure)"/>
+              <display  value="Diaphragm fit (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
@@ -1847,40 +1848,22 @@
     </entry>
     <entry>
       <resource>
-        <activityDefinition>
+        <ActivityDefinition>
           <title value="Cervical cap fitting"/>
           <kind value="ServiceRequest"/>
           <code>
             <coding>
               <code value="225251006 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Fitting of cervical cap (procedure)"/>
+              <display  value="Fitting of cervical cap (procedure)"/>
             </coding>
           </code>
           <intent value="plan"/>
           <priority value="routine"/>
-        </activityDefinition>
+        </ActivityDefinition>
       </resource>
       <request>
         <method value="POST"/>
       </request>
     </entry>
-  </fhiRCore.resources:Bundle>
-  <fhiRCore.dataTypes:Code value=" Levonorgestrel 0.05 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" 10 (Ethinyl Estradiol 0.03 MG "/>
-  <fhiRCore.dataTypes:Code value=" Levonorgestrel 0.125 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" 5 (Ethinyl Estradiol 0.04 MG "/>
-  <fhiRCore.dataTypes:Code value=" Levonorgestrel 0.075 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" Norethindrone 0.5 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" 7 (Ethinyl Estradiol 0.035 MG "/>
-  <fhiRCore.dataTypes:Code value=" Norethindrone 0.75 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" 7 (Ethinyl Estradiol 0.035 MG "/>
-  <fhiRCore.dataTypes:Code value=" Norethindrone 1 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" norgestimate 0.18 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" 7 (Ethinyl Estradiol 0.035 MG "/>
-  <fhiRCore.dataTypes:Code value=" norgestimate 0.215 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" 7 (Ethinyl Estradiol 0.035 MG "/>
-  <fhiRCore.dataTypes:Code value=" norgestimate 0.25 MG Oral Tablet) "/>
-  <fhiRCore.dataTypes:Code value=" 84 (Ethinyl Estradiol 0.03 MG "/>
-  <fhiRCore.dataTypes:Code value="HR "/>
-  <fhiRCore.dataTypes:Code value=" Etonogestrel 0.005 MG"/>
-</xmi:XMI>
+  </Bundle>
+

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="e9531500-5e74-5d9a-9360-c417a36a5197"/>
           <assigner>
@@ -69,7 +70,7 @@
               <action>
                 <title value="Homeless screen"/>
                 <description value="Ask Patient: In the past 2 months, have you been living in stable housing? By that, we mean housing that is affordable, permanent, safe, decent, and livable."/>
-                <selectionBehavior value="any"/>
+                <selectionBehavior value="at-most-one"/>
                 <action>
                   <title value="Where have you lived for MOST of the past 2 months?"/>
                 </action>
@@ -105,7 +106,7 @@
             <title value="Plan"/>
             <action>
               <title value="Provide homelessness educational materials"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Provide link"/>
@@ -116,15 +117,15 @@
             </action>
             <action>
               <title value="Order consult for homeless program"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Order consult for social work or for nutrition and food services"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -132,13 +133,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Screening"/>
         <item>
           <text value="Homelessness Screening:"/>
           <item>
             <text value="Homeless screen"/>
-            <type value="any"/>
+            <type value="choice"/>
             <item>
               <text value="Where have you lived for MOST of the past 2 months?"/>
             </item>
@@ -213,7 +214,7 @@
             <text/>
           </item>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -221,24 +222,24 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text value="Provide homelessness educational materials"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Order consult for homeless program"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Order consult for social work or for nutrition and food services"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

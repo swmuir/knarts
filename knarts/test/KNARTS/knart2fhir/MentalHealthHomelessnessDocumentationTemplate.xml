@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+  <fhiRCore.resources:Bundle>
+    <entry>
+      <resource planDefinition="/1"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/2"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+    <entry>
+      <resource questionnaire="/3"/>
+      <request>
+        <method value="POST"/>
+      </request>
+    </entry>
+  </fhiRCore.resources:Bundle>
+  <fhiRCore.resources:PlanDefinition>
+    <identifier>
+      <value value="e9531500-5e74-5d9a-9360-c417a36a5197"/>
+      <assigner>
+        <display value="urn:va.gov:kbs:knart:artifact:r1"/>
+      </assigner>
+    </identifier>
+    <identifier>
+      <value value="CLIN0005AJ"/>
+      <assigner>
+        <display value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+      </assigner>
+    </identifier>
+    <identifier>
+      <value value="KP-64"/>
+      <assigner>
+        <display value="urn:cognitivemedicine.com:lab:jira"/>
+      </assigner>
+    </identifier>
+    <name value="Mental Health: Homelessness Documentation Template"/>
+    <title value="Mental Health: Homelessness Documentation Template"/>
+    <type>
+      <coding>
+        <code value="Documentation Template"/>
+      </coding>
+    </type>
+    <status value="draft"/>
+    <description value="The intent of the “Homelessness Documentation Template” is to support decision-making and documentation related to annual homelessness and food insecurity screening for Veterans, and to promote appropriate ordering based on patient-specific risk factors and preferences."/>
+    <useContext>
+      <code>
+        <code value="TargetUser"/>
+        <display value="Mental Health Providers; Primary Care Providers (PCPs)"/>
+      </code>
+    </useContext>
+    <useContext>
+      <code>
+        <code value="PatientAgeGroup"/>
+        <display value="All patients"/>
+      </code>
+    </useContext>
+    <useContext>
+      <code>
+        <code value="ClinicalFocus"/>
+        <display value="Routine"/>
+      </code>
+    </useContext>
+    <useContext>
+      <code>
+        <code value="WorkflowSetting"/>
+        <display value="Mental Health; Primary Care"/>
+      </code>
+    </useContext>
+    <useContext>
+      <code>
+        <code value="ClinicalVenue"/>
+        <display value="All locations"/>
+      </code>
+    </useContext>
+    <action>
+      <action>
+        <title value="Screening"/>
+        <description value="All Veterans should be screened for homelessness (and near-future risk) annually, unless the Veteran is a long-term resident of a nursing home/long-term care facility"/>
+        <action>
+          <title value="Homelessness Screening:"/>
+          <action>
+            <title value="Homeless screen"/>
+            <description value="Ask Patient: In the past 2 months, have you been living in stable housing? By that, we mean housing that is affordable, permanent, safe, decent, and livable."/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Where have you lived for MOST of the past 2 months?"/>
+            </action>
+            <action>
+              <title value="Ask Patient: Would you like to be referred to talk more about your housing situation?"/>
+            </action>
+          </action>
+          <action>
+            <title value="Ask Patient: What is the best way to reach you?"/>
+            <selectionBehavior value="any"/>
+          </action>
+          <action>
+            <title value="Homeless screen not peformed"/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+        <action>
+          <title value="All Veterans should be screened for food insecurity unless the Veteran is a resident of a nursing home/long-term care facility"/>
+          <action>
+            <title value="Food insecurity screen"/>
+            <description value="Ask Patient “In the past 3 months, did you ever run out of food and you were not able to access more food or have the money to buy more food?"/>
+            <selectionBehavior value="any"/>
+            <action>
+              <title value="Ask patient “Are you confident that you will continue to have enough food or money to buy food for at least the next 3 months?"/>
+            </action>
+            <action>
+              <title value="Ask Patient: Would you like to be referred to talk more about your food shortage situation?"/>
+            </action>
+          </action>
+          <action>
+            <title value="Food insecurity screen not performed"/>
+            <selectionBehavior value="any"/>
+          </action>
+        </action>
+      </action>
+      <action>
+        <title value="Plan"/>
+        <action>
+          <title value="Provide homelessness educational materials"/>
+          <selectionBehavior value="any"/>
+          <action>
+            <title/>
+            <description value="Provide link"/>
+            <definitionCanonical>
+              <display value="Provide link"/>
+            </definitionCanonical>
+          </action>
+        </action>
+        <action>
+          <title value="Order consult for homeless program"/>
+          <selectionBehavior value="any"/>
+        </action>
+        <action>
+          <title value="Order consult for social work or for nutrition and food services"/>
+          <selectionBehavior value="any"/>
+        </action>
+      </action>
+    </action>
+  </fhiRCore.resources:PlanDefinition>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Screening"/>
+    <item>
+      <text value="Homelessness Screening:"/>
+      <item>
+        <text value="Homeless screen"/>
+        <type value="any"/>
+        <item>
+          <text value="Where have you lived for MOST of the past 2 months?"/>
+        </item>
+        <item>
+          <text value="Ask Patient: Would you like to be referred to talk more about your housing situation?"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Ask Patient: What is the best way to reach you?"/>
+        <type value="any"/>
+      </item>
+      <item>
+        <text value="Homeless screen not peformed"/>
+        <type value="any"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+    <item>
+      <text value="All Veterans should be screened for food insecurity unless the Veteran is a resident of a nursing home/long-term care facility"/>
+      <item>
+        <text value="Food insecurity screen"/>
+        <type value="any"/>
+        <item>
+          <text value="Ask patient “Are you confident that you will continue to have enough food or money to buy food for at least the next 3 months?"/>
+        </item>
+        <item>
+          <text value="Ask Patient: Would you like to be referred to talk more about your food shortage situation?"/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+        <item>
+          <text/>
+        </item>
+      </item>
+      <item>
+        <text value="Food insecurity screen not performed"/>
+        <type value="any"/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+      <item>
+        <text/>
+      </item>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+  <fhiRCore.resources:Questionnaire>
+    <title value="Plan"/>
+    <item>
+      <text value="Provide homelessness educational materials"/>
+      <type value="any"/>
+    </item>
+    <item>
+      <text value="Order consult for homeless program"/>
+      <type value="any"/>
+    </item>
+    <item>
+      <text value="Order consult for social work or for nutrition and food services"/>
+      <type value="any"/>
+    </item>
+  </fhiRCore.resources:Questionnaire>
+</xmi:XMI>

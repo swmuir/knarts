@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="2b4b45ef-2005-53fc-9f32-758cf0168a77"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -56,9 +57,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -69,9 +70,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -85,7 +86,7 @@
           <action>
             <title value="Laboratory Tests"/>
             <action>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="66719001 |Microbial ova-parasite examination, fecal (procedure)|"/>
                 <description value="Ova and parasites stool"/>
@@ -97,7 +98,7 @@
           </action>
           <action>
             <title value="Consults and Referrals"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="[bf14b075-048b-4f18-9e4d-a170f3e32887 |Referral to care management service (procedure)]                                     ->(363702006 |Has focus (attribute))->[392134007 |Care regimes management (procedure)]"/>
               <description value="Referral care management services to evaluate need for care management services"/>
@@ -136,7 +137,7 @@
           </action>
           <action>
             <title value="Patient and Caregiver Education"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <title value="[311401005 |Patient education (procedure)]                                     ->(363702006 |Has focus (attribute))->[386661006 |Fever (finding)]"/>
               <description value="Patient education for unexplained fevers in Veterans who served in Iraq or Afghanistan after September 11, 2001"/>
@@ -167,7 +168,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -175,13 +176,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Ova and parasites stool"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="66719001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Microbial ova"/>
+            <display  value="Microbial ova"/>
           </coding>
           <coding>
             <code value="parasite examination, fecal (procedure)"/>
@@ -189,7 +190,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -197,7 +198,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Referral care management services to evaluate need for care management services"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -215,20 +216,20 @@
           </coding>
           <coding>
             <code value="a170f3e32887 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to care management service (procedure)]                                     "/>
+            <display  value="Referral to care management service (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="392134007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Care regimes management (procedure)]"/>
+            <display  value="Care regimes management (procedure)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -236,26 +237,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Referral social services to evaluate need for social services"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="306238000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Referral to Social Services (procedure)]                                     "/>
+            <display  value="Referral to Social Services (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="410606002 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Social service procedure (procedure)]"/>
+            <display  value="Social service procedure (procedure)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -263,7 +264,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Infectious diseases consult for unexplained fevers"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -281,31 +282,31 @@
           </coding>
           <coding>
             <code value="bbca6184db62 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Infectious disease consultation and report (procedure)]                                     "/>
+            <display  value="Infectious disease consultation and report (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="271807003 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Eruption of skin (disorder)]"/>
+            <display  value="Eruption of skin (disorder)]"/>
           </coding>
           <coding>
             <code value="                                     "/>
           </coding>
           <coding>
             <code value="(263502005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Clinical course (attribute))"/>
+            <display  value="Clinical course (attribute))"/>
           </coding>
           <coding>
             <code value="62459000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic persistent (qualifier value)];"/>
+            <display  value="Chronic persistent (qualifier value)];"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -313,7 +314,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Infectious diseases consult for persistent rash"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -331,31 +332,31 @@
           </coding>
           <coding>
             <code value="bbca6184db62 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Infectious disease consultation and report (procedure)]                                     "/>
+            <display  value="Infectious disease consultation and report (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="271807003 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Eruption of skin (disorder)]"/>
+            <display  value="Eruption of skin (disorder)]"/>
           </coding>
           <coding>
             <code value="                                     "/>
           </coding>
           <coding>
             <code value="(263502005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Clinical course (attribute))"/>
+            <display  value="Clinical course (attribute))"/>
           </coding>
           <coding>
             <code value="62459000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic persistent (qualifier value)];"/>
+            <display  value="Chronic persistent (qualifier value)];"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -363,26 +364,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Gastroenterology consult for chronic diarrhea and other gastrointestinal complaints"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="50687007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Digestive tract consultation and report (procedure)]                                     "/>
+            <display  value="Digestive tract consultation and report (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="236071009 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic diarrhea (disorder)]"/>
+            <display  value="Chronic diarrhea (disorder)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -390,26 +391,26 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Patient education for unexplained fevers in Veterans who served in Iraq or Afghanistan after September 11, 2001"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="311401005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+            <display  value="Patient education (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="386661006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Fever (finding)]"/>
+            <display  value="Fever (finding)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -417,30 +418,30 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Patient education for chronic diarrhea and other gastrointestinal complaints in Veterans who served in Iraq or Afghanistan after September 11, 2001"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="311401005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+            <display  value="Patient education (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="236071009 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic diarrhea (disorder)]"/>
+            <display  value="Chronic diarrhea (disorder)]"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -448,13 +449,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Patient education for persistent rash in Veterans who served in Iraq or Afghanistan after September 11, 2001"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -462,40 +463,40 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Patient education for embedded fragments or shrapnel in Veterans who served in Iraq or Afghanistan after September 11, 2001"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="311401005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Patient education (procedure)]                                     "/>
+            <display  value="Patient education (procedure)]                                     "/>
           </coding>
           <coding>
             <code value="(363702006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Has focus (attribute))"/>
+            <display  value="Has focus (attribute))"/>
           </coding>
           <coding>
             <code value="271807003 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Eruption of skin (disorder)]"/>
+            <display  value="Eruption of skin (disorder)]"/>
           </coding>
           <coding>
             <code value="                                     "/>
           </coding>
           <coding>
             <code value="(263502005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Clinical course (attribute))"/>
+            <display  value="Clinical course (attribute))"/>
           </coding>
           <coding>
             <code value="62459000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Chronic persistent (qualifier value)];"/>
+            <display  value="Chronic persistent (qualifier value)];"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

@@ -18,7 +18,7 @@
       <!-- @generated FHIR-Core -->
       <package
             uri="http:///fhiRCore/valueSets.ecore"
-            class="fhiRCore.valueSets.ValueSetsPackage"
+            class="org.eclipse.mdht.hl7.fhir.valueSets.ValueSetsPackage"
             genModel="model/FHIR-Core.genmodel"/>
    </extension>
 
@@ -26,7 +26,7 @@
       <!-- @generated FHIR-Core -->
       <package
             uri="http:///fhiRCore/dataTypes.ecore"
-            class="fhiRCore.dataTypes.DataTypesPackage"
+            class="org.eclipse.mdht.hl7.fhir.dataTypes.DataTypesPackage"
             genModel="model/FHIR-Core.genmodel"/>
    </extension>
 
@@ -34,14 +34,14 @@
       <!-- @generated FHIR-Core -->
       <parser
             type="datatypes"
-            class="fhiRCore.dataTypes.util.DataTypesResourceFactoryImpl"/>
+            class="org.eclipse.mdht.hl7.fhir.dataTypes.util.DataTypesResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated FHIR-Core -->
       <package
             uri="http:///fhiRCore/resources.ecore"
-            class="fhiRCore.resources.ResourcesPackage"
+            class="org.eclipse.mdht.hl7.fhir.resources.ResourcesPackage"
             genModel="model/FHIR-Core.genmodel"/>
    </extension>
 
@@ -49,7 +49,8 @@
       <!-- @generated FHIR-Core -->
       <package
             uri="http:///fhiRCore/profiles.ecore"
-            class="fhiRCore.profiles.ProfilesPackage"
+            class="org.eclipse.mdht.hl7.fhir.profiles.ProfilesPackage"
             genModel="model/FHIR-Core.genmodel"/>
    </extension>
+
 </plugin>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="34482f34-a4e0-50e6-93ba-13510350fddf"/>
           <assigner>
@@ -37,9 +38,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="453231000124104 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Primary care provider (occupation)"/>
+              <display  value="Primary care provider (occupation)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -56,9 +57,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="133936004 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Adult (person)"/>
+              <display  value="Adult (person)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -81,9 +82,9 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
@@ -93,7 +94,7 @@
             <description value="Glecaprevir/pibrentasvir should not be used in patients with decompensated cirrhosis (CTP B or C). Glecaprevir/pibrentasvir should not be used in combination with atazanavir or rifampin. Providers should check http://www.hep-druginteractions.org, https://www.hepatitis.va.gov/provider/guidelines/hcv-treatment-considerations.asp, and/or a pharmacist for additional drug interactions or contraindications before starting glecaprevir/pibrentasvir."/>
             <action>
               <title value="Genotype 1, 2, 3, 4, 5, or 6, Treatment-Naïve, without Cirrhosis."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 1 refills (routine)"/>
@@ -104,7 +105,7 @@
             </action>
             <action>
               <title value="Genotype 1, 2, 3, 4, 5, or 6, Treatment-Naïve, with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
@@ -115,7 +116,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Experienced (NS5A Protease Inhibitor without Prior NS3/4A Protease Inhibitor), without Cirrhosis."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
@@ -126,7 +127,7 @@
             </action>
             <action>
               <title value="Genotype 1, 2, 4, 5, or 6, Treatment-Experienced (Interferon, Pegylated Interferon, Ribavirin, and/or Sofosbuvir), without Cirrhosis."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 1 refills (routine)"/>
@@ -137,7 +138,7 @@
             </action>
             <action>
               <title value="Genotype 3, Treatment-Experienced (Interferon, Pegylated Interferon, Ribavirin, and/or Sofosbuvir), without Cirrhosis."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 3 refills (routine)"/>
@@ -148,7 +149,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Experienced (NS5A Protease Inhibitor without Prior NS3/4A Protease Inhibitor), with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 3 refills (routine)"/>
@@ -159,7 +160,7 @@
             </action>
             <action>
               <title value="Genotype 1, Treatment-Experienced (NS3/4A Protease Inhibitor without Prior NS5A Protease Inhibitor), with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
@@ -170,7 +171,7 @@
             </action>
             <action>
               <title value="Genotype 1, 2, 4, 5, or 6, Treatment-Experienced (Interferon, Pegylated Interferon, Ribavirin, and/or Sofosbuvir), with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
@@ -181,7 +182,7 @@
             </action>
             <action>
               <title value="Genotype 3, Treatment-Experienced (Interferon, Pegylated Interferon, Ribavirin, and/or Sofosbuvir), with Compensated Cirrhosis (CTP A)."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title/>
                 <description value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
@@ -195,7 +196,7 @@
             <title value="Laboratory Tests"/>
             <action>
               <title value="Suggested tests for management of hepatitis C"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="26604007 |Complete blood count (procedure)|"/>
                 <description value="Complete blood count 1 time (routine)"/>
@@ -234,7 +235,7 @@
             </action>
             <action>
               <title value="The following lab is recommended if not performed within the previous 5 years."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="47758006 |Hepatitis B surface antigen measurement (procedure)|"/>
                 <description value="HCV genotype 1 time (routine)"/>
@@ -252,7 +253,7 @@
             </action>
             <action>
               <title value="The following labs are recommended if not performed within the previous 10 years."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="47758006 |Hepatitis B surface antigen measurement (procedure)|"/>
                 <description value="Hepatitis B surface antigen (HBsAg) 1 time (routine)"/>
@@ -312,7 +313,7 @@
             </action>
             <action>
               <title value="The following lab is recommended if not performed within the previous 6 months."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="395197008 |Hepatitis C viral load (procedure)|"/>
                 <description value="HCV viral load (quantitative HCV RNA) 1 time (routine)"/>
@@ -344,7 +345,7 @@
             </action>
             <action>
               <title value="The following lab is recommended if not performed within the previous 2 weeks."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="386558001 |Chorionic gonadotropin, beta-subunit measurement (procedure)|"/>
                 <description value="Qualitative human chorionic gonadotropin 1 time (routine)"/>
@@ -365,7 +366,7 @@
             <title value="Patient and Caregiver Education"/>
             <action>
               <title value="This section should be available to users in gastroenterology settings and for primary care providers who are referring a patient to gastroenterology for management of hepatitis C"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
               <action>
                 <title value="TSR-NoCode"/>
                 <description value="Hepatitis C Information for Veterans"/>
@@ -418,7 +419,7 @@
             </action>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -426,13 +427,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 1 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -440,13 +441,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -454,13 +455,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -468,13 +469,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 1 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -482,13 +483,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 3 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -496,13 +497,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 3 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -510,13 +511,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -524,13 +525,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -538,13 +539,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glecaprevir/pibrentasvir (100 mg/40 mg) 3 tablets oral, daily, 84 tablets 2 refills (routine)"/>
         <kind/>
         <code/>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -552,18 +553,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Complete blood count 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="26604007 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Complete blood count (procedure)"/>
+            <display  value="Complete blood count (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -571,18 +572,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatic function panel 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="26958001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatic function panel (procedure)"/>
+            <display  value="Hepatic function panel (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -590,18 +591,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="International normalized ratio 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="440685005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Calculation of international normalized ratio (procedure)"/>
+            <display  value="Calculation of international normalized ratio (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -609,18 +610,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Basic metabolic panel 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="1421000205106 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Basic metabolic panel (procedure)"/>
+            <display  value="Basic metabolic panel (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -628,18 +629,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Glomerular Filtration rate 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="167181009 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of renal clearance of creatinine (procedure)"/>
+            <display  value="Measurement of renal clearance of creatinine (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -647,18 +648,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="HCV genotype 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="47758006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B surface antigen measurement (procedure)"/>
+            <display  value="Hepatitis B surface antigen measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -666,18 +667,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B surface antigen (HBsAg) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="47758006 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B surface antigen measurement (procedure)"/>
+            <display  value="Hepatitis B surface antigen measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -685,18 +686,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B core antibody (HBcAb) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="59582004 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B core antibody measurement (procedure)"/>
+            <display  value="Hepatitis B core antibody measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -704,18 +705,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis B surface antibody (HBsAb) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="65911000 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis B surface antibody measurement (procedure)"/>
+            <display  value="Hepatitis B surface antibody measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -723,18 +724,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis A antibody (HAVAb) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="697001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis A virus antibody measurement (procedure)"/>
+            <display  value="Hepatitis A virus antibody measurement (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -742,18 +743,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="HCV viral load (quantitative HCV RNA) 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="395197008 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Hepatitis C viral load (procedure)"/>
+            <display  value="Hepatitis C viral load (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -761,18 +762,18 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="HIV test 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="359796005 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Measurement of both Human immunodeficiency virus 1 antibody and Human immunodeficiency virus 2 antibody (procedure)"/>
+            <display  value="Measurement of both Human immunodeficiency virus 1 antibody and Human immunodeficiency virus 2 antibody (procedure)"/>
           </coding>
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -780,13 +781,13 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Qualitative human chorionic gonadotropin 1 time (routine)"/>
         <kind value="ServiceRequest"/>
         <code>
           <coding>
             <code value="386558001 "/>
-            <display xsi:type="fhiRCore.dataTypes:Code" value="Chorionic gonadotropin, beta"/>
+            <display  value="Chorionic gonadotropin, beta"/>
           </coding>
           <coding>
             <code value="subunit measurement (procedure)"/>
@@ -794,7 +795,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -802,7 +803,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Hepatitis C Information for Veterans"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -815,7 +816,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -823,7 +824,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Chronic Hepatitis C and Alcohol Use"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -836,7 +837,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -844,7 +845,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="What to Expect Before Your Treatment for Hepatitis C Virus"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -857,7 +858,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -865,7 +866,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Taking Your Hepatitis C Therapy: Mavyret(TM)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -878,7 +879,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -886,7 +887,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Managing Side Effects of Mavyret(TM)"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -899,7 +900,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -907,7 +908,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="Tracking My Hepatitis C Treatment Results"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -920,7 +921,7 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -928,7 +929,7 @@
   </entry>
   <entry>
     <resource>
-      <activityDefinition>
+      <ActivityDefinition>
         <title value="FAQs about Sustained Virologic Response to Treatment for Hepatitis C"/>
         <kind value="ServiceRequest"/>
         <code>
@@ -941,10 +942,10 @@
         </code>
         <intent value="plan"/>
         <priority value="routine"/>
-      </activityDefinition>
+      </ActivityDefinition>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>

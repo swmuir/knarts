@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fhiRCore.resources:Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fhiRCore.dataTypes="http:///fhiRCore/dataTypes.ecore" xmlns:fhiRCore.resources="http:///fhiRCore/resources.ecore">
+<Bundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+  <type value="collection"/>
   <entry>
     <resource>
-      <planDefinition>
+      <PlanDefinition>
         <identifier>
           <value value="7b21baf4-5b61-52a6-bcb2-fa7b88c0bdc7"/>
           <assigner>
@@ -55,28 +56,28 @@
           </code>
           <valueCodeableConcept>
             <coding>
-              <system xsi:type="fhiRCore.dataTypes:Url" value="SNOMED CT"/>
+              <system  value="SNOMED CT"/>
               <code value="33022008 "/>
-              <display xsi:type="fhiRCore.dataTypes:Code" value="Hospital-based outpatient department (environment)"/>
+              <display  value="Hospital-based outpatient department (environment)"/>
             </coding>
           </valueCodeableConcept>
         </useContext>
         <action>
           <action>
             <title value="Reason for Visit"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
           </action>
           <action>
             <title value="Screening"/>
             <action>
               <title value="Primary Screen - Patient Health Questionnaire – Plus (PHQ-plus)"/>
               <description value="Responses to the PHQ-plus are interpreted using the numbers following each response option below.  Any score greater than 0 on the third question is a positive result for suicide risk.  A score >=3 on the combined responses from the first 2 questions is considered a positive screen for depression."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Primary screen (PHQ-plus) is defined as questions 1, 2, and 9 from PHQ-9, and the PHQ-2 is defined as questions 1 and 2 from the PHQ-9"/>
               <description value="Components of this form below are adapted from (Kroenke 2001)"/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Ask the patient the following questions:"/>
@@ -97,12 +98,12 @@
             <action>
               <title value="This screen has resulted in a positive result for suicide risk on the primary screen (PHQ-plus)"/>
               <description value="The secondary screen [Columbia-Suicide Severity Rating Scale (C-SSRS) screen] is required."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="This screen has resulted in a negative result for suicide risk on the primary screen (PHQ-plus)"/>
               <description value="The secondary screen [Columbia-Suicide Severity Rating Scale (C-SSRS) screen] is not required."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="Secondary Screen [Columbia-Suicide Severity Rating Scale (C-SSRS) Screen]"/>
@@ -138,16 +139,16 @@
             </action>
             <action>
               <title value="This screen has resulted in a positive result on the C-SSRS and the VA Comprehensive Suicide Risk Assessment should be administered and used for risk factors and warning signs, protective factors, history of suicide attempts, and assessment and plan."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
             <action>
               <title value="This screen has resulted in a negative result on the C-SSRS."/>
-              <selectionBehavior value="any"/>
+              <selectionBehavior value="at-most-one"/>
             </action>
           </action>
           <action>
             <title value="Plan"/>
-            <selectionBehavior value="any"/>
+            <selectionBehavior value="at-most-one"/>
             <action>
               <selectionBehavior value="at-most-one"/>
             </action>
@@ -156,7 +157,7 @@
             <title value="Patient and Caregiver Education."/>
           </action>
         </action>
-      </planDefinition>
+      </PlanDefinition>
     </resource>
     <request>
       <method value="POST"/>
@@ -164,9 +165,9 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Reason for Visit"/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -174,15 +175,15 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Screening"/>
         <item>
           <text value="Primary Screen - Patient Health Questionnaire – Plus (PHQ-plus)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Primary screen (PHQ-plus) is defined as questions 1, 2, and 9 from PHQ-9, and the PHQ-2 is defined as questions 1 and 2 from the PHQ-9"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Ask the patient the following questions:"/>
@@ -210,11 +211,11 @@
         </item>
         <item>
           <text value="This screen has resulted in a positive result for suicide risk on the primary screen (PHQ-plus)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="This screen has resulted in a negative result for suicide risk on the primary screen (PHQ-plus)"/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="Secondary Screen [Columbia-Suicide Severity Rating Scale (C-SSRS) Screen]"/>
@@ -269,13 +270,13 @@
         </item>
         <item>
           <text value="This screen has resulted in a positive result on the C-SSRS and the VA Comprehensive Suicide Risk Assessment should be administered and used for risk factors and warning signs, protective factors, history of suicide attempts, and assessment and plan."/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
         <item>
           <text value="This screen has resulted in a negative result on the C-SSRS."/>
-          <type value="any"/>
+          <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -283,13 +284,13 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Plan"/>
         <item>
           <text/>
           <type value="choice"/>
         </item>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
@@ -297,12 +298,12 @@
   </entry>
   <entry>
     <resource>
-      <questionnaire>
+      <Questionnaire>
         <title value="Patient and Caregiver Education."/>
-      </questionnaire>
+      </Questionnaire>
     </resource>
     <request>
       <method value="POST"/>
     </request>
   </entry>
-</fhiRCore.resources:Bundle>
+</Bundle>
