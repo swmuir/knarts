@@ -1,0 +1,981 @@
+<start>
+
+	<dependency>
+		<groupId> com.google.guava_21.0.0.v20170206-1425</groupId>
+		<artifactId> com.google.guava_21.0.0.v20170206-1425</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ com.google.guava_21.0.0.v20170206-1425.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> com.ibm.icu_58.2.0.v20170418-1837</groupId>
+		<artifactId> com.ibm.icu_58.2.0.v20170418-1837</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ com.ibm.icu_58.2.0.v20170418-1837.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> java10api</groupId>
+		<artifactId> java10api</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ java10api.jar</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> javax.inject_1.0.0.v20091030</groupId>
+		<artifactId> javax.inject_1.0.0.v20091030</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ javax.inject_1.0.0.v20091030.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> javax.transaction_1.1.1.v201105210645</groupId>
+		<artifactId> javax.transaction_1.1.1.v201105210645</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ javax.transaction_1.1.1.v201105210645.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> junit</groupId>
+		<artifactId> junit</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ junit.jar</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> lpg.runtime.java_2.0.17.v201004271640</groupId>
+		<artifactId> lpg.runtime.java_2.0.17.v201004271640</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ lpg.runtime.java_2.0.17.v201004271640.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.apache.commons.cli_1.2.0.v201404270220</groupId>
+		<artifactId> org.apache.commons.cli_1.2.0.v201404270220.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.apache.commons.cli_1.2.0.v201404270220.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.apache.commons.logging_1.2.0.v20180409-1502.jar
+		</groupId>
+		<artifactId> org.apache.commons.logging_1.2.0.v20180409-1502.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.apache.commons.logging_1.2.0.v20180409-1502.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.core.contenttype_3.6.0.v20170207-1037.jar
+		</groupId>
+		<artifactId> org.eclipse.core.contenttype_3.6.0.v20170207-1037.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.core.contenttype_3.6.0.v20170207-1037.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.core.jobs_3.9.3.v20180115-1757</groupId>
+		<artifactId> org.eclipse.core.jobs_3.9.3.v20180115-1757.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.core.jobs_3.9.3.v20180115-1757.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.core.resources_3.12.0.v20170417-1558.jar
+		</groupId>
+		<artifactId> org.eclipse.core.resources_3.12.0.v20170417-1558.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.core.resources_3.12.0.v20170417-1558.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.core.runtime_3.13.0.v20170207-1030</groupId>
+		<artifactId> org.eclipse.core.runtime_3.13.0.v20170207-1030.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.core.runtime_3.13.0.v20170207-1030.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.codegen_2.12.0.v20170609-0928</groupId>
+		<artifactId> org.eclipse.emf.codegen_2.12.0.v20170609-0928.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.codegen_2.12.0.v20170609-0928.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.codegen.ecore_2.13.0.v20170609-0928.jar
+		</groupId>
+		<artifactId> org.eclipse.emf.codegen.ecore_2.13.0.v20170609-0928.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.codegen.ecore_2.13.0.v20170609-0928.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.common_2.13.0.v20170609-0707</groupId>
+		<artifactId> org.eclipse.emf.common_2.13.0.v20170609-0707.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.common_2.13.0.v20170609-0707.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.ecore_2.13.0.v20170609-0707</groupId>
+		<artifactId> org.eclipse.emf.ecore_2.13.0.v20170609-0707.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.ecore_2.13.0.v20170609-0707.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.ecore.change_2.11.0.v20170609-0707.jar
+		</groupId>
+		<artifactId> org.eclipse.emf.ecore.change_2.11.0.v20170609-0707.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.ecore.change_2.11.0.v20170609-0707.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.ecore.xmi_2.13.0.v20170609-0707.jar
+		</groupId>
+		<artifactId> org.eclipse.emf.ecore.xmi_2.13.0.v20170609-0707.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.ecore.xmi_2.13.0.v20170609-0707.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.edit_2.12.0.v20170609-0928</groupId>
+		<artifactId> org.eclipse.emf.edit_2.12.0.v20170609-0928.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.edit_2.12.0.v20170609-0928.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.importer.ecore_2.8.0.v20170609-0928.jar
+		</groupId>
+		<artifactId> org.eclipse.emf.importer.ecore_2.8.0.v20170609-0928.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.importer.ecore_2.8.0.v20170609-0928.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.mapping.ecore2xml_2.9.0.v20170609-0928.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.emf.mapping.ecore2xml_2.9.0.v20170609-0928.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.mapping.ecore2xml_2.9.0.v20170609-0928.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.mwe.core_1.3.21.201705291011</groupId>
+		<artifactId> org.eclipse.emf.mwe.core_1.3.21.201705291011.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.mwe.core_1.3.21.201705291011.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.mwe.utils_1.3.21.201705291011</groupId>
+		<artifactId> org.eclipse.emf.mwe.utils_1.3.21.201705291011.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.mwe.utils_1.3.21.201705291011.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.mwe2.lib_2.9.1.201705291011</groupId>
+		<artifactId> org.eclipse.emf.mwe2.lib_2.9.1.201705291011.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.mwe2.lib_2.9.1.201705291011.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.emf.mwe2.runtime_2.9.1.201705291011.jar
+		</groupId>
+		<artifactId> org.eclipse.emf.mwe2.runtime_2.9.1.201705291011.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.emf.mwe2.runtime_2.9.1.201705291011.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.equinox.app_1.3.400.v20150715-1528</groupId>
+		<artifactId> org.eclipse.equinox.app_1.3.400.v20150715-1528.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.equinox.app_1.3.400.v20150715-1528.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.equinox.common_3.9.0.v20170207-1454.jar
+		</groupId>
+		<artifactId> org.eclipse.equinox.common_3.9.0.v20170207-1454.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.equinox.common_3.9.0.v20170207-1454.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.equinox.preferences_3.7.0.v20170126-2132.jar
+		</groupId>
+		<artifactId> org.eclipse.equinox.preferences_3.7.0.v20170126-2132.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.equinox.preferences_3.7.0.v20170126-2132.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.equinox.registry_3.7.0.v20170222-1344.jar
+		</groupId>
+		<artifactId> org.eclipse.equinox.registry_3.7.0.v20170222-1344.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.equinox.registry_3.7.0.v20170222-1344.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.jdt.compiler.apt_1.3.110.v20180329-0935.jar
+		</groupId>
+		<artifactId> org.eclipse.jdt.compiler.apt_1.3.110.v20180329-0935.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.jdt.compiler.apt_1.3.110.v20180329-0935.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.jdt.compiler.tool_1.2.101.v20180329-0935.jar
+		</groupId>
+		<artifactId> org.eclipse.jdt.compiler.tool_1.2.101.v20180329-0935.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.jdt.compiler.tool_1.2.101.v20180329-0935.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.jdt.core_3.13.102.v20180330-0919</groupId>
+		<artifactId> org.eclipse.jdt.core_3.13.102.v20180330-0919.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.jdt.core_3.13.102.v20180330-0919.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml_3.7.0.v20170604-1316</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.common_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.common_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.common_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.common.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.common.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.common.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.common.ui_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.common.ui_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.common.ui_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.common.ui.source_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.common.ui.source_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.common.ui.source_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.cst.parser_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.cst.parser_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.cst.parser_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.cst.parser.source_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.cst.parser.source_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.cst.parser.source_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.debug.core_2.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.debug.core_2.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.debug.core_2.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.debug.core.source_2.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.debug.core.source_2.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.debug.core.source_2.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.debug.ui_2.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.debug.ui_2.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.debug.ui_2.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.debug.ui.source_2.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.debug.ui.source_2.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.debug.ui.source_2.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.doc_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.doc_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.doc_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.ecore.imperativeocl_3.4.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.ecore.imperativeocl_3.4.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.ecore.imperativeocl_3.4.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.ecore.imperativeocl.source_3.4.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.ecore.imperativeocl.source_3.4.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.ecore.imperativeocl.source_3.4.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.editor.ui_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.editor.ui_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.editor.ui_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.editor.ui.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.editor.ui.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.editor.ui.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.emf.util_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.emf.util_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.emf.util_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.emf.util.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.emf.util.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.emf.util.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.emf.util.ui_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.emf.util.ui_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.emf.util.ui_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.emf.util.ui.source_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.emf.util.ui.source_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.emf.util.ui.source_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.ocl_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.ocl_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.ocl_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.ocl.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.ocl.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.ocl.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.project_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.project_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.project_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.project.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.project.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.project.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.runtime_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.runtime_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.runtime_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.runtime.jdt_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.runtime.jdt_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.runtime.jdt_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.runtime.jdt.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.runtime.jdt.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.runtime.jdt.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.runtime.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.runtime.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.runtime.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.runtime.ui_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.runtime.ui_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.runtime.ui_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.runtime.ui.source_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.runtime.ui.source_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.runtime.ui.source_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.samples_3.5.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.samples_3.5.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.samples_3.5.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.samples.source_3.5.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.samples.source_3.5.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.samples.source_3.5.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.source_3.7.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.source_3.7.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.source_3.7.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.trace.edit_3.4.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.trace.edit_3.4.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.trace.edit_3.4.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.m2m.qvt.oml.trace.edit.source_3.4.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.trace.edit.source_3.4.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.trace.edit.source_3.4.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.ui_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId> org.eclipse.m2m.qvt.oml.ui_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.ui_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.m2m.qvt.oml.ui.source_3.6.0.v20170604-1316.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.m2m.qvt.oml.ui.source_3.6.0.v20170604-1316.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.m2m.qvt.oml.ui.source_3.6.0.v20170604-1316.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.ocl_3.6.200.v20170522-1736</groupId>
+		<artifactId> org.eclipse.ocl_3.6.200.v20170522-1736</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ org.eclipse.ocl_3.6.200.v20170522-1736.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.ocl.common_1.4.200.v20160613-1518</groupId>
+		<artifactId> org.eclipse.ocl.common_1.4.200.v20160613-1518.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.ocl.common_1.4.200.v20160613-1518.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.ocl.ecore_3.6.200.v20170522-1736</groupId>
+		<artifactId> org.eclipse.ocl.ecore_3.6.200.v20170522-1736.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.ocl.ecore_3.6.200.v20170522-1736.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.osgi_3.12.100.v20180210-1608</groupId>
+		<artifactId> org.eclipse.osgi_3.12.100.v20180210-1608</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.osgi_3.12.100.v20180210-1608.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.osgi.compatibility.state_1.1.0.v20170516-1513.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.osgi.compatibility.state_1.1.0.v20170516-1513.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.osgi.compatibility.state_1.1.0.v20170516-1513.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.uml2.codegen.ecore_2.3.0.v20170605-1616.jar
+		</groupId>
+		<artifactId> org.eclipse.uml2.codegen.ecore_2.3.0.v20170605-1616.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.uml2.codegen.ecore_2.3.0.v20170605-1616.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.uml2.common_2.1.0.v20170605-1616</groupId>
+		<artifactId> org.eclipse.uml2.common_2.1.0.v20170605-1616.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.uml2.common_2.1.0.v20170605-1616.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.uml2.types_2.0.0.v20170605-1616</groupId>
+		<artifactId> org.eclipse.uml2.types_2.0.0.v20170605-1616.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.uml2.types_2.0.0.v20170605-1616.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.uml2.uml_5.3.0.v20170605-1616</groupId>
+		<artifactId> org.eclipse.uml2.uml_5.3.0.v20170605-1616.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.uml2.uml_5.3.0.v20170605-1616.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>
+			org.eclipse.uml2.uml.profile.standard_1.0.100.v20170605-1616.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.uml2.uml.profile.standard_1.0.100.v20170605-1616.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.uml2.uml.profile.standard_1.0.100.v20170605-1616.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.uml2.uml.resources_5.3.0.v20170605-1616.jar
+		</groupId>
+		<artifactId> org.eclipse.uml2.uml.resources_5.3.0.v20170605-1616.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.uml2.uml.resources_5.3.0.v20170605-1616.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.xpand_2.2.0.v201605260315</groupId>
+		<artifactId> org.eclipse.xpand_2.2.0.v201605260315</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ org.eclipse.xpand_2.2.0.v201605260315.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.xtend_2.2.0.v201605260315</groupId>
+		<artifactId> org.eclipse.xtend_2.2.0.v201605260315</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ org.eclipse.xtend_2.2.0.v201605260315.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar
+		</groupId>
+		<artifactId> org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.xtext_2.12.0.v20170518-0959</groupId>
+		<artifactId> org.eclipse.xtext_2.12.0.v20170518-0959</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.xtext_2.12.0.v20170518-0959.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.xtext.generator_2.12.0.v20170519-0752.jar
+		</groupId>
+		<artifactId> org.eclipse.xtext.generator_2.12.0.v20170519-0752.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.xtext.generator_2.12.0.v20170519-0752.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.xtext.xbase.lib_2.12.0.v20170518-0757.jar
+		</groupId>
+		<artifactId> org.eclipse.xtext.xbase.lib_2.12.0.v20170518-0757.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.xtext.xbase.lib_2.12.0.v20170518-0757.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.eclipse.xtext.xtext.generator_2.12.0.v20170518-0959.jar
+		</groupId>
+		<artifactId>
+			org.eclipse.xtext.xtext.generator_2.12.0.v20170518-0959.jar
+		</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/
+			org.eclipse.xtext.xtext.generator_2.12.0.v20170518-0959.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.hamcrest.core_1.3.0.v201303031735</groupId>
+		<artifactId> org.hamcrest.core_1.3.0.v201303031735</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ org.hamcrest.core_1.3.0.v201303031735.jar
+		</systemPath>
+	</dependency>
+	<dependency>
+		<groupId> org.slf4j.log4j_1.7.2.v20130115-1340</groupId>
+		<artifactId> org.slf4j.log4j_1.7.2.v20130115-1340</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/ org.slf4j.log4j_1.7.2.v20130115-1340.jar
+		</systemPath>
+	</dependency>
+</start>

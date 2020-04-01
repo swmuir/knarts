@@ -1,0 +1,5 @@
+docker container stop $(docker ps -q)
+mvn clean install
+docker build -t knart2fhir-transformation-service .
+docker run -d -p 4500:8080 knart2fhir-transformation-service
+docker logs -f $(docker ps -q)
