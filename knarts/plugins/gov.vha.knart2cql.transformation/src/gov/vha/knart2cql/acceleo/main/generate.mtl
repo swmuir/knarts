@@ -2,7 +2,7 @@
 [**
  * The documentation of the module generate.
  */]
-[module generate('urn:hl7-org:cdsdt:r2', 'urn:hl7-org:elm:r1', 'urn:hl7-org:knowledgeartifact:r1',  'urn:hl7-org:v3')]
+[module generate('urn:hl7-org:cdsdt:r2', 'urn:hl7-org:elm:r1', 'urn:hl7-org:knowledgeartifact:r1')]
 
 
 [**

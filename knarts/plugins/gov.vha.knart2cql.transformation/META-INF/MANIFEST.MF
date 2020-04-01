@@ -8,7 +8,6 @@ Bundle-Vendor: Eclipse Modeling Project
 Require-Bundle: org.eclipse.core.runtime, 
  org.hl7.knart.core, 
  org.eclipse.emf.ecore, 
- org.eclipse.mdht.uml.cda, 
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.ocl,
